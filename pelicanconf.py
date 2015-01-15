@@ -66,7 +66,8 @@ SUMMARY_MAX_LENGTH = 250
 READERS = {'html': None}
 TEMPLATE_PAGES = {
                 'google0d727ca9bbbd1220.html': 'google0d727ca9bbbd1220.html',
-                'robots.txt': 'robots.txt'
+                'robots.txt': 'robots.txt',
+                'CNAME': 'CNAME'
                 }
 TAG_CLOUD_MAX_ITEMS=100
 TAG_CLOUD_STEPS=4
