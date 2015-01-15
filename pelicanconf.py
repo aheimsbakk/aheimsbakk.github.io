@@ -58,6 +58,9 @@ THEME = "pelican-fresh"
 DISPLAY_PAGES_ON_MENU=False
 DISPLAY_CATEGORIES_ON_MENU=True
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+ARTICLE_URL = 'posts/{date:%Y}/{slug}.html'
+ARTICLE_URL_SAVE_AS = 'posts/{date:%Y}/{slug}.html'
+
 SITESUBTITLE = u''
 SUMMARY_MAX_LENGTH = 250
 READERS = {'html': None}
