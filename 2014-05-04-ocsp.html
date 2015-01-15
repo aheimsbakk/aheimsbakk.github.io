@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="OCSP Stapling on Apache"/>
+    <meta property="og:url" content="http://blog.heimsbakk.net/2014-05-04-ocsp.html"/>
+    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="http://blog.heimsbakk.net/2014-05-04-ocsp.html" />
+
+    <title>OCSP Stapling on Apache | > /dev/null > 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://blog.heimsbakk.net/theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li ><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
+                            <li class="active"><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="http://blog.heimsbakk.net/2014-05-04-ocsp.html" rel="bookmark"
+             title="Permalink to OCSP Stapling on Apache">OCSP Stapling on Apache</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="http://blog.heimsbakk.net/category/uris.html">uris</a>
+
+    on 2014-05-04
+
+        |
+        tags:         <a href="http://blog.heimsbakk.net/tag/apache.html">apache</a>
+        <a href="http://blog.heimsbakk.net/tag/security.html">security</a>
+        <a href="http://blog.heimsbakk.net/tag/ssl.html">ssl</a>
+
+
+        |
+        <a href="http://blog.heimsbakk.net/2014-05-04-ocsp.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p>Excerpt from Remy van Elsts tutorial: <em><a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> stapling is an enhancement to the standard <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> protocol that delivers <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> responses from the server with the certificate, eliminating the need for relying parties (web users) to check <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> responses with the issuing <a href="https://en.wikipedia.org/wiki/Certificate_Authority" title="Certificate authority">CA</a>. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with <a href="http://httpd.apache.org">Apache</a>.</em></p>
+<ul>
+<li>Read full tutorial on <a href="https://raymii.org/s/tutorials/OCSP_Stapling_on_Apache2.html">OCSP Stapling on Apache</a></li>
+</ul>
+<h2>Summary</h2>
+<p>Create <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> stapling configuration for <a href="http://httpd.apache.org">Apache</a>.</p>
+<div class="highlight"><pre>cat <span class="s">&lt;&lt;EOF &gt; /etc/apache2/conf-available/sslstapeling.conf</span>
+<span class="s">SSLUseStapling on</span>
+<span class="s">SSLStaplingCache &quot;shmcb:logs/stapling-cache(150000)&quot;</span>
+<span class="s">SSLStaplingResponseMaxAge 900</span>
+<span class="s">EOF</span>
+</pre></div>
+
+
+<p>Enable configuration, test it and do a restart of <a href="http://httpd.apache.org">Apache</a> if all is OK.</p>
+<div class="highlight"><pre>a2enconf sslstapeling
+apache2ctl configtest
+apache2ctl restart
+</pre></div>
+
+
+<p>Check <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> with <a href="https://www.openssl.org">OpenSSL</a>.</p>
+<div class="highlight"><pre>openssl s_client -connect «yoursite»:443 -tls1 -tlsextdebug -status
+</pre></div>
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "2014-05-04-ocsp.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

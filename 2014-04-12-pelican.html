@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Creating a blog based on Pelican"/>
+    <meta property="og:url" content="http://blog.heimsbakk.net/2014-04-12-pelican.html"/>
+    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="http://blog.heimsbakk.net/2014-04-12-pelican.html" />
+
+    <title>Creating a blog based on Pelican | > /dev/null > 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://blog.heimsbakk.net/theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li class="active"><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
+                            <li ><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="http://blog.heimsbakk.net/2014-04-12-pelican.html" rel="bookmark"
+             title="Permalink to Creating a blog based on Pelican">Creating a blog based on Pelican</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="http://blog.heimsbakk.net/category/blog.html">blog</a>
+
+    on 2014-04-12
+
+        |
+        tags:         <a href="http://blog.heimsbakk.net/tag/howto.html">howto</a>
+        <a href="http://blog.heimsbakk.net/tag/pelican.html">pelican</a>
+
+
+        |
+        <a href="http://blog.heimsbakk.net/2014-04-12-pelican.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p><a href="http://getpelican.com">Pelican</a> is a static website generator written in Python. It's perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as <a href="http://tomato.groov.pl">Tomato by Shibby</a> or <a href="http://www.dd-wrt.com">dd-wrt</a>.</p>
+<p>Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</p>
+<ol>
+<li>
+<p>Install Pelican and package for <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> language. With Markdown you write the content in text and Pelican translates it to HTML.</p>
+<div class="highlight"><pre><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pelican</span> <span class="n">python</span><span class="o">-</span><span class="n">markdown</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Make a directory where you want to maintain your blog.</p>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">myblock</span><span class="p">;</span> <span class="n">cd</span> <span class="n">myblock</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Run the Pelican quick start script and answer all the questions. Add at least one method of uploading your blog to a web server.</p>
+<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Start by creating your first page in <code>content</code> directory. Each page should have a heading with some metadata.</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">Creating</span> <span class="n">a</span> <span class="n">blog</span> <span class="n">based</span> <span class="n">on</span> <span class="n">Pelican</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">12</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Blog</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">blog</span><span class="o">,</span><span class="n">howto</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">pelican</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">arnulf</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Start the local HTTP server and check how your blog is coming along.</p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">serve</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Point your browser to <a href="http://localhost:8000">http://localhost:8000</a></p>
+</li>
+<li>
+<p>Upload your blog to your web server. I prefer the ssh upload option.</p>
+<div class="highlight"><pre><span class="n">make</span> <span class="n">ssh_upload</span>
+</pre></div>
+
+
+</li>
+</ol>
+<p>A more lengthy and better <a href="http://docs.getpelican.com/en/3.3.0/getting_started.html">getting started guide</a> on getpelican.com. I did find adam-p's <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a> on <a href="https://github.com">github</a> quite useful. And not to forget all the themes you can <a href="https://github.com/getpelican/pelican-themes">download</a> from <a href="https://github.com">github</a>.</p>
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "2014-04-12-pelican.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="How to get A+ on SSL Labs"/>
+    <meta property="og:url" content="http://blog.heimsbakk.net/2014-05-03-ssl.html"/>
+    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="http://blog.heimsbakk.net/2014-05-03-ssl.html" />
+
+    <title>How to get A+ on SSL Labs | > /dev/null > 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://blog.heimsbakk.net/theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li class="active"><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
+                            <li ><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="http://blog.heimsbakk.net/2014-05-03-ssl.html" rel="bookmark"
+             title="Permalink to How to get A+ on SSL Labs">How to get A+ on SSL Labs</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="http://blog.heimsbakk.net/category/blog.html">blog</a>
+
+    on 2014-05-03
+
+        |
+        tags:         <a href="http://blog.heimsbakk.net/tag/apache.html">apache</a>
+        <a href="http://blog.heimsbakk.net/tag/howto.html">howto</a>
+        <a href="http://blog.heimsbakk.net/tag/security.html">security</a>
+        <a href="http://blog.heimsbakk.net/tag/ssl.html">ssl</a>
+
+
+        |
+        <a href="http://blog.heimsbakk.net/2014-05-03-ssl.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p>This will show how to get A+ on <a href="https://www.ssllabs.com/ssltest">SSL Server Test</a> from <a href="https://www.ssllabs.com">Qualys SSL Labs</a>. </p>
+<p>Enable <a href="https://httpd.apache.org/docs/current/mod/mod_ssl.html">SSL</a> and <a href="https://httpd.apache.org/docs/current/mod/mod_headers.html">headers</a> module in <a href="https://httpd.apache.org/docs">Apache2</a>.</p>
+<div class="highlight"><pre><span class="go">a2enmod ssl </span>
+<span class="go">a2enmod headers</span>
+</pre></div>
+
+
+<p>Edit Apache configuration.</p>
+<div class="highlight"><pre><span class="nb">SSLCertificateFile</span> <span class="sx">/etc/ssl/crt/</span>«yourcert».pem
+<span class="nb">SSLCertificateKeyFile</span> <span class="sx">/etc/ssl/crt/</span>«yourkey».pem
+<span class="nb">SSLCertificateChainFile</span> <span class="sx">/etc/ssl/crt/</span>«intermediatechain».pem
+
+<span class="nb">Header</span> always set Strict-Transport-Security <span class="s2">&quot;max-age=31536000; includeSubDomains&quot;</span>
+<span class="nb">SSLEngine</span> <span class="k">on</span>
+<span class="nb">SSLProtocol</span> <span class="k">all</span> -SSLv2 -SSLv3
+<span class="nb">SSLHonorCipherOrder</span> <span class="k">On</span>
+<span class="nb">SSLCipherSuite</span> EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS
+</pre></div>
+
+
+<p>The <strong>!</strong> preceding the cipher means that Apache will not use that cipher.</p>
+<h2>View ciphers</h2>
+<p>List the ciphers openssl supports with the current configuration.</p>
+<div class="highlight"><pre>openssl ciphers -v -ssl3 -tls1 <span class="s1">&#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>
+</pre></div>
+
+
+<h2>Explanation</h2>
+<p>With this configuration Apache will prefer <a href="https://en.wikipedia.org/wiki/Perfect_forward_secrecy">Perfect forward secrecy</a>. If <a href="https://en.wikipedia.org/wiki/Perfect_forward_secrecy">Perfect forward secrecy</a> can't be negotiated it will default to <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> cipher. This configuration will work on all newer browser. Exceptions are older <a href="https://en.wikipedia.org/wiki/Internet_explorer">IE</a>, older Java and a few bots. </p>
+<p>Where there are no links to the information source it's taken from the <a href="https://www.openssl.org/docs/apps/ciphers.html">documentation</a> on <a href="https://www.openssl.org">openssl.org</a>.</p>
+<h4>Header always set Strict-Transport-Security</h4>
+<p>Force browser to use <a href="https://en.wikipedia.org/wiki/Https">HTTPS</a> even if the user enters <a href="https://en.wikipedia.org/wiki/Http">HTTP</a>. The browser should remember this setting for a really long time, example a year.</p>
+<h4>SSLHonorCipherOrder On</h4>
+<p>Use the servers preferred encryption not the browsers which may be a weaker cipher.</p>
+<h4>EECDH</h4>
+<p>Ephemeral elliptic-curve Diffie-Hellman, see <a href="https://en.wikipedia.org/wiki/ECDH">ECDH</a>.</p>
+<h4>EDH</h4>
+<p>Ephemeral Diffie-Hellman, see <a href="https://en.wikipedia.org/wiki/Diffie-Helmann">Diffie–Hellman key exchange</a>.</p>
+<h4>AES</h4>
+<p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a>.</p>
+<h4>!aNULL</h4>
+<p>The cipher suites offering no authentication. This is currently the anonymous DH algorithms. These cipher suites are vulnerable to a ``man in the middle'' attack and so their use is normally discouraged.</p>
+<h4>!eNULL</h4>
+<p>The «NULL» ciphers that is those offering no encryption. </p>
+<h4>!LOW</h4>
+<p>«Low» encryption cipher suites, currently those using 64 or 56 bit encryption algorithms but excluding export cipher suites.</p>
+<h4>!RC4</h4>
+<p><a href="https://en.wikipedia.org/wiki/Rc4">RC4</a> stream cipher. After attacks on RC4 it is said to be vulnerable. See <a href="https://www.schneier.com/blog/archives/2013/03/new_rc4_attack.html">New RC4 Attack</a> for more information.</p>
+<h4>!3DES</h4>
+<p><a href="https://en.wikipedia.org/wiki/3des">Triple DES</a>.</p>
+<h4>!DES</h4>
+<p><a href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">Data Encryption Standard</a>.</p>
+<h4>!MD5</h4>
+<p><a href="https://en.wikipedia.org/wiki/Md5">MD5</a> message-digest algorithm.</p>
+<h4>!EXP</h4>
+<p>Export encryption algorithms. Including 40 and 56 bits algorithms. </p>
+<h4>!PSK</h4>
+<p>Cipher suites using pre-shared keys (PSK). </p>
+<h4>!SRP</h4>
+<p><a href="http://en.wikipedia.org/wiki/Secure_Remote_Password_protocol">Secure Remote Password protocol</a>.</p>
+<h4>!DSS</h4>
+<p>Cipher suites using DSS authentication, i.e. the certificates carry DSS keys. </p>
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "2014-05-03-ssl.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

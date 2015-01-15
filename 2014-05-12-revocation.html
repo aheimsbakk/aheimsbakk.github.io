@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Only Firefox is safe post Heartblead"/>
+    <meta property="og:url" content="http://blog.heimsbakk.net/2014-05-12-revocation.html"/>
+    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="http://blog.heimsbakk.net/2014-05-12-revocation.html" />
+
+    <title>Only Firefox is safe post Heartblead | > /dev/null > 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://blog.heimsbakk.net/theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li ><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
+                            <li class="active"><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="http://blog.heimsbakk.net/2014-05-12-revocation.html" rel="bookmark"
+             title="Permalink to Only Firefox is safe post Heartblead">Only Firefox is safe post Heartblead</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="http://blog.heimsbakk.net/category/uris.html">uris</a>
+
+    on 2014-05-12
+
+        |
+        tags:         <a href="http://blog.heimsbakk.net/tag/chrome.html">chrome</a>
+        <a href="http://blog.heimsbakk.net/tag/firefox.html">firefox</a>
+        <a href="http://blog.heimsbakk.net/tag/security.html">security</a>
+        <a href="http://blog.heimsbakk.net/tag/ssl.html">ssl</a>
+
+
+        |
+        <a href="http://blog.heimsbakk.net/2014-05-12-revocation.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p><a href="https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29">Steve Gibson</a> have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn't work. I recommend to read both <a href="https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29">Steve Gibson</a>'s article on <a href="https://www.grc.com/revocation/crlsets.htm">An Evaluation of the Effectiveness of Chrome's CRLSets</a> and Adam Langley's in my opinion a bit missplaced answer <a href="https://www.imperialviolet.org/2014/04/29/revocationagain.html">Revocation still doesn't work</a>.</p>
+<ul>
+<li>
+<p><a href="https://www.grc.com/revocation.htm">Security Certificate - Revocation Awareness Test</a></p>
+</li>
+<li>
+<p>Listen to <a href="https://www.grc.com/securitynow.htm">Security Now!</a> episode 454 <a href="https://www.grc.com/securitynow.htm#454">Certificate Revocation Part 2</a> in which Steve explains about both certificate revocation and Google's CRLSets.</p>
+</li>
+</ul>
+<h2>How to be safe</h2>
+<ol>
+<li>
+<p>Use Firefox until Chrome is fixed.</p>
+</li>
+<li>
+<p>In Firefox enable hard fail on <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> errors. </p>
+<p>Goto <strong>Preferences</strong> → <strong>Advanced</strong> → <strong>Certificates</strong> → <strong>Validation</strong>.</p>
+<p>Check <strong>When an OSCP server connection failes, treat the certificate as invalid.</strong></p>
+</li>
+</ol>
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "2014-05-12-revocation.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
