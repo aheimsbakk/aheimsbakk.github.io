@@ -1,45 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-          <title>> /dev/null > 2>&1</title>
-        <meta charset="utf-8" />
-        <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Full Atom Feed" />
-        <link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Categories Atom Feed" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
 
+    <meta property="og:title" content="Creating a blog based on Pelican"/>
+    <meta property="og:url" content="../../posts/2014/2014-04-12-pelican.html"/>
+    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
+    <meta property="og:type" content="article"/>
 
+    <link rel="canonical" href="../../posts/2014/2014-04-12-pelican.html" />
 
-    <meta name="tags" contents="howto" />
-    <meta name="tags" contents="pelican" />
+    <title>Creating a blog based on Pelican | > /dev/null > 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="../../">> /dev/null > 2>&1 <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-            <li><a href="/index.html">home</a></li>
-            <li><a href="#">|</a></li>
-              <li class="active"><a href="../../category/blog.html">blog</a></li>
-              <li><a href="../../category/uris.html">uris</a></li>
-        </ul></nav><!-- /#menu -->
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="../../posts/2014/2014-04-12-pelican.html" rel="bookmark"
-         title="Permalink to Creating a blog based on Pelican">Creating a blog based on Pelican</a></h2>
- 
-  </header>
-  <footer class="post-info">
-    <abbr class="published" title="2014-04-12T00:00:00">
-      lø. 12 april 2014
-    </abbr>
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="../../">> /dev/null > 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li class="active"><a href="../../category/blog.html">blog</a></li>
+                            <li ><a href="../../category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="../../posts/2014/2014-04-12-pelican.html" rel="bookmark"
+             title="Permalink to Creating a blog based on Pelican">Creating a blog based on Pelican</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
     <address class="vcard author">
-      By           <a class="url fn" href="../../author/arnulf.html">arnulf</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
-    <p><a href="http://getpelican.com">Pelican</a> is a static website generator written in Python. It's perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as <a href="http://tomato.groov.pl">Tomato by Shibby</a> or <a href="http://www.dd-wrt.com">dd-wrt</a>.</p>
+
+    in <a href="../../category/blog.html">blog</a>
+
+    on 2014-04-12
+
+        |
+        tags:         <a href="../../tag/howto.html">howto</a>
+        <a href="../../tag/pelican.html">pelican</a>
+
+
+        |
+        <a href="../../posts/2014/2014-04-12-pelican.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p><a href="http://getpelican.com">Pelican</a> is a static website generator written in Python. It's perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as <a href="http://tomato.groov.pl">Tomato by Shibby</a> or <a href="http://www.dd-wrt.com">dd-wrt</a>.</p>
 <p>Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</p>
 <ol>
 <li>
@@ -94,13 +142,54 @@
 </li>
 </ol>
 <p>A more lengthy and better <a href="http://docs.getpelican.com/en/3.3.0/getting_started.html">getting started guide</a> on getpelican.com. I did find adam-p's <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a> on <a href="https://github.com">github</a> quite useful. And not to forget all the themes you can <a href="https://github.com/getpelican/pelican-themes">download</a> from <a href="https://github.com">github</a>.</p>
-  </div><!-- /.entry-content -->
-</section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "posts/2014/2014-04-12-pelican.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
