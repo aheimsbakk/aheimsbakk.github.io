@@ -1,0 +1,44 @@
+zram: Compressed RAM based block devices
+########################################
+
+:date: 2015-01-11 
+:tags: howto, kernel, zram
+:category: uris
+:slug: zram
+:author: arnulf
+
+.. _zram: https://www.kernel.org/doc/Documentation/blockdev/zram.txt 
+
+From zram_ documentation: *The zram module creates RAM based block devices named /dev/zram<id> (<id> = 0, 1, ...). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)*
+
+* zram_
+
+====================================
+Example of compressed swap in memory
+====================================
+
+Write this commands in :code:`/etc/rc.local` to create a 2G compressed swap partition in memory.
+
+.. code-block:: bash
+    :linenos: table
+
+    # Load the module and create one zram device, /dev/zram0
+    modprobe zram num_devices=1
+
+    # Maximum of compressed streams (keep same as CPUs)
+    echo 4 > /sys/devices/virtual/block/zram0/max_comp_streams
+
+    # Size of zram0 device in k/m/g
+    echo 2g > /sys/devices/virtual/block/zram0/disksize
+
+    # Comression compression algorithm to use
+    echo lzo > /sys/devices/virtual/block/zram0/comp_algorithm
+
+    # Create the swap file system
+    mkswap /dev/zram0
+
+    # Enable the swap partition with high priority
+    swapon /dev/zram0 -p 10
+
+..
+    # vim: set spell spl=en:

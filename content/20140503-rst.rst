@@ -1,0 +1,298 @@
+reStructuredText cheat sheet
+############################
+
+:date: 2014-05-03 21:00
+:tags: cheatsheet, pelican
+:category: blog
+:slug: 2014-05-03-rst
+:author: arnulf
+:summary: My cheat sheet for `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown <http://daringfireball.net/projects/markdown>`_.
+
+* Examples taken from `reStructuredText Markup Specification`_
+* See also `reStructuredText Directives`_
+
+.. _`reStructuredText Directives`: http://docutils.sourceforge.net/docs/ref/rst/directives.html
+.. _`reStructuredText Markup Specification`: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+
+======================
+Blog arthicle metadata
+======================
+
+.. code:: rst
+
+    reStructuredText cheat sheet
+    ############################
+
+    :date: 2014-05-03 18:00
+    :tags: cheatsheet, pelican
+    :category: blog
+    :slug: 2014-05-03-rst
+    :author: arnulf
+    :summary: My cheat sheet for `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown <http://daringfireball.net/projects/markdown>`_.
+
+========
+Sections
+========
+
+`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#sections>`__
+
+.. code:: rst
+
+    ===============
+     Second heading
+    ===============
+
+    ---------------
+     Third heading
+    ---------------
+
+    Fourth heading
+    ==============
+
+    Fift heading
+    -------------
+
+    Sixt heading
+    `````````````
+
+===============
+Second heading
+===============
+
+---------------
+Third heading
+---------------
+
+Fourth heading
+==============
+
+Fift heading
+------------
+
+Sixt heading
+`````````````
+
+=====================
+Quick Syntax Overview
+=====================
+
+`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#quick-syntax-overview>`__
+
+..  code:: rst
+
+    Paragraphs contain text and may contain inline markup: *emphasis*, **strong emphasis**, `interpreted text`, ``inline literals``, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references ([1]_), citation references ([CIT2002]_), substitution references (|example|), _`inline internal targets` and :code:`code snippets`.
+
+Paragraphs contain text and may contain inline markup: *emphasis*, **strong emphasis**, `interpreted text`, ``inline literals``, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references ([1]_), citation references
+([CIT2002]_), substitution references (|example|), _`inline internal targets` and :code:`code snippets`. 
+
+-----
+Lists
+-----
+
+.. code:: rst
+
+    * One 
+
+    * Two
+
+     1. Test
+
+     2. Test
+
+    * Three
+
+
+* One 
+
+* Two
+
+ 1. Test
+
+ 2. Test
+
+* Three
+
+---------
+Footnotes
+---------
+
+..  code:: rst
+
+    ..  [1] A footnote contains body elements, consistently
+        indented by at least 3 spaces.
+
+..  [1] A footnote contains body elements, consistently
+    indented by at least 3 spaces.
+
+---------
+Citations
+---------
+
+..  code:: rst
+
+    ..  [CIT2002] Just like a footnote, except the label is
+        textual.
+
+..  [CIT2002] Just like a footnote, except the label is
+    textual.
+
+
+-----------------
+Hyperlink targets
+-----------------
+
+.. code:: rst   
+
+    .. _Python: http://www.python.org
+
+    .. _example:   
+
+    The "_example" target above points to this paragraph.
+
+.. _Python: http://www.python.org
+
+.. _example: 
+
+The "_example" target above points to this paragraph.
+
+----------------
+Replacement text
+----------------
+
+.. code:: rst
+
+    ..  |example| replace:: Replaced text
+
+..  |example| replace:: Replaced text
+
+-----------------------
+Inline internal targets
+-----------------------
+
+.. code:: rst
+
+    Point to `inline internal targets`_.
+
+Point to `inline internal targets`_.
+
+--------------------
+Definitions of terms
+--------------------
+
+.. code:: rest
+
+    term (up to a line of text)
+       Definition of the term, which must be indented
+
+       and can even consist of multiple paragraphs
+
+    next term
+       Description.
+
+term (up to a line of text)
+   Definition of the term, which must be indented
+
+   and can even consist of multiple paragraphs
+
+next term
+   Description.
+
+----------
+Field list
+----------
+
+.. code:: rst
+
+    :what: Field lists map field names to field bodies, like
+           database records.  They are often part of an extension
+           syntax.
+
+    :how: The field marker is a colon, the field name, and a
+          colon.
+
+          The field body may contain one or more body elements,
+          indented relative to the field marker.
+
+:what: Field lists map field names to field bodies, like
+       database records.  They are often part of an extension
+       syntax.
+
+:how: The field marker is a colon, the field name, and a
+      colon.
+
+      The field body may contain one or more body elements,
+      indented relative to the field marker.
+
+==============
+Visualize math
+==============
+
+`rST doc <http://docutils.sourceforge.net/docs/ref/rst/directives.html#math>`__
+
+.. code:: rst
+
+    .. math::
+
+      α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
+
+.. math::
+
+  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
+
+
+======
+Tables   
+======     
+
+`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#grid-tables>`__
+
+-----------
+Grid tables
+-----------
+
+.. code:: rst
+
+    +--------------+----------+-----------+---------------+
+    | row 1, col 1 | column 2 | column 3  | column 4      |
+    +==============+==========+===========+===============+
+    | row 2        |  Use the command :code:`ls | more`.  |
+    +--------------+----------+-----------+---------------+
+    | row 3        |          |           |               |
+    +--------------+----------+-----------+---------------+
+
++--------------+----------+-----------+---------------+
+| row 1, col 1 | column 2 | column 3  | column 4      |
++==============+==========+===========+===============+
+| row 2        |  Use the command :code:`ls | more`.  |
++--------------+----------+-----------+---------------+
+| row 3        |          |           |               |
++--------------+----------+-----------+---------------+
+
+
+-------------
+Simple tables
+-------------
+
+.. code:: rst
+
+    =====  =====  =======
+    A      B      A and B
+    =====  =====  =======
+    False  False  False
+    True   False  False
+    False  True   False
+    True   True   True
+    =====  =====  =======
+
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
+
+
+ 
+

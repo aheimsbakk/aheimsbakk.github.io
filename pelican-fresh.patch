@@ -1,0 +1,69 @@
+diff --git a/static/css/main.css b/static/css/main.css
+index e25ba66..1e6514a 100644
+--- a/static/css/main.css
++++ b/static/css/main.css
+@@ -1,6 +1,6 @@
+ @import url("pygment.css");
+-@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900);
+-@import url(http://fonts.googleapis.com/css?family=PT+Mono);
++@import url(https://fonts.googleapis.com/css?family=Overlock:400,700,900);
++@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+ /*
+  *  Name: Fresh
+  *  Date: February 2013
+diff --git a/static/css/main.scss b/static/css/main.scss
+index 079671b..908f079 100644
+--- a/static/css/main.scss
++++ b/static/css/main.scss
+@@ -9,8 +9,8 @@ $h6size: $h5size * 9/10;
+ 
+ @import url("pygment.css");
+ 
+-@import url(http://fonts.googleapis.com/css?family=Overlock:400,700,900);
+-@import url(http://fonts.googleapis.com/css?family=PT+Mono);
++@import url(https://fonts.googleapis.com/css?family=Overlock:400,700,900);
++@import url(https://fonts.googleapis.com/css?family=PT+Mono);
+ 
+ /*
+  *  Name: Fresh
+@@ -385,4 +385,4 @@ li.tag-2 {
+ li.tag-1 {
+   font-size: 1.4em;
+   font-weight: 400;
+-}
+\ No newline at end of file
++}
+diff --git a/templates/base.html b/templates/base.html
+index b39f60b..62e068a 100644
+--- a/templates/base.html
++++ b/templates/base.html
+@@ -15,8 +15,8 @@
+     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" type="text/css" />
++    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
++    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" type="text/css" />
+ 
+     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
+     {% if FEED_ALL_ATOM %}
+@@ -27,7 +27,7 @@
+     {% endif %}
+ 
+     <script type="text/javascript">var switchTo5x=true;</script>
+-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
++    <script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+     <script type="text/javascript">
+         stLight.options({
+             publisher: "{{ SHARETHIS_PUB_KEY }}",
+@@ -99,7 +99,7 @@
+ {% include 'analytics.html' %}
+ {% include 'piwik.html' %}
+ {% include 'disqus_script.html' %}
+-    <script src="http://code.jquery.com/jquery.min.js"></script>
+-    <script src="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
++    <script src="https://code.jquery.com/jquery.min.js"></script>
++    <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+ </body>
+ </html>
