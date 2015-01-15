@@ -1,93 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="author" content="Arnulf Heimsbakk" />
-    <meta name="robots" content="index, follow"/>
+          <title>> /dev/null > 2>&1</title>
+        <meta charset="utf-8" />
+        <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Full Atom Feed" />
+        <link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Categories Atom Feed" />
 
-    <meta property="og:title" content="reStructuredText cheat sheet"/>
-    <meta property="og:url" content="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html"/>
-    <meta property="og:site_name" content="> /dev/null > 2>&1"/>
-    <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html" />
 
-    <title>reStructuredText cheat sheet | > /dev/null > 2>&1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="tags" contents="cheatsheet" />
+    <meta name="tags" contents="pelican" />
 
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
-
-    <link rel="stylesheet" type="text/css" href="http://blog.heimsbakk.net/theme/css/main.css" />
-    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null > 2>&1 Atom Feed" />
-
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
-        stLight.options({
-            publisher: "",
-            doNotHash: false,
-            doNotCopy: false,
-            hashAddressBar: false
-        });
-    </script>
 </head>
 
-<body id="index">
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <header id="banner" >
-                <h1>
-                    <a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 </a>
-                </h1>
-                <nav class="navbar">
-                    <div class="navbar-inner">
-                        <ul class="nav">
-                            <li ><a href="/index.html">home</a></li>
-                            <li ><a href="#">|</a></li>
-                            <li class="active"><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
-                            <li ><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-            </header><!-- /#banner -->
-        </div>
-    </div>
-
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <div class="row-fluid">
-<div class="span10 offset1">
-  <section>
-    <article>
-      <header>
-        <h1 class="entry-title">
-          <a href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html" rel="bookmark"
-             title="Permalink to reStructuredText cheat sheet">reStructuredText cheat sheet</a></h1>
-      </header>
-      <div class="entry-content">
-<footer class="post-info">
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.heimsbakk.net/">> /dev/null > 2>&1 <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="/index.html">home</a></li>
+            <li><a href="#">|</a></li>
+              <li class="active"><a href="http://blog.heimsbakk.net/category/blog.html">blog</a></li>
+              <li><a href="http://blog.heimsbakk.net/category/uris.html">uris</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html" rel="bookmark"
+         title="Permalink to reStructuredText cheat sheet">reStructuredText cheat sheet</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-05-03T21:00:00">
+      lø. 03 mai 2014
+    </abbr>
     <address class="vcard author">
-        by <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
+      By           <a class="url fn" href="http://blog.heimsbakk.net/author/arnulf.html">arnulf</a>
     </address>
-
-    in <a href="http://blog.heimsbakk.net/category/blog.html">blog</a>
-
-    on 2014-05-03
-
-        |
-        tags:         <a href="http://blog.heimsbakk.net/tag/cheatsheet.html">cheatsheet</a>
-        <a href="http://blog.heimsbakk.net/tag/pelican.html">pelican</a>
-
-
-        |
-        <a href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->
-
-        <ul class="simple">
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <ul class="simple">
 <li>Examples taken from <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
 <li>See also <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">reStructuredText Directives</a></li>
 </ul>
@@ -379,54 +331,13 @@ True   True   True
 </div>
 </div>
 
-
-      </div><!-- /.entry-content -->
-      <div class="comments">
-        <h2>Comments</h2>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-          var disqus_identifier = "posts/2014/2014-05-03-rst.html";
-          (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-      </div>
-
-    </article>
-  </section>
-</div>
-            </div>
-        </div>
-    </div>
-
-    <footer id="site-footer">
-        <div class="row-fluid">
-            <div class="span10 offset1">
-                <address>
-                    <p>
-                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                    </p>
-                    <p>
-                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
-                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
-                    </p>
-                </address>
-            </div>
-        </div>
-    </footer>
-
-<script type="text/javascript">
-    var disqus_shortname = 'blogheimsbakknet';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>
