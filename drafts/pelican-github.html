@@ -90,51 +90,58 @@
         <ul>
 <li>
 <p>Create a git repository </p>
-<p>```bash
-mkdir blog
-cd blog
+<div class="highlight"><pre>mkdir blog
+<span class="nb">cd </span>blog
 git init
 touch README.md
 git add README.md 
-git commit -a -m "initial commit"</p>
-<p>```</p>
+git commit -a -m <span class="s2">&quot;initial commit&quot;</span>
+</pre></div>
+
+
 </li>
 <li>
 <p>Create a working branch for our blog, the master branch will be the blog content</p>
-<p><code>bash
-git branch blog
-git checkout blog</code></p>
-</li>
-<li>
-<p>Initialize the blog with <code>pelican-quickstart</code></p>
-<p>```bash
-pelican-quickstart</p>
-<p>Welcome to pelican-quickstart v3.4.0.</p>
-<p>This script will help you create a new Pelican-based website.</p>
-<p>Please answer the following questions so this script can generate the files
-needed by Pelican.</p>
-<blockquote>
-<p>Where do you want to create your new web site? [.] 
-What will be the title of this web site? My Blog
-Who will be the author of this web site? John Doe
-What will be the default language of this web site? [en] 
-Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
-Do you want to enable article pagination? (Y/n) 
-How many articles per page do you want? [10] 
-Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
-Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) 
-Do you want to upload your website using FTP? (y/N) 
-Do you want to upload your website using SSH? (y/N) 
-Do you want to upload your website using Dropbox? (y/N) 
-Do you want to upload your website using S3? (y/N) 
-Do you want to upload your website using Rackspace Cloud Files? (y/N) 
-Do you want to upload your website using GitHub Pages? (y/N) y
-Is this your personal page (username.github.io)? (y/N) y
-Done. Your new project is available at /tmp/blog
-```</p>
-</blockquote>
 </li>
 </ul>
+<div class="highlight"><pre>git branch blog
+git checkout blog
+</pre></div>
+
+
+<ul>
+<li>Initialize the blog with <code>pelican-quickstart</code></li>
+</ul>
+<div class="highlight"><pre>pelican-quickstart
+
+Welcome to pelican-quickstart v3.4.0.
+
+This script will <span class="nb">help </span>you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+&gt; Where <span class="k">do </span>you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> 
+&gt; What will be the title of this web site? My Blog
+&gt; Who will be the author of this web site? John Doe
+&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span> 
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> n
+&gt; Do you want to <span class="nb">enable </span>article pagination? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; How many articles per page <span class="k">do </span>you want? <span class="o">[</span>10<span class="o">]</span> 
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
+&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
+Done. Your new project is available at /tmp/blog
+</pre></div>
+
+
+<p>*</p>
 <h6>vim: set syn=markdown spell spl=en:</h6>
 
       </div><!-- /.entry-content -->
