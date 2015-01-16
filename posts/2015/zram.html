@@ -95,23 +95,7 @@
 <div class="section" id="example-of-compressed-swap-in-memory">
 <h2>Example of compressed swap in memory</h2>
 <p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># Load the module and create one zram device, /dev/zram0</span>
+<div class="highlight"><pre><span class="c"># Load the module and create one zram device, /dev/zram0</span>
 modprobe zram <span class="nv">num_devices</span><span class="o">=</span>1
 
 <span class="c"># Maximum of compressed streams (keep same as CPUs)</span>
@@ -129,7 +113,7 @@ mkswap /dev/zram0
 <span class="c"># Enable the swap partition with high priority</span>
 swapon /dev/zram0 -p 10
 </pre></div>
-</td></tr></table><!-- # vim: set spell spl=en: -->
+<!-- # vim: set spell spl=en: -->
 </div>
 
 

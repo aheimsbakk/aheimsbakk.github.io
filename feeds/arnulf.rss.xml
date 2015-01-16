@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link>http://blog.heimsbakk.net/</link><description></description><atom:link href="http://blog.heimsbakk.net/feeds/arnulf.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 15 Jan 2015 00:00:00 +0100</lastBuildDate><item><title>Use GitHub to host a Pelican blog</title><link>http://blog.heimsbakk.net/posts/2015/pelican-github.html</link><description>&lt;p&gt;This is the simplest way I know how to use &lt;a href="https://github.io"&gt;Github&lt;/a&gt; for hosting a Pelican blog. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link>http://blog.heimsbakk.net/</link><description></description><atom:link href="http://blog.heimsbakk.net/feeds/arnulf.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 16 Jan 2015 00:00:00 +0100</lastBuildDate><item><title>Use GitHub to host a Pelican blog</title><link>http://blog.heimsbakk.net/posts/2015/pelican-github.html</link><description>&lt;p&gt;This is the simplest way I know how to use &lt;a href="https://github.io"&gt;Github&lt;/a&gt; for hosting a Pelican blog. &lt;/p&gt;
 &lt;h2&gt;On Github&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -105,23 +105,7 @@ git push
 &lt;div class="section" id="example-of-compressed-swap-in-memory"&gt;
 &lt;h2&gt;Example of compressed swap in memory&lt;/h2&gt;
 &lt;p&gt;Write this commands in &lt;code&gt;/etc/rc.local&lt;/code&gt; to create a 2G compressed swap partition in memory.&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Load the module and create one zram device, /dev/zram0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Load the module and create one zram device, /dev/zram0&lt;/span&gt;
 modprobe zram &lt;span class="nv"&gt;num_devices&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
 
 &lt;span class="c"&gt;# Maximum of compressed streams (keep same as CPUs)&lt;/span&gt;
@@ -139,9 +123,9 @@ mkswap /dev/zram0
 &lt;span class="c"&gt;# Enable the swap partition with high priority&lt;/span&gt;
 swapon /dev/zram0 -p 10
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;!-- # vim: set spell spl=en: --&gt;
+&lt;!-- # vim: set spell spl=en: --&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">arnulf</dc:creator><pubDate>Sun, 11 Jan 2015 00:00:00 +0100</pubDate><guid>tag:blog.heimsbakk.net,2015-01-11:posts/2015/zram.html</guid><category>howto</category><category>kernel</category><category>zram</category></item><item><title>Record a PulseAudio sound stream</title><link>http://blog.heimsbakk.net/posts/2015/2015-01-10-pa.html</link><description>&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don't have the option to save audio to a file.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">arnulf</dc:creator><pubDate>Fri, 16 Jan 2015 00:00:00 +0100</pubDate><guid>tag:blog.heimsbakk.net,2015-01-11:posts/2015/zram.html</guid><category>howto</category><category>kernel</category><category>zram</category></item><item><title>Record a PulseAudio sound stream</title><link>http://blog.heimsbakk.net/posts/2015/2015-01-10-pa.html</link><description>&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don't have the option to save audio to a file.&lt;/p&gt;
 &lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/PulseAudio"&gt;PulseAudio&lt;/a&gt; sound server in your desktop makes this quite easy.&lt;/p&gt;
 &lt;p&gt;I've created a small script that captures the current playing sound stream and redirects it to &lt;a href="https://en.wikipedia.org/wiki/Flac" title="Free Lossless Audio Codec"&gt;FLAC&lt;/a&gt; audio file. After the capture is started, you can start playing sound from other programs. It won't interfere with the current capture.&lt;/p&gt;
 &lt;h2&gt;Capture audio&lt;/h2&gt;

@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/uris.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2015-01-11T00:00:00+01:00</updated><entry><title>zram: Compressed RAM based block devices</title><link href="http://blog.heimsbakk.net/posts/2015/zram.html" rel="alternate"></link><updated>2015-01-11T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2015-01-11:posts/2015/zram.html</id><summary type="html">&lt;p&gt;From &lt;a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt"&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zram&amp;lt;id&amp;gt; (&amp;lt;id&amp;gt; = 0, 1, ...). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/uris.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2015-01-16T00:00:00+01:00</updated><entry><title>zram: Compressed RAM based block devices</title><link href="http://blog.heimsbakk.net/posts/2015/zram.html" rel="alternate"></link><updated>2015-01-16T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2015-01-11:posts/2015/zram.html</id><summary type="html">&lt;p&gt;From &lt;a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt"&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zram&amp;lt;id&amp;gt; (&amp;lt;id&amp;gt; = 0, 1, ...). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt"&gt;zram&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="example-of-compressed-swap-in-memory"&gt;
 &lt;h2&gt;Example of compressed swap in memory&lt;/h2&gt;
 &lt;p&gt;Write this commands in &lt;code&gt;/etc/rc.local&lt;/code&gt; to create a 2G compressed swap partition in memory.&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Load the module and create one zram device, /dev/zram0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Load the module and create one zram device, /dev/zram0&lt;/span&gt;
 modprobe zram &lt;span class="nv"&gt;num_devices&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
 
 &lt;span class="c"&gt;# Maximum of compressed streams (keep same as CPUs)&lt;/span&gt;
@@ -40,7 +24,7 @@ mkswap /dev/zram0
 &lt;span class="c"&gt;# Enable the swap partition with high priority&lt;/span&gt;
 swapon /dev/zram0 -p 10
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;!-- # vim: set spell spl=en: --&gt;
+&lt;!-- # vim: set spell spl=en: --&gt;
 &lt;/div&gt;
 </summary><category term="howto"></category><category term="kernel"></category><category term="zram"></category></entry><entry><title>Vagrant, development environments made easy</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-25-vagrant.html" rel="alternate"></link><updated>2014-05-25T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-25:posts/2014/2014-05-25-vagrant.html</id><summary type="html">&lt;p&gt;Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It's free and really easy to use. If you install &lt;a href="https://www.virtualbox.org/"&gt;VirtualBox&lt;/a&gt; &lt;code&gt;sudo apt-get install virtualbox&lt;/code&gt; first, you'll be up and running in no time.&lt;/p&gt;
 &lt;p&gt;Vagrant do profile itself for developers, but &lt;a href="https://en.wikipedia.org/wiki/Sysadmin" title="System administrator"&gt;sysadmin&lt;/a&gt;s has much to gain by using such tools to make life easier for themselves. Automation and reproducibility is key concepts in modern system administration. We need to think more and more like developers, as much as developers need to think more and more like &lt;a href="https://en.wikipedia.org/wiki/Sysadmin" title="System administrator"&gt;sysadmin&lt;/a&gt;s.&lt;/p&gt;
