@@ -10,15 +10,13 @@ Status: draft
 
 * Create a git repository 
 
-```bash
-mkdir blog
-cd blog
-git init
-touch README.md
-git add README.md 
-git commit -a -m "initial commit"
-
-```
+        :::bash
+        mkdir blog
+        cd blog
+        git init
+        touch README.md
+        git add README.md 
+        git commit -a -m "initial commit"
 
 * Create a working branch for our blog, the master branch will be the blog content
 
@@ -57,5 +55,7 @@ needed by Pelican.
 > Is this your personal page (username.github.io)? (y/N) y
 Done. Your new project is available at /tmp/blog
 ```
+
+*
 
 ###### vim: set syn=markdown spell spl=en:
