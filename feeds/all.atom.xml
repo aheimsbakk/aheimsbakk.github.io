@@ -4,7 +4,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Create a repository named &lt;strong&gt;username.github.io&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Exchange &lt;strong&gt;username&lt;/strong&gt; with your username. It takes up to half an hour the before Gitlab makes your this repository available through http://username.github.io.&lt;/p&gt;
+&lt;p&gt;Exchange &lt;strong&gt;username&lt;/strong&gt; with your username. It takes up to half an hour before Gitlab makes your repository available through http://username.github.io.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Pre requisite&lt;/h2&gt;
