@@ -101,7 +101,7 @@
 
 
 <p>Create a work directory for <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">OpenVPN</a>. Take care to protect this directory and the files under it. </p>
-<div class="highlight"><pre><span class="n">make</span><span class="o">-</span><span class="n">cadir</span> <span class="err">«</span><span class="n">yourdomain</span><span class="err">»</span>
+<div class="highlight"><pre>make-cadir «yourdomain»
 </pre></div>
 
 
@@ -125,28 +125,28 @@
 
 
 <p>Do a initial clean.</p>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">clean</span><span class="o">-</span><span class="n">all</span> 
+<div class="highlight"><pre>./clean-all 
 </pre></div>
 
 
 <p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> public and private key.</p>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">ca</span>
+<div class="highlight"><pre>./build-ca
 </pre></div>
 
 
 <p>Generate your <a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange">Diffie–Hellman</a> parameters.</p>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">dh</span>
+<div class="highlight"><pre>./build-dh
 </pre></div>
 
 
 <p>Create your routers public and private key.</p>
-<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">server</span> <span class="err">«</span><span class="n">yourrouter</span><span class="err">»</span>
+<div class="highlight"><pre>./build-key-server «yourrouter»
 </pre></div>
 
 
 <p>Listing of folder <code>keys</code> should look something like this now.</p>
-<div class="highlight"><pre><span class="n">ca</span><span class="p">.</span><span class="n">crt</span>  <span class="n">dh2048</span><span class="p">.</span><span class="n">pem</span>  <span class="n">serial</span>            <span class="err">«</span><span class="n">yourrouter</span><span class="err">»</span><span class="p">.</span><span class="n">csr</span>
-<span class="n">ca</span><span class="p">.</span><span class="n">key</span>  <span class="n">index</span><span class="p">.</span><span class="n">txt</span>   <span class="err">«</span><span class="n">yourrouter</span><span class="err">»</span><span class="p">.</span><span class="n">crt</span>  <span class="err">«</span><span class="n">yourrouter</span><span class="err">»</span><span class="p">.</span><span class="n">key</span>
+<div class="highlight"><pre>ca.crt  dh2048.pem  serial            «yourrouter».csr
+ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 </pre></div>
 
 

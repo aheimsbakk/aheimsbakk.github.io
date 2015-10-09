@@ -172,28 +172,28 @@
 </li>
 <li>
 <p>Check that the cable is usable by listing devices with adb. If you don't get any response. Change the cable and try again. The last cable could be a cheep charger cable without data wires.</p>
-<div class="highlight"><pre><span class="n">adb</span> <span class="n">devices</span>
+<div class="highlight"><pre>adb devices
 </pre></div>
 
 
 </li>
 <li>
 <p>Reboot phone into <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>.</p>
-<div class="highlight"><pre><span class="n">adb</span> <span class="n">reboot</span> <span class="n">bootloader</span>
+<div class="highlight"><pre>adb reboot bootloader
 </pre></div>
 
 
 </li>
 <li>
 <p>Check that you get connection with <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a>.</p>
-<div class="highlight"><pre><span class="n">fastboot</span> <span class="n">devices</span>
+<div class="highlight"><pre>fastboot devices
 </pre></div>
 
 
 </li>
 <li>
 <p>Unlock your <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>. This takes some time while the phone is erasing all data.</p>
-<div class="highlight"><pre><span class="n">fastboot</span> <span class="n">oem</span> <span class="n">unlock</span>
+<div class="highlight"><pre>fastboot oem unlock
 </pre></div>
 
 
@@ -206,7 +206,7 @@
 <ul>
 <li>
 <p>Flash recovery image.</p>
-<div class="highlight"><pre><span class="n">fastboot</span> <span class="n">flash</span> <span class="n">recovery</span> <span class="n">recovery</span><span class="o">-</span><span class="n">clockwork</span><span class="o">-</span><span class="n">touch</span><span class="o">-</span><span class="mf">6.0.4.7</span><span class="o">-</span><span class="n">mako</span><span class="p">.</span><span class="n">img</span>
+<div class="highlight"><pre>fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
 </pre></div>
 
 
@@ -228,14 +228,14 @@
 </li>
 <li>
 <p>Choose <strong>install zip</strong> → <strong>choose zip from sideload</strong> and sideload <a href="http://www.cyanogenmod.org">CyanogenMod</a>.</p>
-<div class="highlight"><pre><span class="n">adb</span> <span class="n">sideload</span> <span class="n">cm</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">20140504</span><span class="o">-</span><span class="n">SNAPSHOT</span><span class="o">-</span><span class="n">M6</span><span class="o">-</span><span class="n">mako</span><span class="p">.</span><span class="n">zip</span>
+<div class="highlight"><pre>adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
 </pre></div>
 
 
 </li>
 <li>
 <p>Then sideload gapps. Select again <strong>choose zip from sideload</strong>.</p>
-<div class="highlight"><pre><span class="n">adb</span> <span class="n">sideload</span> <span class="n">gapps</span><span class="o">-</span><span class="n">kk</span><span class="o">-</span><span class="mi">20140105</span><span class="o">-</span><span class="kt">signed</span><span class="p">.</span><span class="n">zip</span>
+<div class="highlight"><pre>adb sideload gapps-kk-20140105-signed.zip
 </pre></div>
 
 

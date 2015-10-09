@@ -91,22 +91,22 @@
 <div class="highlight"><pre><span class="c">#!/bin/bash</span>
 
 <span class="c"># Print help on stderr</span>
-<span class="k">function </span>show_help<span class="o">(){</span> 
+<span class="k">function</span> show_help<span class="o">(){</span> 
     show_usage 
-    cat &gt;&amp;2 <span class="s">&lt;&lt;EOF</span>
+    cat &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="s">&lt;&lt;EOF</span>
 
 <span class="s">Explain all about $(basename $0) here.</span>
 <span class="s">EOF</span>
 <span class="o">}</span>
 
 <span class="c"># Print usage on stderr</span>
-<span class="k">function </span>show_usage<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&quot;$(basename $0) [-a ARG] [-b] [N1 [N2 .. [NN]]]&quot;</span> &gt;&amp;2
+<span class="k">function</span> show_usage<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&quot;</span> &gt;<span class="p">&amp;</span>2
 <span class="o">}</span>
 
 <span class="c"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;$@&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-<span class="k">    </span>show_usage
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    show_usage
     <span class="nb">exit </span>1
 <span class="k">fi</span>
 
@@ -117,23 +117,23 @@
 <span class="c">#</span>
 <span class="c"># On invalid option, opt will be replaced with ? </span>
 <span class="c"># and OPTARG set to argument name</span>
-<span class="k">while </span><span class="nb">getopts</span> <span class="s2">&quot;:a:bh&quot;</span> opt
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:a:bh&quot;</span> opt
 <span class="k">do</span>
-<span class="k">    case</span> <span class="nv">$opt</span> in
-        a<span class="o">)</span>  <span class="nb">echo</span> <span class="nv">$OPTARG</span>;;
-        b<span class="o">)</span>  <span class="nb">echo </span>True;;
-        h<span class="o">)</span>  show_help; <span class="nb">exit </span>1;;
-        <span class="se">\?</span><span class="o">)</span> <span class="nb">echo</span> <span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span> invalid option: -<span class="nv">$OPTARG</span> &gt;&amp;2
+    <span class="k">case</span> <span class="nv">$opt</span> in
+        a<span class="o">)</span>  <span class="nb">echo</span> <span class="nv">$OPTARG</span><span class="p">;;</span>
+        b<span class="o">)</span>  <span class="nb">echo </span>True<span class="p">;;</span>
+        h<span class="o">)</span>  show_help<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;;</span>
+        <span class="se">\?</span><span class="o">)</span> <span class="nb">echo</span> <span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span> invalid option: -<span class="nv">$OPTARG</span> &gt;<span class="p">&amp;</span>2
             <span class="nb">exit </span>1
-            ;;
+            <span class="p">;;</span>
     <span class="k">esac</span>
 <span class="k">done</span>
 
 <span class="c"># OPTIND is not reset after getopts is finished. </span>
 <span class="c"># Loop through argument  [N1 [N2 .. [NN]]] </span>
-<span class="k">for </span>ARG in <span class="k">${</span><span class="p">@:</span><span class="nv">$OPTIND</span><span class="k">}</span>
+<span class="k">for</span> ARG in <span class="si">${</span><span class="p">@:</span><span class="nv">$OPTIND</span><span class="si">}</span>
 <span class="k">do</span>
-<span class="k">    </span><span class="nb">echo</span> <span class="nv">$ARG</span>
+    <span class="nb">echo</span> <span class="nv">$ARG</span>
 <span class="k">done</span>
 </pre></div>
 

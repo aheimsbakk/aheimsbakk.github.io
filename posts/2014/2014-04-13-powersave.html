@@ -92,17 +92,17 @@
         <p>Notes for power saving on my i5 laptop.</p>
 <h2>/etc/rc.local</h2>
 <div class="highlight"><pre><span class="c">#  SATA power save</span>
-<span class="nb">echo </span>medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
+<span class="nb">echo </span>medium_power <span class="p">|</span> tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
 
 <span class="c"># Set minimum performance to 30% of CPU MHz </span>
-<span class="nb">echo </span>30 &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
+<span class="nb">echo </span><span class="m">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
 <span class="c"># Set CPU governor to power save since we run on a laptop</span>
 <span class="c"># Valid values: powersave performance</span>
-<span class="nb">echo </span>powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
+<span class="nb">echo </span>powersave <span class="p">|</span> tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
 
 <span class="c"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
-<span class="nb">echo </span>1048576 &gt; /proc/sys/fs/inotify/max_user_watches
+<span class="nb">echo </span><span class="m">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
 </pre></div>
 
 

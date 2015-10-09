@@ -10,7 +10,7 @@
 modprobe zram &lt;span class="nv"&gt;num_devices&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
 
 &lt;span class="c"&gt;# Maximum of compressed streams (keep same as CPUs)&lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;4 &amp;gt; /sys/devices/virtual/block/zram0/max_comp_streams
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt; &amp;gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
 &lt;span class="c"&gt;# Size of zram0 device in k/m/g&lt;/span&gt;
 &lt;span class="nb"&gt;echo &lt;/span&gt;2g &amp;gt; /sys/devices/virtual/block/zram0/disksize

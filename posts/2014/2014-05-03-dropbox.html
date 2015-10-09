@@ -95,7 +95,7 @@
 <h2>Preparing Dropbox</h2>
 <p>First create a new <a href="https://www.dropbox.com">Dropbox</a> account and create a <code>Pelican</code> folder. Share this folder with your main <a href="https://www.dropbox.com">Dropbox</a> account. Now copy the sources for your <a href="http://blog.getpelican.com">Pelican</a> blog into the the shared folder.</p>
 <p>On your web server, install <a href="https://www.dropbox.com">Dropbox</a> under the <code>www-data</code> user. </p>
-<div class="highlight"><pre><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> wget -O - <span class="s2">&quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot;</span> | tar xzf -
+<div class="highlight"><pre><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> wget -O - <span class="s2">&quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot;</span> <span class="p">|</span> tar xzf -
 </pre></div>
 
 
@@ -105,7 +105,7 @@
 
 
 <p>Edit crontab for <code>www-data</code>, <code>crontab -e</code>, to start <a href="https://www.dropbox.com">Dropbox</a> daemon if it's not running. useful when the server reboots.</p>
-<div class="highlight"><pre><span class="err">*/</span><span class="mi">5</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="n">pgrep</span> <span class="o">-</span><span class="n">F</span> <span class="o">~/</span><span class="p">.</span><span class="n">dropbox</span><span class="o">/</span><span class="n">dropbox</span><span class="p">.</span><span class="n">pid</span> <span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">||</span> <span class="p">(</span><span class="o">~/</span><span class="p">.</span><span class="n">dropbox</span><span class="o">-</span><span class="n">dist</span><span class="o">/</span><span class="n">dropboxd</span> <span class="o">&amp;</span><span class="p">)</span>
+<div class="highlight"><pre>*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;)
 </pre></div>
 
 
@@ -118,12 +118,12 @@
 
 <p>Edit <code>DROPBOX_DIR</code> the the <a href="http://blog.getpelican.com">Pelican</a> <code>Makefile</code> to point to the <a href="https://en.wikipedia.org/wiki/Virtual_hosting" title="Virtual hosting">VirtualHost</a> which stores the blog.</p>
 <p>Then allow the <code>www-data</code> user to run incron.</p>
-<div class="highlight"><pre><span class="nb">echo </span>www-data | sudo tee -a /etc/incron.allow
+<div class="highlight"><pre><span class="nb">echo </span>www-data <span class="p">|</span> sudo tee -a /etc/incron.allow
 </pre></div>
 
 
 <p>And as a final step make the incrontab entry for <code>www-data</code> with <code>ìncrontab -e</code></p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">Pelican</span><span class="o">/</span><span class="n">content</span> <span class="n">IN_ATTRIB</span><span class="p">,</span><span class="n">IN_CREATE</span><span class="p">,</span><span class="n">IN_DELETE</span><span class="p">,</span><span class="n">IN_NO_LOOP</span> <span class="n">make</span> <span class="o">--</span><span class="n">directory</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">Pelican</span> <span class="n">dropbox_upload</span>
+<div class="highlight"><pre>/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
 </pre></div>
 
 

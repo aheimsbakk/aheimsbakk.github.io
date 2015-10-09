@@ -103,29 +103,29 @@
 <div class="highlight"><pre><span class="c">#!/bin/bash</span>
 
 <span class="nv">BN</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span>
-<span class="nv">SI</span><span class="o">=</span><span class="k">$(</span>pacmd list-sink-inputs | grep -m 1 index | egrep -o <span class="s2">&quot;[[:digit:]]+&quot;</span><span class="k">)</span>
+<span class="nv">SI</span><span class="o">=</span><span class="k">$(</span>pacmd list-sink-inputs <span class="p">|</span> grep -m <span class="m">1</span> index <span class="p">|</span> egrep -o <span class="s2">&quot;[[:digit:]]+&quot;</span><span class="k">)</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-<span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;usage: $BN filename&quot;</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;usage: </span><span class="nv">$BN</span><span class="s2"> filename&quot;</span>
   <span class="nb">exit </span>1
 <span class="k">fi</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;$SI&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span>; <span class="k">then</span>
-<span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;error: no input sinks found&quot;</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$SI</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;error: no input sinks found&quot;</span>
   <span class="nb">exit </span>2
 <span class="k">fi</span>
 
-<span class="nv">N</span><span class="o">=</span><span class="s2">&quot;$1&quot;</span>
+<span class="nv">N</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
 <span class="nb">echo</span> <span class="nv">$BN</span> recording:
 <span class="nb">echo</span> · Found sink index «<span class="nv">$SI</span>»
 <span class="nb">echo</span> · Loading module-null-sink
 <span class="nv">MI</span><span class="o">=</span><span class="k">$(</span>pactl load-module module-null-sink <span class="nv">sink_name</span><span class="o">=</span>rec<span class="k">)</span>
-<span class="nb">trap</span> <span class="s2">&quot;{ echo · Trying to delete null sink «rec»; pactl unload-module $MI; }&quot;</span> EXIT
+<span class="nb">trap</span> <span class="s2">&quot;{ echo · Trying to delete null sink «rec»; pactl unload-module </span><span class="nv">$MI</span><span class="s2">; }&quot;</span> EXIT
 <span class="nb">echo</span> · Moving sink «<span class="nv">$SI</span>» to null sink «rec»
 pactl move-sink-input <span class="nv">$SI</span> rec
 <span class="nb">echo</span> · Saving sound data to «<span class="nv">$N</span>.flac» 
-parec -d rec.monitor | flac --endian<span class="o">=</span>little --sign<span class="o">=</span>signed --channels<span class="o">=</span>2 --bps<span class="o">=</span>16n --sample-rate<span class="o">=</span>44100 -o <span class="s2">&quot;$1.flac&quot;</span> - 2&gt;/dev/null
+parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</span>little --sign<span class="o">=</span>signed --channels<span class="o">=</span><span class="m">2</span> --bps<span class="o">=</span>16n --sample-rate<span class="o">=</span><span class="m">44100</span> -o <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">.flac&quot;</span> - 2&gt;/dev/null
 </pre></div>
 
 

@@ -40,32 +40,32 @@ git checkout blog
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Initialize the blog with &lt;code&gt;pelican-quickstart&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 
-&lt;span class="n"&gt;Welcome&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt; &lt;span class="n"&gt;v3&lt;/span&gt;&lt;span class="mf"&gt;.4.0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+Welcome to pelican-quickstart v3.4.0.
 
-&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;based&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+This script will help you create a new Pelican-based website.
 
-&lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;answer&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;following&lt;/span&gt; &lt;span class="n"&gt;questions&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;
-&lt;span class="n"&gt;needed&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;Pelican&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+Please answer the following questions so this script can generate the files
+needed by Pelican.
 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Where&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;[.]&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;What&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Blog&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Who&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;author&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;John&lt;/span&gt; &lt;span class="n"&gt;Doe&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;What&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;language&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;en&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;specify&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="n"&gt;prefix&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.,&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//example.com   (Y/n) n&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="n"&gt;article&lt;/span&gt; &lt;span class="n"&gt;pagination&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;How&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;articles&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Fabfile&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Makefile&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;automate&lt;/span&gt; &lt;span class="n"&gt;generation&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;publishing&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;simpleHTTP&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;assist&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;theme&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;site&lt;/span&gt; &lt;span class="n"&gt;development&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;FTP&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;SSH&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;Dropbox&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;S3&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;Rackspace&lt;/span&gt; &lt;span class="n"&gt;Cloud&lt;/span&gt; &lt;span class="n"&gt;Files&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;upload&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;website&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;GitHub&lt;/span&gt; &lt;span class="n"&gt;Pages&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Is&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;personal&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
-&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;available&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;
+&amp;gt; Where do you want to create your new web site? [.] 
+&amp;gt; What will be the title of this web site? My Blog
+&amp;gt; Who will be the author of this web site? John Doe
+&amp;gt; What will be the default language of this web site? [en] 
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
+&amp;gt; Do you want to enable article pagination? (Y/n) 
+&amp;gt; How many articles per page do you want? [10] 
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
+&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) 
+&amp;gt; Do you want to upload your website using FTP? (y/N) 
+&amp;gt; Do you want to upload your website using SSH? (y/N) 
+&amp;gt; Do you want to upload your website using Dropbox? (y/N) 
+&amp;gt; Do you want to upload your website using S3? (y/N) 
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) 
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) y
+&amp;gt; Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /tmp/blog
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -109,7 +109,7 @@ git push
 modprobe zram &lt;span class="nv"&gt;num_devices&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
 
 &lt;span class="c"&gt;# Maximum of compressed streams (keep same as CPUs)&lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;4 &amp;gt; /sys/devices/virtual/block/zram0/max_comp_streams
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt; &amp;gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
 &lt;span class="c"&gt;# Size of zram0 device in k/m/g&lt;/span&gt;
 &lt;span class="nb"&gt;echo &lt;/span&gt;2g &amp;gt; /sys/devices/virtual/block/zram0/disksize
@@ -140,29 +140,29 @@ swapon /dev/zram0 -p 10
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class="nv"&gt;BN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nv"&gt;SI&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pacmd list-sink-inputs | grep -m 1 index | egrep -o &lt;span class="s2"&gt;&amp;quot;[[:digit:]]+&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;SI&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pacmd list-sink-inputs &lt;span class="p"&gt;|&lt;/span&gt; grep -m &lt;span class="m"&gt;1&lt;/span&gt; index &lt;span class="p"&gt;|&lt;/span&gt; egrep -o &lt;span class="s2"&gt;&amp;quot;[[:digit:]]+&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;  &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;usage: $BN filename&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;usage: &lt;/span&gt;&lt;span class="nv"&gt;$BN&lt;/span&gt;&lt;span class="s2"&gt; filename&amp;quot;&lt;/span&gt;
   &lt;span class="nb"&gt;exit &lt;/span&gt;1
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$SI&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;  &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;error: no input sinks found&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SI&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;error: no input sinks found&amp;quot;&lt;/span&gt;
   &lt;span class="nb"&gt;exit &lt;/span&gt;2
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
-&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$BN&lt;/span&gt; recording:
 &lt;span class="nb"&gt;echo&lt;/span&gt; · Found sink index «&lt;span class="nv"&gt;$SI&lt;/span&gt;»
 &lt;span class="nb"&gt;echo&lt;/span&gt; · Loading module-null-sink
 &lt;span class="nv"&gt;MI&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pactl load-module module-null-sink &lt;span class="nv"&gt;sink_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;rec&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;trap&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{ echo · Trying to delete null sink «rec»; pactl unload-module $MI; }&amp;quot;&lt;/span&gt; EXIT
+&lt;span class="nb"&gt;trap&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{ echo · Trying to delete null sink «rec»; pactl unload-module &lt;/span&gt;&lt;span class="nv"&gt;$MI&lt;/span&gt;&lt;span class="s2"&gt;; }&amp;quot;&lt;/span&gt; EXIT
 &lt;span class="nb"&gt;echo&lt;/span&gt; · Moving sink «&lt;span class="nv"&gt;$SI&lt;/span&gt;» to null sink «rec»
 pactl move-sink-input &lt;span class="nv"&gt;$SI&lt;/span&gt; rec
 &lt;span class="nb"&gt;echo&lt;/span&gt; · Saving sound data to «&lt;span class="nv"&gt;$N&lt;/span&gt;.flac» 
-parec -d rec.monitor | flac --endian&lt;span class="o"&gt;=&lt;/span&gt;little --sign&lt;span class="o"&gt;=&lt;/span&gt;signed --channels&lt;span class="o"&gt;=&lt;/span&gt;2 --bps&lt;span class="o"&gt;=&lt;/span&gt;16n --sample-rate&lt;span class="o"&gt;=&lt;/span&gt;44100 -o &lt;span class="s2"&gt;&amp;quot;$1.flac&amp;quot;&lt;/span&gt; - 2&amp;gt;/dev/null
+parec -d rec.monitor &lt;span class="p"&gt;|&lt;/span&gt; flac --endian&lt;span class="o"&gt;=&lt;/span&gt;little --sign&lt;span class="o"&gt;=&lt;/span&gt;signed --channels&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; --bps&lt;span class="o"&gt;=&lt;/span&gt;16n --sample-rate&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;44100&lt;/span&gt; -o &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;.flac&amp;quot;&lt;/span&gt; - 2&amp;gt;/dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -224,7 +224,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 
 &lt;span class="no"&gt;Vagrant&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
   &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;box&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dummy&amp;quot;&lt;/span&gt;
-  &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;synced_folder&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/vagrant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rsync&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rsync__exclude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.git/&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;synced_folder&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/vagrant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rsync&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;rsync__exclude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;.git/&amp;quot;&lt;/span&gt;
 
   &lt;span class="c1"&gt;# Make sure the private key from the key pair is provided&lt;/span&gt;
   &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;private_key_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;~/.ssh/id_rsa&amp;quot;&lt;/span&gt;
@@ -278,7 +278,7 @@ vagrant up
 &lt;p&gt;This example only show how to use &lt;code&gt;fio&lt;/code&gt; to make reproduceable test on a file system. For me it's been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable. &lt;/p&gt;
 &lt;p&gt;All parameter numbers are examples, define your own test according to what you want to measure. &lt;/p&gt;
 &lt;h2&gt;Installing fio&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;fio&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install fio
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -289,7 +289,7 @@ vagrant up
 &lt;li&gt;&lt;code&gt;size&lt;/code&gt; is the working file size.&lt;/li&gt;
 &lt;li&gt;If you want to test a read heavy load, use &lt;code&gt;rwmixread&lt;/code&gt; with a percentage of reads versus writes..&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for &lt;/span&gt;i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw; &lt;span class="k"&gt;do &lt;/span&gt;fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;60 --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;0  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;1 --direct&lt;span class="o"&gt;=&lt;/span&gt;1 --numjobs&lt;span class="o"&gt;=&lt;/span&gt;8 --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;4k-4k; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;4k-4k&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -301,7 +301,7 @@ vagrant up
 &lt;p&gt;For me is the most interesting plot is &lt;strong&gt;compare-result-2Dsmooth.png&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;Generating bandwidth plots&lt;/h2&gt;
 &lt;p&gt;Testing bandwidth is better to do with a larger block size. I usually set a block size between 64k to 1m. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for &lt;/span&gt;i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw; &lt;span class="k"&gt;do &lt;/span&gt;fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;60 --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;0  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;1 --direct&lt;span class="o"&gt;=&lt;/span&gt;1 --numjobs&lt;span class="o"&gt;=&lt;/span&gt;8 --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;64k-1m; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;64k-1m&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -313,17 +313,17 @@ vagrant up
 &lt;p&gt;For me is the most interesting plot is &lt;strong&gt;compare-result-2Dsmooth.png&lt;/strong&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Arnulf Heimsbakk</dc:creator><pubDate>Mon, 15 Dec 2014 00:00:00 +0100</pubDate><guid>tag:blog.heimsbakk.net,2014-12-15:posts/2014/2014-12-15-fio.html</guid><category>io</category><category>benchmark</category><category>howto</category></item><item><title>Power saving on laptop</title><link>http://blog.heimsbakk.net/posts/2014/2014-04-13-powersave.html</link><description>&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;
 &lt;h2&gt;/etc/rc.local&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#  SATA power save&lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null
+&lt;span class="nb"&gt;echo &lt;/span&gt;medium_power &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null
 
 &lt;span class="c"&gt;# Set minimum performance to 30% of CPU MHz &lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;30 &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
 &lt;span class="c"&gt;# Set CPU governor to power save since we run on a laptop&lt;/span&gt;
 &lt;span class="c"&gt;# Valid values: powersave performance&lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null
+&lt;span class="nb"&gt;echo &lt;/span&gt;powersave &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null
 
 &lt;span class="c"&gt;# Increase for CrashPlan so unlocking gnome-shell lock screen works&lt;/span&gt;
-&lt;span class="nb"&gt;echo &lt;/span&gt;1048576 &amp;gt; /proc/sys/fs/inotify/max_user_watches
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;1048576&lt;/span&gt; &amp;gt; /proc/sys/fs/inotify/max_user_watches
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -447,28 +447,28 @@ vagrant up
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Check that the cable is usable by listing devices with adb. If you don't get any response. Change the cable and try again. The last cable could be a cheep charger cable without data wires.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;adb&lt;/span&gt; &lt;span class="n"&gt;devices&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;adb devices
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Reboot phone into &lt;a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting"&gt;bootloader&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;adb&lt;/span&gt; &lt;span class="n"&gt;reboot&lt;/span&gt; &lt;span class="n"&gt;bootloader&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;adb reboot bootloader
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Check that you get connection with &lt;a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot"&gt;fastboot&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;fastboot&lt;/span&gt; &lt;span class="n"&gt;devices&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot devices
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Unlock your &lt;a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting"&gt;bootloader&lt;/a&gt;. This takes some time while the phone is erasing all data.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;fastboot&lt;/span&gt; &lt;span class="n"&gt;oem&lt;/span&gt; &lt;span class="n"&gt;unlock&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot oem unlock
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -481,7 +481,7 @@ vagrant up
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Flash recovery image.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;fastboot&lt;/span&gt; &lt;span class="n"&gt;flash&lt;/span&gt; &lt;span class="n"&gt;recovery&lt;/span&gt; &lt;span class="n"&gt;recovery&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;clockwork&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;touch&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;6.0.4.7&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mako&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -503,14 +503,14 @@ vagrant up
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Choose &lt;strong&gt;install zip&lt;/strong&gt; → &lt;strong&gt;choose zip from sideload&lt;/strong&gt; and sideload &lt;a href="http://www.cyanogenmod.org"&gt;CyanogenMod&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;adb&lt;/span&gt; &lt;span class="n"&gt;sideload&lt;/span&gt; &lt;span class="n"&gt;cm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20140504&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;SNAPSHOT&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;M6&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mako&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zip&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Then sideload gapps. Select again &lt;strong&gt;choose zip from sideload&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;adb&lt;/span&gt; &lt;span class="n"&gt;sideload&lt;/span&gt; &lt;span class="n"&gt;gapps&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;kk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20140105&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kt"&gt;signed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zip&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;adb sideload gapps-kk-20140105-signed.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -634,9 +634,9 @@ apache2ctl restart
 &lt;span class="gh"&gt; Second heading&lt;/span&gt;
 &lt;span class="gh"&gt;===============&lt;/span&gt;
 
----------------
- Third heading
----------------
+&lt;span class="gh"&gt;---------------&lt;/span&gt;
+&lt;span class="gh"&gt; Third heading&lt;/span&gt;
+&lt;span class="gh"&gt;---------------&lt;/span&gt;
 
 &lt;span class="gh"&gt;Fourth heading&lt;/span&gt;
 &lt;span class="gh"&gt;==============&lt;/span&gt;
@@ -905,7 +905,7 @@ True   True   True
 &lt;h2&gt;Preparing Dropbox&lt;/h2&gt;
 &lt;p&gt;First create a new &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; account and create a &lt;code&gt;Pelican&lt;/code&gt; folder. Share this folder with your main &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; account. Now copy the sources for your &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog into the the shared folder.&lt;/p&gt;
 &lt;p&gt;On your web server, install &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; under the &lt;code&gt;www-data&lt;/code&gt; user. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span class="s2"&gt;&amp;quot;https://www.dropbox.com/download?plat=lnx.x86_64&amp;quot;&lt;/span&gt; | tar xzf -
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span class="s2"&gt;&amp;quot;https://www.dropbox.com/download?plat=lnx.x86_64&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tar xzf -
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -915,7 +915,7 @@ True   True   True
 
 
 &lt;p&gt;Edit crontab for &lt;code&gt;www-data&lt;/code&gt;, &lt;code&gt;crontab -e&lt;/code&gt;, to start &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; daemon if it's not running. useful when the server reboots.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;*/&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;pgrep&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropbox&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dropbox&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropbox&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dropboxd&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &amp;gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;amp;)
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -928,12 +928,12 @@ True   True   True
 
 &lt;p&gt;Edit &lt;code&gt;DROPBOX_DIR&lt;/code&gt; the the &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; &lt;code&gt;Makefile&lt;/code&gt; to point to the &lt;a href="https://en.wikipedia.org/wiki/Virtual_hosting" title="Virtual hosting"&gt;VirtualHost&lt;/a&gt; which stores the blog.&lt;/p&gt;
 &lt;p&gt;Then allow the &lt;code&gt;www-data&lt;/code&gt; user to run incron.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;echo &lt;/span&gt;www-data | sudo tee -a /etc/incron.allow
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;echo &lt;/span&gt;www-data &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/incron.allow
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And as a final step make the incrontab entry for &lt;code&gt;www-data&lt;/code&gt; with &lt;code&gt;ìncrontab -e&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Dropbox&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Pelican&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;IN_ATTRIB&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IN_CREATE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IN_DELETE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;IN_NO_LOOP&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Dropbox&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Pelican&lt;/span&gt; &lt;span class="n"&gt;dropbox_upload&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -947,7 +947,7 @@ True   True   True
 
 
 &lt;p&gt;Create a work directory for &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;OpenVPN&lt;/a&gt;. Take care to protect this directory and the files under it. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cadir&lt;/span&gt; &lt;span class="err"&gt;«&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt;&lt;span class="err"&gt;»&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make-cadir «yourdomain»
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -971,28 +971,28 @@ True   True   True
 
 
 &lt;p&gt;Do a initial clean.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;clean&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt; 
+&lt;div class="highlight"&gt;&lt;pre&gt;./clean-all 
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create your &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;CA&lt;/a&gt; public and private key.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ca&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-ca
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Generate your &lt;a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange"&gt;Diffie–Hellman&lt;/a&gt; parameters.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dh&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-dh
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create your routers public and private key.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="err"&gt;«&lt;/span&gt;&lt;span class="n"&gt;yourrouter&lt;/span&gt;&lt;span class="err"&gt;»&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-key-server «yourrouter»
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Listing of folder &lt;code&gt;keys&lt;/code&gt; should look something like this now.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;  &lt;span class="n"&gt;dh2048&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;  &lt;span class="n"&gt;serial&lt;/span&gt;            &lt;span class="err"&gt;«&lt;/span&gt;&lt;span class="n"&gt;yourrouter&lt;/span&gt;&lt;span class="err"&gt;»&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csr&lt;/span&gt;
-&lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;  &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;   &lt;span class="err"&gt;«&lt;/span&gt;&lt;span class="n"&gt;yourrouter&lt;/span&gt;&lt;span class="err"&gt;»&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;  &lt;span class="err"&gt;«&lt;/span&gt;&lt;span class="n"&gt;yourrouter&lt;/span&gt;&lt;span class="err"&gt;»&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ca.crt  dh2048.pem  serial            «yourrouter».csr
+ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1062,7 +1062,7 @@ True   True   True
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.ssllabs.com/ssltest"&gt;SSL Server Test&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Arnulf Heimsbakk</dc:creator><pubDate>Sun, 13 Apr 2014 22:00:00 +0200</pubDate><guid>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-ssllabs.html</guid><category>security</category><category>ssl</category></item><item><title>Find duplicate files</title><link>http://blog.heimsbakk.net/posts/2014/2014-04-13-duplicates.html</link><description>&lt;p&gt;Find all duplicate files in current and sub-directories with bash. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;find -not -empty -type f -printf &lt;span class="s1"&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; | sort -rn | uniq -d | xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; -n1 find -type f -size &lt;span class="o"&gt;{}&lt;/span&gt;c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated&lt;span class="o"&gt;=&lt;/span&gt;separate
+&lt;div class="highlight"&gt;&lt;pre&gt;find -not -empty -type f -printf &lt;span class="s1"&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sort -rn &lt;span class="p"&gt;|&lt;/span&gt; uniq -d &lt;span class="p"&gt;|&lt;/span&gt; xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; -n1 find -type f -size &lt;span class="o"&gt;{}&lt;/span&gt;c -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0 md5sum &lt;span class="p"&gt;|&lt;/span&gt; sort &lt;span class="p"&gt;|&lt;/span&gt; uniq -w32 --all-repeated&lt;span class="o"&gt;=&lt;/span&gt;separate
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1088,7 +1088,7 @@ True   True   True
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.digitalocean.com/?refcode=2c2348527899"&gt;DigialOcean&lt;/a&gt;. &lt;/li&gt;
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Arnulf Heimsbakk</dc:creator><pubDate>Sun, 13 Apr 2014 17:00:00 +0200</pubDate><guid>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-digitalocean.html</guid><category>cloud</category><category>vm</category></item><item><title>Remove unused kernels</title><link>http://blog.heimsbakk.net/posts/2014/2014-04-13-kernel.html</link><description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;dpkg-query -f &lt;span class="s1"&gt;&amp;#39;${Package}\n&amp;#39;&lt;/span&gt; -W |  egrep &lt;span class="s1"&gt;&amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39;&lt;/span&gt; | grep -v &lt;span class="k"&gt;$(&lt;/span&gt;uname -r | sed &lt;span class="s1"&gt;&amp;#39;s/-generic//&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; | sudo xargs apt-get -q -q -yy --purge remove
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg-query -f &lt;span class="s1"&gt;&amp;#39;${Package}\n&amp;#39;&lt;/span&gt; -W &lt;span class="p"&gt;|&lt;/span&gt;  egrep &lt;span class="s1"&gt;&amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -v &lt;span class="k"&gt;$(&lt;/span&gt;uname -r &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;&amp;#39;s/-generic//&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo xargs apt-get -q -q -yy --purge remove
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1104,15 +1104,15 @@ True   True   True
 
 
 &lt;p&gt;The modeline should be the first line in the file. You can set it inn multiple ways as shown below. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: &lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1148,22 +1148,22 @@ True   True   True
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class="c"&gt;# Print help on stderr&lt;/span&gt;
-&lt;span class="k"&gt;function &lt;/span&gt;show_help&lt;span class="o"&gt;(){&lt;/span&gt; 
+&lt;span class="k"&gt;function&lt;/span&gt; show_help&lt;span class="o"&gt;(){&lt;/span&gt; 
     show_usage 
-    cat &amp;gt;&amp;amp;2 &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+    cat &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
 
 &lt;span class="s"&gt;Explain all about $(basename $0) here.&lt;/span&gt;
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 
 &lt;span class="c"&gt;# Print usage on stderr&lt;/span&gt;
-&lt;span class="k"&gt;function &lt;/span&gt;show_usage&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$(basename $0) [-a ARG] [-b] [N1 [N2 .. [NN]]]&amp;quot;&lt;/span&gt; &amp;gt;&amp;amp;2
+&lt;span class="k"&gt;function&lt;/span&gt; show_usage&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt; [-a ARG] [-b] [N1 [N2 .. [NN]]]&amp;quot;&lt;/span&gt; &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;2
 &lt;span class="o"&gt;}&lt;/span&gt;
 
 &lt;span class="c"&gt;# Print usage and exit with error code 1 if we don&amp;#39;t have any options&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;show_usage
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    show_usage
     &lt;span class="nb"&gt;exit &lt;/span&gt;1
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
@@ -1174,23 +1174,23 @@ True   True   True
 &lt;span class="c"&gt;#&lt;/span&gt;
 &lt;span class="c"&gt;# On invalid option, opt will be replaced with ? &lt;/span&gt;
 &lt;span class="c"&gt;# and OPTARG set to argument name&lt;/span&gt;
-&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;:a:bh&amp;quot;&lt;/span&gt; opt
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;:a:bh&amp;quot;&lt;/span&gt; opt
 &lt;span class="k"&gt;do&lt;/span&gt;
-&lt;span class="k"&gt;    case&lt;/span&gt; &lt;span class="nv"&gt;$opt&lt;/span&gt; in
-        a&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$OPTARG&lt;/span&gt;;;
-        b&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo &lt;/span&gt;True;;
-        h&lt;span class="o"&gt;)&lt;/span&gt;  show_help; &lt;span class="nb"&gt;exit &lt;/span&gt;1;;
-        &lt;span class="se"&gt;\?&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; invalid option: -&lt;span class="nv"&gt;$OPTARG&lt;/span&gt; &amp;gt;&amp;amp;2
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$opt&lt;/span&gt; in
+        a&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$OPTARG&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+        b&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo &lt;/span&gt;True&lt;span class="p"&gt;;;&lt;/span&gt;
+        h&lt;span class="o"&gt;)&lt;/span&gt;  show_help&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;exit &lt;/span&gt;1&lt;span class="p"&gt;;;&lt;/span&gt;
+        &lt;span class="se"&gt;\?&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; invalid option: -&lt;span class="nv"&gt;$OPTARG&lt;/span&gt; &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;2
             &lt;span class="nb"&gt;exit &lt;/span&gt;1
-            ;;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
     &lt;span class="k"&gt;esac&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 
 &lt;span class="c"&gt;# OPTIND is not reset after getopts is finished. &lt;/span&gt;
 &lt;span class="c"&gt;# Loop through argument  [N1 [N2 .. [NN]]] &lt;/span&gt;
-&lt;span class="k"&gt;for &lt;/span&gt;ARG in &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="p"&gt;@:&lt;/span&gt;&lt;span class="nv"&gt;$OPTIND&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; ARG in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="p"&gt;@:&lt;/span&gt;&lt;span class="nv"&gt;$OPTIND&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$ARG&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$ARG&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Arnulf Heimsbakk</dc:creator><pubDate>Sun, 13 Apr 2014 00:00:00 +0200</pubDate><guid>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-getopts.html</guid><category>howto</category><category>bash</category></item><item><title>Scaling in the Linux Networking Stack</title><link>http://blog.heimsbakk.net/posts/2014/2014-04-12-link.html</link><description>&lt;p&gt;Documentation for increaseing parallelism and performance for multi-processor systems. &lt;/p&gt;
 &lt;ul&gt;
@@ -1200,21 +1200,21 @@ True   True   True
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install Pelican and package for &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; language. With Markdown you write the content in text and Pelican translates it to HTML.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install python-pelican python-markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Make a directory where you want to maintain your blog.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblock&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir myblock; cd myblock
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the Pelican quick start script and answer all the questions. Add at least one method of uploading your blog to a web server.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1233,7 +1233,7 @@ True   True   True
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Start the local HTTP server and check how your blog is coming along.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;serve&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1243,7 +1243,7 @@ True   True   True
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Upload your blog to your web server. I prefer the ssh upload option.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;ssh_upload&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make ssh_upload
 &lt;/pre&gt;&lt;/div&gt;
 
 

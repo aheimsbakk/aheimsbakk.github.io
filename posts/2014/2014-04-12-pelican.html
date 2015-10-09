@@ -92,21 +92,21 @@
 <ol>
 <li>
 <p>Install Pelican and package for <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> language. With Markdown you write the content in text and Pelican translates it to HTML.</p>
-<div class="highlight"><pre><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pelican</span> <span class="n">python</span><span class="o">-</span><span class="n">markdown</span>
+<div class="highlight"><pre>apt-get install python-pelican python-markdown
 </pre></div>
 
 
 </li>
 <li>
 <p>Make a directory where you want to maintain your blog.</p>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">myblock</span><span class="p">;</span> <span class="n">cd</span> <span class="n">myblock</span>
+<div class="highlight"><pre>mkdir myblock; cd myblock
 </pre></div>
 
 
 </li>
 <li>
 <p>Run the Pelican quick start script and answer all the questions. Add at least one method of uploading your blog to a web server.</p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre>pelican-quickstart
 </pre></div>
 
 
@@ -125,7 +125,7 @@
 </li>
 <li>
 <p>Start the local HTTP server and check how your blog is coming along.</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">serve</span>
+<div class="highlight"><pre>make serve
 </pre></div>
 
 
@@ -135,7 +135,7 @@
 </li>
 <li>
 <p>Upload your blog to your web server. I prefer the ssh upload option.</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">ssh_upload</span>
+<div class="highlight"><pre>make ssh_upload
 </pre></div>
 
 

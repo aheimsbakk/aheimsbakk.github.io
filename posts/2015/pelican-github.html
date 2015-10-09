@@ -128,32 +128,32 @@ git checkout blog
 </li>
 <li>
 <p>Initialize the blog with <code>pelican-quickstart</code></p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre>pelican-quickstart
 
-<span class="n">Welcome</span> <span class="n">to</span> <span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span> <span class="n">v3</span><span class="mf">.4.0</span><span class="p">.</span>
+Welcome to pelican-quickstart v3.4.0.
 
-<span class="n">This</span> <span class="n">script</span> <span class="n">will</span> <span class="n">help</span> <span class="n">you</span> <span class="n">create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">Pelican</span><span class="o">-</span><span class="n">based</span> <span class="n">website</span><span class="p">.</span>
+This script will help you create a new Pelican-based website.
 
-<span class="n">Please</span> <span class="n">answer</span> <span class="n">the</span> <span class="n">following</span> <span class="n">questions</span> <span class="n">so</span> <span class="n">this</span> <span class="n">script</span> <span class="n">can</span> <span class="n">generate</span> <span class="n">the</span> <span class="n">files</span>
-<span class="n">needed</span> <span class="n">by</span> <span class="n">Pelican</span><span class="p">.</span>
+Please answer the following questions so this script can generate the files
+needed by Pelican.
 
-<span class="o">&gt;</span> <span class="n">Where</span> <span class="k">do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">create</span> <span class="n">your</span> <span class="n">new</span> <span class="n">web</span> <span class="n">site</span><span class="o">?</span> <span class="p">[.]</span> 
-<span class="o">&gt;</span> <span class="n">What</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">title</span> <span class="n">of</span> <span class="n">this</span> <span class="n">web</span> <span class="n">site</span><span class="o">?</span> <span class="n">My</span> <span class="n">Blog</span>
-<span class="o">&gt;</span> <span class="n">Who</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">author</span> <span class="n">of</span> <span class="n">this</span> <span class="n">web</span> <span class="n">site</span><span class="o">?</span> <span class="n">John</span> <span class="n">Doe</span>
-<span class="o">&gt;</span> <span class="n">What</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="k">default</span> <span class="n">language</span> <span class="n">of</span> <span class="n">this</span> <span class="n">web</span> <span class="n">site</span><span class="o">?</span> <span class="p">[</span><span class="n">en</span><span class="p">]</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">a</span> <span class="n">URL</span> <span class="n">prefix</span><span class="o">?</span> <span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span> <span class="n">http</span><span class="o">:</span><span class="c1">//example.com   (Y/n) n</span>
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">enable</span> <span class="n">article</span> <span class="n">pagination</span><span class="o">?</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">How</span> <span class="n">many</span> <span class="n">articles</span> <span class="n">per</span> <span class="n">page</span> <span class="k">do</span> <span class="n">you</span> <span class="n">want</span><span class="o">?</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">a</span> <span class="n">Fabfile</span><span class="o">/</span><span class="n">Makefile</span> <span class="n">to</span> <span class="n">automate</span> <span class="n">generation</span> <span class="n">and</span> <span class="n">publishing</span><span class="o">?</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">an</span> <span class="k">auto</span><span class="o">-</span><span class="n">reload</span> <span class="o">&amp;</span> <span class="n">simpleHTTP</span> <span class="n">script</span> <span class="n">to</span> <span class="n">assist</span> <span class="n">with</span> <span class="n">theme</span> <span class="n">and</span> <span class="n">site</span> <span class="n">development</span><span class="o">?</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">FTP</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">SSH</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">Dropbox</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">S3</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">Rackspace</span> <span class="n">Cloud</span> <span class="n">Files</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> 
-<span class="o">&gt;</span> <span class="n">Do</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">website</span> <span class="n">using</span> <span class="n">GitHub</span> <span class="n">Pages</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="n">y</span>
-<span class="o">&gt;</span> <span class="n">Is</span> <span class="n">this</span> <span class="n">your</span> <span class="n">personal</span> <span class="n">page</span> <span class="p">(</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">)</span><span class="o">?</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="n">y</span>
-<span class="n">Done</span><span class="p">.</span> <span class="n">Your</span> <span class="n">new</span> <span class="n">project</span> <span class="n">is</span> <span class="n">available</span> <span class="n">at</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">blog</span>
+&gt; Where do you want to create your new web site? [.] 
+&gt; What will be the title of this web site? My Blog
+&gt; Who will be the author of this web site? John Doe
+&gt; What will be the default language of this web site? [en] 
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
+&gt; Do you want to enable article pagination? (Y/n) 
+&gt; How many articles per page do you want? [10] 
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
+&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) 
+&gt; Do you want to upload your website using FTP? (y/N) 
+&gt; Do you want to upload your website using SSH? (y/N) 
+&gt; Do you want to upload your website using Dropbox? (y/N) 
+&gt; Do you want to upload your website using S3? (y/N) 
+&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) 
+&gt; Do you want to upload your website using GitHub Pages? (y/N) y
+&gt; Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /tmp/blog
 </pre></div>
 
 
