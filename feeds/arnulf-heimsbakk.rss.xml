@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link>http://blog.heimsbakk.net/</link><description></description><atom:link href="http://blog.heimsbakk.net/feeds/arnulf-heimsbakk.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 16 Jan 2015 00:00:00 +0100</lastBuildDate><item><title>Use GitHub to host a Pelican blog</title><link>http://blog.heimsbakk.net/posts/2015/pelican-github.html</link><description>&lt;p&gt;This is the simplest way I know how to use &lt;a href="https://github.io"&gt;Github&lt;/a&gt; for hosting a Pelican blog. &lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>&gt; /dev/null &gt; 2&gt;&amp;1</title><link>http://blog.heimsbakk.net/</link><description></description><atom:link href="http://blog.heimsbakk.net/feeds/arnulf-heimsbakk.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 16 Jan 2015 00:00:00 +0100</lastBuildDate><item><title>Use GitHub to host a Pelican blog</title><link>http://blog.heimsbakk.net/posts/2015/pelican-github.html</link><description>&lt;p&gt;This is the simplest way I know how to use &lt;a href="https://github.io"&gt;Github&lt;/a&gt; for hosting a Pelican blog. &lt;/p&gt;
 &lt;h2&gt;On Github&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
