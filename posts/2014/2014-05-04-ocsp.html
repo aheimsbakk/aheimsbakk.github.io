@@ -94,7 +94,7 @@
 </ul>
 <h2>Summary</h2>
 <p>Create <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> stapling configuration for <a href="http://httpd.apache.org">Apache</a>.</p>
-<div class="highlight"><pre>cat <span class="s">&lt;&lt;EOF &gt; /etc/apache2/conf-available/sslstapeling.conf</span>
+<div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt; /etc/apache2/conf-available/sslstapeling.conf</span>
 <span class="s">SSLUseStapling on</span>
 <span class="s">SSLStaplingCache &quot;shmcb:logs/stapling-cache(150000)&quot;</span>
 <span class="s">SSLStaplingResponseMaxAge 900</span>
@@ -103,14 +103,14 @@
 
 
 <p>Enable configuration, test it and do a restart of <a href="http://httpd.apache.org">Apache</a> if all is OK.</p>
-<div class="highlight"><pre>a2enconf sslstapeling
+<div class="highlight"><pre><span></span>a2enconf sslstapeling
 apache2ctl configtest
 apache2ctl restart
 </pre></div>
 
 
 <p>Check <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> with <a href="https://www.openssl.org">OpenSSL</a>.</p>
-<div class="highlight"><pre>openssl s_client -connect «yoursite»:443 -tls1 -tlsextdebug -status
+<div class="highlight"><pre><span></span>openssl s_client -connect «yoursite»:443 -tls1 -tlsextdebug -status
 </pre></div>
 
       </div><!-- /.entry-content -->

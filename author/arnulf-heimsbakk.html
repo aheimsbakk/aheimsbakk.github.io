@@ -65,6 +65,46 @@
                         <article>
                             <header>
                                 <h1 class="entry-title">
+                                    <a href="../posts/2016/2016-03-26-syncthing.html" rel="bookmark" title="Permalink to Distributed syncing with Syncthing">
+                                       Distributed syncing with Syncthing
+                                    </a>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+    </address>
+
+    in <a href="../category/uris.html">uris</a>
+
+    on 2016-03-26
+
+        |
+        tags:         <a href="../tag/network.html">network</a>
+
+
+        |
+        <a href="../posts/2016/2016-03-26-syncthing.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->                                <p>I've tried to ditch <a href="https://dropbox.com/">Dropbox</a> for a long time. But the need for synchronizing folders between my computers have held me back. <a href="https://syncthing.net/">Syncthing</a> solves this for me. It's decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.</p>
+<p>Excerpt from Syncthings homepage: <em>Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.</em></p>
+<ul>
+<li><a href="https://syncthing.net/">Syncthing</a></li>
+<li><a href="https://github.com/syncthing/syncthing/tree/master">Syncthing on Github</a></li>
+</ul>
+                                <p class="readmore">
+                                    <a class="btn btn-small btn-info" href="../posts/2016/2016-03-26-syncthing.html">Read more...</a>
+                                </p>
+                            </div><!-- /.entry-content -->
+                            <hr/>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <h1 class="entry-title">
                                     <a href="../posts/2015/pelican-github.html" rel="bookmark" title="Permalink to Use GitHub to host a Pelican blog">
                                        Use GitHub to host a Pelican blog
                                     </a>
@@ -99,7 +139,7 @@
 </ul>
 <h2>Pre requisite</h2>
 <ul>
-<li>Install software<div class="highlight"><pre>sudo apt-get install python-pip git
+<li>Install software<div class="highlight"><pre><span></span>sudo apt-get install python-pip git
 sudo pip install pelican markdown ghp-import
 </pre></div>
 
@@ -110,8 +150,8 @@ sudo pip install pelican markdown ghp-import
 <ul>
 <li>
 <p>Create a git repository </p>
-<div class="highlight"><pre>mkdir blog
-<span class="nb">cd </span>blog
+<div class="highlight"><pre><span></span>mkdir blog
+<span class="nb">cd</span> blog
 git init
 touch README.md
 git add README.md 
@@ -122,7 +162,7 @@ git commit -a -m <span class="s2">&quot;initial commit&quot;</span>
 </li>
 <li>
 <p>Create a working branch for our blog, the master branch will be the blog content</p>
-<div class="highlight"><pre>git branch blog
+<div class="highlight"><pre><span></span>git branch blog
 git checkout blog
 </pre></div>
 
@@ -130,7 +170,7 @@ git checkout blog
 </li>
 <li>
 <p>Initialize the blog with <code>pelican-quickstart</code></p>
-<div class="highlight"><pre>pelican-quickstart
+<div class="highlight"><pre><span></span>pelican-quickstart
 
 Welcome to pelican-quickstart v3.4.0.
 
@@ -191,22 +231,22 @@ needed by Pelican.
 <div class="section" id="example-of-compressed-swap-in-memory">
 <h2>Example of compressed swap in memory</h2>
 <p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<div class="highlight"><pre><span class="c"># Load the module and create one zram device, /dev/zram0</span>
+<div class="highlight"><pre><span></span><span class="c1"># Load the module and create one zram device, /dev/zram0</span>
 modprobe zram <span class="nv">num_devices</span><span class="o">=</span>1
 
-<span class="c"># Maximum of compressed streams (keep same as CPUs)</span>
-<span class="nb">echo </span><span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+<span class="c1"># Maximum of compressed streams (keep same as CPUs)</span>
+<span class="nb">echo</span> <span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
-<span class="c"># Size of zram0 device in k/m/g</span>
-<span class="nb">echo </span>2g &gt; /sys/devices/virtual/block/zram0/disksize
+<span class="c1"># Size of zram0 device in k/m/g</span>
+<span class="nb">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
 
-<span class="c"># Comression compression algorithm to use</span>
-<span class="nb">echo </span>lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+<span class="c1"># Comression compression algorithm to use</span>
+<span class="nb">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
 
-<span class="c"># Create the swap file system</span>
+<span class="c1"># Create the swap file system</span>
 mkswap /dev/zram0
 
-<span class="c"># Enable the swap partition with high priority</span>
+<span class="c1"># Enable the swap partition with high priority</span>
 swapon /dev/zram0 -p 10
 </pre></div>
 <!-- # vim: set spell spl=en: -->
@@ -254,25 +294,25 @@ swapon /dev/zram0 -p 10
 <h2>Capture audio</h2>
 <h3>Pre requests</h3>
 <p>You have to install a couple of programs, if you don't have them from before, to make the bash script work.</p>
-<div class="highlight"><pre>apt-get install pulseaudio-utils flac coreutils
+<div class="highlight"><pre><span></span>apt-get install pulseaudio-utils flac coreutils
 </pre></div>
 
 
 <h3>The script</h3>
 <p>This is my <code>record-app.sh</code> script.</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="nv">BN</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span>
 <span class="nv">SI</span><span class="o">=</span><span class="k">$(</span>pacmd list-sink-inputs <span class="p">|</span> grep -m <span class="m">1</span> index <span class="p">|</span> egrep -o <span class="s2">&quot;[[:digit:]]+&quot;</span><span class="k">)</span>
 
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;usage: </span><span class="nv">$BN</span><span class="s2"> filename&quot;</span>
-  <span class="nb">exit </span>1
+  <span class="nb">exit</span> 1
 <span class="k">fi</span>
 
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$SI</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;error: no input sinks found&quot;</span>
-  <span class="nb">exit </span>2
+  <span class="nb">exit</span> 2
 <span class="k">fi</span>
 
 <span class="nv">N</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
@@ -290,12 +330,12 @@ parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</sp
 
 
 <h3>Usage</h3>
-<div class="highlight"><pre>usage: record-app.sh filename
+<div class="highlight"><pre><span></span>usage: record-app.sh filename
 </pre></div>
 
 
 <h4>Example 1</h4>
-<div class="highlight"><pre>./record-app.sh firefox-sound
+<div class="highlight"><pre><span></span>./record-app.sh firefox-sound
 </pre></div>
 
 
@@ -339,16 +379,16 @@ parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</sp
 </footer><!-- /.post-info -->                                <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually. </p>
 <h2>One time configuration</h2>
 <h3>Install OpenStack plugin in Vagrant</h3>
-<div class="highlight"><pre><span class="nb">cd</span> /tmp
+<div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
 git clone https://github.com/cloudbau/vagrant-openstack-plugin
-<span class="nb">cd </span>vagrant-openstack-plugin
+<span class="nb">cd</span> vagrant-openstack-plugin
 gem build vagrant-openstack-plugin.gemspec
 vagrant plugin install vagrant-openstack-plugin-*.gem
 </pre></div>
 
 
 <p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
-<div class="highlight"><pre>vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+<div class="highlight"><pre><span></span>vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
 </pre></div>
 
 
@@ -363,7 +403,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 <h2>Configure a Vagrant VM</h2>
 <h3>Vagrantfile</h3>
 <p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>. </p>
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
 
 <span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;dummy&quot;</span>
@@ -422,7 +462,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 <p>This example only show how to use <code>fio</code> to make reproduceable test on a file system. For me it's been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable. </p>
 <p>All parameter numbers are examples, define your own test according to what you want to measure. </p>
 <h2>Installing fio</h2>
-<div class="highlight"><pre>apt-get install fio
+<div class="highlight"><pre><span></span>apt-get install fio
 </pre></div>
 
 
@@ -433,19 +473,19 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 <li><code>size</code> is the working file size.</li>
 <li>If you want to test a read heavy load, use <code>rwmixread</code> with a percentage of reads versus writes..</li>
 </ul>
-<div class="highlight"><pre><span class="k">for</span> i in <span class="nb">read </span>write readwrite randread randwrite randrw<span class="p">;</span> <span class="k">do</span> fio --name<span class="o">=</span>fio  --write_bw_log<span class="o">=</span><span class="nv">$i</span> --write_iops_log<span class="o">=</span><span class="nv">$i</span> --write_lat_log<span class="o">=</span><span class="nv">$i</span> --ioengine<span class="o">=</span>sync --size<span class="o">=</span>10G --runtime<span class="o">=</span><span class="m">60</span> --rw<span class="o">=</span><span class="nv">$i</span> --norandommap --refill_buffers --randrepeat<span class="o">=</span><span class="m">0</span>  --iodepth<span class="o">=</span><span class="m">1</span> --direct<span class="o">=</span><span class="m">1</span> --numjobs<span class="o">=</span><span class="m">8</span> --group_reporting --bsrange<span class="o">=</span>4k-4k<span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><span class="k">for</span> i in <span class="nb">read</span> write readwrite randread randwrite randrw<span class="p">;</span> <span class="k">do</span> fio --name<span class="o">=</span>fio  --write_bw_log<span class="o">=</span><span class="nv">$i</span> --write_iops_log<span class="o">=</span><span class="nv">$i</span> --write_lat_log<span class="o">=</span><span class="nv">$i</span> --ioengine<span class="o">=</span>sync --size<span class="o">=</span>10G --runtime<span class="o">=</span><span class="m">60</span> --rw<span class="o">=</span><span class="nv">$i</span> --norandommap --refill_buffers --randrepeat<span class="o">=</span><span class="m">0</span>  --iodepth<span class="o">=</span><span class="m">1</span> --direct<span class="o">=</span><span class="m">1</span> --numjobs<span class="o">=</span><span class="m">8</span> --group_reporting --bsrange<span class="o">=</span>4k-4k<span class="p">;</span> <span class="k">done</span>
 </pre></div>
 
 
 <h2>Generating I/O plots</h2>
-<div class="highlight"><pre>fio2gnuplot -i -g
+<div class="highlight"><pre><span></span>fio2gnuplot -i -g
 </pre></div>
 
 
 <p>For me is the most interesting plot is <strong>compare-result-2Dsmooth.png</strong>.</p>
 <h2>Generating bandwidth plots</h2>
 <p>Testing bandwidth is better to do with a larger block size. I usually set a block size between 64k to 1m. </p>
-<div class="highlight"><pre><span class="k">for</span> i ...</pre></div>
+<div class="highlight"><pre><span></span><span class="k">for</span> i ...</pre></div>
                                 <p class="readmore">
                                     <a class="btn btn-small btn-info" href="../posts/2014/2014-12-15-fio.html">Read more...</a>
                                 </p>
@@ -485,24 +525,24 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
     
 </footer><!-- /.post-info -->                                <p>Notes for power saving on my i5 laptop.</p>
 <h2>/etc/rc.local</h2>
-<div class="highlight"><pre><span class="c">#  SATA power save</span>
-<span class="nb">echo </span>medium_power <span class="p">|</span> tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
+<div class="highlight"><pre><span></span><span class="c1">#  SATA power save</span>
+<span class="nb">echo</span> medium_power <span class="p">|</span> tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
 
-<span class="c"># Set minimum performance to 30% of CPU MHz </span>
-<span class="nb">echo </span><span class="m">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
+<span class="c1"># Set minimum performance to 30% of CPU MHz </span>
+<span class="nb">echo</span> <span class="m">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
-<span class="c"># Set CPU governor to power save since we run on a laptop</span>
-<span class="c"># Valid values: powersave performance</span>
-<span class="nb">echo </span>powersave <span class="p">|</span> tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
+<span class="c1"># Set CPU governor to power save since we run on a laptop</span>
+<span class="c1"># Valid values: powersave performance</span>
+<span class="nb">echo</span> powersave <span class="p">|</span> tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
 
-<span class="c"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
-<span class="nb">echo </span><span class="m">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
+<span class="c1"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
+<span class="nb">echo</span> <span class="m">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
 </pre></div>
 
 
 <h2>/etc/default/grub</h2>
-<div class="highlight"><pre><span class="c"># Make my back light buttons work correctly</span>
-<span class="c"># Full power save for GPU</span>
+<div class="highlight"><pre><span></span><span class="c1"># Make my back light buttons work correctly</span>
+<span class="c1"># Full power save for GPU</span>
 <span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;video.use_native_backlight=1 i915.enable_rc6=7 i915.enable_fbc=1 i915.lvds_downclock=1&quot;</span>
 </pre></div>
 
@@ -546,7 +586,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
     
 </footer><!-- /.post-info -->                                <p>Google now supports Google Earth in Google Maps. As far as I know it works in <a href="https://en.wikipedia.org/wiki/Google_Chrome">Chrome</a> and <a href="https://en.wikipedia.org/wiki/Chromium_%28web_browser%29">Chromium</a>. If Google Earth isn't available where the satellite view options is, your graphic card is in the browsers blacklist.</p>
 <p>To force enabling <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> in the browser start it with the following options</p>
-<div class="highlight"><pre>chromium-browser --enable-webgl --ignore-gpu-blacklist
+<div class="highlight"><pre><span></span>chromium-browser --enable-webgl --ignore-gpu-blacklist
 </pre></div>
 
 
@@ -656,86 +696,6 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
                             <hr/>
                         </article>
                     </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="../posts/2014/2014-05-11-rootnexus.html" rel="bookmark" title="Permalink to Flashing a custom rom on Nexus 4">
-                                       Flashing a custom rom on Nexus 4
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
-    </address>
-
-    in <a href="../category/blog.html">blog</a>
-
-    on 2014-05-11
-
-        |
-        tags:         <a href="../tag/android.html">android</a>
-        <a href="../tag/cyanogenmod.html">cyanogenmod</a>
-        <a href="../tag/firmware.html">firmware</a>
-        <a href="../tag/howto.html">howto</a>
-
-
-        |
-        <a href="../posts/2014/2014-05-11-rootnexus.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>Flashing a custom image on an <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> mobile could be just fun. But if you don't know why you want to do it, or do it just because it's a challenge. <strong>Then don't!</strong> </p>
-<h2>The bad and the good</h2>
-<p>I'm only pointing out some of the cons and the pros here.</p>
-<h3>Negative sides</h3>
-<ul>
-<li>An OS image could contain <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a>; only use community trusted images.</li>
-<li>If you don't pay attention you can get <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a> running as root. That's B A D !</li>
-<li>May not have all the phones vendor functionality. </li>
-<li>The image may be buggy.</li>
-</ul>
-<h4>Consequences of a buggy image</h4>
-<ul>
-<li>Lock up your phone when you least expect it.</li>
-<li>Drain the battery quicker. </li>
-<li>Suddenly reboot.</li>
-</ul>
-<h3>Positive sides</h3>
-<ul>
-<li>You can get a newer more secure operating system.</li>
-<li>Use less battery.</li>
-<li>No <a href="https://en.wikipedia.org/wiki/Crapware" title="Pre-installed software">crapware</a>.</li>
-<li>Extra security functions.</li>
-</ul>
-<h2>Flashing CyanogenMod</h2>
-<p>One of the custom <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> images based on <a href="https://source.android.com" title="Android Open Source Project">AOSP</a> is <a href="http://www.cyanogenmod.org">CyanogenMod</a>. As I know, it's one of the more used ones. Quite stable if you keep away from the <a href="https://en.wikipedia.org/wiki/Nightlies" title="Neutral build">nightlies</a> and rich on functionality but not bloated.</p>
-<h3>Preparations</h3>
-<ol>
-<li>
-<p>Install <a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge">adb</a> and <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a> to help manage your Nexus phone.</p>
-<div class="highlight"><pre>sudo apt-get install android-tools-adb android-tools-fastboot
-</pre></div>
-
-
-</li>
-<li>
-<p>Download custom a recovery image. Personally I prefer <a href="http://www.clockworkmod.com">ClockworkMod</a> and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.</p>
-<div class="highlight"><pre>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
-</pre></div>
-
-
-</li>
-<li>
-<p>Download the latest M snapshot from <a href="http://www.cyanogenmod.org">CyanogenMod</a> on <a href="http://download.cyanogenmod.org">download.cyanogenmod.org</a>. The model name for Nexus 4 is ...</p></li></ol>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="../posts/2014/2014-05-11-rootnexus.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
                     </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 3
@@ -782,47 +742,47 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
             <div>
                 <h2>Tags</h2>
                 <ul id="cloud">
-                     <li class="tag-4"><a href="../tag/vim.html">vim</a></li>
-                     <li class="tag-4"><a href="../tag/openvpn.html">openvpn</a></li>
                      <li class="tag-4"><a href="../tag/grub.html">grub</a></li>
-                     <li class="tag-4"><a href="../tag/sound.html">sound</a></li>
-                     <li class="tag-3"><a href="../tag/tomato.html">tomato</a></li>
-                     <li class="tag-4"><a href="../tag/chromium.html">chromium</a></li>
-                     <li class="tag-4"><a href="../tag/incron.html">incron</a></li>
-                     <li class="tag-3"><a href="../tag/oneliner.html">oneliner</a></li>
-                     <li class="tag-3"><a href="../tag/vagrant.html">vagrant</a></li>
-                     <li class="tag-4"><a href="../tag/intel.html">intel</a></li>
-                     <li class="tag-4"><a href="../tag/firefox.html">firefox</a></li>
-                     <li class="tag-4"><a href="../tag/io.html">io</a></li>
-                     <li class="tag-4"><a href="../tag/cloud.html">cloud</a></li>
-                     <li class="tag-4"><a href="../tag/cheatsheet.html">cheatsheet</a></li>
-                     <li class="tag-4"><a href="../tag/trng.html">trng</a></li>
                      <li class="tag-4"><a href="../tag/i915.html">i915</a></li>
-                     <li class="tag-3"><a href="../tag/firmware.html">firmware</a></li>
-                     <li class="tag-4"><a href="../tag/vpn.html">vpn</a></li>
-                     <li class="tag-4"><a href="../tag/zram.html">zram</a></li>
-                     <li class="tag-4"><a href="../tag/chrome.html">chrome</a></li>
-                     <li class="tag-4"><a href="../tag/cyanogenmod.html">cyanogenmod</a></li>
-                     <li class="tag-4"><a href="../tag/maps.html">maps</a></li>
+                     <li class="tag-4"><a href="../tag/openvpn.html">openvpn</a></li>
+                     <li class="tag-1"><a href="../tag/howto.html">howto</a></li>
+                     <li class="tag-4"><a href="../tag/cloud.html">cloud</a></li>
                      <li class="tag-4"><a href="../tag/vm.html">vm</a></li>
-                     <li class="tag-4"><a href="../tag/entropy.html">entropy</a></li>
-                     <li class="tag-4"><a href="../tag/pulseaudio.html">pulseaudio</a></li>
-                     <li class="tag-4"><a href="../tag/benchmark.html">benchmark</a></li>
-                     <li class="tag-2"><a href="../tag/network.html">network</a></li>
-                     <li class="tag-2"><a href="../tag/security.html">security</a></li>
-                     <li class="tag-4"><a href="../tag/tuning.html">tuning</a></li>
-                     <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+                     <li class="tag-4"><a href="../tag/cyanogenmod.html">cyanogenmod</a></li>
+                     <li class="tag-4"><a href="../tag/incron.html">incron</a></li>
+                     <li class="tag-4"><a href="../tag/dropbox.html">dropbox</a></li>
                      <li class="tag-4"><a href="../tag/openstack.html">openstack</a></li>
+                     <li class="tag-4"><a href="../tag/zram.html">zram</a></li>
+                     <li class="tag-3"><a href="../tag/vagrant.html">vagrant</a></li>
+                     <li class="tag-4"><a href="../tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-4"><a href="../tag/io.html">io</a></li>
+                     <li class="tag-4"><a href="../tag/chrome.html">chrome</a></li>
+                     <li class="tag-4"><a href="../tag/cheatsheet.html">cheatsheet</a></li>
+                     <li class="tag-3"><a href="../tag/tomato.html">tomato</a></li>
+                     <li class="tag-4"><a href="../tag/benchmark.html">benchmark</a></li>
+                     <li class="tag-4"><a href="../tag/vim.html">vim</a></li>
+                     <li class="tag-4"><a href="../tag/entropy.html">entropy</a></li>
+                     <li class="tag-3"><a href="../tag/firmware.html">firmware</a></li>
                      <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
+                     <li class="tag-4"><a href="../tag/vpn.html">vpn</a></li>
                      <li class="tag-3"><a href="../tag/apache.html">apache</a></li>
+                     <li class="tag-4"><a href="../tag/virtualbox.html">virtualbox</a></li>
+                     <li class="tag-3"><a href="../tag/oneliner.html">oneliner</a></li>
+                     <li class="tag-4"><a href="../tag/trng.html">trng</a></li>
+                     <li class="tag-4"><a href="../tag/sound.html">sound</a></li>
+                     <li class="tag-2"><a href="../tag/bash.html">bash</a></li>
+                     <li class="tag-4"><a href="../tag/maps.html">maps</a></li>
+                     <li class="tag-4"><a href="../tag/ubuntu.html">ubuntu</a></li>
                      <li class="tag-4"><a href="../tag/pstate.html">pstate</a></li>
+                     <li class="tag-4"><a href="../tag/intel.html">intel</a></li>
                      <li class="tag-3"><a href="../tag/kernel.html">kernel</a></li>
                      <li class="tag-4"><a href="../tag/android.html">android</a></li>
-                     <li class="tag-4"><a href="../tag/virtualbox.html">virtualbox</a></li>
+                     <li class="tag-4"><a href="../tag/tuning.html">tuning</a></li>
+                     <li class="tag-4"><a href="../tag/firefox.html">firefox</a></li>
+                     <li class="tag-2"><a href="../tag/security.html">security</a></li>
                      <li class="tag-2"><a href="../tag/ssl.html">ssl</a></li>
-                     <li class="tag-4"><a href="../tag/dropbox.html">dropbox</a></li>
-                     <li class="tag-4"><a href="../tag/ubuntu.html">ubuntu</a></li>
-                     <li class="tag-1"><a href="../tag/howto.html">howto</a></li>
+                     <li class="tag-4"><a href="../tag/chromium.html">chromium</a></li>
+                     <li class="tag-2"><a href="../tag/network.html">network</a></li>
                 </ul>
              </div>
 <!-- /.Tags -->

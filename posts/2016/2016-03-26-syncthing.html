@@ -5,14 +5,14 @@
     <meta name="author" content="Arnulf Heimsbakk" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Find duplicate files"/>
-    <meta property="og:url" content="../../posts/2014/2014-04-13-duplicates.html"/>
+    <meta property="og:title" content="Distributed syncing with Syncthing"/>
+    <meta property="og:url" content="../../posts/2016/2016-03-26-syncthing.html"/>
     <meta property="og:site_name" content="> /dev/null > 2>&1"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="../../posts/2014/2014-04-13-duplicates.html" />
+    <link rel="canonical" href="../../posts/2016/2016-03-26-syncthing.html" />
 
-    <title>Find duplicate files | > /dev/null > 2>&1</title>
+    <title>Distributed syncing with Syncthing | > /dev/null > 2>&1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -45,8 +45,8 @@
                         <ul class="nav">
                             <li ><a href="/index.html">home</a></li>
                             <li ><a href="#">|</a></li>
-                            <li class="active"><a href="../../category/blog.html">blog</a></li>
-                            <li ><a href="../../category/uris.html">uris</a></li>
+                            <li ><a href="../../category/blog.html">blog</a></li>
+                            <li class="active"><a href="../../category/uris.html">uris</a></li>
                         </ul>
 
                     </div>
@@ -63,8 +63,8 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="../../posts/2014/2014-04-13-duplicates.html" rel="bookmark"
-             title="Permalink to Find duplicate files">Find duplicate files</a></h1>
+          <a href="../../posts/2016/2016-03-26-syncthing.html" rel="bookmark"
+             title="Permalink to Distributed syncing with Syncthing">Distributed syncing with Syncthing</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
@@ -72,52 +72,33 @@
         by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
     </address>
 
-    in <a href="../../category/blog.html">blog</a>
+    in <a href="../../category/uris.html">uris</a>
 
-    on 2014-04-13
-
-        |
-        tags:         <a href="../../tag/bash.html">bash</a>
-        <a href="../../tag/oneliner.html">oneliner</a>
-
+    on 2016-03-26
 
         |
-        <a href="../../posts/2014/2014-04-13-duplicates.html#disqus_thread">comments</a>
+        tags:         <a href="../../tag/network.html">network</a>
+
+
+        |
+        <a href="../../posts/2016/2016-03-26-syncthing.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
 
-        <p>Find all duplicate files in current and sub-directories with bash. </p>
-<div class="highlight"><pre><span></span>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
-</pre></div>
-
-
-<h2>Breakdown</h2>
-<ol>
-<li>Find all non empty files and print out size.</li>
-<li>Do a numeric sort on size list.</li>
-<li>Print out only duplicate sizes.</li>
-<li>One at a time run find on size and print file names.</li>
-<li>Find md5sum of all files.</li>
-<li>Alphabetical sort md5sums and file names.</li>
-<li>Find all md5sums which repeats and print them in groups. </li>
-</ol>
-<h2>Alternatively</h2>
-<p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above. </p>
-<div class="highlight"><pre><span></span>apt-get install fdupes
-</pre></div>
-
-
-<p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre><span></span>fdupes -r .
-</pre></div>
+        <p>I've tried to ditch <a href="https://dropbox.com/">Dropbox</a> for a long time. But the need for synchronizing folders between my computers have held me back. <a href="https://syncthing.net/">Syncthing</a> solves this for me. It's decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.</p>
+<p>Excerpt from Syncthings homepage: <em>Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.</em></p>
+<ul>
+<li><a href="https://syncthing.net/">Syncthing</a></li>
+<li><a href="https://github.com/syncthing/syncthing/tree/master">Syncthing on Github</a></li>
+</ul>
 
       </div><!-- /.entry-content -->
       <div class="comments">
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "posts/2014/2014-04-13-duplicates.html";
+          var disqus_identifier = "posts/2016/2016-03-26-syncthing.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//blogheimsbakknet.disqus.com/embed.js';

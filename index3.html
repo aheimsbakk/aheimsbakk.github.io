@@ -65,6 +65,45 @@
                         <article>
                             <header>
                                 <h1 class="entry-title">
+                                    <a href="./posts/2014/2014-04-13-digitalocean.html" rel="bookmark" title="Permalink to Cloud virtual machine">
+                                       Cloud virtual machine
+                                    </a>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+    </address>
+
+    in <a href="./category/uris.html">uris</a>
+
+    on 2014-04-13
+
+        |
+        tags:         <a href="./tag/cloud.html">cloud</a>
+        <a href="./tag/vm.html">vm</a>
+
+
+        |
+        <a href="./posts/2014/2014-04-13-digitalocean.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->                                <p>Easiest way I know to create cloud virtual machine is to create a Droplet on Digital Ocean.</p>
+<ul>
+<li><a href="https://www.digitalocean.com/?refcode=2c2348527899">DigialOcean</a>. </li>
+</ul>
+                                <p class="readmore">
+                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-04-13-digitalocean.html">Read more...</a>
+                                </p>
+                            </div><!-- /.entry-content -->
+                            <hr/>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <h1 class="entry-title">
                                     <a href="./posts/2014/2014-04-13-kernel.html" rel="bookmark" title="Permalink to Remove unused kernels">
                                        Remove unused kernels
                                     </a>
@@ -92,7 +131,7 @@
 
     
 </footer><!-- /.post-info -->                                <p>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)</p>
-<div class="highlight"><pre>dpkg-query -f <span class="s1">&#39;${Package}\n&#39;</span> -W <span class="p">|</span>  egrep <span class="s1">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span class="p">|</span> grep -v <span class="k">$(</span>uname -r <span class="p">|</span> sed <span class="s1">&#39;s/-generic//&#39;</span><span class="k">)</span> <span class="p">|</span> sudo xargs apt-get -q -q -yy --purge remove
+<div class="highlight"><pre><span></span>dpkg-query -f <span class="s1">&#39;${Package}\n&#39;</span> -W <span class="p">|</span>  egrep <span class="s1">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span class="p">|</span> grep -v <span class="k">$(</span>uname -r <span class="p">|</span> sed <span class="s1">&#39;s/-generic//&#39;</span><span class="k">)</span> <span class="p">|</span> sudo xargs apt-get -q -q -yy --purge remove
 </pre></div>
 
 
@@ -139,20 +178,20 @@
 
     
 </footer><!-- /.post-info -->                                <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
-<div class="highlight"><pre><span class="k">set</span> <span class="nb">modeline</span>
+<div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">modeline</span>
 </pre></div>
 
 
 <p>The modeline should be the first line in the file. You can set it inn multiple ways as shown below. </p>
-<div class="highlight"><pre># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
+<div class="highlight"><pre><span></span># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cm">/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="cm">/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */</span><span class="w"></span>
 </pre></div>
 
 
-<div class="highlight"><pre>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
+<div class="highlight"><pre><span></span>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
 </pre></div>
 
 
@@ -221,9 +260,9 @@
 
     
 </footer><!-- /.post-info -->                                <p>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<span class="c"># Print help on stderr</span>
+<span class="c1"># Print help on stderr</span>
 <span class="k">function</span> show_help<span class="o">(){</span> 
     show_usage 
     cat &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="s">&lt;&lt;EOF</span>
@@ -232,38 +271,38 @@
 <span class="s">EOF</span>
 <span class="o">}</span>
 
-<span class="c"># Print usage on stderr</span>
+<span class="c1"># Print usage on stderr</span>
 <span class="k">function</span> show_usage<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&quot;</span> &gt;<span class="p">&amp;</span>2
 <span class="o">}</span>
 
-<span class="c"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
+<span class="c1"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
     show_usage
-    <span class="nb">exit </span>1
+    <span class="nb">exit</span> 1
 <span class="k">fi</span>
 
-<span class="c"># :  = make getopts silent, handle errors self</span>
-<span class="c"># a: = option a expects an argument</span>
-<span class="c"># b  = option b is a true false option</span>
-<span class="c"># h  = option h is a true false option</span>
-<span class="c">#</span>
-<span class="c"># On invalid option, opt will be replaced with ? </span>
-<span class="c"># and OPTARG set to argument name</span>
+<span class="c1"># :  = make getopts silent, handle errors self</span>
+<span class="c1"># a: = option a expects an argument</span>
+<span class="c1"># b  = option b is a true false option</span>
+<span class="c1"># h  = option h is a true false option</span>
+<span class="c1">#</span>
+<span class="c1"># On invalid option, opt will be replaced with ? </span>
+<span class="c1"># and OPTARG set to argument name</span>
 <span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:a:bh&quot;</span> opt
 <span class="k">do</span>
     <span class="k">case</span> <span class="nv">$opt</span> in
         a<span class="o">)</span>  <span class="nb">echo</span> <span class="nv">$OPTARG</span><span class="p">;;</span>
-        b<span class="o">)</span>  <span class="nb">echo </span>True<span class="p">;;</span>
-        h<span class="o">)</span>  show_help<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;;</span>
+        b<span class="o">)</span>  <span class="nb">echo</span> True<span class="p">;;</span>
+        h<span class="o">)</span>  show_help<span class="p">;</span> <span class="nb">exit</span> 1<span class="p">;;</span>
         <span class="se">\?</span><span class="o">)</span> <span class="nb">echo</span> <span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span> invalid option: -<span class="nv">$OPTARG</span> &gt;<span class="p">&amp;</span>2
-            <span class="nb">exit </span>1
+            <span class="nb">exit</span> 1
             <span class="p">;;</span>
     <span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="c"># OPTIND is not reset after getopts is finished. </span>
-<span class="c"># Loop through argument  [N1 [N2 .. [NN]]] </span>
+<span class="c1"># OPTIND is not reset after getopts is finished. </span>
+<span class="c1"># Loop through argument  [N1 [N2 .. [NN]]] </span>
 <span class="k">for</span> ARG in <span class="si">${</span><span class="p">@:</span><span class="nv">$OPTIND</span><span class="si">}</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="nv">$ARG</span>
@@ -348,28 +387,28 @@
 <ol>
 <li>
 <p>Install Pelican and package for <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> language. With Markdown you write the content in text and Pelican translates it to HTML.</p>
-<div class="highlight"><pre>apt-get install python-pelican python-markdown
+<div class="highlight"><pre><span></span>apt-get install python-pelican python-markdown
 </pre></div>
 
 
 </li>
 <li>
 <p>Make a directory where you want to maintain your blog.</p>
-<div class="highlight"><pre>mkdir myblock; cd myblock
+<div class="highlight"><pre><span></span>mkdir myblock; cd myblock
 </pre></div>
 
 
 </li>
 <li>
 <p>Run the Pelican quick start script and answer all the questions. Add at least one method of uploading your blog to a web server.</p>
-<div class="highlight"><pre>pelican-quickstart
+<div class="highlight"><pre><span></span>pelican-quickstart
 </pre></div>
 
 
 </li>
 <li>
 <p>Start by creating your first page in <code>content</code> directory. Each page should have a heading with some metadata.</p>
-<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">Creating</span> <span class="n">a</span> <span class="n">blog</span> <span class="n">based</span> <span class="n">on</span> <span class="n">Pelican</span>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">Creating</span> <span class="n">a</span> <span class="n">blog</span> <span class="n">based</span> <span class="n">on</span> <span class="n">Pelican</span>
 <span class="n">Date</span><span class="o">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">12</span>
 <span class="n">Category</span><span class="o">:</span> <span class="n">Blog</span>
 <span class="n">Tags</span><span class="o">:</span> <span class="n">blog</span><span class="o">,</span><span class="n">howto</span>
@@ -381,7 +420,7 @@
 </li>
 <li>
 <p>Start the local HTTP server and check how your blog is coming along.</p>
-<div class="highlight"><pre>make serve
+<div class="highlight"><pre><span></span>make serve
 </pre></div>
 
 
@@ -391,7 +430,7 @@
 </li>
 <li>
 <p>Upload your blog to your web server. I prefer the ssh upload option.</p>
-<div class="highlight"><pre>make ssh_upload
+<div class="highlight"><pre><span></span>make ssh_upload
 </pre></div>
 
 
@@ -451,47 +490,47 @@
             <div>
                 <h2>Tags</h2>
                 <ul id="cloud">
-                     <li class="tag-4"><a href="./tag/vim.html">vim</a></li>
-                     <li class="tag-4"><a href="./tag/openvpn.html">openvpn</a></li>
                      <li class="tag-4"><a href="./tag/grub.html">grub</a></li>
-                     <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
-                     <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
-                     <li class="tag-4"><a href="./tag/chromium.html">chromium</a></li>
-                     <li class="tag-4"><a href="./tag/incron.html">incron</a></li>
-                     <li class="tag-3"><a href="./tag/oneliner.html">oneliner</a></li>
-                     <li class="tag-3"><a href="./tag/vagrant.html">vagrant</a></li>
-                     <li class="tag-4"><a href="./tag/intel.html">intel</a></li>
-                     <li class="tag-4"><a href="./tag/firefox.html">firefox</a></li>
-                     <li class="tag-4"><a href="./tag/io.html">io</a></li>
-                     <li class="tag-4"><a href="./tag/cloud.html">cloud</a></li>
-                     <li class="tag-4"><a href="./tag/cheatsheet.html">cheatsheet</a></li>
-                     <li class="tag-4"><a href="./tag/trng.html">trng</a></li>
                      <li class="tag-4"><a href="./tag/i915.html">i915</a></li>
-                     <li class="tag-3"><a href="./tag/firmware.html">firmware</a></li>
-                     <li class="tag-4"><a href="./tag/vpn.html">vpn</a></li>
-                     <li class="tag-4"><a href="./tag/zram.html">zram</a></li>
-                     <li class="tag-4"><a href="./tag/chrome.html">chrome</a></li>
-                     <li class="tag-4"><a href="./tag/cyanogenmod.html">cyanogenmod</a></li>
-                     <li class="tag-4"><a href="./tag/maps.html">maps</a></li>
+                     <li class="tag-4"><a href="./tag/openvpn.html">openvpn</a></li>
+                     <li class="tag-1"><a href="./tag/howto.html">howto</a></li>
+                     <li class="tag-4"><a href="./tag/cloud.html">cloud</a></li>
                      <li class="tag-4"><a href="./tag/vm.html">vm</a></li>
-                     <li class="tag-4"><a href="./tag/entropy.html">entropy</a></li>
-                     <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
-                     <li class="tag-4"><a href="./tag/benchmark.html">benchmark</a></li>
-                     <li class="tag-2"><a href="./tag/network.html">network</a></li>
-                     <li class="tag-2"><a href="./tag/security.html">security</a></li>
-                     <li class="tag-4"><a href="./tag/tuning.html">tuning</a></li>
-                     <li class="tag-2"><a href="./tag/bash.html">bash</a></li>
+                     <li class="tag-4"><a href="./tag/cyanogenmod.html">cyanogenmod</a></li>
+                     <li class="tag-4"><a href="./tag/incron.html">incron</a></li>
+                     <li class="tag-4"><a href="./tag/dropbox.html">dropbox</a></li>
                      <li class="tag-4"><a href="./tag/openstack.html">openstack</a></li>
+                     <li class="tag-4"><a href="./tag/zram.html">zram</a></li>
+                     <li class="tag-3"><a href="./tag/vagrant.html">vagrant</a></li>
+                     <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-4"><a href="./tag/io.html">io</a></li>
+                     <li class="tag-4"><a href="./tag/chrome.html">chrome</a></li>
+                     <li class="tag-4"><a href="./tag/cheatsheet.html">cheatsheet</a></li>
+                     <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
+                     <li class="tag-4"><a href="./tag/benchmark.html">benchmark</a></li>
+                     <li class="tag-4"><a href="./tag/vim.html">vim</a></li>
+                     <li class="tag-4"><a href="./tag/entropy.html">entropy</a></li>
+                     <li class="tag-3"><a href="./tag/firmware.html">firmware</a></li>
                      <li class="tag-2"><a href="./tag/pelican.html">pelican</a></li>
+                     <li class="tag-4"><a href="./tag/vpn.html">vpn</a></li>
                      <li class="tag-3"><a href="./tag/apache.html">apache</a></li>
+                     <li class="tag-4"><a href="./tag/virtualbox.html">virtualbox</a></li>
+                     <li class="tag-3"><a href="./tag/oneliner.html">oneliner</a></li>
+                     <li class="tag-4"><a href="./tag/trng.html">trng</a></li>
+                     <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
+                     <li class="tag-2"><a href="./tag/bash.html">bash</a></li>
+                     <li class="tag-4"><a href="./tag/maps.html">maps</a></li>
+                     <li class="tag-4"><a href="./tag/ubuntu.html">ubuntu</a></li>
                      <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
+                     <li class="tag-4"><a href="./tag/intel.html">intel</a></li>
                      <li class="tag-3"><a href="./tag/kernel.html">kernel</a></li>
                      <li class="tag-4"><a href="./tag/android.html">android</a></li>
-                     <li class="tag-4"><a href="./tag/virtualbox.html">virtualbox</a></li>
+                     <li class="tag-4"><a href="./tag/tuning.html">tuning</a></li>
+                     <li class="tag-4"><a href="./tag/firefox.html">firefox</a></li>
+                     <li class="tag-2"><a href="./tag/security.html">security</a></li>
                      <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
-                     <li class="tag-4"><a href="./tag/dropbox.html">dropbox</a></li>
-                     <li class="tag-4"><a href="./tag/ubuntu.html">ubuntu</a></li>
-                     <li class="tag-1"><a href="./tag/howto.html">howto</a></li>
+                     <li class="tag-4"><a href="./tag/chromium.html">chromium</a></li>
+                     <li class="tag-2"><a href="./tag/network.html">network</a></li>
                 </ul>
              </div>
 <!-- /.Tags -->

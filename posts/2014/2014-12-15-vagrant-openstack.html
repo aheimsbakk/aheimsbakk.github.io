@@ -91,16 +91,16 @@
         <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually. </p>
 <h2>One time configuration</h2>
 <h3>Install OpenStack plugin in Vagrant</h3>
-<div class="highlight"><pre><span class="nb">cd</span> /tmp
+<div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
 git clone https://github.com/cloudbau/vagrant-openstack-plugin
-<span class="nb">cd </span>vagrant-openstack-plugin
+<span class="nb">cd</span> vagrant-openstack-plugin
 gem build vagrant-openstack-plugin.gemspec
 vagrant plugin install vagrant-openstack-plugin-*.gem
 </pre></div>
 
 
 <p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
-<div class="highlight"><pre>vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+<div class="highlight"><pre><span></span>vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
 </pre></div>
 
 
@@ -115,7 +115,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 <h2>Configure a Vagrant VM</h2>
 <h3>Vagrantfile</h3>
 <p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>. </p>
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
 
 <span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;dummy&quot;</span>
@@ -156,15 +156,15 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 
 <h3>bootstrap.sh</h3>
 <p>Create your custom bootstrap file.</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<span class="c"># Your aditional bootstrap here...</span>
+<span class="c1"># Your aditional bootstrap here...</span>
 </pre></div>
 
 
 <h2>Running Vagrant</h2>
 <p>Remember to source your OpenStack RC file before you run Vagrant up. You need to do that in each shell windows you are going to run Vagrant in.</p>
-<div class="highlight"><pre><span class="nb">source</span> ~/<span class="nv">$USER</span>-openrc.sh
+<div class="highlight"><pre><span></span><span class="nb">source</span> ~/<span class="nv">$USER</span>-openrc.sh
 vagrant up
 </pre></div>
 
