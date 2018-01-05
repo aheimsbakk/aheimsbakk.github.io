@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'Arnulf Heimsbakk'
-SITENAME = u'> /dev/null > 2>&1'
+SITENAME = u'> /dev/null 2>&1'
 SITEURL = ''
 
 PATH = 'content'
@@ -11,6 +11,13 @@ PATH = 'content'
 TIMEZONE = 'Europe/Oslo'
 
 DEFAULT_LANG = u'en'
+DEFAULT_DATE_FORMAT='%Y-%m-%d'
+NEWEST_FIRST_ARCHIVES = True
+
+
+#DATE_FORMATS = {
+#    'en': '%Y-%m-%d(%a)',
+#}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -69,6 +76,9 @@ TEMPLATE_PAGES = {
                 'robots.txt': 'robots.txt',
                 'CNAME': 'CNAME'
                 }
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["tag_cloud"]
 TAG_CLOUD_MAX_ITEMS=100
 TAG_CLOUD_STEPS=4
+TAG_CLOUD_SORTING = 'alphabetically'
 
