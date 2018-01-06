@@ -26,10 +26,10 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;If you get an error, &lt;strong&gt;restart&lt;/strong&gt; your computer and goto 3. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.&lt;/p&gt;
+&lt;p&gt;If you get an error, &lt;strong&gt;restart&lt;/strong&gt; your computer and goto 2. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin.&lt;/p&gt;
+&lt;p&gt;Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;ykman openpgp set-pin-retries 3 3 5
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -130,6 +130,7 @@ gpg/card&amp;gt; url
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Close your shell and open a new one to reload &lt;code&gt;.bashrc&lt;/code&gt;. If you have problems, kill existing &lt;code&gt;gpg-agent&lt;/code&gt; with &lt;code&gt;pkill gpg-agent&lt;/code&gt;, close and open the shell again.&lt;/p&gt;
 &lt;h3&gt;Public SSH key&lt;/h3&gt;
 &lt;p&gt;Get your public SSH key.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt; gpg2 --export-ssh-key ABCDEF0123456789

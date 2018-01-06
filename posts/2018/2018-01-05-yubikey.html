@@ -116,10 +116,10 @@
 </pre></div>
 
 
-<p>If you get an error, <strong>restart</strong> your computer and goto 3. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.</p>
+<p>If you get an error, <strong>restart</strong> your computer and goto 2. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.</p>
 </li>
 <li>
-<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin.</p>
+<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
 <div class="highlight"><pre>ykman openpgp set-pin-retries 3 3 5
 </pre></div>
 
@@ -220,6 +220,7 @@ gpg/card&gt; url
 </pre></div>
 
 
+<p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
 <h3>Public SSH key</h3>
 <p>Get your public SSH key.</p>
 <div class="highlight"><pre> gpg2 --export-ssh-key ABCDEF0123456789

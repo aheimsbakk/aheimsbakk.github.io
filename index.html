@@ -118,10 +118,10 @@
 </pre></div>
 
 
-<p>If you get an error, <strong>restart</strong> your computer and goto 3. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.</p>
+<p>If you get an error, <strong>restart</strong> your computer and goto 2. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.</p>
 </li>
 <li>
-<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin.</p>
+<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
 <div class="highlight"><pre>ykman openpgp set-pin-retries 3 3 5
 </pre></div>
 
@@ -157,10 +157,7 @@ gpg/card&gt; generate
 <p>Change user PIN, menu <code>1</code>.</p>
 </li>
 <li>
-<p>Change admin PIN, menu <code>3</code>. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it with <code>ykman</code>. </p>
-</li>
-<li>
-<p>Set a reset PIN if you want ...</p></li></ol>
+<p>Change admin PIN, menu <code>3</code>. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it ...</p></li></ol>
                                 <p class="readmore">
                                     <a class="btn btn-small btn-info" href="./posts/2018/2018-01-05-yubikey.html">Read more...</a>
                                 </p>
