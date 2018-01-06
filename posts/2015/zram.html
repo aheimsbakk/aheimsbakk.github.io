@@ -69,7 +69,7 @@
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="../../category/uris.html">uris</a>
@@ -95,25 +95,41 @@
 <div class="section" id="example-of-compressed-swap-in-memory">
 <h2>Example of compressed swap in memory</h2>
 <p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load the module and create one zram device, /dev/zram0</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># Load the module and create one zram device, /dev/zram0</span>
 modprobe zram <span class="nv">num_devices</span><span class="o">=</span>1
 
-<span class="c1"># Maximum of compressed streams (keep same as CPUs)</span>
-<span class="nb">echo</span> <span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+<span class="c"># Maximum of compressed streams (keep same as CPUs)</span>
+<span class="nb">echo </span><span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
-<span class="c1"># Size of zram0 device in k/m/g</span>
-<span class="nb">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
+<span class="c"># Size of zram0 device in k/m/g</span>
+<span class="nb">echo </span>2g &gt; /sys/devices/virtual/block/zram0/disksize
 
-<span class="c1"># Comression compression algorithm to use</span>
-<span class="nb">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+<span class="c"># Comression compression algorithm to use</span>
+<span class="nb">echo </span>lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
 
-<span class="c1"># Create the swap file system</span>
+<span class="c"># Create the swap file system</span>
 mkswap /dev/zram0
 
-<span class="c1"># Enable the swap partition with high priority</span>
+<span class="c"># Enable the swap partition with high priority</span>
 swapon /dev/zram0 -p 10
 </pre></div>
-<!-- # vim: set spell spl=en: -->
+</td></tr></table><!-- # vim: set spell spl=en: -->
 </div>
 
 

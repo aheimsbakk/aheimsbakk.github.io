@@ -6,11 +6,11 @@
     <meta name="robots" content="index, follow"/>
 
     <meta property="og:title" content="Use GitHub to host a Pelican blog"/>
-    <meta property="og:url" content="../../posts/2015/pelican-github.html"/>
+    <meta property="og:url" content="../drafts/pelican-github.html"/>
     <meta property="og:site_name" content="> /dev/null 2>&1"/>
     <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="../../posts/2015/pelican-github.html" />
+    <link rel="canonical" href="../drafts/pelican-github.html" />
 
     <title>Use GitHub to host a Pelican blog | > /dev/null 2>&1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="../../theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../theme/css/main.css" />
     <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null 2>&1 Atom Feed" />
 
     <script type="text/javascript">var switchTo5x=true;</script>
@@ -38,15 +38,15 @@
         <div class="span10 offset1">
             <header id="banner" >
                 <h1>
-                    <a href="../../">> /dev/null 2>&1 </a>
+                    <a href="../">> /dev/null 2>&1 </a>
                 </h1>
                 <nav class="navbar">
                     <div class="navbar-inner">
                         <ul class="nav">
                             <li ><a href="/index.html">home</a></li>
                             <li ><a href="#">|</a></li>
-                            <li class="active"><a href="../../category/blog.html">blog</a></li>
-                            <li ><a href="../../category/uris.html">uris</a></li>
+                            <li class="active"><a href="../category/blog.html">blog</a></li>
+                            <li ><a href="../category/uris.html">uris</a></li>
                         </ul>
 
                     </div>
@@ -63,53 +63,35 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="../../posts/2015/pelican-github.html" rel="bookmark"
+          <a href="../drafts/pelican-github.html" rel="bookmark"
              title="Permalink to Use GitHub to host a Pelican blog">Use GitHub to host a Pelican blog</a></h1>
       </header>
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../author/arnulf.html">arnulf</a>
     </address>
 
-    in <a href="../../category/blog.html">blog</a>
+    in <a href="../category/blog.html">blog</a>
 
     on 2015-01-15
 
         |
-        tags:         <a href="../../tag/howto.html">howto</a>
-        <a href="../../tag/pelican.html">pelican</a>
+        tags:         <a href="../tag/howto.html">howto</a>
+        <a href="../tag/pelican.html">pelican</a>
 
 
         |
-        <a href="../../posts/2015/pelican-github.html#disqus_thread">comments</a>
+        <a href="../drafts/pelican-github.html#disqus_thread">comments</a>
 
     
 </footer><!-- /.post-info -->
 
-        <p>This is the simplest way I know how to use <a href="https://github.io">Github</a> for hosting a Pelican blog. </p>
-<h2>On Github</h2>
-<ul>
-<li>
-<p>Create a repository named <strong>username.github.io</strong>.</p>
-<p>Exchange <strong>username</strong> with your username. It takes up to half an hour before Gitlab makes your repository available through http://username.github.io.</p>
-</li>
-</ul>
-<h2>Pre requisite</h2>
-<ul>
-<li>Install software<div class="highlight"><pre><span></span>sudo apt-get install python-pip git
-sudo pip install pelican markdown ghp-import
-</pre></div>
-
-
-</li>
-</ul>
-<h2>On local computer</h2>
-<ul>
+        <ul>
 <li>
 <p>Create a git repository </p>
-<div class="highlight"><pre><span></span>mkdir blog
-<span class="nb">cd</span> blog
+<div class="highlight"><pre>mkdir blog
+<span class="nb">cd </span>blog
 git init
 touch README.md
 git add README.md 
@@ -120,72 +102,46 @@ git commit -a -m <span class="s2">&quot;initial commit&quot;</span>
 </li>
 <li>
 <p>Create a working branch for our blog, the master branch will be the blog content</p>
-<div class="highlight"><pre><span></span>git branch blog
+</li>
+</ul>
+<div class="highlight"><pre>git branch blog
 git checkout blog
 </pre></div>
 
 
-</li>
-<li>
-<p>Initialize the blog with <code>pelican-quickstart</code></p>
-<div class="highlight"><pre><span></span>pelican-quickstart
+<ul>
+<li>Initialize the blog with <code>pelican-quickstart</code></li>
+</ul>
+<div class="highlight"><pre>pelican-quickstart
 
 Welcome to pelican-quickstart v3.4.0.
 
-This script will help you create a new Pelican-based website.
+This script will <span class="nb">help </span>you create a new Pelican-based website.
 
 Please answer the following questions so this script can generate the files
 needed by Pelican.
 
-&gt; Where do you want to create your new web site? [.] 
+&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> 
 &gt; What will be the title of this web site? My Blog
 &gt; Who will be the author of this web site? John Doe
-&gt; What will be the default language of this web site? [en] 
-&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
-&gt; Do you want to enable article pagination? (Y/n) 
-&gt; How many articles per page do you want? [10] 
-&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
-&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) 
-&gt; Do you want to upload your website using FTP? (y/N) 
-&gt; Do you want to upload your website using SSH? (y/N) 
-&gt; Do you want to upload your website using Dropbox? (y/N) 
-&gt; Do you want to upload your website using S3? (y/N) 
-&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) 
-&gt; Do you want to upload your website using GitHub Pages? (y/N) y
-&gt; Is this your personal page (username.github.io)? (y/N) y
+&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span> 
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> n
+&gt; Do you want to <span class="nb">enable </span>article pagination? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; How many articles per page <span class="k">do</span> you want? <span class="o">[</span>10<span class="o">]</span> 
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; Do you want an auto-reload <span class="p">&amp;</span> simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> 
+&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> 
+&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
+&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
 Done. Your new project is available at /tmp/blog
 </pre></div>
 
 
-</li>
-<li>
-<p>Commit the initial blog</p>
-<div class="highlight"><pre><span></span>git add *
-git commit -a -m <span class="s2">&quot;Initial Pelican blog&quot;</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>Make a blog article under the content folder and push it to Gitlab</p>
-<div class="highlight"><pre><span></span>vim content/your-article.md
-git add content/your-article.md
-git commit -a -m <span class="s2">&quot;My blog article&quot;</span>
-git push
-</pre></div>
-
-
-</li>
-<li>
-<p>Generate the blog into the main branch </p>
-<div class="highlight"><pre><span></span>make github
-</pre></div>
-
-
-</li>
-</ul>
-<h2>Access to the blog</h2>
-<p>Access your blog on http://<strong>username.github.io</strong></p>
+<p>*</p>
 <h6>vim: set syn=markdown spell spl=en:</h6>
 
       </div><!-- /.entry-content -->
@@ -193,7 +149,7 @@ git push
         <h2>Comments</h2>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
-          var disqus_identifier = "posts/2015/pelican-github.html";
+          var disqus_identifier = "drafts/pelican-github.html";
           (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//blogheimsbakknet.disqus.com/embed.js';

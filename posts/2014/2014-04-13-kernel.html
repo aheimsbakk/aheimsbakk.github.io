@@ -69,7 +69,7 @@
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="../../category/blog.html">blog</a>
@@ -90,7 +90,7 @@
 </footer><!-- /.post-info -->
 
         <p>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)</p>
-<div class="highlight"><pre><span></span>dpkg-query -f <span class="s1">&#39;${Package}\n&#39;</span> -W <span class="p">|</span>  egrep <span class="s1">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span class="p">|</span> grep -v <span class="k">$(</span>uname -r <span class="p">|</span> sed <span class="s1">&#39;s/-generic//&#39;</span><span class="k">)</span> <span class="p">|</span> sudo xargs apt-get -q -q -yy --purge remove
+<div class="highlight"><pre>dpkg-query -f <span class="s1">&#39;${Package}\n&#39;</span> -W <span class="p">|</span>  egrep <span class="s1">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span class="p">|</span> grep -v <span class="k">$(</span>uname -r <span class="p">|</span> sed <span class="s1">&#39;s/-generic//&#39;</span><span class="k">)</span> <span class="p">|</span> sudo xargs apt-get -q -q -yy --purge remove
 </pre></div>
 
 

@@ -69,7 +69,7 @@
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="../../category/blog.html">blog</a>
@@ -91,13 +91,13 @@
 
         <p>This will show how to get A+ on <a href="https://www.ssllabs.com/ssltest">SSL Server Test</a> from <a href="https://www.ssllabs.com">Qualys SSL Labs</a>. </p>
 <p>Enable <a href="https://httpd.apache.org/docs/current/mod/mod_ssl.html">SSL</a> and <a href="https://httpd.apache.org/docs/current/mod/mod_headers.html">headers</a> module in <a href="https://httpd.apache.org/docs">Apache2</a>.</p>
-<div class="highlight"><pre><span></span><span class="go">a2enmod ssl </span>
+<div class="highlight"><pre><span class="go">a2enmod ssl </span>
 <span class="go">a2enmod headers</span>
 </pre></div>
 
 
 <p>Edit Apache configuration.</p>
-<div class="highlight"><pre><span></span><span class="nb">SSLCertificateFile</span> <span class="sx">/etc/ssl/crt/</span>«yourcert».pem
+<div class="highlight"><pre><span class="nb">SSLCertificateFile</span> <span class="sx">/etc/ssl/crt/</span>«yourcert».pem
 <span class="nb">SSLCertificateKeyFile</span> <span class="sx">/etc/ssl/crt/</span>«yourkey».pem
 <span class="nb">SSLCertificateChainFile</span> <span class="sx">/etc/ssl/crt/</span>«intermediatechain».pem
 
@@ -112,7 +112,7 @@
 <p>The <strong>!</strong> preceding the cipher means that Apache will not use that cipher.</p>
 <h2>View ciphers</h2>
 <p>List the ciphers openssl supports with the current configuration.</p>
-<div class="highlight"><pre><span></span>openssl ciphers -v -ssl3 -tls1 <span class="s1">&#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>
+<div class="highlight"><pre>openssl ciphers -v -ssl3 -tls1 <span class="s1">&#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>
 </pre></div>
 
 

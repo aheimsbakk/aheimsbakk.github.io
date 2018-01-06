@@ -69,7 +69,7 @@
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="../../category/blog.html">blog</a>
@@ -96,56 +96,56 @@
 <p>For <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> to work we need to create our own <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> for signing both server, the router, and optionally client certificates. This notes will only show how to create a server certificate and configure the router with user name and password authentication.</p>
 <h2>Preparations, create CA</h2>
 <p>Install necessary software. Although haveged, is not required, see <a href="2014-04-29-haveged">Better entropy with haveged</a>.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install easy-rsa haveged
+<div class="highlight"><pre>sudo apt-get install easy-rsa haveged
 </pre></div>
 
 
 <p>Create a work directory for <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">OpenVPN</a>. Take care to protect this directory and the files under it. </p>
-<div class="highlight"><pre><span></span>make-cadir «yourdomain»
+<div class="highlight"><pre>make-cadir «yourdomain»
 </pre></div>
 
 
 <p>Enter your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> directory.</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> «yourdomain»
+<div class="highlight"><pre><span class="nb">cd</span> «yourdomain»
 </pre></div>
 
 
 <p>Edit the <code>vars</code> file and change the following variables to something more sensible for you.</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KEY_COUNTRY</span><span class="o">=</span><span class="s2">&quot;US&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_PROVINCE</span><span class="o">=</span><span class="s2">&quot;CA&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_CITY</span><span class="o">=</span><span class="s2">&quot;SanFrancisco&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_ORG</span><span class="o">=</span><span class="s2">&quot;Funston-Fort&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_EMAIL</span><span class="o">=</span><span class="s2">&quot;me@myhost.mydomain&quot;</span>
+<div class="highlight"><pre><span class="nb">export </span><span class="nv">KEY_COUNTRY</span><span class="o">=</span><span class="s2">&quot;US&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_PROVINCE</span><span class="o">=</span><span class="s2">&quot;CA&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_CITY</span><span class="o">=</span><span class="s2">&quot;SanFrancisco&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_ORG</span><span class="o">=</span><span class="s2">&quot;Funston-Fort&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_EMAIL</span><span class="o">=</span><span class="s2">&quot;me@myhost.mydomain&quot;</span>
 </pre></div>
 
 
 <p>Source the variables into current bash session.</p>
-<div class="highlight"><pre><span></span><span class="nb">source</span> ./vars
+<div class="highlight"><pre><span class="nb">source</span> ./vars
 </pre></div>
 
 
 <p>Do a initial clean.</p>
-<div class="highlight"><pre><span></span>./clean-all 
+<div class="highlight"><pre>./clean-all 
 </pre></div>
 
 
 <p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> public and private key.</p>
-<div class="highlight"><pre><span></span>./build-ca
+<div class="highlight"><pre>./build-ca
 </pre></div>
 
 
 <p>Generate your <a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange">Diffie–Hellman</a> parameters.</p>
-<div class="highlight"><pre><span></span>./build-dh
+<div class="highlight"><pre>./build-dh
 </pre></div>
 
 
 <p>Create your routers public and private key.</p>
-<div class="highlight"><pre><span></span>./build-key-server «yourrouter»
+<div class="highlight"><pre>./build-key-server «yourrouter»
 </pre></div>
 
 
 <p>Listing of folder <code>keys</code> should look something like this now.</p>
-<div class="highlight"><pre><span></span>ca.crt  dh2048.pem  serial            «yourrouter».csr
+<div class="highlight"><pre>ca.crt  dh2048.pem  serial            «yourrouter».csr
 ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 </pre></div>
 
@@ -177,7 +177,7 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 <h2>Clients</h2>
 <h3>Network Manager</h3>
 <p>Now you can configure <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> on your computer. Remember to install the correct plugin, <code>network-manager-openvpn</code>.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install network-manager-openvpn
+<div class="highlight"><pre>sudo apt-get install network-manager-openvpn
 </pre></div>
 
 

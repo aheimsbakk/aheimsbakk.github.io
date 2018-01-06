@@ -69,7 +69,7 @@
       <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="../../author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="../../category/blog.html">blog</a>
@@ -118,35 +118,35 @@
 <ol>
 <li>
 <p>Install <a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge">adb</a> and <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a> to help manage your Nexus phone.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install android-tools-adb android-tools-fastboot
+<div class="highlight"><pre>sudo apt-get install android-tools-adb android-tools-fastboot
 </pre></div>
 
 
 </li>
 <li>
 <p>Download custom a recovery image. Personally I prefer <a href="http://www.clockworkmod.com">ClockworkMod</a> and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.</p>
-<div class="highlight"><pre><span></span>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
+<div class="highlight"><pre>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
 </pre></div>
 
 
 </li>
 <li>
 <p>Download the latest M snapshot from <a href="http://www.cyanogenmod.org">CyanogenMod</a> on <a href="http://download.cyanogenmod.org">download.cyanogenmod.org</a>. The model name for Nexus 4 is <em>mako</em>.</p>
-<div class="highlight"><pre><span></span>wget http://download.cyanogenmod.org/get/jenkins/67695/cm-11-20140504-SNAPSHOT-M6-mako.zip
+<div class="highlight"><pre>wget http://download.cyanogenmod.org/get/jenkins/67695/cm-11-20140504-SNAPSHOT-M6-mako.zip
 </pre></div>
 
 
 </li>
 <li>
 <p>Download <a href="https://en.wikipedia.org/wiki/Google_apps">Google Apps</a> from a trusted source. Again I prefer <a href="http://www.cyanogenmod.org">CyanogenMod</a> as source and download from <a href="http://wiki.cyanogenmod.org/w/Google_Apps#Downloads">wiki.cyanogenmod.org</a>.</p>
-<div class="highlight"><pre><span></span>wget http://itvends.com/gapps/gapps-kk-20140105-signed.zip
+<div class="highlight"><pre>wget http://itvends.com/gapps/gapps-kk-20140105-signed.zip
 </pre></div>
 
 
 </li>
 <li>
 <p>And to be on the safe side. Download the origian Nexus 4 firmware from Googles page <a href="https://developers.google.com/android/nexus/images">Factory Images for Nexus Devices</a>. Just in case... And if it is the case, untar the file and read the included instructions.</p>
-<div class="highlight"><pre><span></span>wget https://dl.google.com/dl/android/aosp/occam-kot49h-factory-02e344de.tgz
+<div class="highlight"><pre>wget https://dl.google.com/dl/android/aosp/occam-kot49h-factory-02e344de.tgz
 </pre></div>
 
 
@@ -172,28 +172,28 @@
 </li>
 <li>
 <p>Check that the cable is usable by listing devices with adb. If you don't get any response. Change the cable and try again. The last cable could be a cheep charger cable without data wires.</p>
-<div class="highlight"><pre><span></span>adb devices
+<div class="highlight"><pre>adb devices
 </pre></div>
 
 
 </li>
 <li>
 <p>Reboot phone into <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>.</p>
-<div class="highlight"><pre><span></span>adb reboot bootloader
+<div class="highlight"><pre>adb reboot bootloader
 </pre></div>
 
 
 </li>
 <li>
 <p>Check that you get connection with <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a>.</p>
-<div class="highlight"><pre><span></span>fastboot devices
+<div class="highlight"><pre>fastboot devices
 </pre></div>
 
 
 </li>
 <li>
 <p>Unlock your <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>. This takes some time while the phone is erasing all data.</p>
-<div class="highlight"><pre><span></span>fastboot oem unlock
+<div class="highlight"><pre>fastboot oem unlock
 </pre></div>
 
 
@@ -206,7 +206,7 @@
 <ul>
 <li>
 <p>Flash recovery image.</p>
-<div class="highlight"><pre><span></span>fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
+<div class="highlight"><pre>fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
 </pre></div>
 
 
@@ -228,14 +228,14 @@
 </li>
 <li>
 <p>Choose <strong>install zip</strong> → <strong>choose zip from sideload</strong> and sideload <a href="http://www.cyanogenmod.org">CyanogenMod</a>.</p>
-<div class="highlight"><pre><span></span>adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
+<div class="highlight"><pre>adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
 </pre></div>
 
 
 </li>
 <li>
 <p>Then sideload gapps. Select again <strong>choose zip from sideload</strong>.</p>
-<div class="highlight"><pre><span></span>adb sideload gapps-kk-20140105-signed.zip
+<div class="highlight"><pre>adb sideload gapps-kk-20140105-signed.zip
 </pre></div>
 
 

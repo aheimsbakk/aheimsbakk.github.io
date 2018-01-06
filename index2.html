@@ -43,7 +43,7 @@
                 <nav class="navbar">
                     <div class="navbar-inner">
                         <ul class="nav">
-                            <li ><a href="/index.html">home</a></li>
+                            <li class="active"><a href="/index.html">home</a></li>
                             <li ><a href="#">|</a></li>
                             <li ><a href="./category/blog.html">blog</a></li>
                             <li ><a href="./category/uris.html">uris</a></li>
@@ -73,7 +73,7 @@
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -120,14 +120,14 @@
 <ol>
 <li>
 <p>Install <a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge">adb</a> and <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a> to help manage your Nexus phone.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install android-tools-adb android-tools-fastboot
+<div class="highlight"><pre>sudo apt-get install android-tools-adb android-tools-fastboot
 </pre></div>
 
 
 </li>
 <li>
 <p>Download custom a recovery image. Personally I prefer <a href="http://www.clockworkmod.com">ClockworkMod</a> and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.</p>
-<div class="highlight"><pre><span></span>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
+<div class="highlight"><pre>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
 </pre></div>
 
 
@@ -153,7 +153,7 @@
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/uris.html">uris</a>
@@ -176,7 +176,7 @@
 </ul>
 <h2>Summary</h2>
 <p>Create <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> stapling configuration for <a href="http://httpd.apache.org">Apache</a>.</p>
-<div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt; /etc/apache2/conf-available/sslstapeling.conf</span>
+<div class="highlight"><pre>cat <span class="s">&lt;&lt;EOF &gt; /etc/apache2/conf-available/sslstapeling.conf</span>
 <span class="s">SSLUseStapling on</span>
 <span class="s">SSLStaplingCache &quot;shmcb:logs/stapling-cache(150000)&quot;</span>
 <span class="s">SSLStaplingResponseMaxAge 900</span>
@@ -185,14 +185,14 @@
 
 
 <p>Enable configuration, test it and do a restart of <a href="http://httpd.apache.org">Apache</a> if all is OK.</p>
-<div class="highlight"><pre><span></span>a2enconf sslstapeling
+<div class="highlight"><pre>a2enconf sslstapeling
 apache2ctl configtest
 apache2ctl restart
 </pre></div>
 
 
 <p>Check <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> with <a href="https://www.openssl.org">OpenSSL</a>.</p>
-<div class="highlight"><pre><span></span>openssl s_client -connect «yoursite»:443 -tls1 -tlsextdebug -status
+<div class="highlight"><pre>openssl s_client -connect «yoursite»:443 -tls1 -tlsextdebug -status
 </pre></div>
                                 <p class="readmore">
                                     <a class="btn btn-small btn-info" href="./posts/2014/2014-05-04-ocsp.html">Read more...</a>
@@ -213,7 +213,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -233,13 +233,13 @@ apache2ctl restart
     
 </footer><!-- /.post-info -->                                <p>This will show how to get A+ on <a href="https://www.ssllabs.com/ssltest">SSL Server Test</a> from <a href="https://www.ssllabs.com">Qualys SSL Labs</a>. </p>
 <p>Enable <a href="https://httpd.apache.org/docs/current/mod/mod_ssl.html">SSL</a> and <a href="https://httpd.apache.org/docs/current/mod/mod_headers.html">headers</a> module in <a href="https://httpd.apache.org/docs">Apache2</a>.</p>
-<div class="highlight"><pre><span></span><span class="go">a2enmod ssl </span>
+<div class="highlight"><pre><span class="go">a2enmod ssl </span>
 <span class="go">a2enmod headers</span>
 </pre></div>
 
 
 <p>Edit Apache configuration.</p>
-<div class="highlight"><pre><span></span><span class="nb">SSLCertificateFile</span> <span class="sx">/etc/ssl/crt/</span>«yourcert».pem
+<div class="highlight"><pre><span class="nb">SSLCertificateFile</span> <span class="sx">/etc/ssl/crt/</span>«yourcert».pem
 <span class="nb">SSLCertificateKeyFile</span> <span class="sx">/etc/ssl/crt/</span>«yourkey».pem
 <span class="nb">SSLCertificateChainFile</span> <span class="sx">/etc/ssl/crt/</span>«intermediatechain».pem
 
@@ -254,7 +254,7 @@ apache2ctl restart
 <p>The <strong>!</strong> preceding the cipher means that Apache will not use that cipher.</p>
 <h2>View ciphers</h2>
 <p>List the ciphers openssl supports with the current configuration.</p>
-<div class="highlight"><pre><span></span>openssl ciphers -v -ssl3 -tls1 <span class="s1">&#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>
+<div class="highlight"><pre>openssl ciphers -v -ssl3 -tls1 <span class="s1">&#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>
 </pre></div>
 
 
@@ -292,7 +292,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -329,7 +329,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -353,24 +353,24 @@ apache2ctl restart
 <h2>Preparing Dropbox</h2>
 <p>First create a new <a href="https://www.dropbox.com">Dropbox</a> account and create a <code>Pelican</code> folder. Share this folder with your main <a href="https://www.dropbox.com">Dropbox</a> account. Now copy the sources for your <a href="http://blog.getpelican.com">Pelican</a> blog into the the shared folder.</p>
 <p>On your web server, install <a href="https://www.dropbox.com">Dropbox</a> under the <code>www-data</code> user. </p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> wget -O - <span class="s2">&quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot;</span> <span class="p">|</span> tar xzf -
+<div class="highlight"><pre><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> wget -O - <span class="s2">&quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot;</span> <span class="p">|</span> tar xzf -
 </pre></div>
 
 
 <p>Then link up the new <a href="https://www.dropbox.com">Dropbox</a> account to the web server by accessing the link you get from starting the <a href="https://www.dropbox.com">Dropbox</a> daemon.</p>
-<div class="highlight"><pre><span></span>~/.dropbox-dist/dropboxd
+<div class="highlight"><pre>~/.dropbox-dist/dropboxd
 </pre></div>
 
 
 <p>Edit crontab for <code>www-data</code>, <code>crontab -e</code>, to start <a href="https://www.dropbox.com">Dropbox</a> daemon if it's not running. useful when the server reboots.</p>
-<div class="highlight"><pre><span></span>*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;)
+<div class="highlight"><pre>*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;)
 </pre></div>
 
 
 <p>Now <a href="https://www.dropbox.com">Dropbox</a> should be in sync and have your latest source for the blog.</p>
 <h2>Autogenerate blog on change</h2>
 <p>We need to install <a href="http://blog.getpelican.com">Pelican</a> blog engine and <a href="http://inotify.aiken.cz/?section=incron&amp;page=about&amp;lang=en">incron</a> to trigger auto generation of the blog on changes in the <code>~/Dropbox/Pelican/content</code> folder.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install python-pelican python-markdown incron
+<div class="highlight"><pre>sudo apt-get install python-pelican python-markdown incron
 </pre></div>
 
 
@@ -394,7 +394,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -419,51 +419,51 @@ apache2ctl restart
 <p>For <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> to work we need to create our own <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> for signing both server, the router, and optionally client certificates. This notes will only show how to create a server certificate and configure the router with user name and password authentication.</p>
 <h2>Preparations, create CA</h2>
 <p>Install necessary software. Although haveged, is not required, see <a href="2014-04-29-haveged">Better entropy with haveged</a>.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install easy-rsa haveged
+<div class="highlight"><pre>sudo apt-get install easy-rsa haveged
 </pre></div>
 
 
 <p>Create a work directory for <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">OpenVPN</a>. Take care to protect this directory and the files under it. </p>
-<div class="highlight"><pre><span></span>make-cadir «yourdomain»
+<div class="highlight"><pre>make-cadir «yourdomain»
 </pre></div>
 
 
 <p>Enter your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> directory.</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> «yourdomain»
+<div class="highlight"><pre><span class="nb">cd</span> «yourdomain»
 </pre></div>
 
 
 <p>Edit the <code>vars</code> file and change the following variables to something more sensible for you.</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KEY_COUNTRY</span><span class="o">=</span><span class="s2">&quot;US&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_PROVINCE</span><span class="o">=</span><span class="s2">&quot;CA&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_CITY</span><span class="o">=</span><span class="s2">&quot;SanFrancisco&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_ORG</span><span class="o">=</span><span class="s2">&quot;Funston-Fort&quot;</span>
-<span class="nb">export</span> <span class="nv">KEY_EMAIL</span><span class="o">=</span><span class="s2">&quot;me@myhost.mydomain&quot;</span>
+<div class="highlight"><pre><span class="nb">export </span><span class="nv">KEY_COUNTRY</span><span class="o">=</span><span class="s2">&quot;US&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_PROVINCE</span><span class="o">=</span><span class="s2">&quot;CA&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_CITY</span><span class="o">=</span><span class="s2">&quot;SanFrancisco&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_ORG</span><span class="o">=</span><span class="s2">&quot;Funston-Fort&quot;</span>
+<span class="nb">export </span><span class="nv">KEY_EMAIL</span><span class="o">=</span><span class="s2">&quot;me@myhost.mydomain&quot;</span>
 </pre></div>
 
 
 <p>Source the variables into current bash session.</p>
-<div class="highlight"><pre><span></span><span class="nb">source</span> ./vars
+<div class="highlight"><pre><span class="nb">source</span> ./vars
 </pre></div>
 
 
 <p>Do a initial clean.</p>
-<div class="highlight"><pre><span></span>./clean-all 
+<div class="highlight"><pre>./clean-all 
 </pre></div>
 
 
 <p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> public and private key.</p>
-<div class="highlight"><pre><span></span>./build-ca
+<div class="highlight"><pre>./build-ca
 </pre></div>
 
 
 <p>Generate your <a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange">Diffie–Hellman</a> parameters.</p>
-<div class="highlight"><pre><span></span>./build-dh
+<div class="highlight"><pre>./build-dh
 </pre></div>
 
 
 <p>Create your routers public and private key.</p>
-<div class="highlight"><pre><span></span>./build-key-server «yourrouter»
+<div class="highlight"><pre>./build-key-server «yourrouter»
 </pre></div>
 
 
@@ -487,7 +487,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/uris.html">uris</a>
@@ -512,12 +512,12 @@ apache2ctl restart
 </ul>
 <h2>How to install</h2>
 <p>Install haveged from the repository - and that's it. </p>
-<div class="highlight"><pre><span></span>sudo apt-get install haveged
+<div class="highlight"><pre>sudo apt-get install haveged
 </pre></div>
 
 
 <p>Enjoy fast good entropy. Check your entropy</p>
-<div class="highlight"><pre><span></span>cat /proc/sys/kernel/random/entropy_avail
+<div class="highlight"><pre>cat /proc/sys/kernel/random/entropy_avail
 </pre></div>
                                 <p class="readmore">
                                     <a class="btn btn-small btn-info" href="./posts/2014/2014-04-29-haveged.html">Read more...</a>
@@ -538,7 +538,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -593,7 +593,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/uris.html">uris</a>
@@ -632,7 +632,7 @@ apache2ctl restart
                             <div class="entry-content">
 <footer class="post-info">
     <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
     </address>
 
     in <a href="./category/blog.html">blog</a>
@@ -649,7 +649,7 @@ apache2ctl restart
 
     
 </footer><!-- /.post-info -->                                <p>Find all duplicate files in current and sub-directories with bash. </p>
-<div class="highlight"><pre><span></span>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
+<div class="highlight"><pre>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
 </pre></div>
 
 
@@ -665,12 +665,12 @@ apache2ctl restart
 </ol>
 <h2>Alternatively</h2>
 <p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above. </p>
-<div class="highlight"><pre><span></span>apt-get install fdupes
+<div class="highlight"><pre>apt-get install fdupes
 </pre></div>
 
 
 <p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre><span></span>fdupes -r .
+<div class="highlight"><pre>fdupes -r .
 </pre></div>
                                 <p class="readmore">
                                     <a class="btn btn-small btn-info" href="./posts/2014/2014-04-13-duplicates.html">Read more...</a>
@@ -720,53 +720,54 @@ apache2ctl restart
                     <li><a href="https://plus.google.com/+ArnulfHeimsbakk/posts/p/pub">google+</a></li>
                     <li><a href="http://linkedin.com/in/arnulfheimsbakk">linkedin</a></li>
                     <li><a href="http://instagram.com/1uff3#">instagram</a></li>
-                    <li><a href="https://hub.docker.com/r/aheimsbakk/">docker</a></li>
                 </ul>
             </div><!-- /.social -->
             <div>
                 <h2>Tags</h2>
                 <ul id="cloud">
-                     <li class="tag-3"><a href="./tag/oneliner.html">oneliner</a></li>
-                     <li class="tag-3"><a href="./tag/vagrant.html">vagrant</a></li>
-                     <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
-                     <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
-                     <li class="tag-4"><a href="./tag/virtualbox.html">virtualbox</a></li>
-                     <li class="tag-4"><a href="./tag/firefox.html">firefox</a></li>
+                     <li class="tag-4"><a href="./tag/android.html">android</a></li>
+                     <li class="tag-3"><a href="./tag/apache.html">apache</a></li>
+                     <li class="tag-2"><a href="./tag/bash.html">bash</a></li>
+                     <li class="tag-4"><a href="./tag/benchmark.html">benchmark</a></li>
                      <li class="tag-4"><a href="./tag/cheatsheet.html">cheatsheet</a></li>
-                     <li class="tag-4"><a href="./tag/io.html">io</a></li>
+                     <li class="tag-4"><a href="./tag/chrome.html">chrome</a></li>
+                     <li class="tag-4"><a href="./tag/chromium.html">chromium</a></li>
+                     <li class="tag-4"><a href="./tag/cloud.html">cloud</a></li>
+                     <li class="tag-4"><a href="./tag/cyanogenmod.html">cyanogenmod</a></li>
+                     <li class="tag-4"><a href="./tag/dropbox.html">dropbox</a></li>
+                     <li class="tag-4"><a href="./tag/entropy.html">entropy</a></li>
+                     <li class="tag-4"><a href="./tag/firefox.html">firefox</a></li>
+                     <li class="tag-3"><a href="./tag/firmware.html">firmware</a></li>
+                     <li class="tag-4"><a href="./tag/grub.html">grub</a></li>
+                     <li class="tag-1"><a href="./tag/howto.html">howto</a></li>
                      <li class="tag-4"><a href="./tag/i915.html">i915</a></li>
                      <li class="tag-4"><a href="./tag/incron.html">incron</a></li>
-                     <li class="tag-4"><a href="./tag/chromium.html">chromium</a></li>
-                     <li class="tag-4"><a href="./tag/trng.html">trng</a></li>
-                     <li class="tag-4"><a href="./tag/openvpn.html">openvpn</a></li>
-                     <li class="tag-4"><a href="./tag/vpn.html">vpn</a></li>
-                     <li class="tag-4"><a href="./tag/vim.html">vim</a></li>
-                     <li class="tag-4"><a href="./tag/dropbox.html">dropbox</a></li>
-                     <li class="tag-3"><a href="./tag/apache.html">apache</a></li>
-                     <li class="tag-3"><a href="./tag/kernel.html">kernel</a></li>
-                     <li class="tag-4"><a href="./tag/android.html">android</a></li>
-                     <li class="tag-4"><a href="./tag/chrome.html">chrome</a></li>
-                     <li class="tag-4"><a href="./tag/grub.html">grub</a></li>
-                     <li class="tag-4"><a href="./tag/zram.html">zram</a></li>
-                     <li class="tag-4"><a href="./tag/openstack.html">openstack</a></li>
-                     <li class="tag-2"><a href="./tag/bash.html">bash</a></li>
-                     <li class="tag-4"><a href="./tag/entropy.html">entropy</a></li>
-                     <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
-                     <li class="tag-3"><a href="./tag/firmware.html">firmware</a></li>
-                     <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
-                     <li class="tag-4"><a href="./tag/cyanogenmod.html">cyanogenmod</a></li>
-                     <li class="tag-4"><a href="./tag/maps.html">maps</a></li>
-                     <li class="tag-4"><a href="./tag/ubuntu.html">ubuntu</a></li>
-                     <li class="tag-2"><a href="./tag/security.html">security</a></li>
                      <li class="tag-4"><a href="./tag/intel.html">intel</a></li>
-                     <li class="tag-4"><a href="./tag/vm.html">vm</a></li>
-                     <li class="tag-1"><a href="./tag/howto.html">howto</a></li>
-                     <li class="tag-4"><a href="./tag/tuning.html">tuning</a></li>
-                     <li class="tag-4"><a href="./tag/benchmark.html">benchmark</a></li>
+                     <li class="tag-4"><a href="./tag/io.html">io</a></li>
+                     <li class="tag-3"><a href="./tag/kernel.html">kernel</a></li>
+                     <li class="tag-4"><a href="./tag/maps.html">maps</a></li>
                      <li class="tag-2"><a href="./tag/network.html">network</a></li>
-                     <li class="tag-4"><a href="./tag/cloud.html">cloud</a></li>
+                     <li class="tag-3"><a href="./tag/oneliner.html">oneliner</a></li>
+                     <li class="tag-4"><a href="./tag/openstack.html">openstack</a></li>
+                     <li class="tag-4"><a href="./tag/openvpn.html">openvpn</a></li>
                      <li class="tag-2"><a href="./tag/pelican.html">pelican</a></li>
+                     <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
                      <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-1"><a href="./tag/security.html">security</a></li>
+                     <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
+                     <li class="tag-4"><a href="./tag/ssh.html">ssh</a></li>
+                     <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
+                     <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
+                     <li class="tag-4"><a href="./tag/trng.html">trng</a></li>
+                     <li class="tag-4"><a href="./tag/tuning.html">tuning</a></li>
+                     <li class="tag-4"><a href="./tag/ubuntu.html">ubuntu</a></li>
+                     <li class="tag-3"><a href="./tag/vagrant.html">vagrant</a></li>
+                     <li class="tag-4"><a href="./tag/vim.html">vim</a></li>
+                     <li class="tag-4"><a href="./tag/virtualbox.html">virtualbox</a></li>
+                     <li class="tag-4"><a href="./tag/vm.html">vm</a></li>
+                     <li class="tag-4"><a href="./tag/vpn.html">vpn</a></li>
+                     <li class="tag-4"><a href="./tag/yubikey.html">yubikey</a></li>
+                     <li class="tag-4"><a href="./tag/zram.html">zram</a></li>
                 </ul>
              </div>
 <!-- /.Tags -->

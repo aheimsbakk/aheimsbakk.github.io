@@ -1,128 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null 2&gt;&amp;1</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2015-01-15T00:00:00+01:00</updated><entry><title>Use GitHub to host a Pelican blog</title><link href="http://blog.heimsbakk.net/posts/2015/pelican-github.html" rel="alternate"></link><published>2015-01-15T00:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2015-01-15:posts/2015/pelican-github.html</id><summary type="html">&lt;p&gt;This is the simplest way I know how to use &lt;a href="https://github.io"&gt;Github&lt;/a&gt; for hosting a Pelican blog. &lt;/p&gt;
-&lt;h2&gt;On Github&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null 2&gt;&amp;1</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2018-01-05T00:00:00+01:00</updated><entry><title>SSH with YubiKey NEO on Fedora made easy</title><link href="http://blog.heimsbakk.net/posts/2018/2018-01-05-yubikey.html" rel="alternate"></link><updated>2018-01-05T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2018-01-05:posts/2018/2018-01-05-yubikey.html</id><summary type="html">&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href="https://www.yubico.com/"&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.   &lt;/p&gt;
+&lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href="https://www.yubico.com/"&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is a short &lt;a href="https://en.wikipedia.org/wiki/How-to"&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;
+&lt;h2&gt;YubiKey as private SSH key&lt;/h2&gt;
+&lt;h3&gt;Pre requests&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install the YubiKey management software. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo dnf install yubikey-manager
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Insert YubiKey&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check that OpenPGP is enabled on your YubiKey.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ykman info
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Expected output should include the following.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    OPGP:      Enabled
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you get an error, &lt;strong&gt;restart&lt;/strong&gt; your computer and goto 3. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ykman openpgp set-pin-retries 3 3 5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Generate OpenPGP key on YubiKey&lt;/h3&gt;
+&lt;p&gt;Use &lt;code&gt;gpg2&lt;/code&gt; for the rest.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Generate PGP certificate on the key.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg2 --edit-card
+gpg/card&amp;gt; admin
+gpg/card&amp;gt; generate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optionally set &lt;code&gt;login&lt;/code&gt;, &lt;code&gt;lang&lt;/code&gt; and &lt;code&gt;sex&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter the  password menu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg/card&amp;gt; passwd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change user PIN, menu &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change admin PIN, menu &lt;code&gt;3&lt;/code&gt;. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it with &lt;code&gt;ykman&lt;/code&gt;. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set a reset PIN if you want, menu &lt;code&gt;4&lt;/code&gt;. Used to unblock the user PIN.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Exit to shell. &lt;code&gt;Q&lt;/code&gt;, &lt;code&gt;Q&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find your public key and export it to a keyserver.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg2 --list-keys --keyid-format long
+gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF1234567890
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You uploaded the key to a pool of machines. Now it's a time to go and fetch a coffee, and let some time go to avoid frustrations while the pool is updating.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find the URL for your public key on &lt;a href=""&gt;http://pool.sks-keyservers.net:11371&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go back to the YubiKey and add the URL for the public key.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg2 --edit-card
+gpg/card&amp;gt; admin
+gpg/card&amp;gt; url
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Paste in the URL for the your public key, &lt;code&gt;http://pool.sks-keyservers.net:11371/pks/lookup?op=get&amp;amp;search=0xABCDEF0123456789&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Test fetching public key from the keyserver.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg/card&amp;gt; fetch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate a revocation certificate and store it in a safe place. Safe place may be paper or your favorite password manager.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gpg2 --generate-revocation ABCDEF0123456789
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Everyting OK! Wohoo!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Change SSH to use gpg-agent&lt;/h3&gt;
+&lt;p&gt;Go to shell and edit your &lt;code&gt;.bashrc&lt;/code&gt; to start &lt;code&gt;gpg-agent&lt;/code&gt; and with SSH support.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vim .bashrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add the following.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;AGENT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;gpg-agent --daemon --enable-ssh-support 2&amp;gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$AGENT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt; ~/.gpg-agent-info
+&lt;span class="nb"&gt;source&lt;/span&gt; ~/.gpg-agent-info
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Public SSH key&lt;/h3&gt;
+&lt;p&gt;Get your public SSH key.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; gpg2 --export-ssh-key ABCDEF0123456789
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Add this public SSH key to all your servers &lt;code&gt;authorized_keys&lt;/code&gt; and your good to go :)&lt;/p&gt;
+&lt;h2&gt;Caveats&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Create a repository named &lt;strong&gt;username.github.io&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Exchange &lt;strong&gt;username&lt;/strong&gt; with your username. It takes up to half an hour before Gitlab makes your repository available through http://username.github.io.&lt;/p&gt;
+&lt;p&gt;YubiKey must be present to log into a server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If user PIN is entered to many times, it need to be unlocked with reset PIN.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with &lt;code&gt;ykman&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Pre requisite&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Install software&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install python-pip git
-sudo pip install pelican markdown ghp-import
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;On local computer&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Create a git repository &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir blog
-&lt;span class="nb"&gt;cd&lt;/span&gt; blog
-git init
-touch README.md
-git add README.md 
-git commit -a -m &lt;span class="s2"&gt;&amp;quot;initial commit&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Create a working branch for our blog, the master branch will be the blog content&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git branch blog
-git checkout blog
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Initialize the blog with &lt;code&gt;pelican-quickstart&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-quickstart
-
-Welcome to pelican-quickstart v3.4.0.
-
-This script will help you create a new Pelican-based website.
-
-Please answer the following questions so this script can generate the files
-needed by Pelican.
-
-&amp;gt; Where do you want to create your new web site? [.] 
-&amp;gt; What will be the title of this web site? My Blog
-&amp;gt; Who will be the author of this web site? John Doe
-&amp;gt; What will be the default language of this web site? [en] 
-&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
-&amp;gt; Do you want to enable article pagination? (Y/n) 
-&amp;gt; How many articles per page do you want? [10] 
-&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) 
-&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) 
-&amp;gt; Do you want to upload your website using FTP? (y/N) 
-&amp;gt; Do you want to upload your website using SSH? (y/N) 
-&amp;gt; Do you want to upload your website using Dropbox? (y/N) 
-&amp;gt; Do you want to upload your website using S3? (y/N) 
-&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) 
-&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) y
-&amp;gt; Is this your personal page (username.github.io)? (y/N) y
-Done. Your new project is available at /tmp/blog
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Commit the initial blog&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git add *
-git commit -a -m &lt;span class="s2"&gt;&amp;quot;Initial Pelican blog&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Make a blog article under the content folder and push it to Gitlab&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vim content/your-article.md
-git add content/your-article.md
-git commit -a -m &lt;span class="s2"&gt;&amp;quot;My blog article&amp;quot;&lt;/span&gt;
-git push
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Generate the blog into the main branch &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make github
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Access to the blog&lt;/h2&gt;
-&lt;p&gt;Access your blog on http://&lt;strong&gt;username.github.io&lt;/strong&gt;&lt;/p&gt;
-&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="pelican"></category></entry><entry><title>Record a PulseAudio sound stream</title><link href="http://blog.heimsbakk.net/posts/2015/2015-01-10-pa.html" rel="alternate"></link><published>2015-01-10T00:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2015-01-10:posts/2015/2015-01-10-pa.html</id><summary type="html">&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don't have the option to save audio to a file.&lt;/p&gt;
+&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="security"></category><category term="ssh"></category><category term="yubikey"></category></entry><entry><title>Record a PulseAudio sound stream</title><link href="http://blog.heimsbakk.net/posts/2015/2015-01-10-pa.html" rel="alternate"></link><updated>2015-01-10T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2015-01-10:posts/2015/2015-01-10-pa.html</id><summary type="html">&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don't have the option to save audio to a file.&lt;/p&gt;
 &lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/PulseAudio"&gt;PulseAudio&lt;/a&gt; sound server in your desktop makes this quite easy.&lt;/p&gt;
 &lt;p&gt;I've created a small script that captures the current playing sound stream and redirects it to &lt;a href="https://en.wikipedia.org/wiki/Flac" title="Free Lossless Audio Codec"&gt;FLAC&lt;/a&gt; audio file. After the capture is started, you can start playing sound from other programs. It won't interfere with the current capture.&lt;/p&gt;
 &lt;h2&gt;Capture audio&lt;/h2&gt;
 &lt;h3&gt;Pre requests&lt;/h3&gt;
 &lt;p&gt;You have to install a couple of programs, if you don't have them from before, to make the bash script work.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install pulseaudio-utils flac coreutils
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install pulseaudio-utils flac coreutils
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;The script&lt;/h3&gt;
 &lt;p&gt;This is my &lt;code&gt;record-app.sh&lt;/code&gt; script.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class="nv"&gt;BN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="nv"&gt;SI&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pacmd list-sink-inputs &lt;span class="p"&gt;|&lt;/span&gt; grep -m &lt;span class="m"&gt;1&lt;/span&gt; index &lt;span class="p"&gt;|&lt;/span&gt; egrep -o &lt;span class="s2"&gt;&amp;quot;[[:digit:]]+&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;usage: &lt;/span&gt;&lt;span class="nv"&gt;$BN&lt;/span&gt;&lt;span class="s2"&gt; filename&amp;quot;&lt;/span&gt;
-  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+  &lt;span class="nb"&gt;exit &lt;/span&gt;1
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$SI&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;error: no input sinks found&amp;quot;&lt;/span&gt;
-  &lt;span class="nb"&gt;exit&lt;/span&gt; 2
+  &lt;span class="nb"&gt;exit &lt;/span&gt;2
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
 &lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
@@ -140,18 +191,18 @@ parec -d rec.monitor &lt;span class="p"&gt;|&lt;/span&gt; flac --endian&lt;span 
 
 
 &lt;h3&gt;Usage&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;usage: record-app.sh filename
+&lt;div class="highlight"&gt;&lt;pre&gt;usage: record-app.sh filename
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Example 1&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./record-app.sh firefox-sound
+&lt;div class="highlight"&gt;&lt;pre&gt;./record-app.sh firefox-sound
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Will start to record the current playing audio in Firefox. The audio is saved int the file &lt;code&gt;firefox-sound.flac&lt;/code&gt;.&lt;/p&gt;
 &lt;h4&gt;Example 2&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;timeout 1h ./record-app.sh firefox-sound
+&lt;div class="highlight"&gt;&lt;pre&gt;timeout 1h ./record-app.sh firefox-sound
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -166,19 +217,19 @@ parec -d rec.monitor &lt;span class="p"&gt;|&lt;/span&gt; flac --endian&lt;span 
 &lt;p&gt;A workaround for this is to start playing the captured file. It won't interfere with the capture of the sound. &lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="pulseaudio"></category><category term="sound"></category></entry><entry><title>Vagrant with OpenStack</title><link href="http://blog.heimsbakk.net/posts/2014/2014-12-15-vagrant-openstack.html" rel="alternate"></link><published>2014-12-18T00:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-12-18:posts/2014/2014-12-15-vagrant-openstack.html</id><summary type="html">&lt;p&gt;If you want to use &lt;a href="https://www.vagrantup.com"&gt;Vagrant&lt;/a&gt; with &lt;a href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt;, you need to prepare &lt;a href="https://www.vagrantup.com"&gt;Vagrant&lt;/a&gt; with installing the &lt;a href="https://github.com/cloudbau/vagrant-openstack-plugin"&gt;vagrant-openstack-plugin&lt;/a&gt;. I had some problems installing it directly through &lt;code&gt;vagrant plugin install&lt;/code&gt;. I had to clone it from &lt;a href="https://github.com"&gt;Github&lt;/a&gt; and install it manually. &lt;/p&gt;
+&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="pulseaudio"></category><category term="sound"></category></entry><entry><title>Vagrant with OpenStack</title><link href="http://blog.heimsbakk.net/posts/2014/2014-12-15-vagrant-openstack.html" rel="alternate"></link><updated>2014-12-18T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-12-18:posts/2014/2014-12-15-vagrant-openstack.html</id><summary type="html">&lt;p&gt;If you want to use &lt;a href="https://www.vagrantup.com"&gt;Vagrant&lt;/a&gt; with &lt;a href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt;, you need to prepare &lt;a href="https://www.vagrantup.com"&gt;Vagrant&lt;/a&gt; with installing the &lt;a href="https://github.com/cloudbau/vagrant-openstack-plugin"&gt;vagrant-openstack-plugin&lt;/a&gt;. I had some problems installing it directly through &lt;code&gt;vagrant plugin install&lt;/code&gt;. I had to clone it from &lt;a href="https://github.com"&gt;Github&lt;/a&gt; and install it manually. &lt;/p&gt;
 &lt;h2&gt;One time configuration&lt;/h2&gt;
 &lt;h3&gt;Install OpenStack plugin in Vagrant&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /tmp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /tmp
 git clone https://github.com/cloudbau/vagrant-openstack-plugin
-&lt;span class="nb"&gt;cd&lt;/span&gt; vagrant-openstack-plugin
+&lt;span class="nb"&gt;cd &lt;/span&gt;vagrant-openstack-plugin
 gem build vagrant-openstack-plugin.gemspec
 vagrant plugin install vagrant-openstack-plugin-*.gem
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add a dummy box to &lt;a href="https://www.vagrantup.com"&gt;Vagrant&lt;/a&gt; thats needed by the plugin.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+&lt;div class="highlight"&gt;&lt;pre&gt;vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -193,7 +244,7 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 &lt;h2&gt;Configure a Vagrant VM&lt;/h2&gt;
 &lt;h3&gt;Vagrantfile&lt;/h3&gt;
 &lt;p&gt;This is a default generic Vagrant file which starts a &lt;code&gt;m1.tiny&lt;/code&gt; flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name &lt;code&gt;$USER_ssh_key&lt;/code&gt;. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;vagrant-openstack-plugin&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;vagrant-openstack-plugin&amp;#39;&lt;/span&gt;
 
 &lt;span class="no"&gt;Vagrant&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
   &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;box&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dummy&amp;quot;&lt;/span&gt;
@@ -234,24 +285,24 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 
 &lt;h3&gt;bootstrap.sh&lt;/h3&gt;
 &lt;p&gt;Create your custom bootstrap file.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Your aditional bootstrap here...&lt;/span&gt;
+&lt;span class="c"&gt;# Your aditional bootstrap here...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Running Vagrant&lt;/h2&gt;
 &lt;p&gt;Remember to source your OpenStack RC file before you run Vagrant up. You need to do that in each shell windows you are going to run Vagrant in.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/&lt;span class="nv"&gt;$USER&lt;/span&gt;-openrc.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/&lt;span class="nv"&gt;$USER&lt;/span&gt;-openrc.sh
 vagrant up
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="openstack"></category><category term="vagrant"></category></entry><entry><title>fio - flexible I/O tester</title><link href="http://blog.heimsbakk.net/posts/2014/2014-12-15-fio.html" rel="alternate"></link><published>2014-12-15T00:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-12-15:posts/2014/2014-12-15-fio.html</id><summary type="html">&lt;p&gt;From man page: &lt;code&gt;fio&lt;/code&gt; &lt;em&gt;is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.&lt;/em&gt;&lt;/p&gt;
+&lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</summary><category term="howto"></category><category term="openstack"></category><category term="vagrant"></category></entry><entry><title>fio - flexible I/O tester</title><link href="http://blog.heimsbakk.net/posts/2014/2014-12-15-fio.html" rel="alternate"></link><updated>2014-12-15T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-12-15:posts/2014/2014-12-15-fio.html</id><summary type="html">&lt;p&gt;From man page: &lt;code&gt;fio&lt;/code&gt; &lt;em&gt;is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This example only show how to use &lt;code&gt;fio&lt;/code&gt; to make reproduceable test on a file system. For me it's been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable. &lt;/p&gt;
 &lt;p&gt;All parameter numbers are examples, define your own test according to what you want to measure. &lt;/p&gt;
 &lt;h2&gt;Installing fio&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install fio
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install fio
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -262,58 +313,58 @@ vagrant up
 &lt;li&gt;&lt;code&gt;size&lt;/code&gt; is the working file size.&lt;/li&gt;
 &lt;li&gt;If you want to test a read heavy load, use &lt;code&gt;rwmixread&lt;/code&gt; with a percentage of reads versus writes..&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read&lt;/span&gt; write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;4k-4k&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;4k-4k&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Generating I/O plots&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fio2gnuplot -i -g
+&lt;div class="highlight"&gt;&lt;pre&gt;fio2gnuplot -i -g
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;For me is the most interesting plot is &lt;strong&gt;compare-result-2Dsmooth.png&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;Generating bandwidth plots&lt;/h2&gt;
 &lt;p&gt;Testing bandwidth is better to do with a larger block size. I usually set a block size between 64k to 1m. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read&lt;/span&gt; write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;64k-1m&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nb"&gt;read &lt;/span&gt;write readwrite randread randwrite randrw&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; fio --name&lt;span class="o"&gt;=&lt;/span&gt;fio  --write_bw_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_iops_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --write_lat_log&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --ioengine&lt;span class="o"&gt;=&lt;/span&gt;sync --size&lt;span class="o"&gt;=&lt;/span&gt;10G --runtime&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;60&lt;/span&gt; --rw&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt; --norandommap --refill_buffers --randrepeat&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;  --iodepth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --direct&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; --numjobs&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt; --group_reporting --bsrange&lt;span class="o"&gt;=&lt;/span&gt;64k-1m&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Generate the bandwidth plot.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fio2gnuplot -b -g
+&lt;div class="highlight"&gt;&lt;pre&gt;fio2gnuplot -b -g
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;For me is the most interesting plot is &lt;strong&gt;compare-result-2Dsmooth.png&lt;/strong&gt;.&lt;/p&gt;</summary><category term="io"></category><category term="benchmark"></category><category term="howto"></category></entry><entry><title>Power saving on laptop</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-powersave.html" rel="alternate"></link><published>2014-12-14T20:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-12-14:posts/2014/2014-04-13-powersave.html</id><summary type="html">&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;
+&lt;p&gt;For me is the most interesting plot is &lt;strong&gt;compare-result-2Dsmooth.png&lt;/strong&gt;.&lt;/p&gt;</summary><category term="io"></category><category term="benchmark"></category><category term="howto"></category></entry><entry><title>Power saving on laptop</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-powersave.html" rel="alternate"></link><updated>2014-12-14T20:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-12-14:posts/2014/2014-04-13-powersave.html</id><summary type="html">&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;
 &lt;h2&gt;/etc/rc.local&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#  SATA power save&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; medium_power &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#  SATA power save&lt;/span&gt;
+&lt;span class="nb"&gt;echo &lt;/span&gt;medium_power &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null
 
-&lt;span class="c1"&gt;# Set minimum performance to 30% of CPU MHz &lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;30&lt;/span&gt; &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
+&lt;span class="c"&gt;# Set minimum performance to 30% of CPU MHz &lt;/span&gt;
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
-&lt;span class="c1"&gt;# Set CPU governor to power save since we run on a laptop&lt;/span&gt;
-&lt;span class="c1"&gt;# Valid values: powersave performance&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; powersave &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null
+&lt;span class="c"&gt;# Set CPU governor to power save since we run on a laptop&lt;/span&gt;
+&lt;span class="c"&gt;# Valid values: powersave performance&lt;/span&gt;
+&lt;span class="nb"&gt;echo &lt;/span&gt;powersave &lt;span class="p"&gt;|&lt;/span&gt; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null
 
-&lt;span class="c1"&gt;# Increase for CrashPlan so unlocking gnome-shell lock screen works&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;1048576&lt;/span&gt; &amp;gt; /proc/sys/fs/inotify/max_user_watches
+&lt;span class="c"&gt;# Increase for CrashPlan so unlocking gnome-shell lock screen works&lt;/span&gt;
+&lt;span class="nb"&gt;echo &lt;/span&gt;&lt;span class="m"&gt;1048576&lt;/span&gt; &amp;gt; /proc/sys/fs/inotify/max_user_watches
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;/etc/default/grub&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Make my back light buttons work correctly&lt;/span&gt;
-&lt;span class="c1"&gt;# Full power save for GPU&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Make my back light buttons work correctly&lt;/span&gt;
+&lt;span class="c"&gt;# Full power save for GPU&lt;/span&gt;
 &lt;span class="nv"&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;video.use_native_backlight=1 i915.enable_rc6=7 i915.enable_fbc=1 i915.lvds_downclock=1&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h6&gt;vim: set spell spl=en syn=markdown:&lt;/h6&gt;</summary><category term="i915"></category><category term="intel"></category><category term="pstate"></category><category term="grub"></category></entry><entry><title>View Google Earth in the browser</title><link href="http://blog.heimsbakk.net/posts/2014/2014-06-19-webgl.html" rel="alternate"></link><published>2014-06-19T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-06-19:posts/2014/2014-06-19-webgl.html</id><summary type="html">&lt;p&gt;Google now supports Google Earth in Google Maps. As far as I know it works in &lt;a href="https://en.wikipedia.org/wiki/Google_Chrome"&gt;Chrome&lt;/a&gt; and &lt;a href="https://en.wikipedia.org/wiki/Chromium_%28web_browser%29"&gt;Chromium&lt;/a&gt;. If Google Earth isn't available where the satellite view options is, your graphic card is in the browsers blacklist.&lt;/p&gt;
+&lt;h6&gt;vim: set spell spl=en syn=markdown:&lt;/h6&gt;</summary><category term="i915"></category><category term="intel"></category><category term="pstate"></category><category term="grub"></category></entry><entry><title>View Google Earth in the browser</title><link href="http://blog.heimsbakk.net/posts/2014/2014-06-19-webgl.html" rel="alternate"></link><updated>2014-06-19T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-06-19:posts/2014/2014-06-19-webgl.html</id><summary type="html">&lt;p&gt;Google now supports Google Earth in Google Maps. As far as I know it works in &lt;a href="https://en.wikipedia.org/wiki/Google_Chrome"&gt;Chrome&lt;/a&gt; and &lt;a href="https://en.wikipedia.org/wiki/Chromium_%28web_browser%29"&gt;Chromium&lt;/a&gt;. If Google Earth isn't available where the satellite view options is, your graphic card is in the browsers blacklist.&lt;/p&gt;
 &lt;p&gt;To force enabling &lt;a href="https://en.wikipedia.org/wiki/WebGL"&gt;WebGL&lt;/a&gt; in the browser start it with the following options&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chromium-browser --enable-webgl --ignore-gpu-blacklist
+&lt;div class="highlight"&gt;&lt;pre&gt;chromium-browser --enable-webgl --ignore-gpu-blacklist
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now you can use Google Earth in &lt;a href="https://maps.google.com"&gt;maps.google.com&lt;/a&gt;.&lt;/p&gt;</summary><category term="chromium"></category><category term="howto"></category><category term="maps"></category></entry><entry><title>Flashing a custom rom on Nexus 4</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-11-rootnexus.html" rel="alternate"></link><published>2014-05-11T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-05-11:posts/2014/2014-05-11-rootnexus.html</id><summary type="html">&lt;p&gt;Flashing a custom image on an &lt;a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system"&gt;Android&lt;/a&gt; mobile could be just fun. But if you don't know why you want to do it, or do it just because it's a challenge. &lt;strong&gt;Then don't!&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;Now you can use Google Earth in &lt;a href="https://maps.google.com"&gt;maps.google.com&lt;/a&gt;.&lt;/p&gt;</summary><category term="chromium"></category><category term="howto"></category><category term="maps"></category></entry><entry><title>Flashing a custom rom on Nexus 4</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-11-rootnexus.html" rel="alternate"></link><updated>2014-05-11T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-11:posts/2014/2014-05-11-rootnexus.html</id><summary type="html">&lt;p&gt;Flashing a custom image on an &lt;a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system"&gt;Android&lt;/a&gt; mobile could be just fun. But if you don't know why you want to do it, or do it just because it's a challenge. &lt;strong&gt;Then don't!&lt;/strong&gt; &lt;/p&gt;
 &lt;h2&gt;The bad and the good&lt;/h2&gt;
 &lt;p&gt;I'm only pointing out some of the cons and the pros here.&lt;/p&gt;
 &lt;h3&gt;Negative sides&lt;/h3&gt;
@@ -342,35 +393,35 @@ vagrant up
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install &lt;a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge"&gt;adb&lt;/a&gt; and &lt;a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot"&gt;fastboot&lt;/a&gt; to help manage your Nexus phone.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install android-tools-adb android-tools-fastboot
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install android-tools-adb android-tools-fastboot
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download custom a recovery image. Personally I prefer &lt;a href="http://www.clockworkmod.com"&gt;ClockworkMod&lt;/a&gt; and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
+&lt;div class="highlight"&gt;&lt;pre&gt;wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download the latest M snapshot from &lt;a href="http://www.cyanogenmod.org"&gt;CyanogenMod&lt;/a&gt; on &lt;a href="http://download.cyanogenmod.org"&gt;download.cyanogenmod.org&lt;/a&gt;. The model name for Nexus 4 is &lt;em&gt;mako&lt;/em&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget http://download.cyanogenmod.org/get/jenkins/67695/cm-11-20140504-SNAPSHOT-M6-mako.zip
+&lt;div class="highlight"&gt;&lt;pre&gt;wget http://download.cyanogenmod.org/get/jenkins/67695/cm-11-20140504-SNAPSHOT-M6-mako.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download &lt;a href="https://en.wikipedia.org/wiki/Google_apps"&gt;Google Apps&lt;/a&gt; from a trusted source. Again I prefer &lt;a href="http://www.cyanogenmod.org"&gt;CyanogenMod&lt;/a&gt; as source and download from &lt;a href="http://wiki.cyanogenmod.org/w/Google_Apps#Downloads"&gt;wiki.cyanogenmod.org&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget http://itvends.com/gapps/gapps-kk-20140105-signed.zip
+&lt;div class="highlight"&gt;&lt;pre&gt;wget http://itvends.com/gapps/gapps-kk-20140105-signed.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;And to be on the safe side. Download the origian Nexus 4 firmware from Googles page &lt;a href="https://developers.google.com/android/nexus/images"&gt;Factory Images for Nexus Devices&lt;/a&gt;. Just in case... And if it is the case, untar the file and read the included instructions.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget https://dl.google.com/dl/android/aosp/occam-kot49h-factory-02e344de.tgz
+&lt;div class="highlight"&gt;&lt;pre&gt;wget https://dl.google.com/dl/android/aosp/occam-kot49h-factory-02e344de.tgz
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -396,28 +447,28 @@ vagrant up
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Check that the cable is usable by listing devices with adb. If you don't get any response. Change the cable and try again. The last cable could be a cheep charger cable without data wires.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;adb devices
+&lt;div class="highlight"&gt;&lt;pre&gt;adb devices
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Reboot phone into &lt;a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting"&gt;bootloader&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;adb reboot bootloader
+&lt;div class="highlight"&gt;&lt;pre&gt;adb reboot bootloader
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Check that you get connection with &lt;a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot"&gt;fastboot&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fastboot devices
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot devices
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Unlock your &lt;a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting"&gt;bootloader&lt;/a&gt;. This takes some time while the phone is erasing all data.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fastboot oem unlock
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot oem unlock
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -430,7 +481,7 @@ vagrant up
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Flash recovery image.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
+&lt;div class="highlight"&gt;&lt;pre&gt;fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -452,14 +503,14 @@ vagrant up
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Choose &lt;strong&gt;install zip&lt;/strong&gt; → &lt;strong&gt;choose zip from sideload&lt;/strong&gt; and sideload &lt;a href="http://www.cyanogenmod.org"&gt;CyanogenMod&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
+&lt;div class="highlight"&gt;&lt;pre&gt;adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Then sideload gapps. Select again &lt;strong&gt;choose zip from sideload&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;adb sideload gapps-kk-20140105-signed.zip
+&lt;div class="highlight"&gt;&lt;pre&gt;adb sideload gapps-kk-20140105-signed.zip
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -473,15 +524,15 @@ vagrant up
 &lt;/ul&gt;
 &lt;p&gt;If you get problems booting into a clean system, I've read that another factory reset could do the trick. &lt;/p&gt;
 &lt;h4&gt;5. Encrypt or not&lt;/h4&gt;
-&lt;p&gt;After installing the phone you can choose to encrypt it or not. I like to encrypt my device with a passphrase. It's my data so why give it away if the phone get stolen; encryption makes it a bit harder for the bad guys.&lt;/p&gt;</summary><category term="android"></category><category term="cyanogenmod"></category><category term="firmware"></category><category term="howto"></category></entry><entry><title>How to get A+ on SSL Labs</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-ssl.html" rel="alternate"></link><published>2015-01-10T00:00:00+01:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-ssl.html</id><summary type="html">&lt;p&gt;This will show how to get A+ on &lt;a href="https://www.ssllabs.com/ssltest"&gt;SSL Server Test&lt;/a&gt; from &lt;a href="https://www.ssllabs.com"&gt;Qualys SSL Labs&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;After installing the phone you can choose to encrypt it or not. I like to encrypt my device with a passphrase. It's my data so why give it away if the phone get stolen; encryption makes it a bit harder for the bad guys.&lt;/p&gt;</summary><category term="android"></category><category term="cyanogenmod"></category><category term="firmware"></category><category term="howto"></category></entry><entry><title>How to get A+ on SSL Labs</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-ssl.html" rel="alternate"></link><updated>2015-01-10T00:00:00+01:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-ssl.html</id><summary type="html">&lt;p&gt;This will show how to get A+ on &lt;a href="https://www.ssllabs.com/ssltest"&gt;SSL Server Test&lt;/a&gt; from &lt;a href="https://www.ssllabs.com"&gt;Qualys SSL Labs&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;Enable &lt;a href="https://httpd.apache.org/docs/current/mod/mod_ssl.html"&gt;SSL&lt;/a&gt; and &lt;a href="https://httpd.apache.org/docs/current/mod/mod_headers.html"&gt;headers&lt;/a&gt; module in &lt;a href="https://httpd.apache.org/docs"&gt;Apache2&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;a2enmod ssl &lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;a2enmod ssl &lt;/span&gt;
 &lt;span class="go"&gt;a2enmod headers&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Edit Apache configuration.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;SSLCertificateFile&lt;/span&gt; &lt;span class="sx"&gt;/etc/ssl/crt/&lt;/span&gt;«yourcert».pem
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;SSLCertificateFile&lt;/span&gt; &lt;span class="sx"&gt;/etc/ssl/crt/&lt;/span&gt;«yourcert».pem
 &lt;span class="nb"&gt;SSLCertificateKeyFile&lt;/span&gt; &lt;span class="sx"&gt;/etc/ssl/crt/&lt;/span&gt;«yourkey».pem
 &lt;span class="nb"&gt;SSLCertificateChainFile&lt;/span&gt; &lt;span class="sx"&gt;/etc/ssl/crt/&lt;/span&gt;«intermediatechain».pem
 
@@ -496,7 +547,7 @@ vagrant up
 &lt;p&gt;The &lt;strong&gt;!&lt;/strong&gt; preceding the cipher means that Apache will not use that cipher.&lt;/p&gt;
 &lt;h2&gt;View ciphers&lt;/h2&gt;
 &lt;p&gt;List the ciphers openssl supports with the current configuration.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;openssl ciphers -v -ssl3 -tls1 &lt;span class="s1"&gt;&amp;#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;openssl ciphers -v -ssl3 -tls1 &lt;span class="s1"&gt;&amp;#39;EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -534,7 +585,7 @@ vagrant up
 &lt;h4&gt;!SRP&lt;/h4&gt;
 &lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Secure_Remote_Password_protocol"&gt;Secure Remote Password protocol&lt;/a&gt;.&lt;/p&gt;
 &lt;h4&gt;!DSS&lt;/h4&gt;
-&lt;p&gt;Cipher suites using DSS authentication, i.e. the certificates carry DSS keys. &lt;/p&gt;</summary><category term="apache"></category><category term="howto"></category><category term="security"></category><category term="ssl"></category></entry><entry><title>reStructuredText cheat sheet</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html" rel="alternate"></link><published>2014-05-03T21:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-rst.html</id><summary type="html">&lt;ul class="simple"&gt;
+&lt;p&gt;Cipher suites using DSS authentication, i.e. the certificates carry DSS keys. &lt;/p&gt;</summary><category term="apache"></category><category term="howto"></category><category term="security"></category><category term="ssl"></category></entry><entry><title>reStructuredText cheat sheet</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-rst.html" rel="alternate"></link><updated>2014-05-03T21:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-rst.html</id><summary type="html">&lt;ul class="simple"&gt;
 &lt;li&gt;Examples taken from &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html"&gt;reStructuredText Markup Specification&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;See also &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html"&gt;reStructuredText Directives&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -548,7 +599,7 @@ vagrant up
 &lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;cheatsheet, pelican&lt;/span&gt;
 &lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;blog&lt;/span&gt;
 &lt;span class="nc"&gt;:slug:&lt;/span&gt; &lt;span class="nf"&gt;2014-05-03-rst&lt;/span&gt;
-&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;Arnulf Heimsbakk&lt;/span&gt;
+&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;arnulf&lt;/span&gt;
 &lt;span class="nc"&gt;:summary:&lt;/span&gt; &lt;span class="nf"&gt;My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.net/projects/markdown&amp;gt;`_.&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
@@ -825,99 +876,99 @@ True   True   True
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="cheatsheet"></category><category term="pelican"></category></entry><entry><title>Auto generate Pelican blog from Dropbox</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-dropbox.html" rel="alternate"></link><published>2014-05-03T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-dropbox.html</id><summary type="html">&lt;p&gt;This is my notes for how to update my &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog automaticlly when I write new posts. See &lt;a href="2014-04-12-pelican"&gt;Creating a blog based on Pelican&lt;/a&gt; for getting started with &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog engine.&lt;/p&gt;
+</summary><category term="cheatsheet"></category><category term="pelican"></category></entry><entry><title>Auto generate Pelican blog from Dropbox</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-03-dropbox.html" rel="alternate"></link><updated>2014-05-03T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-03:posts/2014/2014-05-03-dropbox.html</id><summary type="html">&lt;p&gt;This is my notes for how to update my &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog automaticlly when I write new posts. See &lt;a href="2014-04-12-pelican"&gt;Creating a blog based on Pelican&lt;/a&gt; for getting started with &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog engine.&lt;/p&gt;
 &lt;p&gt;A way to be able to blog from anywhere is to use &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; as repository for the your blog. Then let &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; auto regenerate the blog on changes in the &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; folder.&lt;/p&gt;
 &lt;p&gt;A prerequest for this recipe is that &lt;code&gt;/var/www&lt;/code&gt; is not directly exposed to the web.&lt;/p&gt;
 &lt;h2&gt;Preparing Dropbox&lt;/h2&gt;
 &lt;p&gt;First create a new &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; account and create a &lt;code&gt;Pelican&lt;/code&gt; folder. Share this folder with your main &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; account. Now copy the sources for your &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog into the the shared folder.&lt;/p&gt;
 &lt;p&gt;On your web server, install &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; under the &lt;code&gt;www-data&lt;/code&gt; user. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span class="s2"&gt;&amp;quot;https://www.dropbox.com/download?plat=lnx.x86_64&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tar xzf -
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span class="s2"&gt;&amp;quot;https://www.dropbox.com/download?plat=lnx.x86_64&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tar xzf -
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then link up the new &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; account to the web server by accessing the link you get from starting the &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; daemon.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/.dropbox-dist/dropboxd
+&lt;div class="highlight"&gt;&lt;pre&gt;~/.dropbox-dist/dropboxd
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Edit crontab for &lt;code&gt;www-data&lt;/code&gt;, &lt;code&gt;crontab -e&lt;/code&gt;, to start &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; daemon if it's not running. useful when the server reboots.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &amp;gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;amp;)
+&lt;div class="highlight"&gt;&lt;pre&gt;*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &amp;gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;amp;)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now &lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt; should be in sync and have your latest source for the blog.&lt;/p&gt;
 &lt;h2&gt;Autogenerate blog on change&lt;/h2&gt;
 &lt;p&gt;We need to install &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; blog engine and &lt;a href="http://inotify.aiken.cz/?section=incron&amp;amp;page=about&amp;amp;lang=en"&gt;incron&lt;/a&gt; to trigger auto generation of the blog on changes in the &lt;code&gt;~/Dropbox/Pelican/content&lt;/code&gt; folder.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install python-pelican python-markdown incron
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install python-pelican python-markdown incron
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Edit &lt;code&gt;DROPBOX_DIR&lt;/code&gt; the the &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; &lt;code&gt;Makefile&lt;/code&gt; to point to the &lt;a href="https://en.wikipedia.org/wiki/Virtual_hosting" title="Virtual hosting"&gt;VirtualHost&lt;/a&gt; which stores the blog.&lt;/p&gt;
 &lt;p&gt;Then allow the &lt;code&gt;www-data&lt;/code&gt; user to run incron.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; www-data &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/incron.allow
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;echo &lt;/span&gt;www-data &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/incron.allow
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And as a final step make the incrontab entry for &lt;code&gt;www-data&lt;/code&gt; with &lt;code&gt;ìncrontab -e&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
+&lt;div class="highlight"&gt;&lt;pre&gt;/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; will recreate the blog on each change in &lt;code&gt;~/Dropbox/Pelican/content&lt;/code&gt;. Happy blogging!&lt;/p&gt;</summary><category term="dropbox"></category><category term="howto"></category><category term="incron"></category><category term="pelican"></category></entry><entry><title>Configuring OpenVPN server on RTN66U</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-01-easyrsa.html" rel="alternate"></link><published>2014-05-01T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-05-01:posts/2014/2014-05-01-easyrsa.html</id><summary type="html">&lt;p&gt;The router firmware Tomato, see previous post &lt;a href="2014-04-17-tomato"&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;
+&lt;p&gt;Now &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; will recreate the blog on each change in &lt;code&gt;~/Dropbox/Pelican/content&lt;/code&gt;. Happy blogging!&lt;/p&gt;</summary><category term="dropbox"></category><category term="howto"></category><category term="incron"></category><category term="pelican"></category></entry><entry><title>Configuring OpenVPN server on RTN66U</title><link href="http://blog.heimsbakk.net/posts/2014/2014-05-01-easyrsa.html" rel="alternate"></link><updated>2014-05-01T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-05-01:posts/2014/2014-05-01-easyrsa.html</id><summary type="html">&lt;p&gt;The router firmware Tomato, see previous post &lt;a href="2014-04-17-tomato"&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;
 &lt;p&gt;Using open &lt;a href="https://en.wikipedia.org/wiki/Wifi" title="Wi-Fi"&gt;Wi-Fi&lt;/a&gt; access points can be very useful and necessary, but it is inherently insecure. Using the router as an &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; server can increase your privacy and security when you are on the go. By creating an encrypted &lt;a href="https://en.wikipedia.org/wiki/Vpn" title="Virtual Private Network"&gt;VPN&lt;/a&gt; connection back home to the router, you don't only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.&lt;/p&gt;
 &lt;p&gt;For &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; to work we need to create our own &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;CA&lt;/a&gt; for signing both server, the router, and optionally client certificates. This notes will only show how to create a server certificate and configure the router with user name and password authentication.&lt;/p&gt;
 &lt;h2&gt;Preparations, create CA&lt;/h2&gt;
 &lt;p&gt;Install necessary software. Although haveged, is not required, see &lt;a href="2014-04-29-haveged"&gt;Better entropy with haveged&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install easy-rsa haveged
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install easy-rsa haveged
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create a work directory for &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;OpenVPN&lt;/a&gt;. Take care to protect this directory and the files under it. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make-cadir «yourdomain»
+&lt;div class="highlight"&gt;&lt;pre&gt;make-cadir «yourdomain»
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Enter your &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;CA&lt;/a&gt; directory.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; «yourdomain»
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; «yourdomain»
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Edit the &lt;code&gt;vars&lt;/code&gt; file and change the following variables to something more sensible for you.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;KEY_COUNTRY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;US&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;KEY_PROVINCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CA&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;KEY_CITY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SanFrancisco&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;KEY_ORG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Funston-Fort&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;KEY_EMAIL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;me@myhost.mydomain&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;KEY_COUNTRY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;US&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;KEY_PROVINCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CA&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;KEY_CITY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SanFrancisco&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;KEY_ORG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Funston-Fort&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;KEY_EMAIL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;me@myhost.mydomain&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Source the variables into current bash session.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ./vars
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ./vars
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Do a initial clean.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./clean-all 
+&lt;div class="highlight"&gt;&lt;pre&gt;./clean-all 
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create your &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"&gt;CA&lt;/a&gt; public and private key.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./build-ca
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-ca
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Generate your &lt;a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange"&gt;Diffie–Hellman&lt;/a&gt; parameters.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./build-dh
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-dh
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create your routers public and private key.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./build-key-server «yourrouter»
+&lt;div class="highlight"&gt;&lt;pre&gt;./build-key-server «yourrouter»
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Listing of folder &lt;code&gt;keys&lt;/code&gt; should look something like this now.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ca.crt  dh2048.pem  serial            «yourrouter».csr
+&lt;div class="highlight"&gt;&lt;pre&gt;ca.crt  dh2048.pem  serial            «yourrouter».csr
 ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -949,12 +1000,12 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;h2&gt;Clients&lt;/h2&gt;
 &lt;h3&gt;Network Manager&lt;/h3&gt;
 &lt;p&gt;Now you can configure &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; on your computer. Remember to install the correct plugin, &lt;code&gt;network-manager-openvpn&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install network-manager-openvpn
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install network-manager-openvpn
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Android&lt;/h3&gt;
-&lt;p&gt;Easy to use &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; client for Android is &lt;a href="https://play.google.com/store/apps/details?id=de.blinkt.openvpn"&gt;OpenVPN for Android&lt;/a&gt;.&lt;/p&gt;</summary><category term="howto"></category><category term="tomato"></category><category term="network"></category><category term="openvpn"></category><category term="security"></category><category term="vpn"></category></entry><entry><title>RT-N66u with Tomato by Shibby firmware</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-17-tomato.html" rel="alternate"></link><published>2014-04-17T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-17:posts/2014/2014-04-17-tomato.html</id><summary type="html">&lt;p&gt;&lt;em&gt;This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don't know what you are doing. Do not proceed.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Easy to use &lt;a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"&gt;OpenVPN&lt;/a&gt; client for Android is &lt;a href="https://play.google.com/store/apps/details?id=de.blinkt.openvpn"&gt;OpenVPN for Android&lt;/a&gt;.&lt;/p&gt;</summary><category term="howto"></category><category term="tomato"></category><category term="network"></category><category term="openvpn"></category><category term="security"></category><category term="vpn"></category></entry><entry><title>RT-N66u with Tomato by Shibby firmware</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-17-tomato.html" rel="alternate"></link><updated>2014-04-17T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-17:posts/2014/2014-04-17-tomato.html</id><summary type="html">&lt;p&gt;&lt;em&gt;This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don't know what you are doing. Do not proceed.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Asus &lt;a href="http://www.asus.com/Networking/RTN66U"&gt;RT-N66U&lt;/a&gt; is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better &lt;a href="http://en.wikipedia.org/wiki/Quality_of_service" title="Quality of service"&gt;QoS&lt;/a&gt;, &lt;a href="http://openvpn.net"&gt;OpenVPN&lt;/a&gt; or just more control over the network I recommend installing &lt;a href="http://tomato.groov.pl"&gt;Tomato by Shibby&lt;/a&gt; firmware.&lt;/p&gt;
 &lt;p&gt;Download the latest version of the firmware from &lt;a href="http://tomato.groov.pl"&gt;Tomato by Shibby&lt;/a&gt;. Look for &lt;code&gt;Asus RT-N66u 64k&lt;/code&gt; in the version folder in &lt;a href="http://tomato.groov.pl/download/K26RT-N"&gt;K26RT-N&lt;/a&gt; repository.&lt;/p&gt;
 &lt;p&gt;I use the all in one, AIO, i.e. &lt;code&gt;tomato-K26USB-1.28.RT-N5x-MIPSR2-117-AIO-64K.trx&lt;/code&gt;.&lt;/p&gt;
@@ -971,8 +1022,8 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;li&gt;Browse to &lt;a href="http://192.168.1.1"&gt;http://192.168.1.1&lt;/a&gt; and start configuring the router.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Tips&lt;/h3&gt;
-&lt;p&gt;Problems booting. Try to reset &lt;a href="http://en.wikipedia.org/wiki/Non-volatile_random-access_memory" title="Non-volatile random-access memory"&gt;NVRAM&lt;/a&gt; again. Resetting &lt;a href="http://en.wikipedia.org/wiki/Non-volatile_random-access_memory" title="Non-volatile random-access memory"&gt;NVRAM&lt;/a&gt; can also be done by holding in WPS button while powering on. Don't release WPS button before 30 seconds. &lt;/p&gt;</summary><category term="firmware"></category><category term="howto"></category><category term="network"></category><category term="tomato"></category></entry><entry><title>Find duplicate files</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-duplicates.html" rel="alternate"></link><published>2014-04-13T21:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-duplicates.html</id><summary type="html">&lt;p&gt;Find all duplicate files in current and sub-directories with bash. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;find -not -empty -type f -printf &lt;span class="s1"&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sort -rn &lt;span class="p"&gt;|&lt;/span&gt; uniq -d &lt;span class="p"&gt;|&lt;/span&gt; xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; -n1 find -type f -size &lt;span class="o"&gt;{}&lt;/span&gt;c -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0 md5sum &lt;span class="p"&gt;|&lt;/span&gt; sort &lt;span class="p"&gt;|&lt;/span&gt; uniq -w32 --all-repeated&lt;span class="o"&gt;=&lt;/span&gt;separate
+&lt;p&gt;Problems booting. Try to reset &lt;a href="http://en.wikipedia.org/wiki/Non-volatile_random-access_memory" title="Non-volatile random-access memory"&gt;NVRAM&lt;/a&gt; again. Resetting &lt;a href="http://en.wikipedia.org/wiki/Non-volatile_random-access_memory" title="Non-volatile random-access memory"&gt;NVRAM&lt;/a&gt; can also be done by holding in WPS button while powering on. Don't release WPS button before 30 seconds. &lt;/p&gt;</summary><category term="firmware"></category><category term="howto"></category><category term="network"></category><category term="tomato"></category></entry><entry><title>Find duplicate files</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-duplicates.html" rel="alternate"></link><updated>2014-04-13T21:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-duplicates.html</id><summary type="html">&lt;p&gt;Find all duplicate files in current and sub-directories with bash. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;find -not -empty -type f -printf &lt;span class="s1"&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sort -rn &lt;span class="p"&gt;|&lt;/span&gt; uniq -d &lt;span class="p"&gt;|&lt;/span&gt; xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; -n1 find -type f -size &lt;span class="o"&gt;{}&lt;/span&gt;c -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0 md5sum &lt;span class="p"&gt;|&lt;/span&gt; sort &lt;span class="p"&gt;|&lt;/span&gt; uniq -w32 --all-repeated&lt;span class="o"&gt;=&lt;/span&gt;separate
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -988,14 +1039,14 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;/ol&gt;
 &lt;h2&gt;Alternatively&lt;/h2&gt;
 &lt;p&gt;Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install fdupes
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install fdupes
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This does more or less the same thing as the oneliner.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fdupes -r .
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="bash"></category><category term="oneliner"></category></entry><entry><title>Remove unused kernels</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-kernel.html" rel="alternate"></link><published>2014-04-13T16:45:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-kernel.html</id><summary type="html">&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dpkg-query -f &lt;span class="s1"&gt;&amp;#39;${Package}\n&amp;#39;&lt;/span&gt; -W &lt;span class="p"&gt;|&lt;/span&gt;  egrep &lt;span class="s1"&gt;&amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -v &lt;span class="k"&gt;$(&lt;/span&gt;uname -r &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;&amp;#39;s/-generic//&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo xargs apt-get -q -q -yy --purge remove
+&lt;div class="highlight"&gt;&lt;pre&gt;fdupes -r .
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="bash"></category><category term="oneliner"></category></entry><entry><title>Remove unused kernels</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-kernel.html" rel="alternate"></link><updated>2014-04-13T16:45:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-kernel.html</id><summary type="html">&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dpkg-query -f &lt;span class="s1"&gt;&amp;#39;${Package}\n&amp;#39;&lt;/span&gt; -W &lt;span class="p"&gt;|&lt;/span&gt;  egrep &lt;span class="s1"&gt;&amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -v &lt;span class="k"&gt;$(&lt;/span&gt;uname -r &lt;span class="p"&gt;|&lt;/span&gt; sed &lt;span class="s1"&gt;&amp;#39;s/-generic//&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo xargs apt-get -q -q -yy --purge remove
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1005,21 +1056,21 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;li&gt;Find only linux-image and linux-header packages with version number, not the two main meta packages.&lt;/li&gt;
 &lt;li&gt;Remove the linux-image and linux-header for running kernel from the list.&lt;/li&gt;
 &lt;li&gt;Purge all listed packages from system without asking any questions.&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="bash"></category><category term="oneliner"></category><category term="ubuntu"></category><category term="kernel"></category></entry><entry><title>Modeline in vim</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-modeline.html" rel="alternate"></link><published>2014-04-13T16:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-modeline.html</id><summary type="html">&lt;p&gt;Options set in &lt;code&gt;.vimrc&lt;/code&gt; applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in &lt;code&gt;.vimrc&lt;/code&gt; to take advantage of this option.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;modeline&lt;/span&gt;
+&lt;/ol&gt;</summary><category term="bash"></category><category term="oneliner"></category><category term="ubuntu"></category><category term="kernel"></category></entry><entry><title>Modeline in vim</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-modeline.html" rel="alternate"></link><updated>2014-04-13T16:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-modeline.html</id><summary type="html">&lt;p&gt;Options set in &lt;code&gt;.vimrc&lt;/code&gt; applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in &lt;code&gt;.vimrc&lt;/code&gt; to take advantage of this option.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;modeline&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The modeline should be the first line in the file. You can set it inn multiple ways as shown below. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
+&lt;div class="highlight"&gt;&lt;pre&gt;# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
+&lt;div class="highlight"&gt;&lt;pre&gt;// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1051,10 +1102,10 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
     Show matching brackets &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Links&lt;/h2&gt;
-&lt;p&gt;More information in the Vim &lt;a href="http://vimdoc.sourceforge.net/htmldoc"&gt;documentations&lt;/a&gt; under &lt;a href="http://vimdoc.sourceforge.net/htmldoc/options.html"&gt;options&lt;/a&gt;.&lt;/p&gt;</summary><category term="howto"></category><category term="vim"></category></entry><entry><title>Bash getopts example</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-getopts.html" rel="alternate"></link><published>2014-04-13T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-getopts.html</id><summary type="html">&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;p&gt;More information in the Vim &lt;a href="http://vimdoc.sourceforge.net/htmldoc"&gt;documentations&lt;/a&gt; under &lt;a href="http://vimdoc.sourceforge.net/htmldoc/options.html"&gt;options&lt;/a&gt;.&lt;/p&gt;</summary><category term="howto"></category><category term="vim"></category></entry><entry><title>Bash getopts example</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-13-getopts.html" rel="alternate"></link><updated>2014-04-13T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-13:posts/2014/2014-04-13-getopts.html</id><summary type="html">&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Print help on stderr&lt;/span&gt;
+&lt;span class="c"&gt;# Print help on stderr&lt;/span&gt;
 &lt;span class="k"&gt;function&lt;/span&gt; show_help&lt;span class="o"&gt;(){&lt;/span&gt; 
     show_usage 
     cat &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
@@ -1063,81 +1114,81 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;span class="s"&gt;EOF&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Print usage on stderr&lt;/span&gt;
+&lt;span class="c"&gt;# Print usage on stderr&lt;/span&gt;
 &lt;span class="k"&gt;function&lt;/span&gt; show_usage&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt; [-a ARG] [-b] [N1 [N2 .. [NN]]]&amp;quot;&lt;/span&gt; &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;2
 &lt;span class="o"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Print usage and exit with error code 1 if we don&amp;#39;t have any options&lt;/span&gt;
+&lt;span class="c"&gt;# Print usage and exit with error code 1 if we don&amp;#39;t have any options&lt;/span&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
     show_usage
-    &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+    &lt;span class="nb"&gt;exit &lt;/span&gt;1
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
-&lt;span class="c1"&gt;# :  = make getopts silent, handle errors self&lt;/span&gt;
-&lt;span class="c1"&gt;# a: = option a expects an argument&lt;/span&gt;
-&lt;span class="c1"&gt;# b  = option b is a true false option&lt;/span&gt;
-&lt;span class="c1"&gt;# h  = option h is a true false option&lt;/span&gt;
-&lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;span class="c1"&gt;# On invalid option, opt will be replaced with ? &lt;/span&gt;
-&lt;span class="c1"&gt;# and OPTARG set to argument name&lt;/span&gt;
+&lt;span class="c"&gt;# :  = make getopts silent, handle errors self&lt;/span&gt;
+&lt;span class="c"&gt;# a: = option a expects an argument&lt;/span&gt;
+&lt;span class="c"&gt;# b  = option b is a true false option&lt;/span&gt;
+&lt;span class="c"&gt;# h  = option h is a true false option&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# On invalid option, opt will be replaced with ? &lt;/span&gt;
+&lt;span class="c"&gt;# and OPTARG set to argument name&lt;/span&gt;
 &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;getopts&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;:a:bh&amp;quot;&lt;/span&gt; opt
 &lt;span class="k"&gt;do&lt;/span&gt;
     &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$opt&lt;/span&gt; in
         a&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$OPTARG&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
-        b&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo&lt;/span&gt; True&lt;span class="p"&gt;;;&lt;/span&gt;
-        h&lt;span class="o"&gt;)&lt;/span&gt;  show_help&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;exit&lt;/span&gt; 1&lt;span class="p"&gt;;;&lt;/span&gt;
+        b&lt;span class="o"&gt;)&lt;/span&gt;  &lt;span class="nb"&gt;echo &lt;/span&gt;True&lt;span class="p"&gt;;;&lt;/span&gt;
+        h&lt;span class="o"&gt;)&lt;/span&gt;  show_help&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;exit &lt;/span&gt;1&lt;span class="p"&gt;;;&lt;/span&gt;
         &lt;span class="se"&gt;\?&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;basename &lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt; invalid option: -&lt;span class="nv"&gt;$OPTARG&lt;/span&gt; &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;2
-            &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+            &lt;span class="nb"&gt;exit &lt;/span&gt;1
             &lt;span class="p"&gt;;;&lt;/span&gt;
     &lt;span class="k"&gt;esac&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 
-&lt;span class="c1"&gt;# OPTIND is not reset after getopts is finished. &lt;/span&gt;
-&lt;span class="c1"&gt;# Loop through argument  [N1 [N2 .. [NN]]] &lt;/span&gt;
+&lt;span class="c"&gt;# OPTIND is not reset after getopts is finished. &lt;/span&gt;
+&lt;span class="c"&gt;# Loop through argument  [N1 [N2 .. [NN]]] &lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; ARG in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="p"&gt;@:&lt;/span&gt;&lt;span class="nv"&gt;$OPTIND&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
     &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$ARG&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="howto"></category><category term="bash"></category></entry><entry><title>Creating a blog based on Pelican</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-12-pelican.html" rel="alternate"></link><published>2014-04-12T00:00:00+02:00</published><author><name>Arnulf Heimsbakk</name></author><id>tag:blog.heimsbakk.net,2014-04-12:posts/2014/2014-04-12-pelican.html</id><summary type="html">&lt;p&gt;&lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt; is a static website generator written in Python. It's perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as &lt;a href="http://tomato.groov.pl"&gt;Tomato by Shibby&lt;/a&gt; or &lt;a href="http://www.dd-wrt.com"&gt;dd-wrt&lt;/a&gt;.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="howto"></category><category term="bash"></category></entry><entry><title>Creating a blog based on Pelican</title><link href="http://blog.heimsbakk.net/posts/2014/2014-04-12-pelican.html" rel="alternate"></link><updated>2014-04-12T00:00:00+02:00</updated><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2014-04-12:posts/2014/2014-04-12-pelican.html</id><summary type="html">&lt;p&gt;&lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt; is a static website generator written in Python. It's perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as &lt;a href="http://tomato.groov.pl"&gt;Tomato by Shibby&lt;/a&gt; or &lt;a href="http://www.dd-wrt.com"&gt;dd-wrt&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install Pelican and package for &lt;a href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; language. With Markdown you write the content in text and Pelican translates it to HTML.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt-get install python-pelican python-markdown
+&lt;div class="highlight"&gt;&lt;pre&gt;apt-get install python-pelican python-markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Make a directory where you want to maintain your blog.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir myblock; cd myblock
+&lt;div class="highlight"&gt;&lt;pre&gt;mkdir myblock; cd myblock
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the Pelican quick start script and answer all the questions. Add at least one method of uploading your blog to a web server.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-quickstart
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Start by creating your first page in &lt;code&gt;content&lt;/code&gt; directory. Each page should have a heading with some metadata.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Creating&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;based&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Pelican&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Creating&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;based&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Pelican&lt;/span&gt;
 &lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2014&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;
 &lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Blog&lt;/span&gt;
 &lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;howto&lt;/span&gt;
 &lt;span class="n"&gt;Slug&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2014&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;
-&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Arnulf&lt;/span&gt; &lt;span class="n"&gt;Heimsbakk&lt;/span&gt;
+&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;arnulf&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Start the local HTTP server and check how your blog is coming along.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make serve
+&lt;div class="highlight"&gt;&lt;pre&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1147,7 +1198,7 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Upload your blog to your web server. I prefer the ssh upload option.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make ssh_upload
+&lt;div class="highlight"&gt;&lt;pre&gt;make ssh_upload
 &lt;/pre&gt;&lt;/div&gt;
 
 
