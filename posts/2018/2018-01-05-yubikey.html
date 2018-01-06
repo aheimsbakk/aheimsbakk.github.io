@@ -175,7 +175,7 @@ gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF123456789
 <p>You uploaded the key to a pool of machines. Now it's a time to go and fetch a coffee, and let some time go to avoid frustrations while the pool is updating.</p>
 </li>
 <li>
-<p>Find the URL for your public key on <a href="">http://pool.sks-keyservers.net:11371</a>.</p>
+<p>Find the URL for your public key on <a href="http://pool.sks-keyservers.net:11371">http://pool.sks-keyservers.net:11371</a>.</p>
 </li>
 <li>
 <p>Go back to the YubiKey and add the URL for the public key.</p>
@@ -208,7 +208,7 @@ gpg/card&gt; url
 </li>
 </ol>
 <h3>Change SSH to use gpg-agent</h3>
-<p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support.</p>
+<p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat. </p>
 <div class="highlight"><pre>vim .bashrc
 </pre></div>
 
@@ -236,7 +236,7 @@ gpg/card&gt; url
 <p>If user PIN is entered to many times, it need to be unlocked with reset PIN.</p>
 </li>
 <li>
-<p>If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with <code>ykman</code>.</p>
+<p>If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with <code>ykman</code>. You will lose your private key and need to revoke it with the revocation certificat. </p>
 </li>
 </ul>
 <h6>vim: set syn=markdown spell spl=en:</h6>

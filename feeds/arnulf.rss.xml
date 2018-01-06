@@ -85,7 +85,7 @@ gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF123456789
 &lt;p&gt;You uploaded the key to a pool of machines. Now it's a time to go and fetch a coffee, and let some time go to avoid frustrations while the pool is updating.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Find the URL for your public key on &lt;a href=""&gt;http://pool.sks-keyservers.net:11371&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Find the URL for your public key on &lt;a href="http://pool.sks-keyservers.net:11371"&gt;http://pool.sks-keyservers.net:11371&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Go back to the YubiKey and add the URL for the public key.&lt;/p&gt;
@@ -118,7 +118,7 @@ gpg/card&amp;gt; url
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;Change SSH to use gpg-agent&lt;/h3&gt;
-&lt;p&gt;Go to shell and edit your &lt;code&gt;.bashrc&lt;/code&gt; to start &lt;code&gt;gpg-agent&lt;/code&gt; and with SSH support.&lt;/p&gt;
+&lt;p&gt;Go to shell and edit your &lt;code&gt;.bashrc&lt;/code&gt; to start &lt;code&gt;gpg-agent&lt;/code&gt; and with SSH support. You will lose your private key and need to revoke it with the revocation certificat. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;vim .bashrc
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -146,7 +146,7 @@ gpg/card&amp;gt; url
 &lt;p&gt;If user PIN is entered to many times, it need to be unlocked with reset PIN.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with &lt;code&gt;ykman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with &lt;code&gt;ykman&lt;/code&gt;. You will lose your private key and need to revoke it with the revocation certificat. &lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h6&gt;vim: set syn=markdown spell spl=en:&lt;/h6&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">arnulf</dc:creator><pubDate>Fri, 05 Jan 2018 00:00:00 +0100</pubDate><guid>tag:blog.heimsbakk.net,2018-01-05:posts/2018/2018-01-05-yubikey.html</guid><category>howto</category><category>security</category><category>ssh</category><category>yubikey</category></item><item><title>zram: Compressed RAM based block devices</title><link>http://blog.heimsbakk.net/posts/2015/zram.html</link><description>&lt;p&gt;From &lt;a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt"&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zram&amp;lt;id&amp;gt; (&amp;lt;id&amp;gt; = 0, 1, ...). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;
