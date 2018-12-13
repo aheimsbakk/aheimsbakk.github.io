@@ -88,48 +88,48 @@
 </footer><!-- /.post-info -->
 
         <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
-<div class="highlight"><pre><span class="k">set</span> <span class="nb">modeline</span>
+<div class="highlight"><pre><span></span><span class="k">set</span> <span class="nb">modeline</span>
 </pre></div>
 
 
 <p>The modeline should be the first line in the file. You can set it inn multiple ways as shown below. </p>
-<div class="highlight"><pre># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
+<div class="highlight"><pre><span></span># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cm">/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="cm">/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */</span><span class="w"></span>
 </pre></div>
 
 
-<div class="highlight"><pre>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
+<div class="highlight"><pre><span></span>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: 
 </pre></div>
 
 
 <h2>Explanation</h2>
 <ul>
-<li><code>enc=UTF-8</code><br />
+<li><code>enc=UTF-8</code><br>
     Set encoding to UTF-8</li>
-<li><code>ai</code><br />
+<li><code>ai</code><br>
     Auto intend</li>
-<li><code>et</code><br />
+<li><code>et</code><br>
     Expand tabs with spaces</li>
-<li><code>ts=4</code><br />
+<li><code>ts=4</code><br>
     Tab stop set to 8</li>
-<li><code>sts=4</code><br />
+<li><code>sts=4</code><br>
     Soft tab stop</li>
-<li><code>sw=4</code><br />
+<li><code>sw=4</code><br>
     Shift width, used by <code>&gt;&gt;</code> and <code>&lt;&lt;</code></li>
-<li><code>tw=79</code><br />
+<li><code>tw=79</code><br>
     Text width</li>
-<li><code>cc=80</code><br />
+<li><code>cc=80</code><br>
     Set colour column, a colour bare at character 80</li>
-<li><code>wrap</code><br />
+<li><code>wrap</code><br>
     Wraps text, only affects how the text is displayed</li>
-<li><code>wb</code><br />
+<li><code>wb</code><br>
     Write a backup before saving files</li>
-<li><code>nu</code><br />
+<li><code>nu</code><br>
     Show line numbers</li>
-<li><code>sm</code><br />
+<li><code>sm</code><br>
     Show matching brackets </li>
 </ul>
 <h2>Links</h2>

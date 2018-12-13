@@ -94,25 +94,25 @@
 <h2>Capture audio</h2>
 <h3>Pre requests</h3>
 <p>You have to install a couple of programs, if you don't have them from before, to make the bash script work.</p>
-<div class="highlight"><pre>apt-get install pulseaudio-utils flac coreutils
+<div class="highlight"><pre><span></span>apt-get install pulseaudio-utils flac coreutils
 </pre></div>
 
 
 <h3>The script</h3>
 <p>This is my <code>record-app.sh</code> script.</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="nv">BN</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span>
 <span class="nv">SI</span><span class="o">=</span><span class="k">$(</span>pacmd list-sink-inputs <span class="p">|</span> grep -m <span class="m">1</span> index <span class="p">|</span> egrep -o <span class="s2">&quot;[[:digit:]]+&quot;</span><span class="k">)</span>
 
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;usage: </span><span class="nv">$BN</span><span class="s2"> filename&quot;</span>
-  <span class="nb">exit </span>1
+  <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$SI</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;error: no input sinks found&quot;</span>
-  <span class="nb">exit </span>2
+  <span class="nb">exit</span> <span class="m">2</span>
 <span class="k">fi</span>
 
 <span class="nv">N</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
@@ -125,23 +125,23 @@
 <span class="nb">echo</span> · Moving sink «<span class="nv">$SI</span>» to null sink «rec»
 pactl move-sink-input <span class="nv">$SI</span> rec
 <span class="nb">echo</span> · Saving sound data to «<span class="nv">$N</span>.flac» 
-parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</span>little --sign<span class="o">=</span>signed --channels<span class="o">=</span><span class="m">2</span> --bps<span class="o">=</span>16n --sample-rate<span class="o">=</span><span class="m">44100</span> -o <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">.flac&quot;</span> - 2&gt;/dev/null
+parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</span>little --sign<span class="o">=</span>signed --channels<span class="o">=</span><span class="m">2</span> --bps<span class="o">=</span>16n --sample-rate<span class="o">=</span><span class="m">44100</span> -o <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">.flac&quot;</span> - <span class="m">2</span>&gt;/dev/null
 </pre></div>
 
 
 <h3>Usage</h3>
-<div class="highlight"><pre>usage: record-app.sh filename
+<div class="highlight"><pre><span></span>usage: record-app.sh filename
 </pre></div>
 
 
 <h4>Example 1</h4>
-<div class="highlight"><pre>./record-app.sh firefox-sound
+<div class="highlight"><pre><span></span>./record-app.sh firefox-sound
 </pre></div>
 
 
 <p>Will start to record the current playing audio in Firefox. The audio is saved int the file <code>firefox-sound.flac</code>.</p>
 <h4>Example 2</h4>
-<div class="highlight"><pre>timeout 1h ./record-app.sh firefox-sound
+<div class="highlight"><pre><span></span>timeout 1h ./record-app.sh firefox-sound
 </pre></div>
 
 

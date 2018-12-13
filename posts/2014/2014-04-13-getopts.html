@@ -88,9 +88,9 @@
 </footer><!-- /.post-info -->
 
         <p>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<span class="c"># Print help on stderr</span>
+<span class="c1"># Print help on stderr</span>
 <span class="k">function</span> show_help<span class="o">(){</span> 
     show_usage 
     cat &gt;<span class="p">&amp;</span><span class="m">2</span> <span class="s">&lt;&lt;EOF</span>
@@ -99,38 +99,38 @@
 <span class="s">EOF</span>
 <span class="o">}</span>
 
-<span class="c"># Print usage on stderr</span>
+<span class="c1"># Print usage on stderr</span>
 <span class="k">function</span> show_usage<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&quot;</span> &gt;<span class="p">&amp;</span>2
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="o">}</span>
 
-<span class="c"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
+<span class="c1"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
     show_usage
-    <span class="nb">exit </span>1
+    <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="c"># :  = make getopts silent, handle errors self</span>
-<span class="c"># a: = option a expects an argument</span>
-<span class="c"># b  = option b is a true false option</span>
-<span class="c"># h  = option h is a true false option</span>
-<span class="c">#</span>
-<span class="c"># On invalid option, opt will be replaced with ? </span>
-<span class="c"># and OPTARG set to argument name</span>
+<span class="c1"># :  = make getopts silent, handle errors self</span>
+<span class="c1"># a: = option a expects an argument</span>
+<span class="c1"># b  = option b is a true false option</span>
+<span class="c1"># h  = option h is a true false option</span>
+<span class="c1">#</span>
+<span class="c1"># On invalid option, opt will be replaced with ? </span>
+<span class="c1"># and OPTARG set to argument name</span>
 <span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;:a:bh&quot;</span> opt
 <span class="k">do</span>
     <span class="k">case</span> <span class="nv">$opt</span> in
         a<span class="o">)</span>  <span class="nb">echo</span> <span class="nv">$OPTARG</span><span class="p">;;</span>
-        b<span class="o">)</span>  <span class="nb">echo </span>True<span class="p">;;</span>
-        h<span class="o">)</span>  show_help<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;;</span>
-        <span class="se">\?</span><span class="o">)</span> <span class="nb">echo</span> <span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span> invalid option: -<span class="nv">$OPTARG</span> &gt;<span class="p">&amp;</span>2
-            <span class="nb">exit </span>1
+        b<span class="o">)</span>  <span class="nb">echo</span> True<span class="p">;;</span>
+        h<span class="o">)</span>  show_help<span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span><span class="p">;;</span>
+        <span class="se">\?</span><span class="o">)</span> <span class="nb">echo</span> <span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span> invalid option: -<span class="nv">$OPTARG</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+            <span class="nb">exit</span> <span class="m">1</span>
             <span class="p">;;</span>
     <span class="k">esac</span>
 <span class="k">done</span>
 
-<span class="c"># OPTIND is not reset after getopts is finished. </span>
-<span class="c"># Loop through argument  [N1 [N2 .. [NN]]] </span>
+<span class="c1"># OPTIND is not reset after getopts is finished. </span>
+<span class="c1"># Loop through argument  [N1 [N2 .. [NN]]] </span>
 <span class="k">for</span> ARG in <span class="si">${</span><span class="p">@:</span><span class="nv">$OPTIND</span><span class="si">}</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="nv">$ARG</span>

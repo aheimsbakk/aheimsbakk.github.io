@@ -88,7 +88,7 @@
 </footer><!-- /.post-info -->
 
         <p>Find all duplicate files in current and sub-directories with bash. </p>
-<div class="highlight"><pre>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
+<div class="highlight"><pre><span></span>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
 </pre></div>
 
 
@@ -104,12 +104,12 @@
 </ol>
 <h2>Alternatively</h2>
 <p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above. </p>
-<div class="highlight"><pre>apt-get install fdupes
+<div class="highlight"><pre><span></span>apt-get install fdupes
 </pre></div>
 
 
 <p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre>fdupes -r .
+<div class="highlight"><pre><span></span>fdupes -r .
 </pre></div>
 
       </div><!-- /.entry-content -->

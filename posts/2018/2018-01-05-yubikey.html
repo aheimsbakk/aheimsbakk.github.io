@@ -74,7 +74,7 @@
 
     in <a href="../../category/blog.html">blog</a>
 
-    on 2018-01-05
+    on 2018-12-13
 
         |
         tags:         <a href="../../tag/howto.html">howto</a>
@@ -97,7 +97,7 @@
 <ol>
 <li>
 <p>Install the YubiKey management software. </p>
-<div class="highlight"><pre>sudo dnf install yubikey-manager
+<div class="highlight"><pre><span></span>sudo dnf install yubikey-manager
 </pre></div>
 
 
@@ -107,12 +107,12 @@
 </li>
 <li>
 <p>Check that OpenPGP is enabled on your YubiKey.</p>
-<div class="highlight"><pre>ykman info
+<div class="highlight"><pre><span></span>ykman info
 </pre></div>
 
 
 <p>Expected output should include the following.</p>
-<div class="highlight"><pre>    OPGP:      Enabled
+<div class="highlight"><pre><span></span>    OPGP:      Enabled
 </pre></div>
 
 
@@ -120,7 +120,7 @@
 </li>
 <li>
 <p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
-<div class="highlight"><pre>ykman openpgp set-pin-retries 3 3 5
+<div class="highlight"><pre><span></span>ykman openpgp set-pin-retries 3 3 5
 </pre></div>
 
 
@@ -131,7 +131,7 @@
 <ol>
 <li>
 <p>Generate PGP certificate on the key.</p>
-<div class="highlight"><pre>gpg2 --edit-card
+<div class="highlight"><pre><span></span>gpg2 --edit-card
 gpg/card&gt; admin
 gpg/card&gt; generate
 </pre></div>
@@ -146,7 +146,7 @@ gpg/card&gt; generate
 </li>
 <li>
 <p>Enter the  password menu.</p>
-<div class="highlight"><pre>gpg/card&gt; passwd
+<div class="highlight"><pre><span></span>gpg/card&gt; passwd
 </pre></div>
 
 
@@ -165,7 +165,7 @@ gpg/card&gt; generate
 </li>
 <li>
 <p>Find your public key and export it to a keyserver.</p>
-<div class="highlight"><pre>gpg2 --list-keys --keyid-format long
+<div class="highlight"><pre><span></span>gpg2 --list-keys --keyid-format long
 gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF1234567890
 </pre></div>
 
@@ -179,7 +179,7 @@ gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF123456789
 </li>
 <li>
 <p>Go back to the YubiKey and add the URL for the public key.</p>
-<div class="highlight"><pre>gpg2 --edit-card
+<div class="highlight"><pre><span></span>gpg2 --edit-card
 gpg/card&gt; admin
 gpg/card&gt; url
 </pre></div>
@@ -191,14 +191,14 @@ gpg/card&gt; url
 <ol>
 <li>
 <p>Test fetching public key from the keyserver.</p>
-<div class="highlight"><pre>gpg/card&gt; fetch
+<div class="highlight"><pre><span></span>gpg/card&gt; fetch
 </pre></div>
 
 
 </li>
 <li>
 <p>Generate a revocation certificate and store it in a safe place. Safe place may be paper or your favorite password manager.</p>
-<div class="highlight"><pre>gpg2 --generate-revocation ABCDEF0123456789
+<div class="highlight"><pre><span></span>gpg2 --generate-revocation ABCDEF0123456789
 </pre></div>
 
 
@@ -209,21 +209,24 @@ gpg/card&gt; url
 </ol>
 <h3>Change SSH to use gpg-agent</h3>
 <p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat. </p>
-<div class="highlight"><pre>vim .bashrc
+<div class="highlight"><pre><span></span>vim .bashrc
 </pre></div>
 
 
 <p>Add the following.</p>
-<div class="highlight"><pre><span class="nv">AGENT</span><span class="o">=</span><span class="k">$(</span>gpg-agent --daemon --enable-ssh-support 2&gt;/dev/null<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$AGENT</span><span class="s2">&quot;</span> &gt; ~/.gpg-agent-info
-<span class="nb">source</span> ~/.gpg-agent-info
+<div class="highlight"><pre><span></span><span class="k">if</span> ! pgrep -u <span class="nv">$USER</span> -f <span class="s2">&quot;gpg-agent.*enable-ssh-support&quot;</span> &gt; /dev/null
+<span class="k">then</span>
+    pkill gpg-agent
+    gpg-agent --homedir <span class="nv">$HOME</span>/.gnupg --daemon --enable-ssh-support
+<span class="k">fi</span>
+<span class="nv">SSH_AUTH_SOCK</span><span class="o">=</span><span class="k">$(</span>gpgconf --list-dir agent-ssh-socket<span class="k">)</span>
 </pre></div>
 
 
 <p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
 <h3>Public SSH key</h3>
 <p>Get your public SSH key.</p>
-<div class="highlight"><pre> gpg2 --export-ssh-key ABCDEF0123456789
+<div class="highlight"><pre><span></span> gpg2 --export-ssh-key ABCDEF0123456789
 </pre></div>
 
 

@@ -111,23 +111,23 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># Load the module and create one zram device, /dev/zram0</span>
-modprobe zram <span class="nv">num_devices</span><span class="o">=</span>1
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Load the module and create one zram device, /dev/zram0</span>
+modprobe zram <span class="nv">num_devices</span><span class="o">=</span><span class="m">1</span>
 
-<span class="c"># Maximum of compressed streams (keep same as CPUs)</span>
-<span class="nb">echo </span><span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+<span class="c1"># Maximum of compressed streams (keep same as CPUs)</span>
+<span class="nb">echo</span> <span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
-<span class="c"># Size of zram0 device in k/m/g</span>
-<span class="nb">echo </span>2g &gt; /sys/devices/virtual/block/zram0/disksize
+<span class="c1"># Size of zram0 device in k/m/g</span>
+<span class="nb">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
 
-<span class="c"># Comression compression algorithm to use</span>
-<span class="nb">echo </span>lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+<span class="c1"># Comression compression algorithm to use</span>
+<span class="nb">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
 
-<span class="c"># Create the swap file system</span>
+<span class="c1"># Create the swap file system</span>
 mkswap /dev/zram0
 
-<span class="c"># Enable the swap partition with high priority</span>
-swapon /dev/zram0 -p 10
+<span class="c1"># Enable the swap partition with high priority</span>
+swapon /dev/zram0 -p <span class="m">10</span>
 </pre></div>
 </td></tr></table><!-- # vim: set spell spl=en: -->
 </div>
