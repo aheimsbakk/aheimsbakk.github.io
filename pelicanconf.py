@@ -14,7 +14,6 @@ DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT='%Y-%m-%d'
 NEWEST_FIRST_ARCHIVES = True
 
-
 #DATE_FORMATS = {
 #    'en': '%Y-%m-%d(%a)',
 #}
