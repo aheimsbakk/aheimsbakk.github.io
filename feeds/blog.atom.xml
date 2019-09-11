@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null 2&gt;&amp;1 - blog</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2018-12-13T00:00:00+01:00</updated><entry><title>SSH with YubiKey NEO on Fedora made easy</title><link href="http://blog.heimsbakk.net/posts/2018/2018-01-05-yubikey.html" rel="alternate"></link><published>2018-12-13T00:00:00+01:00</published><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2018-12-13:/posts/2018/2018-01-05-yubikey.html/</id><summary type="html">&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href="https://www.yubico.com/"&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.   &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>&gt; /dev/null 2&gt;&amp;1 - blog</title><link href="http://blog.heimsbakk.net/" rel="alternate"></link><link href="http://blog.heimsbakk.net/feeds/blog.atom.xml" rel="self"></link><id>http://blog.heimsbakk.net/</id><updated>2019-09-11T00:00:00+02:00</updated><subtitle></subtitle><entry><title>Design an online ransomware safe backup with restic</title><link href="http://blog.heimsbakk.net/posts/2019/2019-09-11-restic.html" rel="alternate"></link><published>2019-09-11T00:00:00+02:00</published><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2019-09-11:/posts/2019/2019-09-11-restic.html/</id><summary type="html">&lt;p&gt;The only way to be safe for &lt;a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid."&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created."&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://restic.net" title="Backups done right!"&gt;restic&lt;/a&gt; is a &lt;a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage."&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href="https://rclone.org" title="Rclone - rsync for cloud storage."&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers. &lt;/p&gt;
+&lt;h2&gt;Problem&lt;/h2&gt;
+&lt;p&gt;Setting up an automated backup from one macine is no problem. This can be done quite easily with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;restic -p password_file -r sftp://user@destination/srv/backups init
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Backups is then done with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.&lt;/p&gt;
+&lt;h2&gt;Solution&lt;/h2&gt;
+&lt;p&gt;This can be solved in couple of ways&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use a immutable backend, in example immutable object storage in the cloud.&lt;/li&gt;
+&lt;li&gt;Make any destination immutable by relying all traffic through a secured &lt;em&gt;rclone&lt;/em&gt; proxy with the &lt;code&gt;--append-only&lt;/code&gt; forced.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Design, rely traffic through proxy&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;     source               intermediate                destination
++---------------+       +--------------+  chosen     +-----------+
+|               |  SSH  | rclone       |  transport  | favorite  |
+| /srv/backmeup | ----&amp;gt; | append only  | ----------&amp;gt; | cloud     |
+|               |       | rely         |             | storage   |
++---------------+       +--------------+             +-----------+
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Configure&lt;/h2&gt;
+&lt;h3&gt;On &lt;em&gt;source&lt;/em&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a SSH key …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><category term="howto"></category><category term="restic"></category><category term="rclone"></category><category term="security"></category><category term="ssh"></category></entry><entry><title>SSH with YubiKey NEO on Fedora made easy</title><link href="http://blog.heimsbakk.net/posts/2018/2018-01-05-yubikey.html" rel="alternate"></link><published>2018-12-13T00:00:00+01:00</published><author><name>arnulf</name></author><id>tag:blog.heimsbakk.net,2018-12-13:/posts/2018/2018-01-05-yubikey.html/</id><summary type="html">&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href="https://www.yubico.com/"&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.   &lt;/p&gt;
 &lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href="https://www.yubico.com/"&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This is a short &lt;a href="https://en.wikipedia.org/wiki/How-to"&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;
 &lt;h2&gt;YubiKey as private SSH key&lt;/h2&gt;

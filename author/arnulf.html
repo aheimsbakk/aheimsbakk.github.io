@@ -65,6 +65,79 @@
                         <article>
                             <header>
                                 <h1 class="entry-title">
+                                    <a href="../posts/2019/2019-09-11-restic.html" rel="bookmark" title="Permalink to Design an online ransomware safe backup with restic">
+                                       Design an online ransomware safe backup with restic
+                                    </a>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="../author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="../category/blog.html">blog</a>
+
+    on 2019-09-11
+
+        |
+        tags:         <a href="../tag/howto.html">howto</a>
+        <a href="../tag/restic.html">restic</a>
+        <a href="../tag/rclone.html">rclone</a>
+        <a href="../tag/security.html">security</a>
+        <a href="../tag/ssh.html">ssh</a>
+
+
+        |
+        <a href="../posts/2019/2019-09-11-restic.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->                                <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
+<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers. </p>
+<h2>Problem</h2>
+<p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups init
+</pre></div>
+
+
+<p>Backups is then done with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+</pre></div>
+
+
+<p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
+<h2>Solution</h2>
+<p>This can be solved in couple of ways</p>
+<ol>
+<li>Use a immutable backend, in example immutable object storage in the cloud.</li>
+<li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
+</ol>
+<h2>Design, rely traffic through proxy</h2>
+<div class="highlight"><pre><span></span>     source               intermediate                destination
++---------------+       +--------------+  chosen     +-----------+
+|               |  SSH  | rclone       |  transport  | favorite  |
+| /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
+|               |       | rely         |             | storage   |
++---------------+       +--------------+             +-----------+
+</pre></div>
+
+
+<h2>Configure</h2>
+<h3>On <em>source</em></h3>
+<ol>
+<li>
+<p>Create a SSH key …</p></li></ol>
+                                <p class="readmore">
+                                    <a class="btn btn-small btn-info" href="../posts/2019/2019-09-11-restic.html">Read more...</a>
+                                </p>
+                            </div><!-- /.entry-content -->
+                            <hr/>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <h1 class="entry-title">
                                     <a href="../posts/2018/2018-01-05-yubikey.html" rel="bookmark" title="Permalink to SSH with YubiKey NEO on Fedora made easy">
                                        SSH with YubiKey NEO on Fedora made easy
                                     </a>
@@ -682,87 +755,6 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
                             <hr/>
                         </article>
                     </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="../posts/2014/2014-05-11-rootnexus.html" rel="bookmark" title="Permalink to Flashing a custom rom on Nexus 4">
-                                       Flashing a custom rom on Nexus 4
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="../author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="../category/blog.html">blog</a>
-
-    on 2014-05-11
-
-        |
-        tags:         <a href="../tag/android.html">android</a>
-        <a href="../tag/cyanogenmod.html">cyanogenmod</a>
-        <a href="../tag/firmware.html">firmware</a>
-        <a href="../tag/howto.html">howto</a>
-
-
-        |
-        <a href="../posts/2014/2014-05-11-rootnexus.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>Flashing a custom image on an <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> mobile could be just fun. But if you don't know why you want to do it, or do it just because it's a challenge. <strong>Then don't!</strong> </p>
-<h2>The bad and the good</h2>
-<p>I'm only pointing out some of the cons and the pros here.</p>
-<h3>Negative sides</h3>
-<ul>
-<li>An OS image could contain <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a>; only use community trusted images.</li>
-<li>If you don't pay attention you can get <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a> running as root. That's B A D !</li>
-<li>May not have all the phones vendor functionality. </li>
-<li>The image may be buggy.</li>
-</ul>
-<h4>Consequences of a buggy image</h4>
-<ul>
-<li>Lock up your phone when you least expect it.</li>
-<li>Drain the battery quicker. </li>
-<li>Suddenly reboot.</li>
-</ul>
-<h3>Positive sides</h3>
-<ul>
-<li>You can get a newer more secure operating system.</li>
-<li>Use less battery.</li>
-<li>No <a href="https://en.wikipedia.org/wiki/Crapware" title="Pre-installed software">crapware</a>.</li>
-<li>Extra security functions.</li>
-</ul>
-<h2>Flashing CyanogenMod</h2>
-<p>One of the custom <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> images based on <a href="https://source.android.com" title="Android Open Source Project">AOSP</a> is <a href="http://www.cyanogenmod.org">CyanogenMod</a>. As I know, it's one of the more used ones. Quite stable if you keep away from the <a href="https://en.wikipedia.org/wiki/Nightlies" title="Neutral build">nightlies</a> and rich on functionality but not bloated.</p>
-<h3>Preparations</h3>
-<ol>
-<li>
-<p>Install <a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge">adb</a> and <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a> to help manage your Nexus phone.</p>
-<div class="highlight"><pre><span></span>sudo apt-get install android-tools-adb android-tools-fastboot
-</pre></div>
-
-
-</li>
-<li>
-<p>Download custom a recovery image. Personally I prefer <a href="http://www.clockworkmod.com">ClockworkMod</a> and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.</p>
-<div class="highlight"><pre><span></span>wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
-</pre></div>
-
-
-</li>
-<li>
-<p>Download the latest M snapshot from <a href="http://www.cyanogenmod.org">CyanogenMod</a> on <a href="http://download.cyanogenmod.org">download.cyanogenmod.org</a>. The model name for Nexus 4 is <em>mako</em>.</p>
-<div class="highlight"><pre><span></span>wget http://download.cyanogenmod.org/get …</pre></div></li></ol>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="../posts/2014/2014-05-11-rootnexus.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
                     </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 3
@@ -836,9 +828,11 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
                      <li class="tag-2"><a href="../tag/pelican.html">pelican</a></li>
                      <li class="tag-4"><a href="../tag/pstate.html">pstate</a></li>
                      <li class="tag-4"><a href="../tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-4"><a href="../tag/rclone.html">rclone</a></li>
+                     <li class="tag-4"><a href="../tag/restic.html">restic</a></li>
                      <li class="tag-1"><a href="../tag/security.html">security</a></li>
                      <li class="tag-4"><a href="../tag/sound.html">sound</a></li>
-                     <li class="tag-4"><a href="../tag/ssh.html">ssh</a></li>
+                     <li class="tag-3"><a href="../tag/ssh.html">ssh</a></li>
                      <li class="tag-2"><a href="../tag/ssl.html">ssl</a></li>
                      <li class="tag-3"><a href="../tag/tomato.html">tomato</a></li>
                      <li class="tag-4"><a href="../tag/trng.html">trng</a></li>

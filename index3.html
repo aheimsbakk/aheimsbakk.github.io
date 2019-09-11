@@ -65,6 +65,65 @@
                         <article>
                             <header>
                                 <h1 class="entry-title">
+                                    <a href="./posts/2014/2014-04-13-duplicates.html" rel="bookmark" title="Permalink to Find duplicate files">
+                                       Find duplicate files
+                                    </a>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="./category/blog.html">blog</a>
+
+    on 2014-04-13
+
+        |
+        tags:         <a href="./tag/bash.html">bash</a>
+        <a href="./tag/oneliner.html">oneliner</a>
+
+
+        |
+        <a href="./posts/2014/2014-04-13-duplicates.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->                                <p>Find all duplicate files in current and sub-directories with bash. </p>
+<div class="highlight"><pre><span></span>find -not -empty -type f -printf <span class="s1">&#39;%s\n&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> uniq -d <span class="p">|</span> xargs -I<span class="o">{}</span> -n1 find -type f -size <span class="o">{}</span>c -print0 <span class="p">|</span> xargs -0 md5sum <span class="p">|</span> sort <span class="p">|</span> uniq -w32 --all-repeated<span class="o">=</span>separate
+</pre></div>
+
+
+<h2>Breakdown</h2>
+<ol>
+<li>Find all non empty files and print out size.</li>
+<li>Do a numeric sort on size list.</li>
+<li>Print out only duplicate sizes.</li>
+<li>One at a time run find on size and print file names.</li>
+<li>Find md5sum of all files.</li>
+<li>Alphabetical sort md5sums and file names.</li>
+<li>Find all md5sums which repeats and print them in groups. </li>
+</ol>
+<h2>Alternatively</h2>
+<p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above. </p>
+<div class="highlight"><pre><span></span>apt-get install fdupes
+</pre></div>
+
+
+<p>This does more or less the same thing as the oneliner.</p>
+<div class="highlight"><pre><span></span>fdupes -r .
+</pre></div>
+                                <p class="readmore">
+                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-04-13-duplicates.html">Read more...</a>
+                                </p>
+                            </div><!-- /.entry-content -->
+                            <hr/>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <h1 class="entry-title">
                                     <a href="./posts/2014/2014-04-13-digitalocean.html" rel="bookmark" title="Permalink to Cloud virtual machine">
                                        Cloud virtual machine
                                     </a>
@@ -517,9 +576,11 @@
                      <li class="tag-2"><a href="./tag/pelican.html">pelican</a></li>
                      <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
                      <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-4"><a href="./tag/rclone.html">rclone</a></li>
+                     <li class="tag-4"><a href="./tag/restic.html">restic</a></li>
                      <li class="tag-1"><a href="./tag/security.html">security</a></li>
                      <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
-                     <li class="tag-4"><a href="./tag/ssh.html">ssh</a></li>
+                     <li class="tag-3"><a href="./tag/ssh.html">ssh</a></li>
                      <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
                      <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
                      <li class="tag-4"><a href="./tag/trng.html">trng</a></li>

@@ -65,6 +65,79 @@
                         <article>
                             <header>
                                 <h1 class="entry-title">
+                                    <a href="./posts/2019/2019-09-11-restic.html" rel="bookmark" title="Permalink to Design an online ransomware safe backup with restic">
+                                       Design an online ransomware safe backup with restic
+                                    </a>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="./category/blog.html">blog</a>
+
+    on 2019-09-11
+
+        |
+        tags:         <a href="./tag/howto.html">howto</a>
+        <a href="./tag/restic.html">restic</a>
+        <a href="./tag/rclone.html">rclone</a>
+        <a href="./tag/security.html">security</a>
+        <a href="./tag/ssh.html">ssh</a>
+
+
+        |
+        <a href="./posts/2019/2019-09-11-restic.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->                                <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
+<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers. </p>
+<h2>Problem</h2>
+<p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups init
+</pre></div>
+
+
+<p>Backups is then done with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+</pre></div>
+
+
+<p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
+<h2>Solution</h2>
+<p>This can be solved in couple of ways</p>
+<ol>
+<li>Use a immutable backend, in example immutable object storage in the cloud.</li>
+<li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
+</ol>
+<h2>Design, rely traffic through proxy</h2>
+<div class="highlight"><pre><span></span>     source               intermediate                destination
++---------------+       +--------------+  chosen     +-----------+
+|               |  SSH  | rclone       |  transport  | favorite  |
+| /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
+|               |       | rely         |             | storage   |
++---------------+       +--------------+             +-----------+
+</pre></div>
+
+
+<h2>Configure</h2>
+<h3>On <em>source</em></h3>
+<ol>
+<li>
+<p>Create a SSH key …</p></li></ol>
+                                <p class="readmore">
+                                    <a class="btn btn-small btn-info" href="./posts/2019/2019-09-11-restic.html">Read more...</a>
+                                </p>
+                            </div><!-- /.entry-content -->
+                            <hr/>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <h1 class="entry-title">
                                     <a href="./posts/2018/2018-01-05-yubikey.html" rel="bookmark" title="Permalink to SSH with YubiKey NEO on Fedora made easy">
                                        SSH with YubiKey NEO on Fedora made easy
                                     </a>
@@ -665,63 +738,6 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
                             <hr/>
                         </article>
                     </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-05-12-revocation.html" rel="bookmark" title="Permalink to Only Firefox is safe post Heartblead">
-                                       Only Firefox is safe post Heartblead
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/uris.html">uris</a>
-
-    on 2014-05-12
-
-        |
-        tags:         <a href="./tag/chrome.html">chrome</a>
-        <a href="./tag/firefox.html">firefox</a>
-        <a href="./tag/security.html">security</a>
-        <a href="./tag/ssl.html">ssl</a>
-
-
-        |
-        <a href="./posts/2014/2014-05-12-revocation.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p><a href="https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29">Steve Gibson</a> have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn't work. I recommend to read both <a href="https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29">Steve Gibson</a>'s article on <a href="https://www.grc.com/revocation/crlsets.htm">An Evaluation of the Effectiveness of Chrome's CRLSets</a> and Adam Langley's in my opinion a bit missplaced answer <a href="https://www.imperialviolet.org/2014/04/29/revocationagain.html">Revocation still doesn't work</a>.</p>
-<ul>
-<li>
-<p><a href="https://www.grc.com/revocation.htm">Security Certificate - Revocation Awareness Test</a></p>
-</li>
-<li>
-<p>Listen to <a href="https://www.grc.com/securitynow.htm">Security Now!</a> episode 454 <a href="https://www.grc.com/securitynow.htm#454">Certificate Revocation Part 2</a> in which Steve explains about both certificate revocation and Google's CRLSets.</p>
-</li>
-</ul>
-<h2>How to be safe</h2>
-<ol>
-<li>
-<p>Use Firefox until Chrome is fixed.</p>
-</li>
-<li>
-<p>In Firefox enable hard fail on <a href="https://en.wikipedia.org/wiki/OCSP" title="Online Certificate Status Protocol">OCSP</a> errors. </p>
-<p>Goto <strong>Preferences</strong> → <strong>Advanced</strong> → <strong>Certificates</strong> → <strong>Validation</strong>.</p>
-<p>Check <strong>When an OSCP server connection failes, treat the certificate as invalid.</strong></p>
-</li>
-</ol>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-05-12-revocation.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
                     </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 3
@@ -795,9 +811,11 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
                      <li class="tag-2"><a href="./tag/pelican.html">pelican</a></li>
                      <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
                      <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
+                     <li class="tag-4"><a href="./tag/rclone.html">rclone</a></li>
+                     <li class="tag-4"><a href="./tag/restic.html">restic</a></li>
                      <li class="tag-1"><a href="./tag/security.html">security</a></li>
                      <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
-                     <li class="tag-4"><a href="./tag/ssh.html">ssh</a></li>
+                     <li class="tag-3"><a href="./tag/ssh.html">ssh</a></li>
                      <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
                      <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
                      <li class="tag-4"><a href="./tag/trng.html">trng</a></li>

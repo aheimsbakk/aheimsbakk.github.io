@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Arnulf Heimsbakk" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Design an online ransomware safe backup with restic"/>
+    <meta property="og:url" content="../../posts/2019/2019-09-11-restic.html"/>
+    <meta property="og:site_name" content="> /dev/null 2>&1"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="../../posts/2019/2019-09-11-restic.html" />
+
+    <title>Design an online ransomware safe backup with restic | > /dev/null 2>&1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../theme/css/main.css" />
+    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null 2>&1 Atom Feed" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="../../">> /dev/null 2>&1 </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/index.html">home</a></li>
+                            <li ><a href="#">|</a></li>
+                            <li class="active"><a href="../../category/blog.html">blog</a></li>
+                            <li ><a href="../../category/uris.html">uris</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="../../posts/2019/2019-09-11-restic.html" rel="bookmark"
+             title="Permalink to Design an online ransomware safe backup with restic">Design an online ransomware safe backup with restic</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="../../author/arnulf.html">arnulf</a>
+    </address>
+
+    in <a href="../../category/blog.html">blog</a>
+
+    on 2019-09-11
+
+        |
+        tags:         <a href="../../tag/howto.html">howto</a>
+        <a href="../../tag/restic.html">restic</a>
+        <a href="../../tag/rclone.html">rclone</a>
+        <a href="../../tag/security.html">security</a>
+        <a href="../../tag/ssh.html">ssh</a>
+
+
+        |
+        <a href="../../posts/2019/2019-09-11-restic.html#disqus_thread">comments</a>
+
+    
+</footer><!-- /.post-info -->
+
+        <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
+<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers. </p>
+<h2>Problem</h2>
+<p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups init
+</pre></div>
+
+
+<p>Backups is then done with</p>
+<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+</pre></div>
+
+
+<p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
+<h2>Solution</h2>
+<p>This can be solved in couple of ways</p>
+<ol>
+<li>Use a immutable backend, in example immutable object storage in the cloud.</li>
+<li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
+</ol>
+<h2>Design, rely traffic through proxy</h2>
+<div class="highlight"><pre><span></span>     source               intermediate                destination
++---------------+       +--------------+  chosen     +-----------+
+|               |  SSH  | rclone       |  transport  | favorite  |
+| /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
+|               |       | rely         |             | storage   |
++---------------+       +--------------+             +-----------+
+</pre></div>
+
+
+<h2>Configure</h2>
+<h3>On <em>source</em></h3>
+<ol>
+<li>
+<p>Create a SSH key on the <em>source</em> without a password.</p>
+<div class="highlight"><pre><span></span>ssh-keygen -t ed25519 -f .ssh/id_ed25519 -N &#39;&#39;
+</pre></div>
+
+
+</li>
+<li>
+<p>Cat the newly created key <code>.ssh/id_ed25519.pub</code></p>
+<div class="highlight"><pre><span></span>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+</pre></div>
+
+
+</li>
+</ol>
+<h3>On <em>intermediate</em></h3>
+<ol>
+<li>
+<p>Secure the <em>intermediate</em> server as you see fit. Do <strong>not allow</strong> unrestricted SSH from the <em>source</em>.</p>
+</li>
+<li>
+<p>Log in as your user, in this example <code>user</code>.</p>
+</li>
+<li>
+<p>Create a <em>rclone</em> profile, in this case it's called <em>myprofile</em>.</p>
+<div class="highlight"><pre><span></span>rclone config
+</pre></div>
+
+
+</li>
+<li>
+<p>Test the profile.</p>
+<div class="highlight"><pre><span></span>rclone myprofile: ls
+</pre></div>
+
+
+</li>
+<li>
+<p>Allow <em>source</em> to SSH into <em>intermediate</em> and run a very limited <em>rclone</em> which only may append data to <em>myprofile</em>. Edit <code>.ssh/authorized_keys</code>.</p>
+<div class="highlight"><pre><span></span>restrict,command=&quot;rclone serve restic --stdio --append-only myprofile:backups&quot; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+</pre></div>
+
+
+</li>
+</ol>
+<h3>Back on <em>source</em></h3>
+<ol>
+<li>
+<p>Create a unique password for the backup. Take note of this password! You will not be able to restore without it.</p>
+<div class="highlight"><pre><span></span>apg -m 32 | head -1 &gt; restic.pwd
+chmod 400 restic.pwd
+cat restic.pwd
+</pre></div>
+
+
+</li>
+<li>
+<p>Initiate <em>restic</em> backup repository.</p>
+<div class="highlight"><pre><span></span>restic -o rclone.program=&#39;ssh user@intermediate&#39; -p restic.pwd -r rclone: init
+</pre></div>
+
+
+</li>
+<li>
+<p>Back up your data.</p>
+<div class="highlight"><pre><span></span>restic -o rclone.program=&#39;ssh user@intermediate&#39; -p restic.pwd -r rclone: backup /srv/backmeup
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a job that run <em>restic</em> regularly.</p>
+</li>
+</ol>
+<p>You can use all <em>restic</em> commands as normal, except repair and cleanup commands.</p>
+<h2>Conclusion</h2>
+<p>Now you have a <em>source</em> which backs up data online.</p>
+<p>If the <em>source</em> get compromised, the malicious actor cannot</p>
+<ul>
+<li>Delete or change old backups.</li>
+<li>Know final destination of backups.</li>
+</ul>
+<h2>Caveats</h2>
+<ul>
+<li><em>source</em> should newer have normal SSH into <em>intermediate</em></li>
+<li>Access to <em>intermediate</em> should be restricted. 2FA is recommended, example <a href="https://www.yubico.com">YubiKey</a>.</li>
+</ul>
+<h6>vim: set syn=markdown spell spl=en:</h6>
+
+      </div><!-- /.entry-content -->
+      <div class="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_identifier = "posts/2019/2019-09-11-restic.html";
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//blogheimsbakknet.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+      </div>
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var disqus_shortname = 'blogheimsbakknet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
