@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Compressed RAM based block devices &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Compressed RAM based block devices
+                    </h1>
+                    <h2 class="headline">
+                    Jan 11, 2015 00:00
+                    · 150 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/howto">howto</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/kernel">kernel</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/link">link</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>From <a href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a> documentation: <em>The zram module creates RAM based block devices named /dev/zram<!-- raw HTML omitted --> (<!-- raw HTML omitted --> = 0, 1, &hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</em></p>
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a></li>
+</ul>
+<h1 id="example-of-compressed-swap-in-memory">Example of compressed swap in memory</h1>
+<p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Load the module and create one zram device, /dev/zram0</span>
+modprobe zram num_devices<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+
+<span style="color:#75715e"># Maximum of compressed streams (keep same as CPUs)</span>
+echo <span style="color:#ae81ff">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+
+<span style="color:#75715e"># Size of zram0 device in k/m/g</span>
+echo 2g &gt; /sys/devices/virtual/block/zram0/disksize
+
+<span style="color:#75715e"># Comression compression algorithm to use</span>
+echo lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+
+<span style="color:#75715e"># Create the swap file system</span>
+mkswap /dev/zram0
+
+<span style="color:#75715e"># Enable the swap partition with high priority</span>
+swapon /dev/zram0 -p <span style="color:#ae81ff">10</span>
+</code></pre></div>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20150111-zram%2f - Compressed%20RAM%20based%20block%20devices "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

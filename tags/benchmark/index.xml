@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>benchmark on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/benchmark/</link>
+    <description>Recent content in benchmark on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fio - flexible I/O tester</title>
+      <link>https://blog.heimsbakk.net/posts/20141215-fio/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20141215-fio/</guid>
+      <description>From man page: fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.
+This example only show how to use fio to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production.</description>
+    </item>
+    
+  </channel>
+</rss>

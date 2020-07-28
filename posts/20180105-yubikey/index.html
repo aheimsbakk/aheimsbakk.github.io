@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>SSH with YubiKey NEO on Fedora made easy &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        SSH with YubiKey NEO on Fedora made easy
+                    </h1>
+                    <h2 class="headline">
+                    Dec 13, 2018 00:00
+                    · 567 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/howto">howto</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/security">security</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/yubikey">yubikey</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>Your private SSH key is the key for the kingdom. This means always having a password on the key. With <a href="https://www.yubico.com/">YubiKey</a>, you can keep your secret key outside your machine too.</p>
+<p>Excerpt from Wikipedia: <em>The <a href="https://www.yubico.com/">YubiKey</a> allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</em></p>
+<p>This is a short <a href="https://en.wikipedia.org/wiki/How-to">how-to</a> to get startet with using Yubikey to SSH into your servers.</p>
+<h2 id="yubikey-as-private-ssh-key">YubiKey as private SSH key</h2>
+<h3 id="pre-requests">Pre requests</h3>
+<ol>
+<li>
+<p>Install the YubiKey management software.</p>
+<pre><code> sudo dnf install yubikey-manager
+</code></pre>
+</li>
+<li>
+<p>Insert YubiKey</p>
+</li>
+<li>
+<p>Check that OpenPGP is enabled on your YubiKey.</p>
+<pre><code> ykman info
+</code></pre>
+<p>Expected output should include the following.</p>
+<pre><code>     OPGP:      Enabled
+</code></pre>
+<p>If you get an error, <strong>restart</strong> your computer and goto 2. Yes, I know this is Linux, but we&rsquo;re just doing it the easy way. It should work the second time around.</p>
+</li>
+<li>
+<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
+<pre><code> ykman openpgp set-pin-retries 3 3 5
+</code></pre>
+</li>
+</ol>
+<h3 id="generate-openpgp-key-on-yubikey">Generate OpenPGP key on YubiKey</h3>
+<p>Use <code>gpg2</code> for the rest.</p>
+<ol>
+<li>
+<p>Generate PGP certificate on the key.</p>
+<pre><code> gpg2 --edit-card
+ gpg/card&gt; admin
+ gpg/card&gt; generate
+</code></pre>
+</li>
+<li>
+<p>Follow the instructions.</p>
+</li>
+<li>
+<p>Optionally set <code>login</code>, <code>lang</code> and <code>sex</code>.</p>
+</li>
+<li>
+<p>Enter the  password menu.</p>
+<pre><code> gpg/card&gt; passwd
+</code></pre>
+<ul>
+<li>
+<p>Change user PIN, menu <code>1</code>.</p>
+</li>
+<li>
+<p>Change admin PIN, menu <code>3</code>. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it with <code>ykman</code>.</p>
+</li>
+<li>
+<p>Set a reset PIN if you want, menu <code>4</code>. Used to unblock the user PIN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Exit to shell. <code>Q</code>, <code>Q</code>.</p>
+</li>
+<li>
+<p>Find your public key and export it to a keyserver.</p>
+<pre><code> gpg2 --list-keys --keyid-format long
+ gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF1234567890
+</code></pre>
+</li>
+<li>
+<p>You uploaded the key to a pool of machines. Now it&rsquo;s a time to go and fetch a coffee, and let some time go to avoid frustrations while the pool is updating.</p>
+</li>
+<li>
+<p>Find the URL for your public key on <a href="http://pool.sks-keyservers.net:11371">http://pool.sks-keyservers.net:11371</a>.</p>
+</li>
+<li>
+<p>Go back to the YubiKey and add the URL for the public key.</p>
+<pre><code> gpg2 --edit-card
+ gpg/card&gt; admin
+ gpg/card&gt; url
+</code></pre>
+<p>Paste in the URL for the your public key, <code>http://pool.sks-keyservers.net:11371/pks/lookup?op=get&amp;search=0xABCDEF0123456789</code></p>
+</li>
+<li>
+<p>Test fetching public key from the keyserver.</p>
+<pre><code> gpg/card&gt; fetch
+</code></pre>
+</li>
+<li>
+<p>Generate a revocation certificate and store it in a safe place. Safe place may be paper or your favorite password manager.</p>
+<pre><code> gpg2 --generate-revocation ABCDEF0123456789
+</code></pre>
+</li>
+<li>
+<p>Everyting OK! Wohoo!</p>
+</li>
+</ol>
+<h3 id="change-ssh-to-use-gpg-agent">Change SSH to use gpg-agent</h3>
+<p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .bashrc
+</code></pre></div><p>Add the following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> ! pgrep -u $USER -f <span style="color:#e6db74">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
+<span style="color:#66d9ef">then</span>
+    pkill gpg-agent
+    gpg-agent --homedir $HOME/.gnupg --daemon --enable-ssh-support
+<span style="color:#66d9ef">fi</span>
+SSH_AUTH_SOCK<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>gpgconf --list-dir agent-ssh-socket<span style="color:#66d9ef">)</span>
+</code></pre></div><p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
+<h3 id="public-ssh-key">Public SSH key</h3>
+<p>Get your public SSH key.</p>
+<pre><code> gpg2 --export-ssh-key ABCDEF0123456789
+</code></pre>
+<p>Add this public SSH key to all your servers <code>authorized_keys</code> and your good to go :)</p>
+<h2 id="caveats">Caveats</h2>
+<ul>
+<li>
+<p>YubiKey must be present to log into a server.</p>
+</li>
+<li>
+<p>If user PIN is entered to many times, it need to be unlocked with reset PIN.</p>
+</li>
+<li>
+<p>If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with <code>ykman</code>. You will lose your private key and need to revoke it with the revocation certificat.</p>
+</li>
+</ul>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20180105-yubikey%2f - SSH%20with%20YubiKey%20NEO%20on%20Fedora%20made%20easy "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

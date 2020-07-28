@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oneliner on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/oneliner/</link>
+    <description>Recent content in oneliner on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Apr 2014 21:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/oneliner/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Find duplicate files</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-duplicates/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-duplicates/</guid>
+      <description>Find all duplicate files in current and sub-directories with bash.
+find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size. Do a numeric sort on size list. Print out only duplicate sizes. One at a time run find on size and print file names.</description>
+    </item>
+    
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
+      <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vpn on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/vpn/</link>
+    <description>Recent content in vpn on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://blog.heimsbakk.net/posts/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140501-easyrsa/</guid>
+      <description>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</description>
+    </item>
+    
+  </channel>
+</rss>

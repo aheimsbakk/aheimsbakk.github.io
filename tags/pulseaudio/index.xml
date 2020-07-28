@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pulseaudio on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/pulseaudio/</link>
+    <description>Recent content in pulseaudio on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/pulseaudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Record a PulseAudio sound stream</title>
+      <link>https://blog.heimsbakk.net/posts/20150110-pa/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20150110-pa/</guid>
+      <description>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.
+The PulseAudio sound server in your desktop makes this quite easy.
+I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file. After the capture is started, you can start playing sound from other programs.</description>
+    </item>
+    
+  </channel>
+</rss>

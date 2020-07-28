@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/blog/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/ubuntu/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/vagrant/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/virtualbox/</loc>
+    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/about/</loc>
+    <lastmod>2020-07-27T22:12:41+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20190911-restic/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/howto/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/restic/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/security/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20180105-yubikey/</loc>
+    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/yubikey/</loc>
+    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20160326-syncthing/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/link/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/network/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/uris/</loc>
+    <lastmod>2016-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20150111-zram/</loc>
+    <lastmod>2015-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/kernel/</loc>
+    <lastmod>2015-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/pulseaudio/</loc>
+    <lastmod>2015-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20150110-pa/</loc>
+    <lastmod>2015-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</loc>
+    <lastmod>2014-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/benchmark/</loc>
+    <lastmod>2014-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20141215-fio/</loc>
+    <lastmod>2014-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/intel/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20141214-powersave/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/chromium/</loc>
+    <lastmod>2014-06-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140619-webgl/</loc>
+    <lastmod>2014-06-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140525-vagrant/</loc>
+    <lastmod>2014-05-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140512-revocation/</loc>
+    <lastmod>2014-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/android/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140511-rootnexus/</loc>
+    <lastmod>2014-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140504-ocsp/</loc>
+    <lastmod>2014-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140503-dropbox/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/cheatsheet/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140503-ssl/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/pelican/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140503-rst/</loc>
+    <lastmod>2014-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140501-easyrsa/</loc>
+    <lastmod>2014-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/vpn/</loc>
+    <lastmod>2014-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140429-haveged/</loc>
+    <lastmod>2014-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/entropy/</loc>
+    <lastmod>2014-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/firmware/</loc>
+    <lastmod>2014-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140417-tomato/</loc>
+    <lastmod>2014-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/bash/</loc>
+    <lastmod>2014-04-13T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-duplicates/</loc>
+    <lastmod>2014-04-13T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/oneliner/</loc>
+    <lastmod>2014-04-13T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-kernel/</loc>
+    <lastmod>2014-04-13T16:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-getopts/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-digitalocea/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-modeline/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140413-ssllabs/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/vim/</loc>
+    <lastmod>2014-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140412-pelican/</loc>
+    <lastmod>2014-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20140412-link/</loc>
+    <lastmod>2014-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

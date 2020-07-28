@@ -1,868 +1,288 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="author" content="Arnulf Heimsbakk" />
-    <meta name="robots" content="index, follow"/>
+	<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>&gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
 
-    <meta property="og:title" content="> /dev/null 2>&1"/>
-    <meta property="og:url" content="."/>
-    <meta property="og:site_name" content="> /dev/null 2>&1"/>
-    <meta property="og:type" content="website"/>
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
 
-    <link rel="canonical" href="." />
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
 
-    <title>> /dev/null 2>&1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
 
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+	<body>
+    <nav class="main-nav">
+	
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
 
-    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
-    <link href="http://blog.heimsbakk.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="> /dev/null 2>&1 Atom Feed" />
+	
 
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
-        stLight.options({
-            publisher: "",
-            doNotHash: false,
-            doNotCopy: false,
-            hashAddressBar: false
-        });
-    </script>
-</head>
-
-<body id="index">
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <header id="banner" >
-                <h1>
-                    <a href="./">> /dev/null 2>&1 </a>
-                </h1>
-                <nav class="navbar">
-                    <div class="navbar-inner">
-                        <ul class="nav">
-                            <li class="active"><a href="/index.html">home</a></li>
-                            <li ><a href="#">|</a></li>
-                            <li ><a href="./category/blog.html">blog</a></li>
-                            <li ><a href="./category/uris.html">uris</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-            </header><!-- /#banner -->
-        </div>
-    </div>
-
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <div class="row-fluid">
-<div class="span9">
-                <section>
-                    <ol id="posts-list" class="hfeed" start="9">
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2019/2019-09-11-restic.html" rel="bookmark" title="Permalink to Design an online ransomware safe backup with restic">
-                                       Design an online ransomware safe backup with restic
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2019-09-11
-
-        |
-        tags:         <a href="./tag/howto.html">howto</a>
-        <a href="./tag/restic.html">restic</a>
-        <a href="./tag/rclone.html">rclone</a>
-        <a href="./tag/security.html">security</a>
-        <a href="./tag/ssh.html">ssh</a>
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
 
 
-        |
-        <a href="./posts/2019/2019-09-11-restic.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
-<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers. </p>
-<h2>Problem</h2>
-<p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
-<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups init
-</pre></div>
-
-
-<p>Backups is then done with</p>
-<div class="highlight"><pre><span></span>restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
-</pre></div>
-
-
-<p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
-<h2>Solution</h2>
-<p>This can be solved in couple of ways</p>
-<ol>
-<li>Use a immutable backend, in example immutable object storage in the cloud.</li>
-<li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
-</ol>
-<h2>Design, rely traffic through proxy</h2>
-<div class="highlight"><pre><span></span>     source               intermediate                destination
-+---------------+       +--------------+  chosen     +-----------+
-|               |  SSH  | rclone       |  transport  | favorite  |
-| /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
-|               |       | rely         |             | storage   |
-+---------------+       +--------------+             +-----------+
-</pre></div>
-
-
-<h2>Configure</h2>
-<h3>On <em>source</em></h3>
-<ol>
-<li>
-<p>Create a SSH key …</p></li></ol>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2019/2019-09-11-restic.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2018/2018-01-05-yubikey.html" rel="bookmark" title="Permalink to SSH with YubiKey NEO on Fedora made easy">
-                                       SSH with YubiKey NEO on Fedora made easy
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2018-12-13
-
-        |
-        tags:         <a href="./tag/howto.html">howto</a>
-        <a href="./tag/security.html">security</a>
-        <a href="./tag/ssh.html">ssh</a>
-        <a href="./tag/yubikey.html">yubikey</a>
-
-
-        |
-        <a href="./posts/2018/2018-01-05-yubikey.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>Your private SSH key is the key for the kingdom. This means always having a password on the key. With <a href="https://www.yubico.com/">YubiKey</a>, you can keep your secret key outside your machine too.   </p>
-<p>Excerpt from Wikipedia: <em>The <a href="https://www.yubico.com/">YubiKey</a> allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</em></p>
-<p>This is a short <a href="https://en.wikipedia.org/wiki/How-to">how-to</a> to get startet with using Yubikey to SSH into your servers.</p>
-<h2>YubiKey as private SSH key</h2>
-<h3>Pre requests</h3>
-<ol>
-<li>
-<p>Install the YubiKey management software. </p>
-<div class="highlight"><pre><span></span>sudo dnf install yubikey-manager
-</pre></div>
-
-
-</li>
-<li>
-<p>Insert YubiKey</p>
-</li>
-<li>
-<p>Check that OpenPGP is enabled on your YubiKey.</p>
-<div class="highlight"><pre><span></span>ykman info
-</pre></div>
-
-
-<p>Expected output should include the following.</p>
-<div class="highlight"><pre><span></span>    OPGP:      Enabled
-</pre></div>
-
-
-<p>If you get an error, <strong>restart</strong> your computer and goto 2. Yes, I know this is Linux, but we're just doing it the easy way. It should work the second time around.</p>
-</li>
-<li>
-<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
-<div class="highlight"><pre><span></span>ykman openpgp set-pin-retries 3 3 5
-</pre></div>
-
-
-</li>
-</ol>
-<h3>Generate OpenPGP key on YubiKey</h3>
-<p>Use <code>gpg2</code> for the rest.</p>
-<ol>
-<li>
-<p>Generate PGP certificate on the key.</p>
-<div class="highlight"><pre><span></span>gpg2 --edit-card
-gpg/card&gt; admin
-gpg/card&gt; generate
-</pre></div>
-
-
-</li>
-<li>
-<p>Follow the instructions.</p>
-</li>
-<li>
-<p>Optionally set <code>login</code>, <code>lang</code> and <code>sex</code>.</p>
-</li>
-<li>
-<p>Enter the  password menu.</p>
-<div class="highlight"><pre><span></span>gpg/card&gt; passwd
-</pre></div>
-
-
-</li>
-<li>
-<p>Change user PIN, menu <code>1</code>.</p>
-</li>
-<li>
-<p>Change admin PIN, menu <code>3</code>. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it with …</p></li></ol>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2018/2018-01-05-yubikey.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2016/2016-03-26-syncthing.html" rel="bookmark" title="Permalink to Distributed syncing with Syncthing">
-                                       Distributed syncing with Syncthing
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf-heimsbakk.html">Arnulf Heimsbakk</a>
-    </address>
-
-    in <a href="./category/uris.html">uris</a>
-
-    on 2016-03-26
-
-        |
-        tags:         <a href="./tag/network.html">network</a>
-
-
-        |
-        <a href="./posts/2016/2016-03-26-syncthing.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>I've tried to ditch <a href="https://dropbox.com/">Dropbox</a> for a long time. But the need for synchronizing folders between my computers have held me back. <a href="https://syncthing.net/">Syncthing</a> solves this for me. It's decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.</p>
-<p>Excerpt from Syncthings homepage: <em>Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.</em></p>
-<ul>
-<li><a href="https://syncthing.net/">Syncthing</a></li>
-<li><a href="https://github.com/syncthing/syncthing/tree/master">Syncthing on Github</a></li>
-</ul>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2016/2016-03-26-syncthing.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2015/zram.html" rel="bookmark" title="Permalink to zram: Compressed RAM based block devices">
-                                       zram: Compressed RAM based block devices
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/uris.html">uris</a>
-
-    on 2015-01-11
-
-        |
-        tags:         <a href="./tag/howto.html">howto</a>
-        <a href="./tag/kernel.html">kernel</a>
-        <a href="./tag/zram.html">zram</a>
-
-
-        |
-        <a href="./posts/2015/zram.html#disqus_thread">comments</a>
-
-    
-</footer><!-- /.post-info -->                                <p>From <a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a> documentation: <em>The zram module creates RAM based block devices named /dev/zram&lt;id&gt; (&lt;id&gt; = 0, 1, ...). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</em></p>
-<ul class="simple">
-<li><a class="reference external" href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a></li>
-</ul>
-<div class="section" id="example-of-compressed-swap-in-memory">
-<h2>Example of compressed swap in memory</h2>
-<p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Load the module and create one zram device, /dev/zram0</span>
-modprobe zram <span class="nv">num_devices</span><span class="o">=</span><span class="m">1</span>
-
-<span class="c1"># Maximum of compressed streams (keep same as CPUs)</span>
-<span class="nb">echo</span> <span class="m">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
-
-<span class="c1"># Size of zram0 device in k/m/g</span>
-<span class="nb">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
-
-<span class="c1"># Comression compression algorithm to use</span>
-<span class="nb">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
-
-<span class="c1"># Create the swap file system</span>
-mkswap /dev/zram0
-
-<span class="c1"># Enable the swap partition with high priority</span>
-swapon /dev/zram0 -p <span class="m">10</span>
-</pre></div>
-</td></tr></table><!-- # vim: set spell spl=en: -->
+    <div class="profile">
+    <section id="wrapper">
+        <header id="header">
+            <a href='https://blog.heimsbakk.netabout'>
+                <img id="avatar" class="2x" src="https://blog.heimsbakk.netimages/avatar.png"/>
+            </a>
+            <h1>&gt; /dev/null 2&gt;&amp;1</h1>
+            <h2>ramblings of a sysadmin</h2>
+        </header>
+    </section>
 </div>
 
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2015/zram.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2015/2015-01-10-pa.html" rel="bookmark" title="Permalink to Record a PulseAudio sound stream">
-                                       Record a PulseAudio sound stream
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
 
-    in <a href="./category/blog.html">blog</a>
-
-    on 2015-01-10
-
-        |
-        tags:         <a href="./tag/howto.html">howto</a>
-        <a href="./tag/pulseaudio.html">pulseaudio</a>
-        <a href="./tag/sound.html">sound</a>
-
-
-        |
-        <a href="./posts/2015/2015-01-10-pa.html#disqus_thread">comments</a>
-
+    <section id="wrapper" class="home">
+        <ul id="post-list">
     
-</footer><!-- /.post-info -->                                <p>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don't have the option to save audio to a file.</p>
-<p>The <a href="https://en.wikipedia.org/wiki/PulseAudio">PulseAudio</a> sound server in your desktop makes this quite easy.</p>
-<p>I've created a small script that captures the current playing sound stream and redirects it to <a href="https://en.wikipedia.org/wiki/Flac" title="Free Lossless Audio Codec">FLAC</a> audio file. After the capture is started, you can start playing sound from other programs. It won't interfere with the current capture.</p>
-<h2>Capture audio</h2>
-<h3>Pre requests</h3>
-<p>You have to install a couple of programs, if you don't have them from before, to make the bash script work.</p>
-<div class="highlight"><pre><span></span>apt-get install pulseaudio-utils flac coreutils
-</pre></div>
-
-
-<h3>The script</h3>
-<p>This is my <code>record-app.sh</code> script.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-
-<span class="nv">BN</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span>
-<span class="nv">SI</span><span class="o">=</span><span class="k">$(</span>pacmd list-sink-inputs <span class="p">|</span> grep -m <span class="m">1</span> index <span class="p">|</span> egrep -o <span class="s2">&quot;[[:digit:]]+&quot;</span><span class="k">)</span>
-
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;usage: </span><span class="nv">$BN</span><span class="s2"> filename&quot;</span>
-  <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$SI</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;error: no input sinks found&quot;</span>
-  <span class="nb">exit</span> <span class="m">2</span>
-<span class="k">fi</span>
-
-<span class="nv">N</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-
-<span class="nb">echo</span> <span class="nv">$BN</span> recording:
-<span class="nb">echo</span> · Found sink index «<span class="nv">$SI</span>»
-<span class="nb">echo</span> · Loading module-null-sink
-<span class="nv">MI</span><span class="o">=</span><span class="k">$(</span>pactl load-module module-null-sink <span class="nv">sink_name</span><span class="o">=</span>rec<span class="k">)</span>
-<span class="nb">trap</span> <span class="s2">&quot;{ echo · Trying to delete null sink «rec»; pactl unload-module </span><span class="nv">$MI</span><span class="s2">; }&quot;</span> EXIT
-<span class="nb">echo</span> · Moving sink «<span class="nv">$SI</span>» to null sink «rec»
-pactl move-sink-input <span class="nv">$SI</span> rec
-<span class="nb">echo</span> · Saving sound data to «<span class="nv">$N</span>.flac» 
-parec -d rec.monitor <span class="p">|</span> flac --endian<span class="o">=</span>little --sign<span class="o">=</span>signed --channels<span class="o">=</span><span class="m">2</span> --bps<span class="o">=</span>16n --sample-rate<span class="o">=</span><span class="m">44100</span> -o <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">.flac&quot;</span> - <span class="m">2</span>&gt;/dev/null
-</pre></div>
-
-
-<h3>Usage</h3>
-<div class="highlight"><pre><span></span>usage: record-app.sh filename
-</pre></div>
-
-
-<h4>Example 1</h4>
-<div class="highlight"><pre><span></span>./record-app.sh firefox-sound
-</pre></div>
-
-
-<p>Will start to record the current playing audio in Firefox. The audio is saved int …</p>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2015/2015-01-10-pa.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-12-15-vagrant-openstack.html" rel="bookmark" title="Permalink to Vagrant with OpenStack">
-                                       Vagrant with OpenStack
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2014-12-18
-
-        |
-        tags:         <a href="./tag/howto.html">howto</a>
-        <a href="./tag/openstack.html">openstack</a>
-        <a href="./tag/vagrant.html">vagrant</a>
-
-
-        |
-        <a href="./posts/2014/2014-12-15-vagrant-openstack.html#disqus_thread">comments</a>
-
     
-</footer><!-- /.post-info -->                                <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually. </p>
-<h2>One time configuration</h2>
-<h3>Install OpenStack plugin in Vagrant</h3>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
-git clone https://github.com/cloudbau/vagrant-openstack-plugin
-<span class="nb">cd</span> vagrant-openstack-plugin
-gem build vagrant-openstack-plugin.gemspec
-vagrant plugin install vagrant-openstack-plugin-*.gem
-</pre></div>
-
-
-<p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
-<div class="highlight"><pre><span></span>vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
-</pre></div>
-
-
-<h3>Download OpenStack RC file</h3>
-<ul>
-<li>Log into OpenStack</li>
-<li>Download OpenStack API RC file</li>
-<li>Go to <code>Project</code> -&gt; <code>Compute</code> -&gt; <code>Access &amp; Security</code> -&gt; <code>API Access</code> </li>
-<li>Down RC file by hitting <code>Download OpenStack RC File</code></li>
-<li>Put <code>$USER-openrc.sh</code> in your <code>~/</code> or somewhere you prefer</li>
+        
+            <li>
+                <aside class="dates">Jul 28</aside>
+                <a href='https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/'>
+                    Vagrant with Ubuntu Focal (20.04)
+                    
+                        
+                            <h2>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Sep 11</aside>
+                <a href='https://blog.heimsbakk.net/posts/20190911-restic/'>
+                    Design an online ransomware safe backup with restic
+                    
+                        
+                            <h2>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 13</aside>
+                <a href='https://blog.heimsbakk.net/posts/20180105-yubikey/'>
+                    SSH with YubiKey NEO on Fedora made easy
+                    
+                        
+                            <h2>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key Pre requests   Install the YubiKey management software.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Mar 26</aside>
+                <a href='https://blog.heimsbakk.net/posts/20160326-syncthing/'>
+                    Distributed syncing with Syncthing
+                    
+                        
+                            <h2>I’ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It’s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
+Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it’s transmitted over the Internet.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Jan 11</aside>
+                <a href='https://blog.heimsbakk.net/posts/20150111-zram/'>
+                    Compressed RAM based block devices
+                    
+                        
+                            <h2>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, …). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)
+ zram  Example of compressed swap in memory Write this commands in /etc/rc.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Jan 10</aside>
+                <a href='https://blog.heimsbakk.net/posts/20150110-pa/'>
+                    Record a PulseAudio sound stream
+                    
+                        
+                            <h2>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don’t have the option to save audio to a file.
+The PulseAudio sound server in your desktop makes this quite easy.
+I’ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file. After the capture is started, you can start playing sound from other programs.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 18</aside>
+                <a href='https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/'>
+                    Vagrant with OpenStack
+                    
+                        
+                            <h2>If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
+One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.com/cloudbau/vagrant-openstack-plugin cd vagrant-openstack-plugin gem build vagrant-openstack-plugin.gemspec vagrant plugin install vagrant-openstack-plugin-*.gem Add a dummy box to Vagrant thats needed by the plugin.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 15</aside>
+                <a href='https://blog.heimsbakk.net/posts/20141215-fio/'>
+                    fio - flexible I/O tester
+                    
+                        
+                            <h2>From man page: fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.
+This example only show how to use fio to make reproduceable test on a file system. For me it’s been useful to catch changes in I/O throughput before and after a system has gone into production.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 14</aside>
+                <a href='https://blog.heimsbakk.net/posts/20141214-powersave/'>
+                    Power saving on laptop
+                    
+                        
+                            <h2>Notes for power saving on my i5 laptop.
+/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&#34;video.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Jun 19</aside>
+                <a href='https://blog.heimsbakk.net/posts/20140619-webgl/'>
+                    View Google Earth in the browser
+                    
+                        
+                            <h2>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn’t available where the satellite view options is, your graphic card is in the browsers blacklist.
+To force enabling WebGL in the browser start it with the following options
+chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
 </ul>
-<h2>Configure a Vagrant VM</h2>
-<h3>Vagrantfile</h3>
-<p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>. </p>
-<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
 
-<span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;dummy&quot;</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;/vagrant&quot;</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="s2">&quot;rsync&quot;</span><span class="p">,</span> <span class="ss">rsync__exclude</span><span class="p">:</span> <span class="s2">&quot;.git/&quot;</span>
-
-  <span class="c1"># Make sure the private key from the key pair is provided</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s2">&quot;~/.ssh/id_rsa&quot;</span>
-
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:openstack</span> <span class="k">do</span> <span class="o">|</span><span class="n">os</span><span class="o">|</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">username</span>     <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">api_key</span>      <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">flavor</span>       <span class="o">=</span> <span class="sr">/m1.tiny/</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">image</span>        <span class="o">=</span> <span class="s2">&quot;Ubuntu CI utopic 2014-09-18&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">endpoint</span>     <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">/tokens&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">keypair_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">_ssh_key&quot;</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">ssh_username</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
-
-    <span class="c1"># The tenant have two networks, so …</span></pre></div>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-12-15-vagrant-openstack.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-12-15-fio.html" rel="bookmark" title="Permalink to fio - flexible I/O tester">
-                                       fio - flexible I/O tester
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2014-12-15
-
-        |
-        tags:         <a href="./tag/io.html">io</a>
-        <a href="./tag/benchmark.html">benchmark</a>
-        <a href="./tag/howto.html">howto</a>
-
-
-        |
-        <a href="./posts/2014/2014-12-15-fio.html#disqus_thread">comments</a>
-
+        <nav id="post-nav">
     
-</footer><!-- /.post-info -->                                <p>From man page: <code>fio</code> <em>is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.</em></p>
-<p>This example only show how to use <code>fio</code> to make reproduceable test on a file system. For me it's been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable. </p>
-<p>All parameter numbers are examples, define your own test according to what you want to measure. </p>
-<h2>Installing fio</h2>
-<div class="highlight"><pre><span></span>apt-get install fio
-</pre></div>
-
-
-<h2>Running fio</h2>
-<ul>
-<li>Change <code>bsrange</code> to the block size range you want to test. </li>
-<li><code>numjobs</code> is the number of simultanious read/write threads.</li>
-<li><code>size</code> is the working file size.</li>
-<li>If you want to test a read heavy load, use <code>rwmixread</code> with a percentage of reads versus writes..</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">for</span> i in <span class="nb">read</span> write readwrite randread randwrite randrw<span class="p">;</span> <span class="k">do</span> fio --name<span class="o">=</span>fio  --write_bw_log<span class="o">=</span><span class="nv">$i</span> --write_iops_log<span class="o">=</span><span class="nv">$i</span> --write_lat_log<span class="o">=</span><span class="nv">$i</span> --ioengine<span class="o">=</span>sync --size<span class="o">=</span>10G --runtime<span class="o">=</span><span class="m">60</span> --rw<span class="o">=</span><span class="nv">$i</span> --norandommap --refill_buffers --randrepeat<span class="o">=</span><span class="m">0</span>  --iodepth<span class="o">=</span><span class="m">1</span> --direct<span class="o">=</span><span class="m">1</span> --numjobs<span class="o">=</span><span class="m">8</span> --group_reporting --bsrange<span class="o">=</span>4k-4k<span class="p">;</span> <span class="k">done</span>
-</pre></div>
-
-
-<h2>Generating I/O plots</h2>
-<div class="highlight"><pre><span></span>fio2gnuplot -i -g
-</pre></div>
-
-
-<p>For me is the most interesting plot is <strong>compare-result-2Dsmooth.png</strong>.</p>
-<h2>Generating bandwidth plots</h2>
-<p>Testing bandwidth is better to do with a larger block size. I usually set a block size between 64k to 1m. </p>
-<div class="highlight"><pre><span></span><span class="k">for</span> i in …</pre></div>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-12-15-fio.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-04-13-powersave.html" rel="bookmark" title="Permalink to Power saving on laptop">
-                                       Power saving on laptop
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2014-12-14
-
-        |
-        tags:         <a href="./tag/i915.html">i915</a>
-        <a href="./tag/intel.html">intel</a>
-        <a href="./tag/pstate.html">pstate</a>
-        <a href="./tag/grub.html">grub</a>
-
-
-        |
-        <a href="./posts/2014/2014-04-13-powersave.html#disqus_thread">comments</a>
-
+        
+        
+        <span class="next">
+            <a href="/page/2/">
+                Older Posts <span class="arrow">→</span>
+            </a>
+        </span>
+        
     
-</footer><!-- /.post-info -->                                <p>Notes for power saving on my i5 laptop.</p>
-<h2>/etc/rc.local</h2>
-<div class="highlight"><pre><span></span><span class="c1">#  SATA power save</span>
-<span class="nb">echo</span> medium_power <span class="p">|</span> tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
-
-<span class="c1"># Set minimum performance to 30% of CPU MHz </span>
-<span class="nb">echo</span> <span class="m">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
-
-<span class="c1"># Set CPU governor to power save since we run on a laptop</span>
-<span class="c1"># Valid values: powersave performance</span>
-<span class="nb">echo</span> powersave <span class="p">|</span> tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
-
-<span class="c1"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
-<span class="nb">echo</span> <span class="m">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
-</pre></div>
-
-
-<h2>/etc/default/grub</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Make my back light buttons work correctly</span>
-<span class="c1"># Full power save for GPU</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;video.use_native_backlight=1 i915.enable_rc6=7 i915.enable_fbc=1 i915.lvds_downclock=1&quot;</span>
-</pre></div>
-
-
-<h6>vim: set spell spl=en syn=markdown:</h6>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-04-13-powersave.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-06-19-webgl.html" rel="bookmark" title="Permalink to View Google Earth in the browser">
-                                       View Google Earth in the browser
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/blog.html">blog</a>
-
-    on 2014-06-19
-
-        |
-        tags:         <a href="./tag/chromium.html">chromium</a>
-        <a href="./tag/howto.html">howto</a>
-        <a href="./tag/maps.html">maps</a>
-
-
-        |
-        <a href="./posts/2014/2014-06-19-webgl.html#disqus_thread">comments</a>
-
+</nav>
+        <footer id="footer">
     
-</footer><!-- /.post-info -->                                <p>Google now supports Google Earth in Google Maps. As far as I know it works in <a href="https://en.wikipedia.org/wiki/Google_Chrome">Chrome</a> and <a href="https://en.wikipedia.org/wiki/Chromium_%28web_browser%29">Chromium</a>. If Google Earth isn't available where the satellite view options is, your graphic card is in the browsers blacklist.</p>
-<p>To force enabling <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> in the browser start it with the following options</p>
-<div class="highlight"><pre><span></span>chromium-browser --enable-webgl --ignore-gpu-blacklist
-</pre></div>
+        <div id="social">
 
-
-<p>Now you can use Google Earth in <a href="https://maps.google.com">maps.google.com</a>.</p>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-06-19-webgl.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <header>
-                                <h1 class="entry-title">
-                                    <a href="./posts/2014/2014-05-25-vagrant.html" rel="bookmark" title="Permalink to Vagrant, development environments made easy">
-                                       Vagrant, development environments made easy
-                                    </a>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/arnulf.html">arnulf</a>
-    </address>
-
-    in <a href="./category/uris.html">uris</a>
-
-    on 2014-05-25
-
-        |
-        tags:         <a href="./tag/vagrant.html">vagrant</a>
-        <a href="./tag/virtualbox.html">virtualbox</a>
-
-
-        |
-        <a href="./posts/2014/2014-05-25-vagrant.html#disqus_thread">comments</a>
-
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
     
-</footer><!-- /.post-info -->                                <p>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It's free and really easy to use. If you install <a href="https://www.virtualbox.org/">VirtualBox</a> <code>sudo apt-get install virtualbox</code> first, you'll be up and running in no time.</p>
-<p>Vagrant do profile itself for developers, but <a href="https://en.wikipedia.org/wiki/Sysadmin" title="System administrator">sysadmin</a>s has much to gain by using such tools to make life easier for themselves. Automation and reproducibility is key concepts in modern system administration. We need to think more and more like developers, as much as developers need to think more and more like <a href="https://en.wikipedia.org/wiki/Sysadmin" title="System administrator">sysadmin</a>s.</p>
-<p>Excerpt: <em>Create and configure lightweight, reproducible, and portable development environments.</em></p>
-<ul>
-<li><a href="http://www.vagrantup.com/">Vagrant</a></li>
-</ul>
-                                <p class="readmore">
-                                    <a class="btn btn-small btn-info" href="./posts/2014/2014-05-25-vagrant.html">Read more...</a>
-                                </p>
-                            </div><!-- /.entry-content -->
-                            <hr/>
-                        </article>
-                    </li>
-                    </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 3
-        <a href="./index2.html">&raquo;</a>
-</p>
-                </section><!-- /#content -->
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
 </div>
-<div class="span3">
-    <section id="sidebar">
-            <div>
-                <h2>Browse content by</h2>
-                <ul class="fa-ul">
-                <li><a href="./categories.html"><i class="fa-li fa fa-tags"></i> Categories</a></li>
-                <li><a href="./archives.html"><i class="fa-li fa fa-calendar"></i> Dates</a></li>
-                <li><a href="./tags.html"><i class="fa-li fa fa-tag"></i> Tags</a></li>
 
-                <li><a href="http://blog.heimsbakk.net/feeds/all.atom.xml"><i class="fa-li fa fa-rss"></i> Feed</a></li>
-                </ul>
-            </div><!-- /.browse -->
-            <div>
-                <h2>Links</h2>
-                <ul>
-                    <li><a href="https://isc.sans.edu">isc</a></li>
-                    <li><a href="https://www.schneier.com">schneier</a></li>
-                    <li><a href="http://krebsonsecurity.com">krebs</a></li>
-                    <li><a href="https://www.grc.com/securitynow.htm">security now!</a></li>
-                    <li><a href="https://www.eff.org">eff</a></li>
-                    <li><a href="https://www.usenix.org/publications/login">;login:</a></li>
-                    <li><a href="https://news.ycombinator.com">hacker news</a></li>
-                    <li><a href="https://mailinator.com">mailinator</a></li>
-                    <li><a href="https://duckduckgo.com">duckduckgo</a></li>
-                </ul>
-            </div><!-- /.Links -->
-            <div>
-                <h2>Social</h2>
-                <ul>
-                    <li><a href="https://twitter.com/aheimsbakk">twitter</a></li>
-                    <li><a href="https://plus.google.com/+ArnulfHeimsbakk/posts/p/pub">google+</a></li>
-                    <li><a href="http://linkedin.com/in/arnulfheimsbakk">linkedin</a></li>
-                    <li><a href="http://instagram.com/1uff3#">instagram</a></li>
-                </ul>
-            </div><!-- /.social -->
-            <div>
-                <h2>Tags</h2>
-                <ul id="cloud">
-                     <li class="tag-4"><a href="./tag/android.html">android</a></li>
-                     <li class="tag-3"><a href="./tag/apache.html">apache</a></li>
-                     <li class="tag-2"><a href="./tag/bash.html">bash</a></li>
-                     <li class="tag-4"><a href="./tag/benchmark.html">benchmark</a></li>
-                     <li class="tag-4"><a href="./tag/cheatsheet.html">cheatsheet</a></li>
-                     <li class="tag-4"><a href="./tag/chrome.html">chrome</a></li>
-                     <li class="tag-4"><a href="./tag/chromium.html">chromium</a></li>
-                     <li class="tag-4"><a href="./tag/cloud.html">cloud</a></li>
-                     <li class="tag-4"><a href="./tag/cyanogenmod.html">cyanogenmod</a></li>
-                     <li class="tag-4"><a href="./tag/dropbox.html">dropbox</a></li>
-                     <li class="tag-4"><a href="./tag/entropy.html">entropy</a></li>
-                     <li class="tag-4"><a href="./tag/firefox.html">firefox</a></li>
-                     <li class="tag-3"><a href="./tag/firmware.html">firmware</a></li>
-                     <li class="tag-4"><a href="./tag/grub.html">grub</a></li>
-                     <li class="tag-1"><a href="./tag/howto.html">howto</a></li>
-                     <li class="tag-4"><a href="./tag/i915.html">i915</a></li>
-                     <li class="tag-4"><a href="./tag/incron.html">incron</a></li>
-                     <li class="tag-4"><a href="./tag/intel.html">intel</a></li>
-                     <li class="tag-4"><a href="./tag/io.html">io</a></li>
-                     <li class="tag-3"><a href="./tag/kernel.html">kernel</a></li>
-                     <li class="tag-4"><a href="./tag/maps.html">maps</a></li>
-                     <li class="tag-2"><a href="./tag/network.html">network</a></li>
-                     <li class="tag-3"><a href="./tag/oneliner.html">oneliner</a></li>
-                     <li class="tag-4"><a href="./tag/openstack.html">openstack</a></li>
-                     <li class="tag-4"><a href="./tag/openvpn.html">openvpn</a></li>
-                     <li class="tag-2"><a href="./tag/pelican.html">pelican</a></li>
-                     <li class="tag-4"><a href="./tag/pstate.html">pstate</a></li>
-                     <li class="tag-4"><a href="./tag/pulseaudio.html">pulseaudio</a></li>
-                     <li class="tag-4"><a href="./tag/rclone.html">rclone</a></li>
-                     <li class="tag-4"><a href="./tag/restic.html">restic</a></li>
-                     <li class="tag-1"><a href="./tag/security.html">security</a></li>
-                     <li class="tag-4"><a href="./tag/sound.html">sound</a></li>
-                     <li class="tag-3"><a href="./tag/ssh.html">ssh</a></li>
-                     <li class="tag-2"><a href="./tag/ssl.html">ssl</a></li>
-                     <li class="tag-3"><a href="./tag/tomato.html">tomato</a></li>
-                     <li class="tag-4"><a href="./tag/trng.html">trng</a></li>
-                     <li class="tag-4"><a href="./tag/tuning.html">tuning</a></li>
-                     <li class="tag-4"><a href="./tag/ubuntu.html">ubuntu</a></li>
-                     <li class="tag-3"><a href="./tag/vagrant.html">vagrant</a></li>
-                     <li class="tag-4"><a href="./tag/vim.html">vim</a></li>
-                     <li class="tag-4"><a href="./tag/virtualbox.html">virtualbox</a></li>
-                     <li class="tag-4"><a href="./tag/vm.html">vm</a></li>
-                     <li class="tag-4"><a href="./tag/vpn.html">vpn</a></li>
-                     <li class="tag-4"><a href="./tag/yubikey.html">yubikey</a></li>
-                     <li class="tag-4"><a href="./tag/zram.html">zram</a></li>
-                </ul>
-             </div>
-<!-- /.Tags -->
-    </section><!-- /#sidebar -->
-</div>
-            </div>
-        </div>
-    </div>
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
 
-    <footer id="site-footer">
-        <div class="row-fluid">
-            <div class="span10 offset1">
-                <address>
-                    <p>
-                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                    </p>
-                    <p>
-                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
-                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
-                    </p>
-                </address>
-            </div>
-        </div>
-    </footer>
+    </section>
 
-<script type="text/javascript">
-    var disqus_shortname = 'blogheimsbakknet';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
 </html>

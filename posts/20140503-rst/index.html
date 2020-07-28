@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>reStructuredText cheat sheet &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        reStructuredText cheat sheet
+                    </h1>
+                    <h2 class="headline">
+                    May 3, 2014 00:00
+                    · 578 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/cheatsheet">cheatsheet</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/pelican">pelican</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <div class="document">
+
+
+<p>My cheat sheet for <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText</a> syntax with examples how it will look after parsing. <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText</a> is an alternative for <a class="reference external" href="http://daringfireball.net/projects/markdown">Markedown</a>.</p>
+<ul class="simple">
+<li>Examples taken from <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
+<li>See also <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">reStructuredText Directives</a></li>
+</ul>
+<div class="section" id="blog-arthicle-metadata">
+<h2>Blog arthicle metadata</h2>
+<pre class="code rst literal-block">
+<span class="generic heading">reStructuredText cheat sheet</span>
+<span class="generic heading">############################</span>
+
+<span class="name class">:date:</span> <span class="name function">2014-05-03 18:00</span>
+<span class="name class">:tags:</span> <span class="name function">cheatsheet, pelican</span>
+<span class="name class">:category:</span> <span class="name function">blog</span>
+<span class="name class">:slug:</span> <span class="name function">2014-05-03-rst</span>
+<span class="name class">:author:</span> <span class="name function">arnulf</span>
+<span class="name class">:summary:</span> <span class="name function">My cheat sheet for `reStructuredText &lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &lt;http://daringfireball.net/projects/markdown&gt;`_.</span>
+</pre>
+</div>
+<div class="section" id="sections">
+<h2>Sections</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#sections">rST doc</a></p>
+<pre class="code rst literal-block">
+<span class="generic heading">===============</span>
+<span class="generic heading"> Second heading</span>
+<span class="generic heading">===============</span>
+
+<span class="generic heading">---------------</span>
+<span class="generic heading"> Third heading</span>
+<span class="generic heading">---------------</span>
+
+<span class="generic heading">Fourth heading</span>
+<span class="generic heading">==============</span>
+
+<span class="generic heading">Fift heading</span>
+<span class="generic heading">-------------</span>
+
+<span class="generic heading">Sixt heading</span>
+<span class="generic heading">`````````````</span>
+</pre>
+</div>
+<div class="section" id="second-heading">
+<h2>Second heading</h2>
+<div class="section" id="third-heading">
+<h3>Third heading</h3>
+<div class="section" id="fourth-heading">
+<h4>Fourth heading</h4>
+<div class="section" id="fift-heading">
+<h5>Fift heading</h5>
+<div class="section" id="sixt-heading">
+<h6>Sixt heading</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="quick-syntax-overview">
+<h2>Quick Syntax Overview</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#quick-syntax-overview">rST doc</a></p>
+<pre class="code rst literal-block">
+Paragraphs contain text and may contain inline markup: <span class="generic emph">*emphasis*</span>, <span class="generic strong">**strong emphasis**</span>, <span class="name variable">`interpreted text`</span>, <span class="literal string">``inline literals``</span>, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references (<span class="literal string">[1]_</span>), citation references (<span class="literal string">[CIT2002]_</span>), substitution references (|example|), _<span class="name variable">`inline internal targets`</span> and <span class="name attribute">:code:</span><span class="name variable">`code snippets`</span>.
+</pre>
+<p>Paragraphs contain text and may contain inline markup: <em>emphasis</em>, <strong>strong emphasis</strong>, <cite>interpreted text</cite>, <tt class="docutils literal">inline literals</tt>, standalone hyperlinks (<a class="reference external" href="http://www.python.org">http://www.python.org</a>), external hyperlinks (<a class="reference external" href="http://www.python.org">Python</a>), internal cross-references (<a class="reference internal" href="#example">example</a>), footnote references (<a class="footnote-reference" href="#id3" id="id1">[1]</a>), citation references
+(<a class="citation-reference" href="#cit2002" id="id2">[CIT2002]</a>), substitution references (Replaced text), <span class="target" id="inline-internal-targets">inline internal targets</span> and <code>code snippets</code>.</p>
+<div class="section" id="lists">
+<h3>Lists</h3>
+<pre class="code rst literal-block">
+<span class="literal number">*</span> One
+
+<span class="literal number">*</span> Two
+
+ <span class="literal number">1.</span> Test
+
+ <span class="literal number">2.</span> Test
+
+<span class="literal number">*</span> Three
+</pre>
+<ul class="simple">
+<li>One</li>
+<li>Two</li>
+</ul>
+<blockquote>
+<ol class="arabic simple">
+<li>Test</li>
+<li>Test</li>
+</ol>
+</blockquote>
+<ul class="simple">
+<li>Three</li>
+</ul>
+</div>
+<div class="section" id="footnotes">
+<h3>Footnotes</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">[1]</span> A footnote contains body elements, consistently
+    indented by at least 3 spaces.
+</pre>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>A footnote contains body elements, consistently
+indented by at least 3 spaces.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="citations">
+<h3>Citations</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">[CIT2002]</span> Just like a footnote, except the label is
+    textual.
+</pre>
+<table class="docutils citation" frame="void" id="cit2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[CIT2002]</a></td><td>Just like a footnote, except the label is
+textual.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hyperlink-targets">
+<h3>Hyperlink targets</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span> <span class="name tag">_Python:</span> http://www.python.org
+
+<span class="punctuation">..</span> <span class="name tag">_example:</span>
+
+The &quot;_example&quot; target above points to this paragraph.
+</pre>
+<p id="example">The &quot;_example&quot; target above points to this paragraph.</p>
+</div>
+<div class="section" id="replacement-text">
+<h3>Replacement text</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">|example|</span> <span class="operator word">replace</span><span class="punctuation">::</span> Replaced text
+</pre>
+</div>
+<div class="section" id="id4">
+<h3>Inline internal targets</h3>
+<pre class="code rst literal-block">
+Point to <span class="literal string">`inline internal targets`_</span>.
+</pre>
+<p>Point to <a class="reference internal" href="#inline-internal-targets">inline internal targets</a>.</p>
+</div>
+<div class="section" id="definitions-of-terms">
+<h3>Definitions of terms</h3>
+<pre class="code rest literal-block">
+term (up to a line of text)
+   Definition of the term, which must be indented
+
+   and can even consist of multiple paragraphs
+
+next term
+   Description.
+</pre>
+<dl class="docutils">
+<dt>term (up to a line of text)</dt>
+<dd><p class="first">Definition of the term, which must be indented</p>
+<p class="last">and can even consist of multiple paragraphs</p>
+</dd>
+<dt>next term</dt>
+<dd>Description.</dd>
+</dl>
+</div>
+<div class="section" id="field-list">
+<h3>Field list</h3>
+<pre class="code rst literal-block">
+<span class="name class">:what:</span> <span class="name function">Field lists map field names to field bodies, like</span>
+       database records.  They are often part of an extension
+       syntax.
+
+<span class="name class">:how:</span> <span class="name function">The field marker is a colon, the field name, and a</span>
+      colon.
+
+      The field body may contain one or more body elements,
+      indented relative to the field marker.
+</pre>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">what:</th><td class="field-body"><p class="first">Field lists map field names to field bodies, like
+database records.  They are often part of an extension
+syntax.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">how:</th><td class="field-body"><p class="first">The field marker is a colon, the field name, and a
+colon.</p>
+<p class="last">The field body may contain one or more body elements,
+indented relative to the field marker.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="visualize-math">
+<h2>Visualize math</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">rST doc</a></p>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span> <span class="operator word">math</span><span class="punctuation">::</span>
+
+  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
+</pre>
+<div class="formula">
+<i>α</i><sub><i>t</i></sub>(<i>i</i>) = <i>P</i>(<i>O</i><sub>1</sub>, <i>O</i><sub>2</sub>, …<i>O</i><sub><i>t</i></sub>, <i>q</i><sub><i>t</i></sub> = <i>S</i><sub><i>i</i></sub><i>λ</i>)
+</div>
+</div>
+<div class="section" id="tables">
+<h2>Tables</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#grid-tables">rST doc</a></p>
+<div class="section" id="grid-tables">
+<h3>Grid tables</h3>
+<pre class="code rst literal-block">
++--------------+----------+-----------+---------------+
+<span class="operator">|</span> row 1, col 1 | column 2 | column 3  | column 4      |
++==============+==========+===========+===============+
+<span class="operator">|</span> row 2        |  Use the command <span class="name attribute">:code:</span><span class="name variable">`ls | more`</span>.  |
++--------------+----------+-----------+---------------+
+<span class="operator">|</span> row 3        |          |           |               |
++--------------+----------+-----------+---------------+
+</pre>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="20%" />
+<col width="22%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">row 1, col 1</th>
+<th class="head">column 2</th>
+<th class="head">column 3</th>
+<th class="head">column 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>row 2</td>
+<td colspan="3">Use the command <code>ls | more</code>.</td>
+</tr>
+<tr><td>row 3</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simple-tables">
+<h3>Simple tables</h3>
+<pre class="code rst literal-block">
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
+</pre>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A and B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20140503-rst%2f - reStructuredText%20cheat%20sheet "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

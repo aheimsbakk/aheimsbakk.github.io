@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kernel on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/kernel/</link>
+    <description>Recent content in kernel on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Compressed RAM based block devices</title>
+      <link>https://blog.heimsbakk.net/posts/20150111-zram/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20150111-zram/</guid>
+      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)
+ zram  Example of compressed swap in memory Write this commands in /etc/rc.</description>
+    </item>
+    
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
+      <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+    </item>
+    
+  </channel>
+</rss>

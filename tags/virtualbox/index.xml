@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virtualbox on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/virtualbox/</link>
+    <description>Recent content in virtualbox on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vagrant with Ubuntu Focal (20.04)</title>
+      <link>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</guid>
+      <description>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</description>
+    </item>
+    
+  </channel>
+</rss>

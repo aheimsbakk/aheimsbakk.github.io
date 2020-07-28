@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cheatsheet on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/cheatsheet/</link>
+    <description>Recent content in cheatsheet on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>reStructuredText cheat sheet</title>
+      <link>https://blog.heimsbakk.net/posts/20140503-rst/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
+      <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.</description>
+    </item>
+    
+  </channel>
+</rss>

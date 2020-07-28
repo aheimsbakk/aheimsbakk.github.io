@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/</link>
+    <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://blog.heimsbakk.net/tags/ubuntu/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://blog.heimsbakk.net/tags/vagrant/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualbox</title>
+      <link>https://blog.heimsbakk.net/tags/virtualbox/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>howto</title>
+      <link>https://blog.heimsbakk.net/tags/howto/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>restic</title>
+      <link>https://blog.heimsbakk.net/tags/restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/restic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://blog.heimsbakk.net/tags/security/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yubikey</title>
+      <link>https://blog.heimsbakk.net/tags/yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/yubikey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>link</title>
+      <link>https://blog.heimsbakk.net/tags/link/</link>
+      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/link/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://blog.heimsbakk.net/tags/network/</link>
+      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://blog.heimsbakk.net/tags/kernel/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pulseaudio</title>
+      <link>https://blog.heimsbakk.net/tags/pulseaudio/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/pulseaudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>benchmark</title>
+      <link>https://blog.heimsbakk.net/tags/benchmark/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/benchmark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intel</title>
+      <link>https://blog.heimsbakk.net/tags/intel/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/intel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chromium</title>
+      <link>https://blog.heimsbakk.net/tags/chromium/</link>
+      <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/chromium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://blog.heimsbakk.net/tags/android/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheet</title>
+      <link>https://blog.heimsbakk.net/tags/cheatsheet/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pelican</title>
+      <link>https://blog.heimsbakk.net/tags/pelican/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/pelican/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>https://blog.heimsbakk.net/tags/vpn/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>entropy</title>
+      <link>https://blog.heimsbakk.net/tags/entropy/</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/entropy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firmware</title>
+      <link>https://blog.heimsbakk.net/tags/firmware/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://blog.heimsbakk.net/tags/bash/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oneliner</title>
+      <link>https://blog.heimsbakk.net/tags/oneliner/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/oneliner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>https://blog.heimsbakk.net/tags/vim/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

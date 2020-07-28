@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/android/</link>
+    <description>Recent content in android on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flashing a custom rom on Nexus 4</title>
+      <link>https://blog.heimsbakk.net/posts/20140511-rootnexus/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140511-rootnexus/</guid>
+      <description>Flashing a custom image on an Android mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. Then don&amp;rsquo;t!
+The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.
+Negative sides  An OS image could contain malware; only use community trusted images. If you don&amp;rsquo;t pay attention you can get malware running as root.</description>
+    </item>
+    
+  </channel>
+</rss>

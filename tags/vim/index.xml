@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/vim/</link>
+    <description>Recent content in vim on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modeline in vim</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-modeline/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-modeline/</guid>
+      <description>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
+set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.
+# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: /* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */ // vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: Explanation  enc=UTF-8</description>
+    </item>
+    
+  </channel>
+</rss>

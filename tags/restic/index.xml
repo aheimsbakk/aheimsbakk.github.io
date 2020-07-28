@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>restic on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/restic/</link>
+    <description>Recent content in restic on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/restic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://blog.heimsbakk.net/posts/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20190911-restic/</guid>
+      <description>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</description>
+    </item>
+    
+  </channel>
+</rss>

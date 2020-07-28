@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Design an online ransomware safe backup with restic &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Design an online ransomware safe backup with restic
+                    </h1>
+                    <h2 class="headline">
+                    Sep 11, 2019 00:00
+                    · 495 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/howto">howto</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/restic">restic</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/security">security</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
+<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers.</p>
+<h2 id="problem">Problem</h2>
+<p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups init
+</code></pre></div><p>Backups is then done with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+</code></pre></div><p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
+<h2 id="solution">Solution</h2>
+<p>This can be solved in couple of ways</p>
+<ol>
+<li>Use a immutable backend, in example immutable object storage in the cloud.</li>
+<li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
+</ol>
+<h2 id="design-rely-traffic-through-proxy">Design, rely traffic through proxy</h2>
+<pre><code>     source               intermediate                destination
++---------------+       +--------------+  chosen     +-----------+
+|               |  SSH  | rclone       |  transport  | favorite  |
+| /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
+|               |       | rely         |             | storage   |
++---------------+       +--------------+             +-----------+
+</code></pre><h2 id="configure">Configure</h2>
+<h3 id="on-source">On <em>source</em></h3>
+<ol>
+<li>
+<p>Create a SSH key on the <em>source</em> without a password.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -f .ssh/id_ed25519 -N <span style="color:#e6db74">&#39;&#39;</span>
+</code></pre></div></li>
+<li>
+<p>Cat the newly created key <code>.ssh/id_ed25519.pub</code></p>
+<pre><code>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+</code></pre></li>
+</ol>
+<h3 id="on-intermediate">On <em>intermediate</em></h3>
+<ol>
+<li>
+<p>Secure the <em>intermediate</em> server as you see fit. Do <strong>not allow</strong> unrestricted SSH from the <em>source</em>.</p>
+</li>
+<li>
+<p>Log in as your user, in this example <code>user</code>.</p>
+</li>
+<li>
+<p>Create a <em>rclone</em> profile, in this case it&rsquo;s called <em>myprofile</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone config
+</code></pre></div></li>
+<li>
+<p>Test the profile.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone ls myprofile:
+</code></pre></div></li>
+<li>
+<p>Allow <em>source</em> to SSH into <em>intermediate</em> and run a very limited <em>rclone</em> which only may append data to <em>myprofile</em>. Edit <code>.ssh/authorized_keys</code>.</p>
+<pre><code>restrict,command=&quot;rclone serve restic --stdio --append-only myprofile:backups&quot; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+</code></pre></li>
+</ol>
+<h3 id="back-on-source">Back on <em>source</em></h3>
+<ol>
+<li>
+<p>Create a unique password for the backup. Take note of this password! You will not be able to restore without it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apg -m <span style="color:#ae81ff">32</span> | head -1 &gt; restic.pwd
+chmod <span style="color:#ae81ff">400</span> restic.pwd
+cat restic.pwd
+</code></pre></div></li>
+<li>
+<p>Initiate <em>restic</em> backup repository.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: init
+</code></pre></div></li>
+<li>
+<p>Back up your data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: backup /srv/backmeup
+</code></pre></div></li>
+<li>
+<p>Create a job that run <em>restic</em> regularly.</p>
+</li>
+</ol>
+<p>You can use all <em>restic</em> commands as normal, except repair and cleanup commands.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now you have a <em>source</em> which backs up data online.</p>
+<p>If the <em>source</em> get compromised, the malicious actor cannot</p>
+<ul>
+<li>Delete or change old backups.</li>
+<li>Know final destination of backups.</li>
+</ul>
+<h2 id="caveats">Caveats</h2>
+<ul>
+<li><em>source</em> should newer have normal SSH into <em>intermediate</em></li>
+<li>Access to <em>intermediate</em> should be restricted. 2FA is recommended, example <a href="https://www.yubico.com">YubiKey</a>.</li>
+</ul>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20190911-restic%2f - Design%20an%20online%20ransomware%20safe%20backup%20with%20restic "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

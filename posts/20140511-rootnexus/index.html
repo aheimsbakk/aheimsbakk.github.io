@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Flashing a custom rom on Nexus 4 &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Flashing a custom rom on Nexus 4
+                    </h1>
+                    <h2 class="headline">
+                    May 11, 2014 00:00
+                    · 670 words
+                    · 4 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/howto">howto</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/android">android</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>Flashing a custom image on an <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> mobile could be just fun. But if you don&rsquo;t know why you want to do it, or do it just because it&rsquo;s a challenge. <strong>Then don&rsquo;t!</strong></p>
+<h2 id="the-bad-and-the-good">The bad and the good</h2>
+<p>I&rsquo;m only pointing out some of the cons and the pros here.</p>
+<h3 id="negative-sides">Negative sides</h3>
+<ul>
+<li>An OS image could contain <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a>; only use community trusted images.</li>
+<li>If you don&rsquo;t pay attention you can get <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a> running as root. That&rsquo;s B A D !</li>
+<li>May not have all the phones vendor functionality.</li>
+<li>The image may be buggy.</li>
+</ul>
+<h4 id="consequences-of-a-buggy-image">Consequences of a buggy image</h4>
+<ul>
+<li>Lock up your phone when you least expect it.</li>
+<li>Drain the battery quicker.</li>
+<li>Suddenly reboot.</li>
+</ul>
+<h3 id="positive-sides">Positive sides</h3>
+<ul>
+<li>You can get a newer more secure operating system.</li>
+<li>Use less battery.</li>
+<li>No <a href="https://en.wikipedia.org/wiki/Crapware" title="Pre-installed software">crapware</a>.</li>
+<li>Extra security functions.</li>
+</ul>
+<h2 id="flashing-cyanogenmod">Flashing CyanogenMod</h2>
+<p>One of the custom <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> images based on <a href="https://source.android.com" title="Android Open Source Project">AOSP</a> is <a href="http://www.cyanogenmod.org">CyanogenMod</a>. As I know, it&rsquo;s one of the more used ones. Quite stable if you keep away from the <a href="https://en.wikipedia.org/wiki/Nightlies" title="Neutral build">nightlies</a> and rich on functionality but not bloated.</p>
+<h3 id="preparations">Preparations</h3>
+<ol>
+<li>
+<p>Install <a href="https://developer.android.com/tools/help/adb.html" title="Android Debug Bridge">adb</a> and <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a> to help manage your Nexus phone.</p>
+<pre><code> sudo apt-get install android-tools-adb android-tools-fastboot
+</code></pre>
+</li>
+<li>
+<p>Download custom a recovery image. Personally I prefer <a href="http://www.clockworkmod.com">ClockworkMod</a> and the touch recovery. Note, this image is compiled for the Nexus 4 phone. Other phones use other images.</p>
+<pre><code> wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-mako.img
+</code></pre>
+</li>
+<li>
+<p>Download the latest M snapshot from <a href="http://www.cyanogenmod.org">CyanogenMod</a> on <a href="http://download.cyanogenmod.org">download.cyanogenmod.org</a>. The model name for Nexus 4 is <em>mako</em>.</p>
+<pre><code> wget http://download.cyanogenmod.org/get/jenkins/67695/cm-11-20140504-SNAPSHOT-M6-mako.zip
+</code></pre>
+</li>
+<li>
+<p>Download <a href="https://en.wikipedia.org/wiki/Google_apps">Google Apps</a> from a trusted source. Again I prefer <a href="http://www.cyanogenmod.org">CyanogenMod</a> as source and download from <a href="http://wiki.cyanogenmod.org/w/Google_Apps#Downloads">wiki.cyanogenmod.org</a>.</p>
+<pre><code> wget http://itvends.com/gapps/gapps-kk-20140105-signed.zip
+</code></pre>
+</li>
+<li>
+<p>And to be on the safe side. Download the origian Nexus 4 firmware from Googles page <a href="https://developers.google.com/android/nexus/images">Factory Images for Nexus Devices</a>. Just in case&hellip; And if it is the case, untar the file and read the included instructions.</p>
+<pre><code> wget https://dl.google.com/dl/android/aosp/occam-kot49h-factory-02e344de.tgz
+</code></pre>
+</li>
+</ol>
+<h3 id="doing-the-deed">Doing the deed</h3>
+<p>This is notes for my personal use. If you decide to go through with this I don&rsquo;t take any responsibility for any <a href="https://en.wikipedia.org/wiki/Bricked" title="Bricked">bricked</a> or damaged devices.</p>
+<h4 id="1-enable-usb-debugging-on-android">1. Enable USB debugging on Android</h4>
+<ul>
+<li>
+<p><strong>Settings</strong> → <strong>About phone</strong>.</p>
+<pre><code>  Press repeatedly on **Build number** until you become a developer.
+</code></pre>
+</li>
+<li>
+<p><strong>Settings</strong> → <strong>Developer options</strong>.</p>
+<pre><code>  Check **USB debugging**.
+</code></pre>
+</li>
+</ul>
+<h4 id="2-unlock-bootloader">2. Unlock bootloader</h4>
+<ul>
+<li>
+<p>Connect phone to computer with USB cable.</p>
+</li>
+<li>
+<p>Check that the cable is usable by listing devices with adb. If you don&rsquo;t get any response. Change the cable and try again. The last cable could be a cheep charger cable without data wires.</p>
+<pre><code>  adb devices
+</code></pre>
+</li>
+<li>
+<p>Reboot phone into <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>.</p>
+<pre><code>  adb reboot bootloader
+</code></pre>
+</li>
+<li>
+<p>Check that you get connection with <a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot" title="Fastboot">fastboot</a>.</p>
+<pre><code>  fastboot devices
+</code></pre>
+</li>
+<li>
+<p>Unlock your <a href="https://en.wikipedia.org/wiki/Bootloader" title="Booting">bootloader</a>. This takes some time while the phone is erasing all data.</p>
+<pre><code>  fastboot oem unlock
+</code></pre>
+</li>
+<li>
+<p>Choose <strong>Yes</strong> on phone by pressing <strong>Volume up</strong>, and then accept by pressing <strong>Power</strong>.</p>
+</li>
+</ul>
+<h4 id="3-flash-and-enter-recovery">3. Flash and enter recovery</h4>
+<ul>
+<li>
+<p>Flash recovery image.</p>
+<pre><code>  fastboot flash recovery recovery-clockwork-touch-6.0.4.7-mako.img
+</code></pre>
+</li>
+<li>
+<p>Enter recovery image by pressing <strong>Volume up</strong> until <strong>Recovery mode</strong> is shown on top of screen. Press <strong>Power</strong> to enter the recovery image.</p>
+</li>
+</ul>
+<h4 id="4-prepare-and-install-cyanogenmod">4. Prepare and install CyanogenMod</h4>
+<ul>
+<li>
+<p>In <a href="http://www.clockworkmod.com">ClockworkMod</a> Recovery enter <strong>mounts and storage</strong> → <strong>format /system</strong>. <strong>Yes - Format</strong>.</p>
+</li>
+<li>
+<p>In <a href="http://www.clockworkmod.com">ClockworkMod</a> Recovery enter <strong>mounts and storage</strong> → <strong>format /data and /data/media (/sdcard)</strong>. <strong>Yes - Format</strong>.</p>
+</li>
+<li>
+<p>Check the partitions is OK by going back to main menu and choose <strong>wipe data/factory reset</strong> and <strong>Yes - Wipe all user data</strong>. Check that you don&rsquo;t get any errors on formatting <strong>/data</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>install zip</strong> → <strong>choose zip from sideload</strong> and sideload <a href="http://www.cyanogenmod.org">CyanogenMod</a>.</p>
+<pre><code>  adb sideload cm-11-20140504-SNAPSHOT-M6-mako.zip
+</code></pre>
+</li>
+<li>
+<p>Then sideload gapps. Select again <strong>choose zip from sideload</strong>.</p>
+<pre><code>  adb sideload gapps-kk-20140105-signed.zip
+</code></pre>
+</li>
+<li>
+<p>Just be on the safe side, go back and choose <strong>wipe data/factory reset</strong> and <strong>Yes - Wipe all user data</strong>.</p>
+</li>
+<li>
+<p><strong>reboot system now</strong>. First boot takes some time, be patient.</p>
+</li>
+</ul>
+<p>If you get problems booting into a clean system, I&rsquo;ve read that another factory reset could do the trick.</p>
+<h4 id="5-encrypt-or-not">5. Encrypt or not</h4>
+<p>After installing the phone you can choose to encrypt it or not. I like to encrypt my device with a passphrase. It&rsquo;s my data so why give it away if the phone get stolen; encryption makes it a bit harder for the bad guys.</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20140511-rootnexus%2f - Flashing%20a%20custom%20rom%20on%20Nexus%204 "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

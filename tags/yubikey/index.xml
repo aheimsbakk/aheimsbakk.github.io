@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yubikey on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/yubikey/</link>
+    <description>Recent content in yubikey on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://blog.heimsbakk.net/posts/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20180105-yubikey/</guid>
+      <description>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key Pre requests   Install the YubiKey management software.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Vagrant with Ubuntu Focal (20.04) &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.netimages/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.netcss/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.netposts'>Archive</a>
+	<a href='https://blog.heimsbakk.nettags'>Tags</a>
+	<a href='https://blog.heimsbakk.netabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Vagrant with Ubuntu Focal (20.04)
+                    </h1>
+                    <h2 class="headline">
+                    Jul 28, 2020 11:49
+                    · 601 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.nettags/ubuntu">ubuntu</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/vagrant">vagrant</a>
+                          
+                              <a href="https://blog.heimsbakk.nettags/virtualbox">virtualbox</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p><a href="https://www.vagrantup.com/">Vagrant</a> is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.</p>
+<p>There is a bug in the latest version of <a href="https://ubuntu.com/">Ubuntu</a> (<a href="https://app.vagrantup.com/boxes/search">Vagrant Box</a>) that makes it hang during boot. It even hangs the <a href="https://www.virtualbox.org/">VirtualBox</a> and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</p>
+<p>This can easily be remedied with adding the missing redirect of the console to a file.</p>
+<h1 id="workaround">Workaround</h1>
+<p>Full output of a <code>Vagrantfile</code> with the workaround. Make a note of the <code>CURENT_PATH</code>. It&rsquo;s needed to put the redirect file in the current folder of the <code>Vagrantfile</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
+<span style="color:#75715e"># vi: set ft=ruby :</span>
+
+<span style="color:#75715e"># Find working directory.</span>
+<span style="color:#66d9ef">CURRENT_PATH</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>dirname(<span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>expand_path(__FILE__))
+
+<span style="color:#75715e"># All Vagrant configuration is done below. The &#34;2&#34; in Vagrant.configure</span>
+<span style="color:#75715e"># configures the configuration version (we support older styles for</span>
+<span style="color:#75715e"># backwards compatibility). Please don&#39;t change it unless you know what</span>
+<span style="color:#75715e"># you&#39;re doing.</span>
+<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+  <span style="color:#75715e"># The most common configuration options are documented and commented below.</span>
+  <span style="color:#75715e"># For a complete reference, please see the online documentation at</span>
+  <span style="color:#75715e"># https://docs.vagrantup.com.</span>
+
+  <span style="color:#75715e"># Every Vagrant development environment requires a box. You can search for</span>
+  <span style="color:#75715e"># boxes at https://vagrantcloud.com/search.</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ubuntu/focal64&#34;</span>
+
+  <span style="color:#75715e"># Disable automatic box update checking. If you disable this, then</span>
+  <span style="color:#75715e"># boxes will only be checked for updates when the user runs</span>
+  <span style="color:#75715e"># `vagrant box outdated`. This is not recommended.</span>
+  <span style="color:#75715e"># config.vm.box_check_update = false</span>
+
+  <span style="color:#75715e"># Create a forwarded port mapping which allows access to a specific port</span>
+  <span style="color:#75715e"># within the machine from a port on the host machine. In the example below,</span>
+  <span style="color:#75715e"># accessing &#34;localhost:8080&#34; will access port 80 on the guest machine.</span>
+  <span style="color:#75715e"># NOTE: This will enable public access to the opened port</span>
+  <span style="color:#75715e"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080</span>
+
+  <span style="color:#75715e"># Create a forwarded port mapping which allows access to a specific port</span>
+  <span style="color:#75715e"># within the machine from a port on the host machine and only allow access</span>
+  <span style="color:#75715e"># via 127.0.0.1 to disable public access</span>
+  <span style="color:#75715e"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080, host_ip: &#34;127.0.0.1&#34;</span>
+
+  <span style="color:#75715e"># Create a private network, which allows host-only access to the machine</span>
+  <span style="color:#75715e"># using a specific IP.</span>
+  <span style="color:#75715e"># config.vm.network &#34;private_network&#34;, ip: &#34;192.168.33.10&#34;</span>
+
+  <span style="color:#75715e"># Create a public network, which generally matched to bridged network.</span>
+  <span style="color:#75715e"># Bridged networks make the machine appear as another physical device on</span>
+  <span style="color:#75715e"># your network.</span>
+  <span style="color:#75715e"># config.vm.network &#34;public_network&#34;</span>
+
+  <span style="color:#75715e"># Share an additional folder to the guest VM. The first argument is</span>
+  <span style="color:#75715e"># the path on the host to the actual folder. The second argument is</span>
+  <span style="color:#75715e"># the path on the guest to mount the folder. And the optional third</span>
+  <span style="color:#75715e"># argument is a set of non-required options.</span>
+  <span style="color:#75715e"># config.vm.synced_folder &#34;../data&#34;, &#34;/vagrant_data&#34;</span>
+
+  <span style="color:#75715e"># Provider-specific configuration so you can fine-tune various</span>
+  <span style="color:#75715e"># backing providers for Vagrant. These expose provider-specific options.</span>
+  <span style="color:#75715e"># Example for VirtualBox:</span>
+  <span style="color:#75715e">#</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
+  <span style="color:#75715e">#   # Display the VirtualBox GUI when booting the machine</span>
+  <span style="color:#75715e">#   vb.gui = true</span>
+  <span style="color:#75715e">#</span>
+  <span style="color:#75715e">#   # Customize the amount of memory on the VM:</span>
+  <span style="color:#75715e">#   vb.memory = &#34;1024&#34;</span>
+
+    <span style="color:#75715e"># Add missing console output</span>
+    vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--uart1&#34;</span>, <span style="color:#e6db74">&#34;0x3F8&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span><span style="color:#f92672">]</span>
+    vb<span style="color:#f92672">.</span>customize <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;modifyvm&#34;</span>, <span style="color:#e6db74">:id</span>, <span style="color:#e6db74">&#34;--uartmode1&#34;</span>, <span style="color:#e6db74">&#34;file&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">CURRENT_PATH</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/console.out&#34;</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#75715e">#</span>
+  <span style="color:#75715e"># View the documentation for the provider you are using for more</span>
+  <span style="color:#75715e"># information on available options.</span>
+
+  <span style="color:#75715e"># Enable provisioning with a shell script. Additional provisioners such as</span>
+  <span style="color:#75715e"># Ansible, Chef, Docker, Puppet and Salt are also available. Please see the</span>
+  <span style="color:#75715e"># documentation for more information about their specific syntax and use.</span>
+  <span style="color:#75715e"># config.vm.provision &#34;shell&#34;, inline: &lt;&lt;-SHELL</span>
+  <span style="color:#75715e">#   apt-get update</span>
+  <span style="color:#75715e">#   apt-get install -y apache2</span>
+  <span style="color:#75715e"># SHELL</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20200728-vagrant-ubuntu%2f - Vagrant%20with%20Ubuntu%20Focal%20%2820.04%29 "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.netjs/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.netjs/main.js"></script>
+<script src="https://blog.heimsbakk.netjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

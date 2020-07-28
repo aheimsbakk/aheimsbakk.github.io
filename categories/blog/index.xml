@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/categories/blog/</link>
+    <description>Recent content in blog on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vagrant with Ubuntu Focal (20.04)</title>
+      <link>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</guid>
+      <description>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</description>
+    </item>
+    
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://blog.heimsbakk.net/posts/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20190911-restic/</guid>
+      <description>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</description>
+    </item>
+    
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://blog.heimsbakk.net/posts/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20180105-yubikey/</guid>
+      <description>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key Pre requests   Install the YubiKey management software.</description>
+    </item>
+    
+    <item>
+      <title>Record a PulseAudio sound stream</title>
+      <link>https://blog.heimsbakk.net/posts/20150110-pa/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20150110-pa/</guid>
+      <description>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.
+The PulseAudio sound server in your desktop makes this quite easy.
+I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file. After the capture is started, you can start playing sound from other programs.</description>
+    </item>
+    
+    <item>
+      <title>Vagrant with OpenStack</title>
+      <link>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</link>
+      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</guid>
+      <description>If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
+One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.com/cloudbau/vagrant-openstack-plugin cd vagrant-openstack-plugin gem build vagrant-openstack-plugin.gemspec vagrant plugin install vagrant-openstack-plugin-*.gem Add a dummy box to Vagrant thats needed by the plugin.</description>
+    </item>
+    
+    <item>
+      <title>fio - flexible I/O tester</title>
+      <link>https://blog.heimsbakk.net/posts/20141215-fio/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20141215-fio/</guid>
+      <description>From man page: fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.
+This example only show how to use fio to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production.</description>
+    </item>
+    
+    <item>
+      <title>Power saving on laptop</title>
+      <link>https://blog.heimsbakk.net/posts/20141214-powersave/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20141214-powersave/</guid>
+      <description>Notes for power saving on my i5 laptop.
+/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &amp;gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&amp;#34;video.</description>
+    </item>
+    
+    <item>
+      <title>View Google Earth in the browser</title>
+      <link>https://blog.heimsbakk.net/posts/20140619-webgl/</link>
+      <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140619-webgl/</guid>
+      <description>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.
+To force enabling WebGL in the browser start it with the following options
+chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</description>
+    </item>
+    
+    <item>
+      <title>Flashing a custom rom on Nexus 4</title>
+      <link>https://blog.heimsbakk.net/posts/20140511-rootnexus/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140511-rootnexus/</guid>
+      <description>Flashing a custom image on an Android mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. Then don&amp;rsquo;t!
+The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.
+Negative sides  An OS image could contain malware; only use community trusted images. If you don&amp;rsquo;t pay attention you can get malware running as root.</description>
+    </item>
+    
+    <item>
+      <title>Auto generate Pelican blog from Dropbox</title>
+      <link>https://blog.heimsbakk.net/posts/20140503-dropbox/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140503-dropbox/</guid>
+      <description>This is my notes for how to update my Pelican blog automaticlly when I write new posts. See Creating a blog based on Pelican for getting started with Pelican blog engine.
+A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.
+A prerequest for this recipe is that /var/www is not directly exposed to the web.</description>
+    </item>
+    
+    <item>
+      <title>How to get A&#43; on SSL Labs</title>
+      <link>https://blog.heimsbakk.net/posts/20140503-ssl/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
+      <description>This will show how to get A+ on SSL Server Test from Qualys SSL Labs.
+Enable SSL and headers module in Apache2.
+a2enmod ssl a2enmod headers  Edit Apache configuration.
+SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS  The ! preceding the cipher means that Apache will not use that cipher.
+View ciphers List the ciphers openssl supports with the current configuration.</description>
+    </item>
+    
+    <item>
+      <title>reStructuredText cheat sheet</title>
+      <link>https://blog.heimsbakk.net/posts/20140503-rst/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
+      <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.</description>
+    </item>
+    
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://blog.heimsbakk.net/posts/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140501-easyrsa/</guid>
+      <description>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</description>
+    </item>
+    
+    <item>
+      <title>RT-N66u with Tomato by Shibby firmware</title>
+      <link>https://blog.heimsbakk.net/posts/20140417-tomato/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140417-tomato/</guid>
+      <description>This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don&amp;rsquo;t know what you are doing. Do not proceed.
+Asus RT-N66U is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better QoS, OpenVPN or just more control over the network I recommend installing Tomato by Shibby firmware.</description>
+    </item>
+    
+    <item>
+      <title>Find duplicate files</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-duplicates/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-duplicates/</guid>
+      <description>Find all duplicate files in current and sub-directories with bash.
+find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size. Do a numeric sort on size list. Print out only duplicate sizes. One at a time run find on size and print file names.</description>
+    </item>
+    
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
+      <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+    </item>
+    
+    <item>
+      <title>Bash getopts example</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-getopts/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-getopts/</guid>
+      <description>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
+#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &amp;gt;&amp;amp;2 &amp;lt;&amp;lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &amp;#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .. [NN]]]&amp;#34; &amp;gt;&amp;amp;2 } # Print usage and exit with error code 1 if we don&amp;#39;t have any options if [[ &amp;#34;$@&amp;#34; = &amp;#34;&amp;#34; ]]; then show_usage exit 1 fi # : = make getopts silent, handle errors self # a: = option a expects an argument # b = option b is a true false option # h = option h is a true false option # # On invalid option, opt will be replaced with ?</description>
+    </item>
+    
+    <item>
+      <title>Modeline in vim</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-modeline/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-modeline/</guid>
+      <description>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
+set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.
+# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: /* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */ // vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: Explanation  enc=UTF-8</description>
+    </item>
+    
+    <item>
+      <title>Creating a blog based on Pelican</title>
+      <link>https://blog.heimsbakk.net/posts/20140412-pelican/</link>
+      <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140412-pelican/</guid>
+      <description>Pelican is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as Tomato by Shibby or dd-wrt.
+Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</description>
+    </item>
+    
+  </channel>
+</rss>

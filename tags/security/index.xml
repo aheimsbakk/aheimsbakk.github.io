@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/security/</link>
+    <description>Recent content in security on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://blog.heimsbakk.net/posts/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20190911-restic/</guid>
+      <description>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</description>
+    </item>
+    
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://blog.heimsbakk.net/posts/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20180105-yubikey/</guid>
+      <description>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key Pre requests   Install the YubiKey management software.</description>
+    </item>
+    
+    <item>
+      <title>Only Firefox is safe post Heartblead</title>
+      <link>https://blog.heimsbakk.net/posts/20140512-revocation/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140512-revocation/</guid>
+      <description>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both Steve Gibson&amp;lsquo;s article on An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer Revocation still doesn&amp;rsquo;t work.
+  Security Certificate - Revocation Awareness Test
+  Listen to Security Now! episode 454 Certificate Revocation Part 2 in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.</description>
+    </item>
+    
+    <item>
+      <title>OCSP Stapling on Apache</title>
+      <link>https://blog.heimsbakk.net/posts/20140504-ocsp/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140504-ocsp/</guid>
+      <description>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with Apache.</description>
+    </item>
+    
+    <item>
+      <title>How to get A&#43; on SSL Labs</title>
+      <link>https://blog.heimsbakk.net/posts/20140503-ssl/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
+      <description>This will show how to get A+ on SSL Server Test from Qualys SSL Labs.
+Enable SSL and headers module in Apache2.
+a2enmod ssl a2enmod headers  Edit Apache configuration.
+SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS  The ! preceding the cipher means that Apache will not use that cipher.
+View ciphers List the ciphers openssl supports with the current configuration.</description>
+    </item>
+    
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://blog.heimsbakk.net/posts/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140501-easyrsa/</guid>
+      <description>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</description>
+    </item>
+    
+    <item>
+      <title>Better entropy with haveged</title>
+      <link>https://blog.heimsbakk.net/posts/20140429-haveged/</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140429-haveged/</guid>
+      <description>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a TRNG than a PRNG.
+Excerpt from havegeds homepage: The haveged project is an attempt to provide an easy-to-use, unpredictable random number generator based upon an adaptation of the HAVEGE algorithm.</description>
+    </item>
+    
+  </channel>
+</rss>

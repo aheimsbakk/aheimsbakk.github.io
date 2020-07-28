@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>intel on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/intel/</link>
+    <description>Recent content in intel on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/intel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Power saving on laptop</title>
+      <link>https://blog.heimsbakk.net/posts/20141214-powersave/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20141214-powersave/</guid>
+      <description>Notes for power saving on my i5 laptop.
+/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &amp;gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&amp;#34;video.</description>
+    </item>
+    
+  </channel>
+</rss>
