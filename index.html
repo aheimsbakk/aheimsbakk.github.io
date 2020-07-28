@@ -64,6 +64,22 @@
         
             <li>
                 <aside class="dates">Jul 28</aside>
+                <a href='https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/'>
+                    Libvirt and Vagrant
+                    
+                        
+                            <h2>Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It’s the default combination on most Linux systems, also on my favorite - Fedora.
+This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn’t available as a box, but Debian is. And Debian is the foundation of Ubuntu, and it’s more open than Ubuntu.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Jul 28</aside>
                 <a href='https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/'>
                     Vagrant with Ubuntu Focal (20.04)
                     
@@ -201,23 +217,6 @@ This example only show how to use fio to make reproduceable test on a file syste
                         
                             <h2>Notes for power saving on my i5 laptop.
 /etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&#34;video.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jun 19</aside>
-                <a href='https://blog.heimsbakk.net/posts/20140619-webgl/'>
-                    View Google Earth in the browser
-                    
-                        
-                            <h2>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn’t available where the satellite view options is, your graphic card is in the browsers blacklist.
-To force enabling WebGL in the browser start it with the following options
-chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</h2>
                         
                     
                 </a>

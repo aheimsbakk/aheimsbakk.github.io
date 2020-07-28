@@ -4,36 +4,46 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/blog/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/</loc>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/ubuntu/</loc>
-    <lastmod>2020-07-28T11:49:13+02:00</lastmod>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/vagrant/</loc>
+    <lastmod>2020-07-28T15:43:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/ubuntu/</loc>
     <lastmod>2020-07-28T11:49:13+02:00</lastmod>
   </url>
   

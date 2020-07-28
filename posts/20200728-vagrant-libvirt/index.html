@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Libvirt and Vagrant &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Libvirt and Vagrant
+                    </h1>
+                    <h2 class="headline">
+                    Jul 28, 2020 15:43
+                    · 223 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/libvirt">libvirt</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/vagrant">vagrant</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p><a href="https://libvirt.org/">Libvirt</a> is the default toolkit to manage virtualization platforms on Linux. Libvirt and <a href="https://www.qemu.org/">qemu</a> is a great combination with <a href="https://www.vagrantup.com/">Vagrant</a>. It&rsquo;s the default combination on most <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> systems, also on my favorite - <a href="https://getfedora.org/">Fedora</a>.</p>
+<p>This combination allows for some awesome features and some restrictions. One of the restrictions is that <a href="https://ubuntu.com/">Ubuntu</a> isn&rsquo;t available as a box, but <a href="https://www.debian.org/">Debian</a> is. And Debian is the foundation of Ubuntu, and it&rsquo;s more open than Ubuntu.</p>
+<p>The biggest feature is that it allows for more permanent development environments and direct connection to already existing <a href="https://en.wikipedia.org/wiki/Bridging_(networking)">network bridges</a>.</p>
+<h2 id="preparation">Preparation</h2>
+<p>Allow your user to manage libvirt VMs on the computer.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -Ga libvirt <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
+</code></pre></div><h2 id="vagrantfile">Vagrantfile</h2>
+<p>Below is an example of a <code>Vagrantfile</code> that creates a VM with connection to a bridge <code>bridge0</code> on a network <code>192.168.1.0/24</code> that restart automatically after a reboot of the host.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
+<span style="color:#75715e"># vi: set ft=ruby :</span>
+
+<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian/buster64&#34;</span>
+
+  <span style="color:#75715e"># Connect to bridge named bridge0 with public IP 192.168.1.100</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;public_network&#34;</span>, <span style="color:#e6db74">dev</span>: <span style="color:#e6db74">&#34;bridge0&#34;</span>, <span style="color:#e6db74">mode</span>: <span style="color:#e6db74">&#34;bridge&#34;</span>, <span style="color:#e6db74">type</span>: <span style="color:#e6db74">&#34;bridge&#34;</span>, <span style="color:#e6db74">ip</span>: <span style="color:#e6db74">&#34;192.168.1.100&#34;</span>
+
+  <span style="color:#75715e"># Use rsync to sync files into /vagrant</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>synced_folder <span style="color:#e6db74">&#34;.&#34;</span>, <span style="color:#e6db74">&#34;/vagrant&#34;</span>, <span style="color:#e6db74">type</span>: <span style="color:#e6db74">&#34;rsync&#34;</span>
+
+  <span style="color:#75715e"># Libvirt provider</span>
+  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;libvirt&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>l<span style="color:#f92672">|</span>
+    l<span style="color:#f92672">.</span>cpus <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    l<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;256&#34;</span>
+
+    <span style="color:#75715e"># Use qemu:///system sesion, not the user session qemu:///session</span>
+    l<span style="color:#f92672">.</span>qemu_use_session <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+
+    <span style="color:#75715e"># Restart on host reboot</span>
+    l<span style="color:#f92672">.</span>autostart <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20200728-vagrant-libvirt%2f - Libvirt%20and%20Vagrant "><span class="icon-twitter">  </span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect">  </span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

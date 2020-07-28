@@ -6,10 +6,20 @@
     <description>Recent content on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 15:43:42 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Libvirt and Vagrant</title>
+      <link>https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/</link>
+      <pubDate>Tue, 28 Jul 2020 15:43:42 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/</guid>
+      <description>Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It&amp;rsquo;s the default combination on most Linux systems, also on my favorite - Fedora.
+This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn&amp;rsquo;t available as a box, but Debian is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.</description>
+    </item>
     
     <item>
       <title>Vagrant with Ubuntu Focal (20.04)</title>
