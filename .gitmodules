@@ -1,3 +1,7 @@
-[submodule "pelican-fresh"]
-	path = pelican-fresh
-	url = https://github.com/jsliang/pelican-fresh.git
+[submodule "themes/cactus-plus"]
+	path = themes/cactus-plus
+	url = https://github.com/nodejh/hugo-theme-cactus-plus.git
+[submodule "public"]
+	path = public
+	url = git@github.com:aheimsbakk/aheimsbakk.github.io
+	branch = master

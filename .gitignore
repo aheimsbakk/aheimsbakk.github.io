@@ -1,7 +1,1 @@
-*cache*
-*pyc
-output
-.ssh
-.viminfo
-.bash_history
-pelican-fresh.bak
+*.swp
