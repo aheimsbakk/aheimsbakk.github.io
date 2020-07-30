@@ -2,11 +2,11 @@
 title: Distributed syncing with Syncthing
 date: 2016-03-26
 draft: false
+categories:
+  - uris
 tags:
   - link
   - network
-categories:
-  - uris
 ---
 
 I've tried to ditch [Dropbox] for a long time. But the need for synchronizing folders between my computers have held me back. [Syncthing][] solves this for me. It's decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
