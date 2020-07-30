@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -173,14 +175,14 @@
 </ol>
 <h3 id="change-ssh-to-use-gpg-agent">Change SSH to use gpg-agent</h3>
 <p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .bashrc
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .bashrc
 </code></pre></div><p>Add the following.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> ! pgrep -u $USER -f <span style="color:#e6db74">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
-<span style="color:#66d9ef">then</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#00a">if</span> ! pgrep -u <span style="color:#a00">$USER</span> -f <span style="color:#a50">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
+<span style="color:#00a">then</span>
     pkill gpg-agent
-    gpg-agent --homedir $HOME/.gnupg --daemon --enable-ssh-support
-<span style="color:#66d9ef">fi</span>
-SSH_AUTH_SOCK<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>gpgconf --list-dir agent-ssh-socket<span style="color:#66d9ef">)</span>
+    gpg-agent --homedir <span style="color:#a00">$HOME</span>/.gnupg --daemon --enable-ssh-support
+<span style="color:#00a">fi</span>
+<span style="color:#a00">SSH_AUTH_SOCK</span>=<span style="color:#00a">$(</span>gpgconf --list-dir agent-ssh-socket<span style="color:#00a">)</span>
 </code></pre></div><p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
 <h3 id="public-ssh-key">Public SSH key</h3>
 <p>Get your public SSH key.</p>
@@ -202,17 +204,6 @@ SSH_AUTH_SOCK<span style="color:#f92672">=</span><span style="color:#66d9ef">$(<
 
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20180105-yubikey%2f - SSH%20with%20YubiKey%20NEO%20on%20Fedora%20made%20easy "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

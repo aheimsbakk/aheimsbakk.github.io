@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Bootstrap Debian VM with virt-install &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Bootstrap Debian VM with virt-install
+                    </h1>
+                    <h2 class="headline">
+                    Jul 30, 2020 18:57
+                    · 227 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/debian">debian</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/libvirt">libvirt</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>Installing a small Debian VM from scratch with only one partition. Makes later resizeing easier. This was done on Fedora 32.</p>
+<h2 id="preparations">Preparations</h2>
+<h3 id="install-software">Install software</h3>
+<p><code>libvirt</code> is already installed on Fedora 32. It&rsquo;s used in Gnome Boxes. We will not use that for this. We&rsquo;ll do it the old fashioned way with <code>virt-install</code>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y virt-manager virt-install
+</code></pre></div><h3 id="user-access-to-libvirt">User access to <code>libvirt</code></h3>
+<p>Add your user to the group <code>libvirt</code>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -aG libvirtd <span style="color:#a00">$USER</span>
+</code></pre></div><h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Create a default <code>preseed.cfg</code> file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition. This file can be reused to your hearts desire.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">osinfo-install-script -p jeos debian10
+sed -i <span style="color:#a50">&#39;s/home/oneroot/&#39;</span> preseed.cfg
+cat <span style="color:#a50">&lt;&lt;EOF &gt;&gt; preseed.cfg
+</span><span style="color:#a50">d-i partman-basicfilesystems/no_swap boolean false
+</span><span style="color:#a50">d-i partman-auto/expert_recipe string oneroot :: 1000 50 -1 ext4 \\
+</span><span style="color:#a50"> \$primary{ } \$bootable{ } method{ format } \\
+</span><span style="color:#a50"> format{ } use_filesystem{ } filesystem{ ext4 } \\
+</span><span style="color:#a50"> mountpoint{ / } \\
+</span><span style="color:#a50">.
+</span><span style="color:#a50">EOF</span>
+</code></pre></div></li>
+<li>
+<p>Edit <code>preseed.cfg</code> and make your own customisations if any.</p>
+</li>
+<li>
+<p>Install VM and send back some information to the community with popularity contest.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --connect qemu:///system <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --console pty,target_type=serial <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --disk <span style="color:#a00">size</span>=10,driver.discard=unmap,target.bus=virtio <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --graphics none <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --initrd-inject preseed.cfg <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --location http://ftp.no.debian.org/debian/dists/buster/main/installer-amd64 <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --name debian10 <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --os-type linux <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --os-variant debian10 <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --ram <span style="color:#099">2048</span> <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --vcpus <span style="color:#099">2</span> <span style="color:#a50">\
+</span><span style="color:#a50"></span>  --extra-args <span style="color:#a50">&#39;console=ttyS0,115200n8 serial locale=nb_NO keymap=no auto=true mirror/country=manual mirror/http/hostname=ftp.no.debian.org mirror/http/directory=/debian mirror/http/proxy= passwd/make-user=false popularity-contest/participate=true file=/preseed.cfg&#39;</span>
+</code></pre></div></li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

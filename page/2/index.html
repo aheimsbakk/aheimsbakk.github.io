@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
 	<body>
@@ -59,6 +61,22 @@
 
     <section id="wrapper" class="home">
         <ul id="post-list">
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 14</aside>
+                <a href='https://blog.heimsbakk.net/posts/20141214-powersave/'>
+                    Power saving on laptop
+                    
+                        
+                            <h2>Notes for power saving on my i5 laptop.
+/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&#34;video.</h2>
+                        
+                    
+                </a>
+            </li>
+        
     
     
         
@@ -204,22 +222,6 @@ Examples taken from reStructuredText Markup Specification See also reStructuredT
                         
                             <h2>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
 Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don’t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Apr 29</aside>
-                <a href='https://blog.heimsbakk.net/posts/20140429-haveged/'>
-                    Better entropy with haveged
-                    
-                        
-                            <h2>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don’t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a TRNG than a PRNG.
-Excerpt from havegeds homepage: The haveged project is an attempt to provide an easy-to-use, unpredictable random number generator based upon an adaptation of the HAVEGE algorithm.</h2>
                         
                     
                 </a>

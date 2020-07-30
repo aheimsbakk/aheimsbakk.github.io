@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -74,13 +76,13 @@
                     <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually.</p>
 <h2 id="one-time-configuration">One time configuration</h2>
 <h3 id="install-openstack-plugin-in-vagrant">Install OpenStack plugin in Vagrant</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /tmp
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">cd</span> /tmp
 git clone https://github.com/cloudbau/vagrant-openstack-plugin
-cd vagrant-openstack-plugin
+<span style="color:#0aa">cd</span> vagrant-openstack-plugin
 gem build vagrant-openstack-plugin.gemspec
 vagrant plugin install vagrant-openstack-plugin-*.gem
 </code></pre></div><p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
 </code></pre></div><h3 id="download-openstack-rc-file">Download OpenStack RC file</h3>
 <ul>
 <li>Log into OpenStack</li>
@@ -95,65 +97,54 @@ vagrant plugin install vagrant-openstack-plugin-*.gem
 <h2 id="configure-a-vagrant-vm">Configure a Vagrant VM</h2>
 <h3 id="vagrantfile">Vagrantfile</h3>
 <p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;vagrant-openstack-plugin&#39;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#0aa">require</span> <span style="color:#a50">&#39;vagrant-openstack-plugin&#39;</span>
 
-<span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dummy&#34;</span>
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>synced_folder <span style="color:#e6db74">&#34;.&#34;</span>, <span style="color:#e6db74">&#34;/vagrant&#34;</span>, <span style="color:#e6db74">type</span>: <span style="color:#e6db74">&#34;rsync&#34;</span>, <span style="color:#e6db74">rsync__exclude</span>: <span style="color:#e6db74">&#34;.git/&#34;</span>
+<span style="color:#a00">Vagrant</span>.configure(<span style="color:#a50">&#34;2&#34;</span>) <span style="color:#00a">do</span> |config|
+  config.vm.box = <span style="color:#a50">&#34;dummy&#34;</span>
+  config.vm.synced_folder <span style="color:#a50">&#34;.&#34;</span>, <span style="color:#a50">&#34;/vagrant&#34;</span>, <span style="color:#00a">type</span>: <span style="color:#a50">&#34;rsync&#34;</span>, <span style="color:#00a">rsync__exclude</span>: <span style="color:#a50">&#34;.git/&#34;</span>
 
-  <span style="color:#75715e"># Make sure the private key from the key pair is provided</span>
-  config<span style="color:#f92672">.</span>ssh<span style="color:#f92672">.</span>private_key_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;~/.ssh/id_rsa&#34;</span>
+  <span style="color:#aaa;font-style:italic"># Make sure the private key from the key pair is provided</span>
+  config.ssh.private_key_path = <span style="color:#a50">&#34;~/.ssh/id_rsa&#34;</span>
 
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">:openstack</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>os<span style="color:#f92672">|</span>
-    os<span style="color:#f92672">.</span>username     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;OS_USERNAME&#39;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-    os<span style="color:#f92672">.</span>api_key      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;OS_PASSWORD&#39;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-    os<span style="color:#f92672">.</span>flavor       <span style="color:#f92672">=</span> <span style="color:#e6db74">/m1.tiny/</span>
-    os<span style="color:#f92672">.</span>image        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Ubuntu CI utopic 2014-09-18&#34;</span>
-    os<span style="color:#f92672">.</span>endpoint     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;OS_AUTH_URL&#39;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/tokens&#34;</span>
-    os<span style="color:#f92672">.</span>keypair_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;OS_USERNAME&#39;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">_ssh_key&#34;</span>
-    os<span style="color:#f92672">.</span>ssh_username <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ubuntu&#34;</span>
+  config.vm.provider <span style="color:#00a">:openstack</span> <span style="color:#00a">do</span> |os|
+    os.username     = <span style="color:#a50">&#34;</span><span style="color:#a50">#{</span><span style="color:#a00">ENV</span>[<span style="color:#a50">&#39;OS_USERNAME&#39;</span>]<span style="color:#a50">}</span><span style="color:#a50">&#34;</span>
+    os.api_key      = <span style="color:#a50">&#34;</span><span style="color:#a50">#{</span><span style="color:#a00">ENV</span>[<span style="color:#a50">&#39;OS_PASSWORD&#39;</span>]<span style="color:#a50">}</span><span style="color:#a50">&#34;</span>
+    os.flavor       = <span style="color:#099">/m1.tiny/</span>
+    os.image        = <span style="color:#a50">&#34;Ubuntu CI utopic 2014-09-18&#34;</span>
+    os.endpoint     = <span style="color:#a50">&#34;</span><span style="color:#a50">#{</span><span style="color:#a00">ENV</span>[<span style="color:#a50">&#39;OS_AUTH_URL&#39;</span>]<span style="color:#a50">}</span><span style="color:#a50">/tokens&#34;</span>
+    os.keypair_name = <span style="color:#a50">&#34;</span><span style="color:#a50">#{</span><span style="color:#a00">ENV</span>[<span style="color:#a50">&#39;OS_USERNAME&#39;</span>]<span style="color:#a50">}</span><span style="color:#a50">_ssh_key&#34;</span>
+    os.ssh_username = <span style="color:#a50">&#34;ubuntu&#34;</span>
 
-    <span style="color:#75715e"># The tenant have two networks, so need to specify at least one</span>
-    os<span style="color:#f92672">.</span>network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vagrant&#34;</span>
-    os<span style="color:#f92672">.</span>floating_ip        <span style="color:#f92672">=</span> <span style="color:#e6db74">:auto</span>
-    os<span style="color:#f92672">.</span>floating_ip_pool   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;public&#34;</span>
-  <span style="color:#66d9ef">end</span>
+    <span style="color:#aaa;font-style:italic"># The tenant have two networks, so need to specify at least one</span>
+    os.network = <span style="color:#a50">&#34;vagrant&#34;</span>
+    os.floating_ip        = <span style="color:#00a">:auto</span>
+    os.floating_ip_pool   = <span style="color:#a50">&#34;public&#34;</span>
+  <span style="color:#00a">end</span>
 
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;bootstrap.sh&#34;</span>
+  config.vm.provision <span style="color:#a50">&#34;shell&#34;</span>, <span style="color:#00a">path</span>: <span style="color:#a50">&#34;bootstrap.sh&#34;</span>
 
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">&#34;shell&#34;</span>, <span style="color:#e6db74">inline</span>: <span style="color:#e6db74">&lt;&lt;-SCRIPT
-</span><span style="color:#e6db74"></span>    <span style="color:#75715e"># Set your country code here to get a local repositroy</span>
-    <span style="color:#66d9ef">CN</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no&#34;</span>
-    grep <span style="color:#f92672">-</span>q repo<span style="color:#f92672">.</span>met<span style="color:#f92672">.</span>no <span style="color:#e6db74">/etc/</span>apt<span style="color:#f92672">/</span>sources<span style="color:#f92672">.</span>list <span style="color:#f92672">||</span> sed <span style="color:#f92672">-</span>i<span style="color:#f92672">~</span> <span style="color:#e6db74">&#34;s#nova.clouds.archive.ubuntu.com</span><span style="color:#e6db74">#$CN</span><span style="color:#e6db74">.archive.ubuntu.com#g&#34;</span> <span style="color:#e6db74">/etc/</span>apt<span style="color:#f92672">/</span>sources<span style="color:#f92672">.</span>list
-    apt<span style="color:#f92672">-</span>get update
-  <span style="color:#66d9ef">SCRIPT</span>
+  config.vm.provision <span style="color:#a50">&#34;shell&#34;</span>, <span style="color:#00a">inline</span>: <span style="color:#a50">&lt;&lt;-SCRIPT
+</span><span style="color:#a50"></span>    <span style="color:#aaa;font-style:italic"># Set your country code here to get a local repositroy</span>
+    <span style="color:#a00">CN</span>=<span style="color:#a50">&#34;no&#34;</span>
+    grep -q repo.met.no <span style="color:#099">/etc/</span>apt/sources.list || sed -i~ <span style="color:#a50">&#34;s#nova.clouds.archive.ubuntu.com</span><span style="color:#a50">#$CN</span><span style="color:#a50">.archive.ubuntu.com#g&#34;</span> <span style="color:#099">/etc/</span>apt/sources.list
+    apt-get update
+  <span style="color:#a00">SCRIPT</span>
 
-  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>define <span style="color:#e6db74">&#34;myvm&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>v<span style="color:#f92672">|</span>
-  <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
+  config.vm.define <span style="color:#a50">&#34;myvm&#34;</span> <span style="color:#00a">do</span> |v|
+  <span style="color:#00a">end</span>
+<span style="color:#00a">end</span>
 </code></pre></div><h3 id="bootstrapsh">bootstrap.sh</h3>
 <p>Create your custom bootstrap file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># Your aditional bootstrap here...</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#4c8317">#!/bin/bash
+</span><span style="color:#4c8317"></span>
+<span style="color:#aaa;font-style:italic"># Your aditional bootstrap here...</span>
 </code></pre></div><h2 id="running-vagrant">Running Vagrant</h2>
 <p>Remember to source your OpenStack RC file before you run Vagrant up. You need to do that in each shell windows you are going to run Vagrant in.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/$USER-openrc.sh
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">source</span> ~/<span style="color:#a00">$USER</span>-openrc.sh
 vagrant up
 </code></pre></div>
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20141218-vagrant-openstack%2f - Vagrant%20with%20OpenStack "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

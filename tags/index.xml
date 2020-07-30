@@ -6,15 +6,24 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2020 15:43:42 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 18:57:10 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>debian</title>
+      <link>https://blog.heimsbakk.net/tags/debian/</link>
+      <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>libvirt</title>
       <link>https://blog.heimsbakk.net/tags/libvirt/</link>
-      <pubDate>Tue, 28 Jul 2020 15:43:42 +0200</pubDate>
+      <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/libvirt/</guid>
       <description></description>

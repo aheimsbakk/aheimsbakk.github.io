@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -77,42 +79,42 @@
 <h2 id="capture-audio">Capture audio</h2>
 <h3 id="pre-requests">Pre requests</h3>
 <p>You have to install a couple of programs, if you don&rsquo;t have them from before, to make the bash script work.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install pulseaudio-utils flac coreutils
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install pulseaudio-utils flac coreutils
 </code></pre></div><h3 id="the-script">The script</h3>
 <p>This is my <code>record-app.sh</code> script.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-BN<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>basename $0<span style="color:#66d9ef">)</span>
-SI<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pacmd list-sink-inputs | grep -m <span style="color:#ae81ff">1</span> index | egrep -o <span style="color:#e6db74">&#34;[[:digit:]]+&#34;</span><span style="color:#66d9ef">)</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#4c8317">#!/bin/bash
+</span><span style="color:#4c8317"></span>
+<span style="color:#a00">BN</span>=<span style="color:#00a">$(</span>basename <span style="color:#a00">$0</span><span style="color:#00a">)</span>
+<span style="color:#a00">SI</span>=<span style="color:#00a">$(</span>pacmd list-sink-inputs | grep -m <span style="color:#099">1</span> index | egrep -o <span style="color:#a50">&#34;[[:digit:]]+&#34;</span><span style="color:#00a">)</span>
 
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-  echo <span style="color:#e6db74">&#34;usage: </span>$BN<span style="color:#e6db74"> filename&#34;</span>
-  exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
+<span style="color:#00a">if</span> [[ <span style="color:#a50">&#34;</span><span style="color:#a00">$1</span><span style="color:#a50">&#34;</span> == <span style="color:#a50">&#34;&#34;</span> ]]; <span style="color:#00a">then</span>
+  <span style="color:#0aa">echo</span> <span style="color:#a50">&#34;usage: </span><span style="color:#a00">$BN</span><span style="color:#a50"> filename&#34;</span>
+  <span style="color:#0aa">exit</span> <span style="color:#099">1</span>
+<span style="color:#00a">fi</span>
 
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$SI<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
-  echo <span style="color:#e6db74">&#34;error: no input sinks found&#34;</span>
-  exit <span style="color:#ae81ff">2</span>
-<span style="color:#66d9ef">fi</span>
+<span style="color:#00a">if</span> [[ <span style="color:#a50">&#34;</span><span style="color:#a00">$SI</span><span style="color:#a50">&#34;</span> == <span style="color:#a50">&#34;&#34;</span> ]]; <span style="color:#00a">then</span>
+  <span style="color:#0aa">echo</span> <span style="color:#a50">&#34;error: no input sinks found&#34;</span>
+  <span style="color:#0aa">exit</span> <span style="color:#099">2</span>
+<span style="color:#00a">fi</span>
 
-N<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+<span style="color:#a00">N</span>=<span style="color:#a50">&#34;</span><span style="color:#a00">$1</span><span style="color:#a50">&#34;</span>
 
-echo $BN recording:
-echo · Found sink index «$SI»
-echo · Loading module-null-sink
-MI<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pactl load-module module-null-sink sink_name<span style="color:#f92672">=</span>rec<span style="color:#66d9ef">)</span>
-trap <span style="color:#e6db74">&#34;{ echo · Trying to delete null sink «rec»; pactl unload-module </span>$MI<span style="color:#e6db74">; }&#34;</span> EXIT
-echo · Moving sink «$SI» to null sink «rec»
-pactl move-sink-input $SI rec
-echo · Saving sound data to «$N.flac»
-parec -d rec.monitor | flac --endian<span style="color:#f92672">=</span>little --sign<span style="color:#f92672">=</span>signed --channels<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> --bps<span style="color:#f92672">=</span>16n --sample-rate<span style="color:#f92672">=</span><span style="color:#ae81ff">44100</span> -o <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">.flac&#34;</span> - 2&gt;/dev/null
+<span style="color:#0aa">echo</span> <span style="color:#a00">$BN</span> recording:
+<span style="color:#0aa">echo</span> · Found sink index «<span style="color:#a00">$SI</span>»
+<span style="color:#0aa">echo</span> · Loading module-null-sink
+<span style="color:#a00">MI</span>=<span style="color:#00a">$(</span>pactl load-module module-null-sink <span style="color:#a00">sink_name</span>=rec<span style="color:#00a">)</span>
+<span style="color:#0aa">trap</span> <span style="color:#a50">&#34;{ echo · Trying to delete null sink «rec»; pactl unload-module </span><span style="color:#a00">$MI</span><span style="color:#a50">; }&#34;</span> EXIT
+<span style="color:#0aa">echo</span> · Moving sink «<span style="color:#a00">$SI</span>» to null sink «rec»
+pactl move-sink-input <span style="color:#a00">$SI</span> rec
+<span style="color:#0aa">echo</span> · Saving sound data to «<span style="color:#a00">$N</span>.flac»
+parec -d rec.monitor | flac --endian=little --sign=signed --channels=<span style="color:#099">2</span> --bps=16n --sample-rate=<span style="color:#099">44100</span> -o <span style="color:#a50">&#34;</span><span style="color:#a00">$1</span><span style="color:#a50">.flac&#34;</span> - 2&gt;/dev/null
 </code></pre></div><h3 id="usage">Usage</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">usage: record-app.sh filename
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">usage: record-app.sh filename
 </code></pre></div><h4 id="example-1">Example 1</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./record-app.sh firefox-sound
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./record-app.sh firefox-sound
 </code></pre></div><p>Will start to record the current playing audio in Firefox. The audio is saved int the file <code>firefox-sound.flac</code>.</p>
 <h4 id="example-2">Example 2</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">timeout 1h ./record-app.sh firefox-sound
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">timeout 1h ./record-app.sh firefox-sound
 </code></pre></div><p>Will record the current playing audio in Firefox for one hour, and then automatically quit. Audio saved to <code>firefox-sound.flac</code> in this example too.</p>
 <h2 id="caveats">Caveats</h2>
 <ul>
@@ -133,17 +135,6 @@ parec -d rec.monitor | flac --endian<span style="color:#f92672">=</span>little -
 
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20150110-pa%2f - Record%20a%20PulseAudio%20sound%20stream "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

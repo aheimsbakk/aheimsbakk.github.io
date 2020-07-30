@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -84,30 +86,19 @@
 <li><code>size</code> is the working file size.</li>
 <li>If you want to test a read heavy load, use <code>rwmixread</code> with a percentage of reads versus writes..</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in read write readwrite randread randwrite randrw; <span style="color:#66d9ef">do</span> fio --name<span style="color:#f92672">=</span>fio  --write_bw_log<span style="color:#f92672">=</span>$i --write_iops_log<span style="color:#f92672">=</span>$i --write_lat_log<span style="color:#f92672">=</span>$i --ioengine<span style="color:#f92672">=</span>sync --size<span style="color:#f92672">=</span>10G --runtime<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span> --rw<span style="color:#f92672">=</span>$i --norandommap --refill_buffers --randrepeat<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>  --iodepth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> --direct<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> --numjobs<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span> --group_reporting --bsrange<span style="color:#f92672">=</span>4k-4k; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#00a">for</span> i in <span style="color:#0aa">read</span> write readwrite randread randwrite randrw; <span style="color:#00a">do</span> fio --name=fio  --write_bw_log=<span style="color:#a00">$i</span> --write_iops_log=<span style="color:#a00">$i</span> --write_lat_log=<span style="color:#a00">$i</span> --ioengine=sync --size=10G --runtime=<span style="color:#099">60</span> --rw=<span style="color:#a00">$i</span> --norandommap --refill_buffers --randrepeat=<span style="color:#099">0</span>  --iodepth=<span style="color:#099">1</span> --direct=<span style="color:#099">1</span> --numjobs=<span style="color:#099">8</span> --group_reporting --bsrange=4k-4k; <span style="color:#00a">done</span>
 </code></pre></div><h2 id="generating-io-plots">Generating I/O plots</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fio2gnuplot -i -g
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fio2gnuplot -i -g
 </code></pre></div><p>For me is the most interesting plot is <strong>compare-result-2Dsmooth.png</strong>.</p>
 <h2 id="generating-bandwidth-plots">Generating bandwidth plots</h2>
 <p>Testing bandwidth is better to do with a larger block size. I usually set a block size between 64k to 1m.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in read write readwrite randread randwrite randrw; <span style="color:#66d9ef">do</span> fio --name<span style="color:#f92672">=</span>fio  --write_bw_log<span style="color:#f92672">=</span>$i --write_iops_log<span style="color:#f92672">=</span>$i --write_lat_log<span style="color:#f92672">=</span>$i --ioengine<span style="color:#f92672">=</span>sync --size<span style="color:#f92672">=</span>10G --runtime<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span> --rw<span style="color:#f92672">=</span>$i --norandommap --refill_buffers --randrepeat<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>  --iodepth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> --direct<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> --numjobs<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span> --group_reporting --bsrange<span style="color:#f92672">=</span>64k-1m; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#00a">for</span> i in <span style="color:#0aa">read</span> write readwrite randread randwrite randrw; <span style="color:#00a">do</span> fio --name=fio  --write_bw_log=<span style="color:#a00">$i</span> --write_iops_log=<span style="color:#a00">$i</span> --write_lat_log=<span style="color:#a00">$i</span> --ioengine=sync --size=10G --runtime=<span style="color:#099">60</span> --rw=<span style="color:#a00">$i</span> --norandommap --refill_buffers --randrepeat=<span style="color:#099">0</span>  --iodepth=<span style="color:#099">1</span> --direct=<span style="color:#099">1</span> --numjobs=<span style="color:#099">8</span> --group_reporting --bsrange=64k-1m; <span style="color:#00a">done</span>
 </code></pre></div><p>Generate the bandwidth plot.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fio2gnuplot -b -g
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fio2gnuplot -b -g
 </code></pre></div><p>For me is the most interesting plot is <strong>compare-result-2Dsmooth.png</strong>.</p>
 
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20141215-fio%2f - fio%20-%20flexible%20I%2fO%20tester "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

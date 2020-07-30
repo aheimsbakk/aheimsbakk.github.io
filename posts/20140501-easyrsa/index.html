@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -80,19 +82,19 @@
 <p>For <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> to work we need to create our own <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> for signing both server, the router, and optionally client certificates. This notes will only show how to create a server certificate and configure the router with user name and password authentication.</p>
 <h2 id="preparations-create-ca">Preparations, create CA</h2>
 <p>Install necessary software. Although haveged, is not required, see <a href="2014-04-29-haveged">Better entropy with haveged</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install easy-rsa haveged
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install easy-rsa haveged
 </code></pre></div><p>Create a work directory for <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a>. Take care to protect this directory and the files under it.</p>
 <pre><code>make-cadir «yourdomain»
 </code></pre><p>Enter your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> directory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd «yourdomain»
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">cd</span> «yourdomain»
 </code></pre></div><p>Edit the <code>vars</code> file and change the following variables to something more sensible for you.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export KEY_COUNTRY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;US&#34;</span>
-export KEY_PROVINCE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CA&#34;</span>
-export KEY_CITY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SanFrancisco&#34;</span>
-export KEY_ORG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Funston-Fort&#34;</span>
-export KEY_EMAIL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me@myhost.mydomain&#34;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">export</span> <span style="color:#a00">KEY_COUNTRY</span>=<span style="color:#a50">&#34;US&#34;</span>
+<span style="color:#0aa">export</span> <span style="color:#a00">KEY_PROVINCE</span>=<span style="color:#a50">&#34;CA&#34;</span>
+<span style="color:#0aa">export</span> <span style="color:#a00">KEY_CITY</span>=<span style="color:#a50">&#34;SanFrancisco&#34;</span>
+<span style="color:#0aa">export</span> <span style="color:#a00">KEY_ORG</span>=<span style="color:#a50">&#34;Funston-Fort&#34;</span>
+<span style="color:#0aa">export</span> <span style="color:#a00">KEY_EMAIL</span>=<span style="color:#a50">&#34;me@myhost.mydomain&#34;</span>
 </code></pre></div><p>Source the variables into current bash session.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ./vars
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">source</span> ./vars
 </code></pre></div><p>Do a initial clean.</p>
 <pre><code>./clean-all
 </code></pre><p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority">CA</a> public and private key.</p>
@@ -134,23 +136,12 @@ ca.key  index.txt   «yourrouter».crt  «yourrouter».key
 <h2 id="clients">Clients</h2>
 <h3 id="network-manager">Network Manager</h3>
 <p>Now you can configure <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> on your computer. Remember to install the correct plugin, <code>network-manager-openvpn</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install network-manager-openvpn
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install network-manager-openvpn
 </code></pre></div><h3 id="android">Android</h3>
 <p>Easy to use <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> client for Android is <a href="https://play.google.com/store/apps/details?id=de.blinkt.openvpn">OpenVPN for Android</a>.</p>
 
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20140501-easyrsa%2f - Configuring%20OpenVPN%20server%20on%20RTN66U "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

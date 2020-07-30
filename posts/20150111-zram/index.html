@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -79,37 +81,26 @@
 </ul>
 <h1 id="example-of-compressed-swap-in-memory">Example of compressed swap in memory</h1>
 <p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Load the module and create one zram device, /dev/zram0</span>
-modprobe zram num_devices<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#aaa;font-style:italic"># Load the module and create one zram device, /dev/zram0</span>
+modprobe zram <span style="color:#a00">num_devices</span>=<span style="color:#099">1</span>
 
-<span style="color:#75715e"># Maximum of compressed streams (keep same as CPUs)</span>
-echo <span style="color:#ae81ff">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+<span style="color:#aaa;font-style:italic"># Maximum of compressed streams (keep same as CPUs)</span>
+<span style="color:#0aa">echo</span> <span style="color:#099">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
-<span style="color:#75715e"># Size of zram0 device in k/m/g</span>
-echo 2g &gt; /sys/devices/virtual/block/zram0/disksize
+<span style="color:#aaa;font-style:italic"># Size of zram0 device in k/m/g</span>
+<span style="color:#0aa">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
 
-<span style="color:#75715e"># Comression compression algorithm to use</span>
-echo lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+<span style="color:#aaa;font-style:italic"># Comression compression algorithm to use</span>
+<span style="color:#0aa">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
 
-<span style="color:#75715e"># Create the swap file system</span>
+<span style="color:#aaa;font-style:italic"># Create the swap file system</span>
 mkswap /dev/zram0
 
-<span style="color:#75715e"># Enable the swap partition with high priority</span>
-swapon /dev/zram0 -p <span style="color:#ae81ff">10</span>
+<span style="color:#aaa;font-style:italic"># Enable the swap partition with high priority</span>
+swapon /dev/zram0 -p <span style="color:#099">10</span>
 </code></pre></div>
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20150111-zram%2f - Compressed%20RAM%20based%20block%20devices "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

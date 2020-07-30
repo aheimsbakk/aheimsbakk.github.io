@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -72,7 +74,7 @@
                 
                 <section id="post-body">
                     <p>Find all duplicate files in current and sub-directories with bash.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#e6db74">&#39;%s\n&#39;</span> | sort -rn | uniq -d | xargs -I<span style="color:#f92672">{}</span> -n1 find -type f -size <span style="color:#f92672">{}</span>c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated<span style="color:#f92672">=</span>separate
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#a50">&#39;%s\n&#39;</span> | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
 </code></pre></div><h2 id="breakdown">Breakdown</h2>
 <ol>
 <li>Find all non empty files and print out size.</li>
@@ -85,23 +87,12 @@
 </ol>
 <h2 id="alternatively">Alternatively</h2>
 <p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
 </code></pre></div><p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
 </code></pre></div>
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20140413-duplicates%2f - Find%20duplicate%20files "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 

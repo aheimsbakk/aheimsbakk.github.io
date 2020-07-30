@@ -6,10 +6,22 @@
     <description>Recent content in blog on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2020 15:43:42 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 18:57:10 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bootstrap Debian VM with virt-install</title>
+      <link>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</link>
+      <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</guid>
+      <description>Installing a small Debian VM from scratch with only one partition. Makes later resizeing easier. This was done on Fedora 32.
+Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.
+sudo dnf install -y virt-manager virt-install User access to libvirt Add your user to the group libvirt.
+sudo usermod -aG libvirtd $USER Installation   Create a default preseed.</description>
+    </item>
     
     <item>
       <title>Libvirt and Vagrant</title>

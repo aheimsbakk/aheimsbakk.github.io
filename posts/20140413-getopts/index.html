@@ -26,6 +26,8 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
 	</head>
 
     <body>
@@ -72,67 +74,56 @@
                 
                 <section id="post-body">
                     <p>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># Print help on stderr</span>
-<span style="color:#66d9ef">function</span> show_help<span style="color:#f92672">(){</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#4c8317">#!/bin/bash
+</span><span style="color:#4c8317"></span>
+<span style="color:#aaa;font-style:italic"># Print help on stderr</span>
+<span style="color:#00a">function</span> show_help(){
     show_usage
-    cat &gt;&amp;<span style="color:#ae81ff">2</span> <span style="color:#e6db74">&lt;&lt;EOF
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">Explain all about $(basename $0) here.
-</span><span style="color:#e6db74">EOF</span>
-<span style="color:#f92672">}</span>
+    cat &gt;&amp;<span style="color:#099">2</span> <span style="color:#a50">&lt;&lt;EOF
+</span><span style="color:#a50">
+</span><span style="color:#a50">Explain all about $(basename $0) here.
+</span><span style="color:#a50">EOF</span>
+}
 
-<span style="color:#75715e"># Print usage on stderr</span>
-<span style="color:#66d9ef">function</span> show_usage<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>basename $0<span style="color:#66d9ef">)</span><span style="color:#e6db74"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
-<span style="color:#f92672">}</span>
+<span style="color:#aaa;font-style:italic"># Print usage on stderr</span>
+<span style="color:#00a">function</span> show_usage() {
+    <span style="color:#0aa">echo</span> <span style="color:#a50">&#34;</span><span style="color:#00a">$(</span>basename <span style="color:#a00">$0</span><span style="color:#00a">)</span><span style="color:#a50"> [-a ARG] [-b] [N1 [N2 .. [NN]]]&#34;</span> &gt;&amp;<span style="color:#099">2</span>
+}
 
-<span style="color:#75715e"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+<span style="color:#aaa;font-style:italic"># Print usage and exit with error code 1 if we don&#39;t have any options</span>
+<span style="color:#00a">if</span> [[ <span style="color:#a50">&#34;</span><span style="color:#a00">$@</span><span style="color:#a50">&#34;</span> = <span style="color:#a50">&#34;&#34;</span> ]]; <span style="color:#00a">then</span>
     show_usage
-    exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
+    <span style="color:#0aa">exit</span> <span style="color:#099">1</span>
+<span style="color:#00a">fi</span>
 
-<span style="color:#75715e"># :  = make getopts silent, handle errors self</span>
-<span style="color:#75715e"># a: = option a expects an argument</span>
-<span style="color:#75715e"># b  = option b is a true false option</span>
-<span style="color:#75715e"># h  = option h is a true false option</span>
+<span style="color:#aaa;font-style:italic"># :  = make getopts silent, handle errors self</span>
+<span style="color:#aaa;font-style:italic"># a: = option a expects an argument</span>
+<span style="color:#aaa;font-style:italic"># b  = option b is a true false option</span>
+<span style="color:#aaa;font-style:italic"># h  = option h is a true false option</span>
 #
-<span style="color:#75715e"># On invalid option, opt will be replaced with ?</span>
-<span style="color:#75715e"># and OPTARG set to argument name</span>
-<span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;:a:bh&#34;</span> opt
-<span style="color:#66d9ef">do</span>
-    <span style="color:#66d9ef">case</span> $opt in
-        a<span style="color:#f92672">)</span>  echo $OPTARG;;
-        b<span style="color:#f92672">)</span>  echo True;;
-        h<span style="color:#f92672">)</span>  show_help; exit 1;;
-        <span style="color:#ae81ff">\?</span><span style="color:#f92672">)</span> echo <span style="color:#66d9ef">$(</span>basename $0<span style="color:#66d9ef">)</span> invalid option: -$OPTARG &gt;&amp;<span style="color:#ae81ff">2</span>
-            exit <span style="color:#ae81ff">1</span>
+<span style="color:#aaa;font-style:italic"># On invalid option, opt will be replaced with ?</span>
+<span style="color:#aaa;font-style:italic"># and OPTARG set to argument name</span>
+<span style="color:#00a">while</span> <span style="color:#0aa">getopts</span> <span style="color:#a50">&#34;:a:bh&#34;</span> opt
+<span style="color:#00a">do</span>
+    <span style="color:#00a">case</span> <span style="color:#a00">$opt</span> in
+        a)  <span style="color:#0aa">echo</span> <span style="color:#a00">$OPTARG</span>;;
+        b)  <span style="color:#0aa">echo</span> True;;
+        h)  show_help; <span style="color:#0aa">exit</span> 1;;
+        <span style="color:#a50">\?</span>) <span style="color:#0aa">echo</span> <span style="color:#00a">$(</span>basename <span style="color:#a00">$0</span><span style="color:#00a">)</span> invalid option: -<span style="color:#a00">$OPTARG</span> &gt;&amp;<span style="color:#099">2</span>
+            <span style="color:#0aa">exit</span> <span style="color:#099">1</span>
             ;;
-    <span style="color:#66d9ef">esac</span>
-<span style="color:#66d9ef">done</span>
+    <span style="color:#00a">esac</span>
+<span style="color:#00a">done</span>
 
-<span style="color:#75715e"># OPTIND is not reset after getopts is finished.</span>
-<span style="color:#75715e"># Loop through argument  [N1 [N2 .. [NN]]]</span>
-<span style="color:#66d9ef">for</span> ARG in <span style="color:#e6db74">${</span>@:$OPTIND<span style="color:#e6db74">}</span>
-<span style="color:#66d9ef">do</span>
-    echo $ARG
-<span style="color:#66d9ef">done</span>
+<span style="color:#aaa;font-style:italic"># OPTIND is not reset after getopts is finished.</span>
+<span style="color:#aaa;font-style:italic"># Loop through argument  [N1 [N2 .. [NN]]]</span>
+<span style="color:#00a">for</span> ARG in <span style="color:#a50">${</span>@:<span style="color:#a00">$OPTIND</span><span style="color:#a50">}</span>
+<span style="color:#00a">do</span>
+    <span style="color:#0aa">echo</span> <span style="color:#a00">$ARG</span>
+<span style="color:#00a">done</span>
 </code></pre></div>
                 </section>
             </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fblog.heimsbakk.net%2fposts%2f20140413-getopts%2f - Bash%20getopts%20example "><span class="icon-twitter">  </span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect">  </span>
-</a>
 
             
 
