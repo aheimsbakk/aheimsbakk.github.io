@@ -82,6 +82,16 @@ Excerpt from havegeds homepage: The haveged project is an attempt to provide an 
     </item>
     
     <item>
+      <title>SSL Server Test</title>
+      <link>https://blog.heimsbakk.net/posts/20140413-ssllabs/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140413-ssllabs/</guid>
+      <description>Run Qualys SSL Labs test to test the strength and combability of SSL certificate.
+ SSL Server Test  </description>
+    </item>
+    
+    <item>
       <title>Scaling in the Linux Networking Stack</title>
       <link>https://blog.heimsbakk.net/posts/20140412-link/</link>
       <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate>
