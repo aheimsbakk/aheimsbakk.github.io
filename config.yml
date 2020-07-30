@@ -9,6 +9,46 @@ taxonomies:
   category: categories
   tag: tags
 
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: autumn
+    tabWidth: 4
+
+social:
+  twitter-square: https://twitter.com/aheimsbakk
+  github-square: https://github.com/aheimsbakk
+  linkedin-square: https://www.linkedin.com/in/arnulfheimsbakk
+
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+
+    anonymizeIP: false
+    disable: true
+    respectDoNotTrack: false
+    useSessionStorage: false
+  instagram:
+    disable: true
+    simple: false
+  twitter:
+    disable: true
+    enableDNT: false
+    simple: false
+  vimeo:
+    disable: true
+    simple: false
+  youtube:
+    disable: true
+    privacyEnhanced: false
+
 params:
   author: Arnulf Heimsbakk
   description: Sysadmin that blogs when life get boring
@@ -40,6 +80,7 @@ params:
   customCSS:
     - css/code-size.css
     - css/width.css
+    - css/syntax.css
   customJS: []
 
   # The variables below are optionally too and can be used to
@@ -60,7 +101,7 @@ params:
   readMore: ""
 
   # Share
-  enableShare: true
+  enableShare: false
   tweet: " "
   share: " "
 
@@ -73,29 +114,3 @@ params:
   # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
   socialIconStyle: ""
 
-social:
-  twitter-square: https://twitter.com/aheimsbakk
-  github-square: https://github.com/aheimsbakk
-  linkedin-square: https://www.linkedin.com/in/arnulfheimsbakk
-
-privacy:
-  disqus:
-    disable: true
-  googleAnalytics:
-    anonymizeIP: false
-    disable: true
-    respectDoNotTrack: false
-    useSessionStorage: false
-  instagram:
-    disable: true
-    simple: false
-  twitter:
-    disable: true
-    enableDNT: false
-    simple: false
-  vimeo:
-    disable: true
-    simple: false
-  youtube:
-    disable: true
-    privacyEnhanced: false
