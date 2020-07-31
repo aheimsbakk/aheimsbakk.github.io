@@ -9,7 +9,7 @@ tags:
   - libvirt
 ---
 
-Installing a small Debian VM from scratch with only one partition. Makes later resizeing easier. This was done on Fedora 32.
+Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
 
 ## Preparations
 
