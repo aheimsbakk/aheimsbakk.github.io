@@ -4,12 +4,12 @@ date: 2020-07-27T22:12:41+02:00
 draft: false
 ---
 
-This blog is written due to boredom, or when I don't want to forget something. It's mostly configuration snippets for use at home or links. For more examples of what I do - got to [my GithHub page](https://github.com/aheimsbakk/).
+This blog is mostly updated with stuff I don't want to forget. The content is mostly configuration snippets for use at home or links. For more examples of what I do see my [GithHub page](https://github.com/aheimsbakk/).
 
 
 ## Links
-Links I like to have a shortcut to.
 
+Links I like to have a shortcut to.
 
 * [isc](https://isc.sans.edu/)
 * [schneier](https://www.schneier.com/)
