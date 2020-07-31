@@ -4,21 +4,46 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2020-07-30T18:57:10+02:00</lastmod>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/blog/</loc>
-    <lastmod>2020-07-30T18:57:10+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</loc>
-    <lastmod>2020-07-30T18:57:10+02:00</lastmod>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/oneliner/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/security/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</loc>
     <lastmod>2020-07-30T18:57:10+02:00</lastmod>
   </url>
   
@@ -29,16 +54,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
-    <lastmod>2020-07-30T18:57:10+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2020-07-30T18:57:10+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/</loc>
     <lastmod>2020-07-30T18:57:10+02:00</lastmod>
   </url>
   
@@ -84,11 +99,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/restic/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/security/</loc>
     <lastmod>2019-09-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -264,11 +274,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/20140413-duplicates/</loc>
-    <lastmod>2014-04-13T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/oneliner/</loc>
     <lastmod>2014-04-13T21:00:00+00:00</lastmod>
   </url>
   

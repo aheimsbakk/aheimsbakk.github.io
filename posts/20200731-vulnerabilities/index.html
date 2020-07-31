@@ -8,7 +8,7 @@
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="Sysadmin that blogs when life get boring">
 		<meta name="generator" content="Hugo 0.69.0" />
-		<title>Categories &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<title>List CPU vulnerabilities &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
@@ -30,8 +30,8 @@
 		
 	</head>
 
-   <body>
-      <nav class="main-nav">
+    <body>
+       <nav class="main-nav">
 	
 	
 		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
@@ -48,46 +48,47 @@
 	
 </nav>
 
-      <div class="profile">
-    <section id="wrapper">
-        <header id="header">
-            <a href='https://blog.heimsbakk.net/about'>
-                <img id="avatar" class="2x" src="https://blog.heimsbakk.net/images/avatar.png"/>
-            </a>
-            <h1>&gt; /dev/null 2&gt;&amp;1</h1>
-            <h2>ramblings of a sysadmin</h2>
-        </header>
-    </section>
-</div>
 
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        List CPU vulnerabilities
+                    </h1>
+                    <h2 class="headline">
+                    Jul 31, 2020 16:25
+                    · 27 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/security">security</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/oneliner">oneliner</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at <a href="https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html">Hardware vulnerabilities</a>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -E <span style="color:#a50">&#39;.*&#39;</span> /sys/devices/system/cpu/vulnerabilities/* | sed -E <span style="color:#a50">&#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&gt; \3/&#39;</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
+                </section>
+            </article>
 
-       <section id="wrapper" class="tags">
-           <div class="page-tags">
-               <ul>
-                  
-                  
-                     
-                        <li>
-                           <a href="https://blog.heimsbakk.net/categories/blog">
-                              BLOG <span>(22)</span>
-                           </a>
+            
 
-                        </li>
-                     
-                  
-                     
-                        <li>
-                           <a href="https://blog.heimsbakk.net/categories/uris">
-                              URIS <span>(9)</span>
-                           </a>
+            
 
-                        </li>
-                     
-                  
-              </ul>
-           </div>
-           <footer id="footer">
+            
+
+            <footer id="footer">
     
         <div id="social">
 
@@ -120,9 +121,9 @@
     </p>
 </footer>
 
-       </section>
+        </section>
 
-       <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
 <script src="https://blog.heimsbakk.net/js/main.js"></script>
 <script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
@@ -133,5 +134,5 @@
 
 
 
-   </body>
+    </body>
 </html>

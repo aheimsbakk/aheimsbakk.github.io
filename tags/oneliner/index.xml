@@ -6,10 +6,20 @@
     <description>Recent content in oneliner on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Apr 2014 21:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 16:25:02 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/oneliner/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>List CPU vulnerabilities</title>
+      <link>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</link>
+      <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
+      <description>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
+grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E &amp;#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&amp;gt; \3/&amp;#39; </description>
+    </item>
     
     <item>
       <title>Find duplicate files</title>

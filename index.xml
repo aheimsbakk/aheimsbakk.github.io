@@ -6,10 +6,20 @@
     <description>Recent content on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Jul 2020 18:57:10 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 16:25:02 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>List CPU vulnerabilities</title>
+      <link>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</link>
+      <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
+      <description>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
+grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E &amp;#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&amp;gt; \3/&amp;#39; </description>
+    </item>
     
     <item>
       <title>Bootstrap Debian VM with virt-install</title>
