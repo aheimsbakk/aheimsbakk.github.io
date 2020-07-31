@@ -4,6 +4,7 @@ title: "> /dev/null 2>&1"
 theme: cactus-plus
 #googleAnalytics: "your_google_analytics_id"
 hasCJKLanguage: false
+summaryLength: 50
 
 taxonomies:
   category: categories
