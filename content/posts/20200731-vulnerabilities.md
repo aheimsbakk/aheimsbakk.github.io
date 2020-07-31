@@ -12,7 +12,7 @@ tags:
 
 [Hardware vulnerabilities]: https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html
 
-One-liner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at [Hardware vulnerabilities][].
+Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at [Hardware vulnerabilities][].
 
 <!--more-->
 
