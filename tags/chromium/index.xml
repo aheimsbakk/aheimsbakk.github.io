@@ -18,8 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20140619-webgl/</guid>
       <description>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.
-To force enabling WebGL in the browser start it with the following options
-chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</description>
+To force enabling WebGL in the browser start it with the following options</description>
     </item>
     
   </channel>

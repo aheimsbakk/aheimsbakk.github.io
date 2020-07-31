@@ -18,9 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20180105-yubikey/</guid>
       <description>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
-Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
-This is a short how-to to get startet with using Yubikey to SSH into your servers.
-YubiKey as private SSH key Pre requests   Install the YubiKey management software.</description>
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</description>
     </item>
     
   </channel>

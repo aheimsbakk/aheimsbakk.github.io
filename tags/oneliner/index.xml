@@ -17,8 +17,7 @@
       <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
-      <description>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
-grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E &amp;#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&amp;gt; \3/&amp;#39; </description>
+      <description>&lt;p&gt;One-liner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -28,7 +27,7 @@ grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E 
       
       <guid>https://blog.heimsbakk.net/posts/20140413-duplicates/</guid>
       <description>Find all duplicate files in current and sub-directories with bash.
-find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size. Do a numeric sort on size list. Print out only duplicate sizes. One at a time run find on size and print file names.</description>
+find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size.</description>
     </item>
     
     <item>
@@ -38,7 +37,7 @@ find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | x
       
       <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
       <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</description>
     </item>
     
   </channel>

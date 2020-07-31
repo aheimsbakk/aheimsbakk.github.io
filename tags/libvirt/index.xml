@@ -18,9 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</guid>
       <description>Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
-Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.
-sudo dnf install -y virt-manager virt-install User access to libvirt Add your user to the group libvirt.
-sudo usermod -aG libvirtd $USER Installation   Create a default preseed.</description>
+Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.</description>
     </item>
     
     <item>
@@ -30,7 +28,7 @@ sudo usermod -aG libvirtd $USER Installation   Create a default preseed.</descri
       
       <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/</guid>
       <description>Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It&amp;rsquo;s the default combination on most Linux systems, also on my favorite - Fedora.
-This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn&amp;rsquo;t available as a box, but Debian is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.</description>
+This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn&amp;rsquo;t available as a box, but Debian is.</description>
     </item>
     
   </channel>

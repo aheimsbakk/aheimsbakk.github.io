@@ -17,8 +17,7 @@
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20150111-zram/</guid>
-      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)
- zram  Example of compressed swap in memory Write this commands in /etc/rc.</description>
+      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</description>
     </item>
     
     <item>
@@ -28,7 +27,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
       <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</description>
     </item>
     
   </channel>

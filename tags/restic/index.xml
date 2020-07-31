@@ -18,7 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20190911-restic/</guid>
       <description>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
-restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</description>
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers.</description>
     </item>
     
   </channel>

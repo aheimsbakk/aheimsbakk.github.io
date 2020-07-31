@@ -18,7 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
       <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
-Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.</description>
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.</description>
     </item>
     
   </channel>

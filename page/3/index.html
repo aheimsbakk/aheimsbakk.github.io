@@ -72,7 +72,7 @@
                     
                         
                             <h2>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
-Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don’t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</h2>
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go.</h2>
                         
                     
                 </a>
@@ -87,8 +87,7 @@ Using open Wi-Fi access points can be very useful and necessary, but it is inher
                     Better entropy with haveged
                     
                         
-                            <h2>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don’t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a TRNG than a PRNG.
-Excerpt from havegeds homepage: The haveged project is an attempt to provide an easy-to-use, unpredictable random number generator based upon an adaptation of the HAVEGE algorithm.</h2>
+                            <h2>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don’t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged.</h2>
                         
                     
                 </a>
@@ -120,7 +119,7 @@ Asus RT-N66U is a Linux based wireless router. The stock firmware can be a bit l
                     
                         
                             <h2>Find all duplicate files in current and sub-directories with bash.
-find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size. Do a numeric sort on size list. Print out only duplicate sizes. One at a time run find on size and print file names.</h2>
+find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size.</h2>
                         
                     
                 </a>
@@ -136,7 +135,7 @@ find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{
                     
                         
                             <h2>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39; | grep -v $(uname -r | sed &#39;s/-generic//&#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</h2>
+dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39; | grep -v $(uname -r | sed &#39;s/-generic//&#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</h2>
                         
                     
                 </a>
@@ -152,7 +151,7 @@ dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:di
                     
                         
                             <h2>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
-#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &gt;&amp;2 &lt;&lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .. [NN]]]&#34; &gt;&amp;2 } # Print usage and exit with error code 1 if we don&#39;t have any options if [[ &#34;$@&#34; = &#34;&#34; ]]; then show_usage exit 1 fi # : = make getopts silent, handle errors self # a: = option a expects an argument # b = option b is a true false option # h = option h is a true false option # # On invalid option, opt will be replaced with ?</h2>
+#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &gt;&amp;2 &lt;&lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .</h2>
                         
                     
                 </a>
@@ -184,8 +183,7 @@ dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:di
                     
                         
                             <h2>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
-set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.
-# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: /* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */ // vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: Explanation  enc=UTF-8</h2>
+set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.</h2>
                         
                     
                 </a>
@@ -217,7 +215,7 @@ set modelineThe modeline should be the first line in the file. You can set it in
                     
                         
                             <h2>Pelican is a static website generator written in Python. It’s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as Tomato by Shibby or dd-wrt.
-Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</h2>
+Running Ubuntu Trusty I chose to use Pelican package in repository.</h2>
                         
                     
                 </a>

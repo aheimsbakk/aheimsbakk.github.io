@@ -18,8 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20140503-dropbox/</guid>
       <description>This is my notes for how to update my Pelican blog automaticlly when I write new posts. See Creating a blog based on Pelican for getting started with Pelican blog engine.
-A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.
-A prerequest for this recipe is that /var/www is not directly exposed to the web.</description>
+A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.</description>
     </item>
     
     <item>
@@ -29,7 +28,7 @@ A prerequest for this recipe is that /var/www is not directly exposed to the web
       
       <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
       <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
-Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.</description>
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.</description>
     </item>
     
     <item>
@@ -39,7 +38,7 @@ Examples taken from reStructuredText Markup Specification See also reStructuredT
       
       <guid>https://blog.heimsbakk.net/posts/20140412-pelican/</guid>
       <description>Pelican is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as Tomato by Shibby or dd-wrt.
-Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</description>
+Running Ubuntu Trusty I chose to use Pelican package in repository.</description>
     </item>
     
   </channel>

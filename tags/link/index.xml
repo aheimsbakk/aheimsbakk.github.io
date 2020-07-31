@@ -18,7 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20160326-syncthing/</guid>
       <description>I&amp;rsquo;ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It&amp;rsquo;s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
-Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it&amp;rsquo;s transmitted over the Internet.</description>
+Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.</description>
     </item>
     
     <item>
@@ -27,8 +27,7 @@ Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud 
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20150111-zram/</guid>
-      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)
- zram  Example of compressed swap in memory Write this commands in /etc/rc.</description>
+      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</description>
     </item>
     
     <item>
@@ -37,8 +36,7 @@ Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud 
       <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140525-vagrant/</guid>
-      <description>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you&amp;rsquo;ll be up and running in no time.
-Vagrant do profile itself for developers, but sysadmins has much to gain by using such tools to make life easier for themselves.</description>
+      <description>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you&amp;rsquo;ll be up and running in no time.</description>
     </item>
     
     <item>
@@ -47,9 +45,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
       <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140512-revocation/</guid>
-      <description>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both Steve Gibson&amp;lsquo;s article on An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer Revocation still doesn&amp;rsquo;t work.
-  Security Certificate - Revocation Awareness Test
-  Listen to Security Now! episode 454 Certificate Revocation Part 2 in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.</description>
+      <description>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both Steve Gibson&amp;lsquo;s article on An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer Revocation still doesn&amp;rsquo;t work.</description>
     </item>
     
     <item>
@@ -58,7 +54,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140504-ocsp/</guid>
-      <description>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with Apache.</description>
+      <description>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session.</description>
     </item>
     
     <item>
@@ -67,8 +63,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
       <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140429-haveged/</guid>
-      <description>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a TRNG than a PRNG.
-Excerpt from havegeds homepage: The haveged project is an attempt to provide an easy-to-use, unpredictable random number generator based upon an adaptation of the HAVEGE algorithm.</description>
+      <description>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged.</description>
     </item>
     
     <item>

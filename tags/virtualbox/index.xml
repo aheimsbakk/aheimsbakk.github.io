@@ -18,7 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</guid>
       <description>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
-There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</description>
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave.</description>
     </item>
     
   </channel>

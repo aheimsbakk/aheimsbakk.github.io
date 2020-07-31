@@ -57,7 +57,7 @@
                     </h1>
                     <h2 class="headline">
                     Jul 31, 2020 16:25
-                    · 27 words
+                    · 30 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -74,11 +74,11 @@
                 </header>
                 
                 <section id="post-body">
-                    <p>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at <a href="https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html">Hardware vulnerabilities</a>.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -E <span style="color:#a50">&#39;.*&#39;</span> /sys/devices/system/cpu/vulnerabilities/* | sed -E <span style="color:#a50">&#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&gt; \3/&#39;</span>
+                    <p>One-liner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at <a href="https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html">Hardware vulnerabilities</a>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -E <span style="color:#a50">&#39;.*&#39;</span> /sys/devices/system/cpu/vulnerabilities/* | <span style="color:#a50">\
+</span><span style="color:#a50"></span>    sed -E <span style="color:#a50">&#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&gt; \3/&#39;</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-
                 </section>
             </article>
 

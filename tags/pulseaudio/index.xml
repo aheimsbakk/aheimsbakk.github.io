@@ -19,7 +19,7 @@
       <guid>https://blog.heimsbakk.net/posts/20150110-pa/</guid>
       <description>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.
 The PulseAudio sound server in your desktop makes this quite easy.
-I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file. After the capture is started, you can start playing sound from other programs.</description>
+I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file.</description>
     </item>
     
   </channel>

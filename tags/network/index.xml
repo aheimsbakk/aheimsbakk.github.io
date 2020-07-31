@@ -18,7 +18,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20160326-syncthing/</guid>
       <description>I&amp;rsquo;ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It&amp;rsquo;s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
-Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it&amp;rsquo;s transmitted over the Internet.</description>
+Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@ Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud 
       
       <guid>https://blog.heimsbakk.net/posts/20140501-easyrsa/</guid>
       <description>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
-Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</description>
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go.</description>
     </item>
     
     <item>

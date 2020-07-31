@@ -17,8 +17,7 @@
       <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
-      <description>List your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
-grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E &amp;#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&amp;gt; \3/&amp;#39; </description>
+      <description>&lt;p&gt;One-liner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -28,9 +27,7 @@ grep -E &amp;#39;.*&amp;#39; /sys/devices/system/cpu/vulnerabilities/* | sed -E 
       
       <guid>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</guid>
       <description>Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
-Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.
-sudo dnf install -y virt-manager virt-install User access to libvirt Add your user to the group libvirt.
-sudo usermod -aG libvirtd $USER Installation   Create a default preseed.</description>
+Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.</description>
     </item>
     
     <item>
@@ -40,7 +37,7 @@ sudo usermod -aG libvirtd $USER Installation   Create a default preseed.</descri
       
       <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/</guid>
       <description>Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It&amp;rsquo;s the default combination on most Linux systems, also on my favorite - Fedora.
-This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn&amp;rsquo;t available as a box, but Debian is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.</description>
+This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn&amp;rsquo;t available as a box, but Debian is.</description>
     </item>
     
     <item>
@@ -50,7 +47,7 @@ This combination allows for some awesome features and some restrictions. One of 
       
       <guid>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</guid>
       <description>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
-There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.</description>
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave.</description>
     </item>
     
     <item>
@@ -60,7 +57,7 @@ There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang 
       
       <guid>https://blog.heimsbakk.net/posts/20190911-restic/</guid>
       <description>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
-restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that restic can use rclone as a backend, and by that extend restic destination into most cloud providers.</description>
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers.</description>
     </item>
     
     <item>
@@ -70,9 +67,7 @@ restic is a deduplication backup sofware, designed for ease of use and security.
       
       <guid>https://blog.heimsbakk.net/posts/20180105-yubikey/</guid>
       <description>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
-Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
-This is a short how-to to get startet with using Yubikey to SSH into your servers.
-YubiKey as private SSH key Pre requests   Install the YubiKey management software.</description>
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</description>
     </item>
     
     <item>
@@ -82,7 +77,7 @@ YubiKey as private SSH key Pre requests   Install the YubiKey management softwar
       
       <guid>https://blog.heimsbakk.net/posts/20160326-syncthing/</guid>
       <description>I&amp;rsquo;ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It&amp;rsquo;s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
-Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it&amp;rsquo;s transmitted over the Internet.</description>
+Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.</description>
     </item>
     
     <item>
@@ -91,8 +86,7 @@ Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud 
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20150111-zram/</guid>
-      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)
- zram  Example of compressed swap in memory Write this commands in /etc/rc.</description>
+      <description>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</description>
     </item>
     
     <item>
@@ -103,7 +97,7 @@ Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud 
       <guid>https://blog.heimsbakk.net/posts/20150110-pa/</guid>
       <description>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.
 The PulseAudio sound server in your desktop makes this quite easy.
-I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file. After the capture is started, you can start playing sound from other programs.</description>
+I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file.</description>
     </item>
     
     <item>
@@ -113,7 +107,7 @@ I&amp;rsquo;ve created a small script that captures the current playing sound st
       
       <guid>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</guid>
       <description>If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
-One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.com/cloudbau/vagrant-openstack-plugin cd vagrant-openstack-plugin gem build vagrant-openstack-plugin.gemspec vagrant plugin install vagrant-openstack-plugin-*.gem Add a dummy box to Vagrant thats needed by the plugin.</description>
+One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.</description>
     </item>
     
     <item>
@@ -123,7 +117,7 @@ One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone htt
       
       <guid>https://blog.heimsbakk.net/posts/20141215-fio/</guid>
       <description>From man page: fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.
-This example only show how to use fio to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production.</description>
+This example only show how to use fio to make reproduceable test on a file system.</description>
     </item>
     
     <item>
@@ -143,8 +137,7 @@ This example only show how to use fio to make reproduceable test on a file syste
       
       <guid>https://blog.heimsbakk.net/posts/20140619-webgl/</guid>
       <description>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.
-To force enabling WebGL in the browser start it with the following options
-chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</description>
+To force enabling WebGL in the browser start it with the following options</description>
     </item>
     
     <item>
@@ -153,8 +146,7 @@ chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Ea
       <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140525-vagrant/</guid>
-      <description>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you&amp;rsquo;ll be up and running in no time.
-Vagrant do profile itself for developers, but sysadmins has much to gain by using such tools to make life easier for themselves.</description>
+      <description>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you&amp;rsquo;ll be up and running in no time.</description>
     </item>
     
     <item>
@@ -163,9 +155,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
       <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140512-revocation/</guid>
-      <description>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both Steve Gibson&amp;lsquo;s article on An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer Revocation still doesn&amp;rsquo;t work.
-  Security Certificate - Revocation Awareness Test
-  Listen to Security Now! episode 454 Certificate Revocation Part 2 in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.</description>
+      <description>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both Steve Gibson&amp;lsquo;s article on An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer Revocation still doesn&amp;rsquo;t work.</description>
     </item>
     
     <item>
@@ -175,8 +165,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
       
       <guid>https://blog.heimsbakk.net/posts/20140511-rootnexus/</guid>
       <description>Flashing a custom image on an Android mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. Then don&amp;rsquo;t!
-The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.
-Negative sides  An OS image could contain malware; only use community trusted images. If you don&amp;rsquo;t pay attention you can get malware running as root.</description>
+The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.</description>
     </item>
     
     <item>
@@ -185,7 +174,7 @@ Negative sides  An OS image could contain malware; only use community trusted im
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140504-ocsp/</guid>
-      <description>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with Apache.</description>
+      <description>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session.</description>
     </item>
     
     <item>
@@ -195,8 +184,7 @@ Negative sides  An OS image could contain malware; only use community trusted im
       
       <guid>https://blog.heimsbakk.net/posts/20140503-dropbox/</guid>
       <description>This is my notes for how to update my Pelican blog automaticlly when I write new posts. See Creating a blog based on Pelican for getting started with Pelican blog engine.
-A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.
-A prerequest for this recipe is that /var/www is not directly exposed to the web.</description>
+A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.</description>
     </item>
     
     <item>
@@ -208,8 +196,7 @@ A prerequest for this recipe is that /var/www is not directly exposed to the web
       <description>This will show how to get A+ on SSL Server Test from Qualys SSL Labs.
 Enable SSL and headers module in Apache2.
 a2enmod ssl a2enmod headers  Edit Apache configuration.
-SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS  The ! preceding the cipher means that Apache will not use that cipher.
-View ciphers List the ciphers openssl supports with the current configuration.</description>
+SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!</description>
     </item>
     
     <item>
@@ -219,7 +206,7 @@ View ciphers List the ciphers openssl supports with the current configuration.</
       
       <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
       <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
-Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&amp;gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &amp;lt;http://daringfireball.</description>
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.</description>
     </item>
     
     <item>
@@ -229,7 +216,7 @@ Examples taken from reStructuredText Markup Specification See also reStructuredT
       
       <guid>https://blog.heimsbakk.net/posts/20140501-easyrsa/</guid>
       <description>The router firmware Tomato, see previous post RT-N66u with Tomato by Shibby firmware, can act as an OpenVPN server.
-Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go. By creating an encrypted VPN connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</description>
+Using open Wi-Fi access points can be very useful and necessary, but it is inherently insecure. Using the router as an OpenVPN server can increase your privacy and security when you are on the go.</description>
     </item>
     
     <item>
@@ -238,8 +225,7 @@ Using open Wi-Fi access points can be very useful and necessary, but it is inher
       <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140429-haveged/</guid>
-      <description>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a TRNG than a PRNG.
-Excerpt from havegeds homepage: The haveged project is an attempt to provide an easy-to-use, unpredictable random number generator based upon an adaptation of the HAVEGE algorithm.</description>
+      <description>Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged.</description>
     </item>
     
     <item>
@@ -259,7 +245,7 @@ Asus RT-N66U is a Linux based wireless router. The stock firmware can be a bit l
       
       <guid>https://blog.heimsbakk.net/posts/20140413-duplicates/</guid>
       <description>Find all duplicate files in current and sub-directories with bash.
-find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size. Do a numeric sort on size list. Print out only duplicate sizes. One at a time run find on size and print file names.</description>
+find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size.</description>
     </item>
     
     <item>
@@ -269,7 +255,7 @@ find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | x
       
       <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
       <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages. Remove the linux-image and linux-header for running kernel from the list.</description>
+dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</description>
     </item>
     
     <item>
@@ -279,7 +265,7 @@ dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|
       
       <guid>https://blog.heimsbakk.net/posts/20140413-getopts/</guid>
       <description>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
-#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &amp;gt;&amp;amp;2 &amp;lt;&amp;lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &amp;#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .. [NN]]]&amp;#34; &amp;gt;&amp;amp;2 } # Print usage and exit with error code 1 if we don&amp;#39;t have any options if [[ &amp;#34;$@&amp;#34; = &amp;#34;&amp;#34; ]]; then show_usage exit 1 fi # : = make getopts silent, handle errors self # a: = option a expects an argument # b = option b is a true false option # h = option h is a true false option # # On invalid option, opt will be replaced with ?</description>
+#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &amp;gt;&amp;amp;2 &amp;lt;&amp;lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &amp;#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .</description>
     </item>
     
     <item>
@@ -299,8 +285,7 @@ dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|
       
       <guid>https://blog.heimsbakk.net/posts/20140413-modeline/</guid>
       <description>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
-set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.
-# vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: /* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */ // vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: Explanation  enc=UTF-8</description>
+set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.</description>
     </item>
     
     <item>
@@ -320,7 +305,7 @@ set modelineThe modeline should be the first line in the file. You can set it in
       
       <guid>https://blog.heimsbakk.net/posts/20140412-pelican/</guid>
       <description>Pelican is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as Tomato by Shibby or dd-wrt.
-Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</description>
+Running Ubuntu Trusty I chose to use Pelican package in repository.</description>
     </item>
     
     <item>

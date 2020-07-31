@@ -72,7 +72,7 @@
                     
                         
                             <h2>From man page: fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.
-This example only show how to use fio to make reproduceable test on a file system. For me it’s been useful to catch changes in I/O throughput before and after a system has gone into production.</h2>
+This example only show how to use fio to make reproduceable test on a file system.</h2>
                         
                     
                 </a>
@@ -104,8 +104,7 @@ This example only show how to use fio to make reproduceable test on a file syste
                     
                         
                             <h2>Google now supports Google Earth in Google Maps. As far as I know it works in Chrome and Chromium. If Google Earth isn’t available where the satellite view options is, your graphic card is in the browsers blacklist.
-To force enabling WebGL in the browser start it with the following options
-chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Earth in maps.google.com.</h2>
+To force enabling WebGL in the browser start it with the following options</h2>
                         
                     
                 </a>
@@ -120,8 +119,7 @@ chromium-browser --enable-webgl --ignore-gpu-blacklist Now you can use Google Ea
                     Vagrant, development environments made easy
                     
                         
-                            <h2>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It’s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you’ll be up and running in no time.
-Vagrant do profile itself for developers, but sysadmins has much to gain by using such tools to make life easier for themselves.</h2>
+                            <h2>Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It’s free and really easy to use. If you install VirtualBox sudo apt-get install virtualbox first, you’ll be up and running in no time.</h2>
                         
                     
                 </a>
@@ -136,9 +134,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
                     Only Firefox is safe post Heartblead
                     
                         
-                            <h2>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn’t work. I recommend to read both Steve Gibson‘s article on An Evaluation of the Effectiveness of Chrome’s CRLSets and Adam Langley’s in my opinion a bit missplaced answer Revocation still doesn’t work.
-  Security Certificate - Revocation Awareness Test
-  Listen to Security Now! episode 454 Certificate Revocation Part 2 in which Steve explains about both certificate revocation and Google’s CRLSets.</h2>
+                            <h2>oSteve Gibson have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn’t work. I recommend to read both Steve Gibson‘s article on An Evaluation of the Effectiveness of Chrome’s CRLSets and Adam Langley’s in my opinion a bit missplaced answer Revocation still doesn’t work.</h2>
                         
                     
                 </a>
@@ -154,8 +150,7 @@ Vagrant do profile itself for developers, but sysadmins has much to gain by usin
                     
                         
                             <h2>Flashing a custom image on an Android mobile could be just fun. But if you don’t know why you want to do it, or do it just because it’s a challenge. Then don’t!
-The bad and the good I’m only pointing out some of the cons and the pros here.
-Negative sides  An OS image could contain malware; only use community trusted images. If you don’t pay attention you can get malware running as root.</h2>
+The bad and the good I’m only pointing out some of the cons and the pros here.</h2>
                         
                     
                 </a>
@@ -170,7 +165,7 @@ Negative sides  An OS image could contain malware; only use community trusted im
                     OCSP Stapling on Apache
                     
                         
-                            <h2>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with Apache.</h2>
+                            <h2>Excerpt from Remy van Elsts tutorial: OCSP stapling is an enhancement to the standard OCSP protocol that delivers OCSP responses from the server with the certificate, eliminating the need for relying parties (web users) to check OCSP responses with the issuing CA. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session.</h2>
                         
                     
                 </a>
@@ -186,8 +181,7 @@ Negative sides  An OS image could contain malware; only use community trusted im
                     
                         
                             <h2>This is my notes for how to update my Pelican blog automaticlly when I write new posts. See Creating a blog based on Pelican for getting started with Pelican blog engine.
-A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.
-A prerequest for this recipe is that /var/www is not directly exposed to the web.</h2>
+A way to be able to blog from anywhere is to use Dropbox as repository for the your blog. Then let Pelican auto regenerate the blog on changes in the Dropbox folder.</h2>
                         
                     
                 </a>
@@ -205,8 +199,7 @@ A prerequest for this recipe is that /var/www is not directly exposed to the web
                             <h2>This will show how to get A&#43; on SSL Server Test from Qualys SSL Labs.
 Enable SSL and headers module in Apache2.
 a2enmod ssl a2enmod headers  Edit Apache configuration.
-SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &#34;max-age=31536000; includeSubDomains&#34; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!aNULL:!eNULL:!LOW:!RC4:!3DES:!DES:!MD5:!EXP:!PSK:!SRP:!DSS  The ! preceding the cipher means that Apache will not use that cipher.
-View ciphers List the ciphers openssl supports with the current configuration.</h2>
+SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &#34;max-age=31536000; includeSubDomains&#34; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!</h2>
                         
                     
                 </a>
@@ -222,7 +215,7 @@ View ciphers List the ciphers openssl supports with the current configuration.</
                     
                         
                             <h2>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
-Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &lt;http://daringfireball.</h2>
+Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &lt;http://docutils.</h2>
                         
                     
                 </a>
