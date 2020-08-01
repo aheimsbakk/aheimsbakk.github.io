@@ -6,10 +6,19 @@
     <description>Recent content in Posts on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2020 16:25:02 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 16:58:55 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Portable Hardware Locality (hwloc)</title>
+      <link>https://blog.heimsbakk.net/posts/20200801-hwloc/</link>
+      <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200801-hwloc/</guid>
+      <description>From the website: The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, &amp;hellip;) of the hierarchical topology of modern architectures, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.</description>
+    </item>
     
     <item>
       <title>List CPU vulnerabilities</title>
