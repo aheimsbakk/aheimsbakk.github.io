@@ -13,10 +13,10 @@
     
     <item>
       <title>e1000e: Detected Hardware Unit Hang</title>
-      <link>https://blog.heimsbakk.net/posts/202008-hardware-unit-hang/</link>
+      <link>https://blog.heimsbakk.net/posts/20200807-hardware-unit-hang/</link>
       <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
       
-      <guid>https://blog.heimsbakk.net/posts/202008-hardware-unit-hang/</guid>
+      <guid>https://blog.heimsbakk.net/posts/20200807-hardware-unit-hang/</guid>
       <description>&lt;p&gt;Are you, as I, suffering from &lt;em&gt;Detected Hardware Unit Hang&lt;/em&gt; in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&amp;hellip;&lt;/p&gt;</description>
     </item>
     

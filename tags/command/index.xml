@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>command on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/command/</link>
+    <description>Recent content in command on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Aug 2020 14:22:43 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/command/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tldr - a supplement to man</title>
+      <link>https://blog.heimsbakk.net/posts/20200807-tldr/</link>
+      <pubDate>Fri, 07 Aug 2020 14:22:43 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200807-tldr/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,17 +6,27 @@
     <description>Recent content in Posts on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2020 01:20:05 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 14:22:43 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>tldr - a supplement to man</title>
+      <link>https://blog.heimsbakk.net/posts/20200807-tldr/</link>
+      <pubDate>Fri, 07 Aug 2020 14:22:43 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200807-tldr/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>e1000e: Detected Hardware Unit Hang</title>
-      <link>https://blog.heimsbakk.net/posts/202008-hardware-unit-hang/</link>
+      <link>https://blog.heimsbakk.net/posts/20200807-hardware-unit-hang/</link>
       <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
       
-      <guid>https://blog.heimsbakk.net/posts/202008-hardware-unit-hang/</guid>
+      <guid>https://blog.heimsbakk.net/posts/20200807-hardware-unit-hang/</guid>
       <description>&lt;p&gt;Are you, as I, suffering from &lt;em&gt;Detected Hardware Unit Hang&lt;/em&gt; in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&amp;hellip;&lt;/p&gt;</description>
     </item>
     
