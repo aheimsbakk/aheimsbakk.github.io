@@ -67,6 +67,24 @@
         
             <li>
                 <aside class="dates">May 3</aside>
+                <a href='https://blog.heimsbakk.net/posts/20140503-ssl/'>
+                    How to get A&#43; on SSL Labs
+                    
+                        
+                            <h2>This will show how to get A&#43; on SSL Server Test from Qualys SSL Labs.
+Enable SSL and headers module in Apache2.
+a2enmod ssl a2enmod headers  Edit Apache configuration.
+SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &#34;max-age=31536000; includeSubDomains&#34; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">May 3</aside>
                 <a href='https://blog.heimsbakk.net/posts/20140503-rst/'>
                     reStructuredText cheat sheet
                     
@@ -200,22 +218,6 @@ dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:di
                         
                             <h2>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
 set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Apr 13</aside>
-                <a href='https://blog.heimsbakk.net/posts/20140413-ssllabs/'>
-                    SSL Server Test
-                    
-                        
-                            <h2>Run Qualys SSL Labs test to test the strength and combability of SSL certificate.
- SSL Server Test  </h2>
                         
                     
                 </a>

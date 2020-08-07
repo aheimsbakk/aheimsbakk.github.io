@@ -6,10 +6,37 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Aug 2020 16:58:55 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 01:20:05 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bug</title>
+      <link>https://blog.heimsbakk.net/tags/bug/</link>
+      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://blog.heimsbakk.net/tags/network/</link>
+      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NetworkManager</title>
+      <link>https://blog.heimsbakk.net/tags/networkmanager/</link>
+      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/networkmanager/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cpu</title>
@@ -125,15 +152,6 @@
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/yubikey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://blog.heimsbakk.net/tags/network/</link>
-      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/network/</guid>
       <description></description>
     </item>
     

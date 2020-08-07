@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>e1000e: Detected Hardware Unit Hang &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        e1000e: Detected Hardware Unit Hang
+                    </h1>
+                    <h2 class="headline">
+                    Aug 7, 2020 01:20
+                    · 312 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/networkmanager">NetworkManager</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/bug">bug</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/network">network</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>Are you, as I, suffering from <em>Detected Hardware Unit Hang</em> in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&hellip;</p>
+<h2 id="workaround">Workaround</h2>
+<p>The workaround is to turn off TCP offloading on the network card. This can be done with <code>ethtool</code> or with NetworkManager as a more permanent solution. I found the workaround on Server Fault, <a href="https://serverfault.com/questions/616485/e1000e-reset-adapter-unexpectedly-detected-hardware-unit-hang">e1000e Reset adapter unexpectedly / Detected Hardware Unit Hang</a>.</p>
+<h3 id="ethtool">ethtool</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ethtool -K eth0 tx off rx off
+</code></pre></div><h3 id="networkmanager">NetworkManager</h3>
+<p>This was my permanent solution on my problem. See <em>The bug</em>. Documentation of this way of modifying the network card was provided by RedHat at <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-ethtool-offload-features-using-networkmanager_configuring-and-managing-networking">Chapter 29. Configuring ethtool offload features using NetworkManager</a>.</p>
+<ol>
+<li>Find the network card NetworkManger connection name. My network card name is <code>eno1</code>. See the log excerpt from <em>The bug</em>.
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli dev show eno1 | grep -i general.conn
+</code></pre></div></li>
+<li>Add permanent configuration to the connection. My connection is named <code>bridge0 slave 1</code>.
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con modify <span style="color:#a50">&#39;bridge0 slave 1&#39;</span> ethtool.feature-rx off ethtool.feature-tx off
+</code></pre></div></li>
+<li>Activate.
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmcli con up <span style="color:#a50">&#39;bridge0 slave 1&#39;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="the-bug">The bug</h2>
+<p>You detect it in the <strong>kernel</strong> log. You&rsquo;ll see them in <code>dmesg</code> or <code>journalctl -b -t kernel</code> it will look something like this:</p>
+<pre><code class="language-dmesg" data-lang="dmesg">[ 2044.821230] e1000e 0000:00:1f.6 eno1: Detected Hardware Unit Hang:
+                 TDH                  &lt;3e&gt;
+                 TDT                  &lt;6d&gt;
+                 next_to_use          &lt;6d&gt;
+                 next_to_clean        &lt;3d&gt;
+               buffer_info[next_to_clean]:
+                 time_stamp           &lt;1001a884a&gt;
+                 next_to_watch        &lt;3e&gt;
+                 jiffies              &lt;1001a9f40&gt;
+                 next_to_watch.status &lt;0&gt;
+               MAC Status             &lt;40080083&gt;
+               PHY Status             &lt;796d&gt;
+               PHY 1000BASE-T Status  &lt;3c00&gt;
+               PHY Extended Status    &lt;3000&gt;
+               PCI Status             &lt;10&gt;
+[ 2046.036778] e1000e 0000:00:1f.6 eno1: Reset adapter unexpectedly
+[ 2046.036873] bridge0: port 1(eno1) entered disabled state
+[ 2051.705902] e1000e 0000:00:1f.6 eno1: NIC Link is Up 1000 Mbps Full Duplex, Flow Control: Rx/Tx
+[ 2051.706018] bridge0: port 1(eno1) entered blocking state
+[ 2051.706023] bridge0: port 1(eno1) entered forwarding state
+</code></pre><p>This was taken from my own <code>dmesg</code>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>
