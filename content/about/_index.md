@@ -4,7 +4,7 @@ date: 2020-07-27T22:12:41+02:00
 draft: false
 ---
 
-This blog is mostly updated with stuff I don't want to forget. The content is mostly configuration snippets for use at home or links. For more examples of what I do see my [GithHub page](https://github.com/aheimsbakk/).
+This blog is mostly updated with stuff I don't want to forget. The content is configuration snippets or links for use at home. For more examples of what I do visit my [GithHub page](https://github.com/aheimsbakk/).
 
 
 ## Links
