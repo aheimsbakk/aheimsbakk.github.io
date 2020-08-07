@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -74,22 +72,22 @@
                 <section id="post-body">
                     <p>Notes for power saving on my i5 laptop.</p>
 <h2 id="etcrclocal">/etc/rc.local</h2>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#aaa;font-style:italic">#  SATA power save</span>
-<span style="color:#0aa">echo</span> medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#  SATA power save</span>
+<span style="color:#111">echo</span> medium_power <span style="color:#111">|</span> tee /sys/class/scsi_host/host*/link_power_management_policy &gt; /dev/null
 
-<span style="color:#aaa;font-style:italic"># Set minimum performance to 30% of CPU MHz</span>
-<span style="color:#0aa">echo</span> <span style="color:#099">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
+<span style="color:#75715e"># Set minimum performance to 30% of CPU MHz</span>
+<span style="color:#111">echo</span> <span style="color:#ae81ff">30</span> &gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
-<span style="color:#aaa;font-style:italic"># Set CPU governor to power save since we run on a laptop</span>
-<span style="color:#aaa;font-style:italic"># Valid values: powersave performance</span>
-<span style="color:#0aa">echo</span> powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
+<span style="color:#75715e"># Set CPU governor to power save since we run on a laptop</span>
+<span style="color:#75715e"># Valid values: powersave performance</span>
+<span style="color:#111">echo</span> powersave <span style="color:#111">|</span> tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &gt; /dev/null
 
-<span style="color:#aaa;font-style:italic"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
-<span style="color:#0aa">echo</span> <span style="color:#099">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
+<span style="color:#75715e"># Increase for CrashPlan so unlocking gnome-shell lock screen works</span>
+<span style="color:#111">echo</span> <span style="color:#ae81ff">1048576</span> &gt; /proc/sys/fs/inotify/max_user_watches
 </code></pre></div><h2 id="etcdefaultgrub">/etc/default/grub</h2>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#aaa;font-style:italic"># Make my back light buttons work correctly</span>
-<span style="color:#aaa;font-style:italic"># Full power save for GPU</span>
-<span style="color:#a00">GRUB_CMDLINE_LINUX</span>=<span style="color:#a50">&#34;video.use_native_backlight=1 i915.enable_rc6=7 i915.enable_fbc=1 i915.lvds_downclock=1&#34;</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Make my back light buttons work correctly</span>
+<span style="color:#75715e"># Full power save for GPU</span>
+<span style="color:#111">GRUB_CMDLINE_LINUX</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;video.use_native_backlight=1 i915.enable_rc6=7 i915.enable_fbc=1 i915.lvds_downclock=1&#34;</span>
 </code></pre></div>
                 </section>
             </article>

@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -79,33 +77,33 @@
 <p>The biggest feature is that it allows for more permanent development environments and direct connection to already existing <a href="https://en.wikipedia.org/wiki/Bridging_(networking)">network bridges</a>.</p>
 <h2 id="preparation">Preparation</h2>
 <p>Allow your user to manage libvirt VMs on the computer.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -Ga libvirt <span style="color:#00a">$(</span>whoami<span style="color:#00a">)</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -Ga libvirt <span style="color:#00a8c8">$(</span>whoami<span style="color:#00a8c8">)</span>
 </code></pre></div><h2 id="vagrantfile">Vagrantfile</h2>
 <p>Below is an example of a <code>Vagrantfile</code> that creates a VM with connection to a bridge <code>bridge0</code> on a network <code>192.168.1.0/24</code> that restart automatically after a reboot of the host.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#aaa;font-style:italic"># -*- mode: ruby -*-</span>
-<span style="color:#aaa;font-style:italic"># vi: set ft=ruby :</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
+<span style="color:#75715e"># vi: set ft=ruby :</span>
 
-<span style="color:#a00">Vagrant</span>.configure(<span style="color:#a50">&#34;2&#34;</span>) <span style="color:#00a">do</span> |config|
-  config.vm.box = <span style="color:#a50">&#34;debian/buster64&#34;</span>
+<span style="color:#00a8c8">Vagrant</span><span style="color:#f92672">.</span><span style="color:#111">configure</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">config</span><span style="color:#f92672">|</span>
+  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">box</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;debian/buster64&#34;</span>
 
-  <span style="color:#aaa;font-style:italic"># Connect to bridge named bridge0 with public IP 192.168.1.100</span>
-  config.vm.network <span style="color:#a50">&#34;public_network&#34;</span>, <span style="color:#00a">dev</span>: <span style="color:#a50">&#34;bridge0&#34;</span>, <span style="color:#00a">mode</span>: <span style="color:#a50">&#34;bridge&#34;</span>, <span style="color:#00a">type</span>: <span style="color:#a50">&#34;bridge&#34;</span>, <span style="color:#00a">ip</span>: <span style="color:#a50">&#34;192.168.1.100&#34;</span>
+  <span style="color:#75715e"># Connect to bridge named bridge0 with public IP 192.168.1.100</span>
+  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">network</span> <span style="color:#d88200">&#34;public_network&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">dev</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge0&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">mode</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">type</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">ip</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;192.168.1.100&#34;</span>
 
-  <span style="color:#aaa;font-style:italic"># Use rsync to sync files into /vagrant</span>
-  config.vm.synced_folder <span style="color:#a50">&#34;.&#34;</span>, <span style="color:#a50">&#34;/vagrant&#34;</span>, <span style="color:#00a">type</span>: <span style="color:#a50">&#34;rsync&#34;</span>
+  <span style="color:#75715e"># Use rsync to sync files into /vagrant</span>
+  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">synced_folder</span> <span style="color:#d88200">&#34;.&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/vagrant&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">type</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;rsync&#34;</span>
 
-  <span style="color:#aaa;font-style:italic"># Libvirt provider</span>
-  config.vm.provider <span style="color:#a50">&#34;libvirt&#34;</span> <span style="color:#00a">do</span> |l|
-    l.cpus = <span style="color:#099">1</span>
-    l.memory = <span style="color:#a50">&#34;256&#34;</span>
+  <span style="color:#75715e"># Libvirt provider</span>
+  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">provider</span> <span style="color:#d88200">&#34;libvirt&#34;</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">l</span><span style="color:#f92672">|</span>
+    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">cpus</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">memory</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;256&#34;</span>
 
-    <span style="color:#aaa;font-style:italic"># Use qemu:///system sesion, not the user session qemu:///session</span>
-    l.qemu_use_session = <span style="color:#00a">false</span>
+    <span style="color:#75715e"># Use qemu:///system sesion, not the user session qemu:///session</span>
+    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">qemu_use_session</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span>
 
-    <span style="color:#aaa;font-style:italic"># Restart on host reboot</span>
-    l.autostart = <span style="color:#00a">true</span>
-  <span style="color:#00a">end</span>
-<span style="color:#00a">end</span>
+    <span style="color:#75715e"># Restart on host reboot</span>
+    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">autostart</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span>
+  <span style="color:#00a8c8">end</span>
+<span style="color:#00a8c8">end</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 

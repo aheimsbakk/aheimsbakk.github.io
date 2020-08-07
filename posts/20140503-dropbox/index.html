@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -80,18 +78,18 @@
 <h2 id="preparing-dropbox">Preparing Dropbox</h2>
 <p>First create a new <a href="https://www.dropbox.com">Dropbox</a> account and create a <code>Pelican</code> folder. Share this folder with your main <a href="https://www.dropbox.com">Dropbox</a> account. Now copy the sources for your <a href="http://blog.getpelican.com">Pelican</a> blog into the the shared folder.</p>
 <p>On your web server, install <a href="https://www.dropbox.com">Dropbox</a> under the <code>www-data</code> user.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">cd</span> ~ &amp;&amp; wget -O - <span style="color:#a50">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> | tar xzf -
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> ~ <span style="color:#f92672">&amp;&amp;</span> wget -O - <span style="color:#d88200">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> <span style="color:#111">|</span> tar xzf -
 </code></pre></div><p>Then link up the new <a href="https://www.dropbox.com">Dropbox</a> account to the web server by accessing the link you get from starting the <a href="https://www.dropbox.com">Dropbox</a> daemon.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~/.dropbox-dist/dropboxd
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~/.dropbox-dist/dropboxd
 </code></pre></div><p>Edit crontab for <code>www-data</code>, <code>crontab -e</code>, to start <a href="https://www.dropbox.com">Dropbox</a> daemon if it&rsquo;s not running. useful when the server reboots.</p>
 <pre><code class="language-cron" data-lang="cron">*/5 * * * * pgrep -F ~/.dropbox/dropbox.pid &gt;/dev/null || (~/.dropbox-dist/dropboxd &amp;)
 </code></pre><p>Now <a href="https://www.dropbox.com">Dropbox</a> should be in sync and have your latest source for the blog.</p>
 <h2 id="autogenerate-blog-on-change">Autogenerate blog on change</h2>
 <p>We need to install <a href="http://blog.getpelican.com">Pelican</a> blog engine and <a href="http://inotify.aiken.cz/?section=incron&amp;page=about&amp;lang=en">incron</a> to trigger auto generation of the blog on changes in the <code>~/Dropbox/Pelican/content</code> folder.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install python-pelican python-markdown incron
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install python-pelican python-markdown incron
 </code></pre></div><p>Edit <code>DROPBOX_DIR</code> the the <a href="http://blog.getpelican.com">Pelican</a> <code>Makefile</code> to point to the <a href="https://en.wikipedia.org/wiki/Virtual_hosting" title="Virtual hosting">VirtualHost</a> which stores the blog.</p>
 <p>Then allow the <code>www-data</code> user to run incron.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#0aa">echo</span> www-data | sudo tee -a /etc/incron.allow
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">echo</span> www-data <span style="color:#111">|</span> sudo tee -a /etc/incron.allow
 </code></pre></div><p>And as a final step make the incrontab entry for <code>www-data</code> with <code>ìncrontab -e</code></p>
 <pre><code>/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
 </code></pre><p>Now <a href="http://blog.getpelican.com">Pelican</a> will recreate the blog on each change in <code>~/Dropbox/Pelican/content</code>. Happy blogging!</p>

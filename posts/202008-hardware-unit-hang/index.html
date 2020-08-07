@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -80,24 +78,24 @@
 <h2 id="workaround">Workaround</h2>
 <p>The workaround is to turn off TCP offloading on the network card. This can be done with <code>ethtool</code> or with NetworkManager as a more permanent solution. I found the workaround on Server Fault, <a href="https://serverfault.com/questions/616485/e1000e-reset-adapter-unexpectedly-detected-hardware-unit-hang">e1000e Reset adapter unexpectedly / Detected Hardware Unit Hang</a>.</p>
 <h3 id="ethtool">ethtool</h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ethtool -K eth0 tx off rx off
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ethtool -K eth0 tx off rx off
 </code></pre></div><h3 id="networkmanager">NetworkManager</h3>
 <p>This was my permanent solution on my problem. See <em>The bug</em>. Documentation of this way of modifying the network card was provided by RedHat at <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-ethtool-offload-features-using-networkmanager_configuring-and-managing-networking">Chapter 29. Configuring ethtool offload features using NetworkManager</a>.</p>
 <ol>
 <li>Find the network card NetworkManger connection name. My network card name is <code>eno1</code>. See the log excerpt from <em>The bug</em>.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli dev show eno1 | grep -i general.conn
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli dev show eno1 <span style="color:#111">|</span> grep -i general.conn
 </code></pre></div></li>
 <li>Add permanent configuration to the connection. My connection is named <code>bridge0 slave 1</code>.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con modify <span style="color:#a50">&#39;bridge0 slave 1&#39;</span> ethtool.feature-rx off ethtool.feature-tx off
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con modify <span style="color:#d88200">&#39;bridge0 slave 1&#39;</span> ethtool.feature-rx off ethtool.feature-tx off
 </code></pre></div></li>
 <li>Activate.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmcli con up <span style="color:#a50">&#39;bridge0 slave 1&#39;</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmcli con up <span style="color:#d88200">&#39;bridge0 slave 1&#39;</span>
 </code></pre></div></li>
 </ol>
 <h2 id="the-bug">The bug</h2>
 <p>You detect it in the <strong>kernel</strong> log. You&rsquo;ll see them in <code>dmesg</code> or <code>journalctl -b -t kernel</code> it will look something like this:</p>
-<pre><code class="language-dmesg" data-lang="dmesg">[ 2044.821230] e1000e 0000:00:1f.6 eno1: Detected Hardware Unit Hang:
-                 TDH                  &lt;3e&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"><span style="display:block;width:100%;background-color:#e1e1e1">[ 2044.821230] e1000e 0000:00:1f.6 eno1: Detected Hardware Unit Hang:
+</span>                 TDH                  &lt;3e&gt;
                  TDT                  &lt;6d&gt;
                  next_to_use          &lt;6d&gt;
                  next_to_clean        &lt;3d&gt;
@@ -116,7 +114,7 @@
 [ 2051.705902] e1000e 0000:00:1f.6 eno1: NIC Link is Up 1000 Mbps Full Duplex, Flow Control: Rx/Tx
 [ 2051.706018] bridge0: port 1(eno1) entered blocking state
 [ 2051.706023] bridge0: port 1(eno1) entered forwarding state
-</code></pre><p>This was taken from my own <code>dmesg</code>.</p>
+</code></pre></div><p>This was taken from my own <code>dmesg</code>.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
                 </section>

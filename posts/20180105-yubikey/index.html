@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -176,14 +174,14 @@
 </ol>
 <h3 id="change-ssh-to-use-gpg-agent">Change SSH to use gpg-agent</h3>
 <p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .bashrc
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .bashrc
 </code></pre></div><p>Add the following.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#00a">if</span> ! pgrep -u <span style="color:#a00">$USER</span> -f <span style="color:#a50">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
-<span style="color:#00a">then</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#00a8c8">if</span> ! pgrep -u <span style="color:#111">$USER</span> -f <span style="color:#d88200">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
+<span style="color:#00a8c8">then</span>
     pkill gpg-agent
-    gpg-agent --homedir <span style="color:#a00">$HOME</span>/.gnupg --daemon --enable-ssh-support
-<span style="color:#00a">fi</span>
-<span style="color:#a00">SSH_AUTH_SOCK</span>=<span style="color:#00a">$(</span>gpgconf --list-dir agent-ssh-socket<span style="color:#00a">)</span>
+    gpg-agent --homedir <span style="color:#111">$HOME</span>/.gnupg --daemon --enable-ssh-support
+<span style="color:#00a8c8">fi</span>
+<span style="color:#111">SSH_AUTH_SOCK</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>gpgconf --list-dir agent-ssh-socket<span style="color:#00a8c8">)</span>
 </code></pre></div><p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
 <h3 id="public-ssh-key">Public SSH key</h3>
 <p>Get your public SSH key.</p>

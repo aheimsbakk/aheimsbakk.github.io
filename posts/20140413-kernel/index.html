@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -79,7 +77,7 @@
                 
                 <section id="post-body">
                     <p>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dpkg-query -f <span style="color:#a50">&#39;${Package}\n&#39;</span> -W |  egrep <span style="color:#a50">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> | grep -v <span style="color:#00a">$(</span>uname -r | sed <span style="color:#a50">&#39;s/-generic//&#39;</span><span style="color:#00a">)</span> | sudo xargs apt-get -q -q -yy --purge remove
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dpkg-query -f <span style="color:#d88200">&#39;${Package}\n&#39;</span> -W <span style="color:#111">|</span>  egrep <span style="color:#d88200">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span style="color:#111">|</span> grep -v <span style="color:#00a8c8">$(</span>uname -r <span style="color:#111">|</span> sed <span style="color:#d88200">&#39;s/-generic//&#39;</span><span style="color:#00a8c8">)</span> <span style="color:#111">|</span> sudo xargs apt-get -q -q -yy --purge remove
 </code></pre></div><h2 id="breakdown">Breakdown</h2>
 <ol>
 <li>List all packages.</li>

@@ -26,8 +26,6 @@
 		
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
 		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/syntax.css">
-		
 	</head>
 
     <body>
@@ -75,7 +73,7 @@
                 
                 <section id="post-body">
                     <p>Find all duplicate files in current and sub-directories with bash.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#a50">&#39;%s\n&#39;</span> | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#d88200">&#39;%s\n&#39;</span> <span style="color:#111">|</span> sort -rn <span style="color:#111">|</span> uniq -d <span style="color:#111">|</span> xargs -I<span style="color:#f92672">{}</span> -n1 find -type f -size <span style="color:#f92672">{}</span>c -print0 <span style="color:#111">|</span> xargs -0 md5sum <span style="color:#111">|</span> sort <span style="color:#111">|</span> uniq -w32 --all-repeated<span style="color:#f92672">=</span>separate
 </code></pre></div><h2 id="breakdown">Breakdown</h2>
 <ol>
 <li>Find all non empty files and print out size.</li>
@@ -88,9 +86,9 @@
 </ol>
 <h2 id="alternatively">Alternatively</h2>
 <p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
 </code></pre></div><p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
 </code></pre></div>
                 </section>
             </article>
