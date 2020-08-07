@@ -64,6 +64,22 @@
     
         
             <li>
+                <aside class="dates">May 11</aside>
+                <a href='https://blog.heimsbakk.net/posts/20140511-rootnexus/'>
+                    Flashing a custom rom on Nexus 4
+                    
+                        
+                            <h2>Flashing a custom image on an Android mobile could be just fun. But if you don’t know why you want to do it, or do it just because it’s a challenge. Then don’t!
+The bad and the good I’m only pointing out some of the cons and the pros here.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
                 <aside class="dates">May 4</aside>
                 <a href='https://blog.heimsbakk.net/posts/20140504-ocsp/'>
                     OCSP Stapling on Apache
@@ -199,22 +215,6 @@ find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{
                         
                             <h2>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
 dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39; | grep -v $(uname -r | sed &#39;s/-generic//&#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Apr 13</aside>
-                <a href='https://blog.heimsbakk.net/posts/20140413-getopts/'>
-                    Bash getopts example
-                    
-                        
-                            <h2>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
-#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &gt;&amp;2 &lt;&lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .</h2>
                         
                     
                 </a>
