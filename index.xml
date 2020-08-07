@@ -6,10 +6,19 @@
     <description>Recent content on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2020 14:22:43 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 23:30:00 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ncdu - NCurses Disk Usage</title>
+      <link>https://blog.heimsbakk.net/posts/20200807-ncdu/</link>
+      <pubDate>Fri, 07 Aug 2020 23:30:00 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200807-ncdu/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://dev.yorhel.nl/ncdu&#34;&gt;ncdu&lt;/a&gt; (NCurses Disk Usage) is a curses-based version of the well-known &lt;code&gt;du&lt;/code&gt;, and provides a fast way to see what directories are using your disk space.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>tldr - a supplement to man</title>
