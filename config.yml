@@ -10,6 +10,10 @@ taxonomies:
   category: categories
   tag: tags
 
+# About syntax highlighting: https://gohugo.io/content-management/syntax-highlighting/
+# Style galary: https://xyproto.github.io/splash/docs/all.html
+# hugo gen chromastyles --style= > syntax.css
+
 markup:
   highlight:
     codeFences: true
@@ -19,7 +23,7 @@ markup:
     lineNos: false
     lineNumbersInTable: true
     noClasses: true
-    style: autumn
+    style: monokailight
     tabWidth: 4
 
 social:
@@ -81,7 +85,6 @@ params:
   customCSS:
     - css/code-size.css
     - css/width.css
-    - css/syntax.css
   customJS: []
 
   # The variables below are optionally too and can be used to

@@ -45,7 +45,7 @@ This was my permanent solution on my problem. See *The bug*. Documentation of th
 
 You detect it in the **kernel** log. You'll see them in `dmesg` or `journalctl -b -t kernel` it will look something like this:
 
-```dmesg
+```text {hl_lines=[1]}
 [ 2044.821230] e1000e 0000:00:1f.6 eno1: Detected Hardware Unit Hang:
                  TDH                  <3e>
                  TDT                  <6d>
