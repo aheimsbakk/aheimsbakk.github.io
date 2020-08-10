@@ -6,10 +6,28 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Aug 2020 00:08:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 00:28:09 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>link</title>
+      <link>https://blog.heimsbakk.net/tags/link/</link>
+      <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/link/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qrcode</title>
+      <link>https://blog.heimsbakk.net/tags/qrcode/</link>
+      <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/qrcode/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -17,15 +35,6 @@
       <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>link</title>
-      <link>https://blog.heimsbakk.net/tags/link/</link>
-      <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/link/</guid>
       <description></description>
     </item>
     

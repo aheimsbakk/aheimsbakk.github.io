@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="Sysadmin that blogs when life get boring">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>Barcode Content &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Barcode Content
+                    </h1>
+                    <h2 class="headline">
+                    Aug 11, 2020 00:28
+                    · 3187 words
+                    · 15 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/link">link</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/qrcode">qrcode</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p><em>This is a copy from the <a href="https://github.com/zxing/zxing">ZXing</a> repo <a href="https://github.com/zxing/zxing/wiki">wiki pages</a> at commit hash <code>3110236</code>. <a href="https://github.com/zxing">ZXing</a> is an open-source, multi-format 1D/2D barcode image processing library implemented in Java, with ports to other languages.</em></p>
+<hr>
+<p>Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself &ndash; QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.</p>
+<p>2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like <code>https://google.com/m</code>. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.</p>
+<p>2D barcodes can encode many types of actionable text. Text representing contact information, when recognized, could trigger a prompt to add the contact to an address book. But this only works when readers understand that text encodes contact information. For this, we need standards too.</p>
+<p>There are some standards &ndash; de facto and otherwise &ndash; already in use. This wiki attempts to catalog some possible standards for encoding various types of information, and suggest a standard action associated to them. It is not necessarily complete and contributions are welcome.</p>
+<p>The ZXing reader library supports all of the formats mentioned in this wiki and a bit more.</p>
+<h2 id="url">URL</h2>
+<p>The most common application of barcodes is to encode the text of URL such as <code>https://google.com/m</code>. To do so, simply encode exactly the text of the URL in the barcode: <code>https://google.com/m</code>. Include the protocol (<code>https://</code> here) to ensure it is recognized as a URL.</p>
+<p>Readers should open the URL in the device&rsquo;s web browser when decoding a URL. It is probably desirable for a reader to display the URL and ask the user whether to proceed, so that the user may see the URL before accessing it.</p>
+<p>URLs prefixed with <code>URLTO:</code> have been observed &ldquo;in the wild&rdquo; (e.g. <code>URLTO:google.com/m</code>).</p>
+<p>It&rsquo;s interesting to note that, actually, QR Codes can encode data more efficiently in some cases if only uppercase letters are used. That&rsquo;s because it has a special encoding mode for text consistent of only (uppercase) letters, numbers, and common symbols. It may be advantageous to encode a URL like <code>HTTP://MYSITE.COM/FOO...</code> rather than <code>http://mysite.com/foo...</code> for this reason. However, this depends upon the web server responding to requests correctly when the URI is uppercased. It&rsquo;s not necessarily true that URIs and paths are treated as case-insensitive by a web server, since URIs are technically case sensitive. Don&rsquo;t try this unless you test it to know it works.</p>
+<p>Note that NTT DoCoMo uses a <a href="https://web.archive.org/web/20160213153725/https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/">MEBKM bookmark format</a> to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.</p>
+<h2 id="e-mail-address">E-mail address</h2>
+<p>To encode an e-mail address like <code>sean@example.com</code>, one could simply encode <code>sean@example.com</code>. However to ensure it is recognized as an e-mail address, it is advisable to create a proper <code>mailto:</code> URL from the address: <code>mailto:sean@example.com</code>.</p>
+<p>All of the standard <code>mailto:</code> tricks/links should work here as well. Readers should open a blank e-mail message to the given address.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Address
+mailto:someone@yoursite.com
+
+# Address, subject
+mailto:someone@yoursite.com?subject=Mail%20from%20Our%20Site
+
+# Address, CC, BCC, subject
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&amp;bcc=lastperson@theirsite.com&amp;subject=Big%20News
+
+# Address, CC, BCC, subject, body
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&amp;bcc=lastperson@theirsite.com&amp;subject=Big%20News&amp;body=Body%20goes%20here.
+</code></pre></div><p>See also…</p>
+<ul>
+<li><a href="https://css-tricks.com/snippets/html/mailto-links/">CSS-Tricks: Mailto Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MailLinks/MailLinks.html#//apple_ref/doc/uid/TP40007899-CH4-SW1">Apple URL Scheme Reference: Mail Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Email">Android: Common Intents</a></li>
+<li><a href="https://tools.ietf.org/html/rfc6068">RFC 6068</a></li>
+</ul>
+<p>Note that NTT DoCoMo has standardized a more expressive <a href="https://web.archive.org/web/20130330190304/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/mail/">MATMSG format</a> for encoding an e-mail address, subject, and message.</p>
+<h2 id="telephone-numbers">Telephone numbers</h2>
+<p>A <code>tel</code> URI should be used to encode a telephone number, to ensure that the digits are understood as a telephone number. Further, you should generally use the most complete version of a telephone number possible (i.e., country code + area code + number). For example, to encode the US phone number 212-555-1212, one should encode <code>tel:+1-212-555-1212</code>. This tel URI includes a &ldquo;+1&rdquo; prefix that will make it usable outside the United States.</p>
+<p>Readers should invoke the device&rsquo;s dialer, if applicable, and pre-fill it with the given number, but not automatically initiate a call.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># NYC Directory assistance
+tel:+12125551212
+</code></pre></div><p>See Also…</p>
+<ul>
+<li><a href="https://css-tricks.com/the-current-state-of-telephone-links/">CSS-Tricks: The Current State of Telephone Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html">Apple URL Scheme Reference: Phone Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Phone">Android: Common Intents</a></li>
+</ul>
+<h2 id="contact-information">Contact information</h2>
+<p>We have, for example, the <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.</p>
+<p>NTT DoCoMo has popularized a compact <a href="https://web.archive.org/web/20130712164414/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/addressbook/">MECARD format</a> for encoding contact information. For example, to encode the name Sean Owen, address &ldquo;76 9th Avenue, 4th Floor, New York, NY 10011&rdquo;, phone number &ldquo;212 555 1212&rdquo;, e-mail <code>srowen@example.com</code>, one would encode this in a barcode:</p>
+<pre><code>MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
+</code></pre><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
+<p>Readers should open a new address book entry, populated with the given data, and prompt the user to add a new contact.</p>
+<h3 id="au-format">AU format</h3>
+<p>Note that KDDI AU also proposes a <a href="http://www.au.kddi.com/ezfactory/tec/two_dimensions/address.html">slightly different format</a> for this information.</p>
+<h3 id="bizcard">BIZCARD</h3>
+<p>We have also observed a BIZCARD format in use but have yet to locate a definitive reference on the format. One can guess its structure from a few examples; it resembles the MECARD format:</p>
+<pre><code>BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
+</code></pre><h3 id="vcard">vCard</h3>
+<p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List">Property lists</a> between the various versions of the vCard specification.</p>
+<pre><code class="language-vcard" data-lang="vcard">BEGIN:VCARD
+VERSION:3.0
+N:Owen;Sean;;;
+FN:Sean Owen
+TITLE:Software Engineer
+EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
+URL;TYPE=Homepage:https://example.com
+END:VCARD
+</code></pre><h2 id="smsmmsfacetime">SMS/MMS/FaceTime</h2>
+<p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724">RFC 5724</a> for details.</p>
+<p>Likewise <code>SMSTO:</code> URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS. We have heard of URIs of the form <code>sms:[number]:[subject]</code>, and likewise for other prefixes like <code>smsto:</code>.</p>
+<p>There appear to be &ldquo;mms:&rdquo; and &ldquo;MMSTO:&rdquo; URIs used like &ldquo;sms:&rdquo; URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.</p>
+<p>Readers should open a new SMS message, ready for the user to compose and send it.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Send an SMS/MMS to a number
+sms:+18005551212
+
+# Send an SMS/MMS to a number with pre-filled message.
+sms:+18005551212:This%20is%20my%20text%20message.
+
+# FaceTime Video
+facetime:+18005551212
+facetime:me@icloud.com
+
+# FaceTime Audio
+facetime-audio:+18005551212
+facetime-audio:me@icloud.com
+</code></pre></div><p>See Also…</p>
+<ul>
+<li><a href="https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/">CSS-Tricks: iPhone Calling and Texting Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1">Apple URL Scheme Reference: SMS Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1">Apple URL Scheme Reference: FaceTime Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Messaging">Android: Common Intents</a></li>
+</ul>
+<h2 id="maps-geographic-information">Maps, Geographic information</h2>
+<p>A <code>geo</code> URI may be used to encode a point on the earth, including altitude. For example, to encode the Google&rsquo;s New York office, which is at 40.71872 deg N latitude, 73.98905 deg W longitude, at a point 100 meters above the office, one would encode &ldquo;geo:40.71872,-73.98905,100&rdquo;.</p>
+<p>A reader might open a local mapping application like Google Maps to this location and zoom accordingly, or could open a link to this location on a mapping web site like Google Maps in the device&rsquo;s web browser.</p>
+<p>Services like <a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1">Apple Maps</a> and <a href="https://developers.google.com/maps/documentation/maps-static/intro">Google Maps</a> have more thorough implemenations with more options. These are presented as normal HTTPS-based URLs, but are generally handled by the built-in mapping applications.</p>
+<ul>
+<li><a href="https://maps.apple.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle">Apple Maps: Space Needle</a></li>
+<li><a href="https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle">Google Maps: Space Needle</a></li>
+</ul>
+<h2 id="calendar-events">Calendar Events</h2>
+<p>The newer <a href="https://en.wikipedia.org/wiki/ICalendar">iCalendar</a> (<code>.ics</code>) format, as well as the older <a href="https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0">vCalendar</a> (<code>.vcs</code>) format both define a sub-set of their formats for <em>events</em>. These are <a href="https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html">vEvents</a>.</p>
+<pre><code class="language-vevent" data-lang="vevent">BEGIN:VEVENT
+SUMMARY:Summer+Vacation!
+DTSTART:20180601T070000Z
+DTEND:20180831T070000Z
+END:VEVENT
+</code></pre><h2 id="wi-fi-network-config-android-ios-11">Wi-Fi Network config (Android, iOS 11+)</h2>
+<p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
+<pre><code>WIFI:T:WPA;S:mynetwork;P:mypass;;
+</code></pre><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td><code>WPA</code></td>
+<td>Authentication type; can be <code>WEP</code> or <code>WPA</code> or <code>WPA2-EAP</code>, or <code>nopass</code> for no password. Or, omit for no password.</td>
+</tr>
+<tr>
+<td>S</td>
+<td><code>mynetwork</code></td>
+<td>Network SSID. Required. Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. <code>&quot;ABCD&quot;</code>)</td>
+</tr>
+<tr>
+<td>P</td>
+<td><code>mypass</code></td>
+<td>Password, ignored if T is <code>nopass</code> (in which case it may be omitted). Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. <code>&quot;ABCD&quot;</code>)</td>
+</tr>
+<tr>
+<td>H</td>
+<td><code>true</code></td>
+<td>Optional. True if the network SSID is hidden. Note this was mistakenly also used to specify phase 2 method in releases up to 4.7.8 / Barcode Scanner 3.4.0. If not a boolean, it will be interpreted as phase 2 method (see below) for backwards-compatibility</td>
+</tr>
+<tr>
+<td>E</td>
+<td><code>TTLS</code></td>
+<td>(WPA2-EAP only) EAP method, like <code>TTLS</code> or <code>PWD</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>anon</code></td>
+<td>(WPA2-EAP only) Anonymous identity</td>
+</tr>
+<tr>
+<td>I</td>
+<td><code>myidentity</code></td>
+<td>(WPA2-EAP only) Identity</td>
+</tr>
+<tr>
+<td>PH2</td>
+<td><code>MSCHAPV2</code></td>
+<td>(WPA2-EAP only) Phase 2 method, like <code>MSCHAPV2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Order of fields does not matter. Special characters <code>\</code>, <code>;</code>, <code>,</code> and <code>:</code> should be escaped with a backslash (<code>\</code>) as in MECARD encoding. For example, if an SSID was literally <code>&quot;foo;bar\baz&quot;</code> (with double quotes part of the SSID name itself) then it would be encoded like: <code>WIFI:S:&quot;foo\;bar\\baz&quot;;;</code></p>
+<h2 id="platform-specific">Platform-specific</h2>
+<h3 id="google-play-store">Google Play Store</h3>
+<p>You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is <code>org.example.foo</code>, use:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">market://details?id=org.example.foo
+</code></pre></div><h3 id="itunes-and-app-store">iTunes and App Store</h3>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Apple Music, iTunes Music Store
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&amp;app=music
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&amp;app=itunes
+
+# iBooks Store
+https://geo.itunes.apple.com/us/book/crazy-rich-asians/id588213164?mt=11
+
+# App Store
+https://itunes.apple.com/us/app/fortnite/id1261357853?mt=8
+</code></pre></div><p>See also…</p>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/iTunesLinks/iTunesLinks.html#//apple_ref/doc/uid/TP40007899-CH3-SW1">Apple URL Scheme Reference: iTunes Links</a></li>
+<li><a href="https://linkmaker.itunes.apple.com">iTunes Link Maker</a></li>
+</ul>
+<h3 id="youtube">YouTube</h3>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/YouTubeLinks/YouTubeLinks.html#//apple_ref/doc/uid/TP40007899-CH8-SW1">Apple URL Scheme Reference: YouTube Links</a>
+ aheimsbakk   master  ~  Git  zxing.wiki  cat Barcode-Contents.md
+Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself &ndash; QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.</li>
+</ul>
+<p>2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like <code>https://google.com/m</code>. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.</p>
+<p>2D barcodes can encode many types of actionable text. Text representing contact information, when recognized, could trigger a prompt to add the contact to an address book. But this only works when readers understand that text encodes contact information. For this, we need standards too.</p>
+<p>There are some standards &ndash; de facto and otherwise &ndash; already in use. This wiki attempts to catalog some possible standards for encoding various types of information, and suggest a standard action associated to them. It is not necessarily complete and contributions are welcome.</p>
+<p>The ZXing reader library supports all of the formats mentioned in this wiki and a bit more.</p>
+<h2 id="url-1">URL</h2>
+<p>The most common application of barcodes is to encode the text of URL such as <code>https://google.com/m</code>. To do so, simply encode exactly the text of the URL in the barcode: <code>https://google.com/m</code>. Include the protocol (<code>https://</code> here) to ensure it is recognized as a URL.</p>
+<p>Readers should open the URL in the device&rsquo;s web browser when decoding a URL. It is probably desirable for a reader to display the URL and ask the user whether to proceed, so that the user may see the URL before accessing it.</p>
+<p>URLs prefixed with <code>URLTO:</code> have been observed &ldquo;in the wild&rdquo; (e.g. <code>URLTO:google.com/m</code>).</p>
+<p>It&rsquo;s interesting to note that, actually, QR Codes can encode data more efficiently in some cases if only uppercase letters are used. That&rsquo;s because it has a special encoding mode for text consistent of only (uppercase) letters, numbers, and common symbols. It may be advantageous to encode a URL like <code>HTTP://MYSITE.COM/FOO...</code> rather than <code>http://mysite.com/foo...</code> for this reason. However, this depends upon the web server responding to requests correctly when the URI is uppercased. It&rsquo;s not necessarily true that URIs and paths are treated as case-insensitive by a web server, since URIs are technically case sensitive. Don&rsquo;t try this unless you test it to know it works.</p>
+<p>Note that NTT DoCoMo uses a <a href="https://web.archive.org/web/20160213153725/https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/">MEBKM bookmark format</a> to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.</p>
+<h2 id="e-mail-address-1">E-mail address</h2>
+<p>To encode an e-mail address like <code>sean@example.com</code>, one could simply encode <code>sean@example.com</code>. However to ensure it is recognized as an e-mail address, it is advisable to create a proper <code>mailto:</code> URL from the address: <code>mailto:sean@example.com</code>.</p>
+<p>All of the standard <code>mailto:</code> tricks/links should work here as well. Readers should open a blank e-mail message to the given address.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Address
+mailto:someone@yoursite.com
+
+# Address, subject
+mailto:someone@yoursite.com?subject=Mail%20from%20Our%20Site
+
+# Address, CC, BCC, subject
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&amp;bcc=lastperson@theirsite.com&amp;subject=Big%20News
+
+# Address, CC, BCC, subject, body
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&amp;bcc=lastperson@theirsite.com&amp;subject=Big%20News&amp;body=Body%20goes%20here.
+</code></pre></div><p>See also…</p>
+<ul>
+<li><a href="https://css-tricks.com/snippets/html/mailto-links/">CSS-Tricks: Mailto Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MailLinks/MailLinks.html#//apple_ref/doc/uid/TP40007899-CH4-SW1">Apple URL Scheme Reference: Mail Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Email">Android: Common Intents</a></li>
+<li><a href="https://tools.ietf.org/html/rfc6068">RFC 6068</a></li>
+</ul>
+<p>Note that NTT DoCoMo has standardized a more expressive <a href="https://web.archive.org/web/20130330190304/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/mail/">MATMSG format</a> for encoding an e-mail address, subject, and message.</p>
+<h2 id="telephone-numbers-1">Telephone numbers</h2>
+<p>A <code>tel</code> URI should be used to encode a telephone number, to ensure that the digits are understood as a telephone number. Further, you should generally use the most complete version of a telephone number possible (i.e., country code + area code + number). For example, to encode the US phone number 212-555-1212, one should encode <code>tel:+1-212-555-1212</code>. This tel URI includes a &ldquo;+1&rdquo; prefix that will make it usable outside the United States.</p>
+<p>Readers should invoke the device&rsquo;s dialer, if applicable, and pre-fill it with the given number, but not automatically initiate a call.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># NYC Directory assistance
+tel:+12125551212
+</code></pre></div><p>See Also…</p>
+<ul>
+<li><a href="https://css-tricks.com/the-current-state-of-telephone-links/">CSS-Tricks: The Current State of Telephone Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html">Apple URL Scheme Reference: Phone Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Phone">Android: Common Intents</a></li>
+</ul>
+<h2 id="contact-information-1">Contact information</h2>
+<p>We have, for example, the <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.</p>
+<p>NTT DoCoMo has popularized a compact <a href="https://web.archive.org/web/20130712164414/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/addressbook/">MECARD format</a> for encoding contact information. For example, to encode the name Sean Owen, address &ldquo;76 9th Avenue, 4th Floor, New York, NY 10011&rdquo;, phone number &ldquo;212 555 1212&rdquo;, e-mail <code>srowen@example.com</code>, one would encode this in a barcode:</p>
+<pre><code>MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
+</code></pre><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
+<p>Readers should open a new address book entry, populated with the given data, and prompt the user to add a new contact.</p>
+<h3 id="au-format-1">AU format</h3>
+<p>Note that KDDI AU also proposes a <a href="http://www.au.kddi.com/ezfactory/tec/two_dimensions/address.html">slightly different format</a> for this information.</p>
+<h3 id="bizcard-1">BIZCARD</h3>
+<p>We have also observed a BIZCARD format in use but have yet to locate a definitive reference on the format. One can guess its structure from a few examples; it resembles the MECARD format:</p>
+<pre><code>BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
+</code></pre><h3 id="vcard-1">vCard</h3>
+<p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List">Property lists</a> between the various versions of the vCard specification.</p>
+<pre><code class="language-vcard" data-lang="vcard">BEGIN:VCARD
+VERSION:3.0
+N:Owen;Sean;;;
+FN:Sean Owen
+TITLE:Software Engineer
+EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
+URL;TYPE=Homepage:https://example.com
+END:VCARD
+</code></pre><h2 id="smsmmsfacetime-1">SMS/MMS/FaceTime</h2>
+<p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724">RFC 5724</a> for details.</p>
+<p>Likewise <code>SMSTO:</code> URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS. We have heard of URIs of the form <code>sms:[number]:[subject]</code>, and likewise for other prefixes like <code>smsto:</code>.</p>
+<p>There appear to be &ldquo;mms:&rdquo; and &ldquo;MMSTO:&rdquo; URIs used like &ldquo;sms:&rdquo; URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.</p>
+<p>Readers should open a new SMS message, ready for the user to compose and send it.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Send an SMS/MMS to a number
+sms:+18005551212
+
+# Send an SMS/MMS to a number with pre-filled message.
+sms:+18005551212:This%20is%20my%20text%20message.
+
+# FaceTime Video
+facetime:+18005551212
+facetime:me@icloud.com
+
+# FaceTime Audio
+facetime-audio:+18005551212
+facetime-audio:me@icloud.com
+</code></pre></div><p>See Also…</p>
+<ul>
+<li><a href="https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/">CSS-Tricks: iPhone Calling and Texting Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1">Apple URL Scheme Reference: SMS Links</a></li>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1">Apple URL Scheme Reference: FaceTime Links</a></li>
+<li><a href="https://developer.android.com/guide/components/intents-common#Messaging">Android: Common Intents</a></li>
+</ul>
+<h2 id="maps-geographic-information-1">Maps, Geographic information</h2>
+<p>A <code>geo</code> URI may be used to encode a point on the earth, including altitude. For example, to encode the Google&rsquo;s New York office, which is at 40.71872 deg N latitude, 73.98905 deg W longitude, at a point 100 meters above the office, one would encode &ldquo;geo:40.71872,-73.98905,100&rdquo;.</p>
+<p>A reader might open a local mapping application like Google Maps to this location and zoom accordingly, or could open a link to this location on a mapping web site like Google Maps in the device&rsquo;s web browser.</p>
+<p>Services like <a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1">Apple Maps</a> and <a href="https://developers.google.com/maps/documentation/maps-static/intro">Google Maps</a> have more thorough implemenations with more options. These are presented as normal HTTPS-based URLs, but are generally handled by the built-in mapping applications.</p>
+<ul>
+<li><a href="https://maps.apple.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle">Apple Maps: Space Needle</a></li>
+<li><a href="https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle">Google Maps: Space Needle</a></li>
+</ul>
+<h2 id="calendar-events-1">Calendar Events</h2>
+<p>The newer <a href="https://en.wikipedia.org/wiki/ICalendar">iCalendar</a> (<code>.ics</code>) format, as well as the older <a href="https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0">vCalendar</a> (<code>.vcs</code>) format both define a sub-set of their formats for <em>events</em>. These are <a href="https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html">vEvents</a>.</p>
+<pre><code class="language-vevent" data-lang="vevent">BEGIN:VEVENT
+SUMMARY:Summer+Vacation!
+DTSTART:20180601T070000Z
+DTEND:20180831T070000Z
+END:VEVENT
+</code></pre><h2 id="wi-fi-network-config-android-ios-11-1">Wi-Fi Network config (Android, iOS 11+)</h2>
+<p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
+<pre><code>WIFI:T:WPA;S:mynetwork;P:mypass;;
+</code></pre><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td><code>WPA</code></td>
+<td>Authentication type; can be <code>WEP</code> or <code>WPA</code> or <code>WPA2-EAP</code>, or <code>nopass</code> for no password. Or, omit for no password.</td>
+</tr>
+<tr>
+<td>S</td>
+<td><code>mynetwork</code></td>
+<td>Network SSID. Required. Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. <code>&quot;ABCD&quot;</code>)</td>
+</tr>
+<tr>
+<td>P</td>
+<td><code>mypass</code></td>
+<td>Password, ignored if T is <code>nopass</code> (in which case it may be omitted). Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. <code>&quot;ABCD&quot;</code>)</td>
+</tr>
+<tr>
+<td>H</td>
+<td><code>true</code></td>
+<td>Optional. True if the network SSID is hidden. Note this was mistakenly also used to specify phase 2 method in releases up to 4.7.8 / Barcode Scanner 3.4.0. If not a boolean, it will be interpreted as phase 2 method (see below) for backwards-compatibility</td>
+</tr>
+<tr>
+<td>E</td>
+<td><code>TTLS</code></td>
+<td>(WPA2-EAP only) EAP method, like <code>TTLS</code> or <code>PWD</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>anon</code></td>
+<td>(WPA2-EAP only) Anonymous identity</td>
+</tr>
+<tr>
+<td>I</td>
+<td><code>myidentity</code></td>
+<td>(WPA2-EAP only) Identity</td>
+</tr>
+<tr>
+<td>PH2</td>
+<td><code>MSCHAPV2</code></td>
+<td>(WPA2-EAP only) Phase 2 method, like <code>MSCHAPV2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Order of fields does not matter. Special characters <code>\</code>, <code>;</code>, <code>,</code> and <code>:</code> should be escaped with a backslash (<code>\</code>) as in MECARD encoding. For example, if an SSID was literally <code>&quot;foo;bar\baz&quot;</code> (with double quotes part of the SSID name itself) then it would be encoded like: <code>WIFI:S:&quot;foo\;bar\\baz&quot;;;</code></p>
+<h2 id="platform-specific-1">Platform-specific</h2>
+<h3 id="google-play-store-1">Google Play Store</h3>
+<p>You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is <code>org.example.foo</code>, use:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">market://details?id=org.example.foo
+</code></pre></div><h3 id="itunes-and-app-store-1">iTunes and App Store</h3>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"># Apple Music, iTunes Music Store
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&amp;app=music
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&amp;app=itunes
+
+# iBooks Store
+https://geo.itunes.apple.com/us/book/crazy-rich-asians/id588213164?mt=11
+
+# App Store
+https://itunes.apple.com/us/app/fortnite/id1261357853?mt=8
+</code></pre></div><p>See also…</p>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/iTunesLinks/iTunesLinks.html#//apple_ref/doc/uid/TP40007899-CH3-SW1">Apple URL Scheme Reference: iTunes Links</a></li>
+<li><a href="https://linkmaker.itunes.apple.com">iTunes Link Maker</a></li>
+</ul>
+<h3 id="youtube-1">YouTube</h3>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/YouTubeLinks/YouTubeLinks.html#//apple_ref/doc/uid/TP40007899-CH8-SW1">Apple URL Scheme Reference: YouTube Links</a></li>
+</ul>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>
