@@ -65,6 +65,22 @@
         
             <li>
                 <aside class="dates">Apr 13</aside>
+                <a href='https://blog.heimsbakk.net/posts/20140413-kernel/'>
+                    Remove unused kernels
+                    
+                        
+                            <h2>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
+dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39; | grep -v $(uname -r | sed &#39;s/-generic//&#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Apr 13</aside>
                 <a href='https://blog.heimsbakk.net/posts/20140413-getopts/'>
                     Bash getopts example
                     
