@@ -6,10 +6,28 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Aug 2020 00:28:09 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 22:48:52 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>intel</title>
+      <link>https://blog.heimsbakk.net/tags/intel/</link>
+      <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/intel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xorg</title>
+      <link>https://blog.heimsbakk.net/tags/xorg/</link>
+      <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/xorg/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>link</title>
@@ -215,15 +233,6 @@
       <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/benchmark/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>intel</title>
-      <link>https://blog.heimsbakk.net/tags/intel/</link>
-      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/intel/</guid>
       <description></description>
     </item>
     
