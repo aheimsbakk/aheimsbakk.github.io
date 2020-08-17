@@ -11,6 +11,8 @@ tags:
 
 My cheat sheet for `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown <http://daringfireball.net/projects/markdown>`_.
 
+<!--more-->
+
 * Examples taken from `reStructuredText Markup Specification`_
 * See also `reStructuredText Directives`_
 

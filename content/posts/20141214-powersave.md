@@ -10,6 +10,8 @@ tags:
 
 Notes for power saving on my i5 laptop.
 
+<!--more-->
+
 ## /etc/rc.local
 
 ```bash
