@@ -35,7 +35,6 @@ privacy:
   disqus:
     disable: true
   googleAnalytics:
-
     anonymizeIP: false
     disable: true
     respectDoNotTrack: false
@@ -51,8 +50,8 @@ privacy:
     disable: true
     simple: false
   youtube:
-    disable: true
-    privacyEnhanced: false
+    disable: false
+    privacyEnhanced: true
 
 params:
   author: Arnulf Heimsbakk
