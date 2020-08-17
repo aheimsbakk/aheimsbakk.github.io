@@ -55,7 +55,7 @@ privacy:
 
 params:
   author: Arnulf Heimsbakk
-  description: Sysadmin that blogs when life get boring
+  description: This blog is mostly updated with stuff I don't want to forget. The content is configuration snippets or links for use at home.
   bio: ramblings of a sysadmin
 
   twitter: ""
