@@ -64,10 +64,7 @@ Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt me
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
-      <description>This will show how to get A+ on SSL Server Test from Qualys SSL Labs.
-Enable SSL and headers module in Apache2.
-a2enmod ssl a2enmod headers  Edit Apache configuration.
-SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!</description>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

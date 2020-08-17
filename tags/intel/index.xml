@@ -26,8 +26,7 @@
       <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20141214-powersave/</guid>
-      <description>Notes for power saving on my i5 laptop.
-/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &amp;gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&amp;#34;video.</description>
+      <description>&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;</description>
     </item>
     
   </channel>

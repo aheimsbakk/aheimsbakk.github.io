@@ -117,7 +117,7 @@ Asus RT-N66U is a Linux based wireless router. The stock firmware can be a bit l
                     
                         
                             <h2>Find all duplicate files in current and sub-directories with bash.
-find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size.</h2>
+</h2>
                         
                     
                 </a>
@@ -133,7 +133,7 @@ find -not -empty -type f -printf &#39;%s\n&#39; | sort -rn | uniq -d | xargs -I{
                     
                         
                             <h2>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39; | grep -v $(uname -r | sed &#39;s/-generic//&#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</h2>
+</h2>
                         
                     
                 </a>
@@ -149,7 +149,7 @@ dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:di
                     
                         
                             <h2>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
-#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &gt;&amp;2 &lt;&lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .</h2>
+</h2>
                         
                     
                 </a>
@@ -181,7 +181,7 @@ dpkg-query -f &#39;${Package}\n&#39; -W | egrep &#39;linux-(headers|image)-[[:di
                     
                         
                             <h2>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
-set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.</h2>
+</h2>
                         
                     
                 </a>

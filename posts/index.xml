@@ -220,8 +220,7 @@ This example only show how to use fio to make reproduceable test on a file syste
       <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20141214-powersave/</guid>
-      <description>Notes for power saving on my i5 laptop.
-/etc/rc.local # SATA power save echo medium_power | tee /sys/class/scsi_host/host*/link_power_management_policy &amp;gt; /dev/null # Set minimum performance to 30% of CPU MHz echo 30 &amp;gt; /sys/devices/system/cpu/intel_pstate/min_perf_pct # Set CPU governor to power save since we run on a laptop # Valid values: powersave performance echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor &amp;gt; /dev/null # Increase for CrashPlan so unlocking gnome-shell lock screen works echo 1048576 &amp;gt; /proc/sys/fs/inotify/max_user_watches /etc/default/grub # Make my back light buttons work correctly # Full power save for GPU GRUB_CMDLINE_LINUX=&amp;#34;video.</description>
+      <description>&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -287,10 +286,7 @@ A way to be able to blog from anywhere is to use Dropbox as repository for the y
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
-      <description>This will show how to get A+ on SSL Server Test from Qualys SSL Labs.
-Enable SSL and headers module in Apache2.
-a2enmod ssl a2enmod headers  Edit Apache configuration.
-SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/crt/«yourkey».pem SSLCertificateChainFile /etc/ssl/crt/«intermediatechain».pem Header always set Strict-Transport-Security &amp;quot;max-age=31536000; includeSubDomains&amp;quot; SSLEngine on SSLProtocol all -SSLv2 -SSLv3 SSLHonorCipherOrder On SSLCipherSuite EECDH:EDH:AES:!</description>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -299,8 +295,10 @@ SSLCertificateFile /etc/ssl/crt/«yourcert».pem SSLCertificateKeyFile /etc/ssl/
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
-      <description>My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.
-Examples taken from reStructuredText Markup Specification See also reStructuredText Directives  Blog arthicle metadata reStructuredText cheat sheet ############################ :date: 2014-05-03 18:00 :tags: cheatsheet, pelican :category: blog :slug: 2014-05-03-rst :author: arnulf :summary: My cheat sheet for `reStructuredText &amp;lt;http://docutils.</description>
+      <description>&lt;div class=&#34;document&#34;&gt;
+
+
+&lt;p&gt;My cheat sheet for &lt;a class=&#34;reference external&#34; href=&#34;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&#34;&gt;reStructuredText&lt;/a&gt; syntax with examples how it will look after parsing. &lt;a class=&#34;reference external&#34; href=&#34;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&#34;&gt;reStructuredText&lt;/a&gt; is an alternative for &lt;a class=&#34;reference external&#34; href=&#34;http://daringfireball.net/projects/markdown&#34;&gt;Markedown&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -338,8 +336,7 @@ Asus RT-N66U is a Linux based wireless router. The stock firmware can be a bit l
       <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140413-duplicates/</guid>
-      <description>Find all duplicate files in current and sub-directories with bash.
-find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate Breakdown  Find all non empty files and print out size.</description>
+      <description>&lt;p&gt;Find all duplicate files in current and sub-directories with bash.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -348,8 +345,7 @@ find -not -empty -type f -printf &amp;#39;%s\n&amp;#39; | sort -rn | uniq -d | x
       <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
-      <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</description>
+      <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -358,8 +354,7 @@ dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|
       <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140413-getopts/</guid>
-      <description>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)
-#!/bin/bash  # Print help on stderr function show_help(){ show_usage cat &amp;gt;&amp;amp;2 &amp;lt;&amp;lt;EOF Explain all about $(basename $0) here. EOF } # Print usage on stderr function show_usage() { echo &amp;#34;$(basename $0)[-a ARG] [-b] [N1 [N2 .</description>
+      <description>&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -378,8 +373,7 @@ dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|
       <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140413-modeline/</guid>
-      <description>Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.
-set modelineThe modeline should be the first line in the file. You can set it inn multiple ways as shown below.</description>
+      <description>&lt;p&gt;Options set in &lt;code&gt;.vimrc&lt;/code&gt; applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in &lt;code&gt;.vimrc&lt;/code&gt; to take advantage of this option.&lt;/p&gt;</description>
     </item>
     
     <item>

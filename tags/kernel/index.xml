@@ -26,8 +26,7 @@
       <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140413-kernel/</guid>
-      <description>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)
-dpkg-query -f &amp;#39;${Package}\n&amp;#39; -W | egrep &amp;#39;linux-(headers|image)-[[:digit:]].*(|-generic)&amp;#39; | grep -v $(uname -r | sed &amp;#39;s/-generic//&amp;#39;) | sudo xargs apt-get -q -q -yy --purge remove Breakdown  List all packages. Find only linux-image and linux-header packages with version number, not the two main meta packages.</description>
+      <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
     </item>
     
   </channel>
