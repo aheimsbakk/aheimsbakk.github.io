@@ -6,10 +6,19 @@
     <description>Recent content in uris on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2020 14:36:38 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2020 15:43:59 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/categories/uris/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chess resources</title>
+      <link>https://blog.heimsbakk.net/posts/20200817-chess/</link>
+      <pubDate>Mon, 17 Aug 2020 15:43:59 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200817-chess/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chess&#34;&gt;Chess&lt;/a&gt; is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 square grid.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Origami / Paper Folding</title>
