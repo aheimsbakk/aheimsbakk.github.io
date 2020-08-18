@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>guide on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/guide/</link>
+    <description>Recent content in guide on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Aug 2020 22:41:04 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.heimsbakk.net/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git - the simple guide</title>
+      <link>https://blog.heimsbakk.net/posts/20200818-git/</link>
+      <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200818-git/</guid>
+      <description>&lt;p&gt;Excerpt: &lt;em&gt;just a simple guide for getting started with git. no deep shit ;)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
