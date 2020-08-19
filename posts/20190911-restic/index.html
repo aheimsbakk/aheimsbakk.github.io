@@ -89,13 +89,13 @@
 <li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
 </ol>
 <h2 id="design-rely-traffic-through-proxy">Design, rely traffic through proxy</h2>
-<pre><code>     source               intermediate                destination
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">     source               intermediate                destination
 +---------------+       +--------------+  chosen     +-----------+
 |               |  SSH  | rclone       |  transport  | favorite  |
 | /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
 |               |       | rely         |             | storage   |
 +---------------+       +--------------+             +-----------+
-</code></pre><h2 id="configure">Configure</h2>
+</code></pre></div><h2 id="configure">Configure</h2>
 <h3 id="on-source">On <em>source</em></h3>
 <ol>
 <li>
