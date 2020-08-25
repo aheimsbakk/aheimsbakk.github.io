@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+		<meta name="generator" content="Hugo 0.69.0" />
+		<title>snapper - filesystem snapshot management &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        snapper - filesystem snapshot management
+                    </h1>
+                    <h2 class="headline">
+                    Aug 25, 2020 18:21
+                    · 400 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/btrfs">btrfs</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/fedora">fedora</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>Excerpt from <code>man</code>: <em>Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.</em></p>
+<p><em>Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.</em></p>
+<p>This is my notes. Use at your own risk.</p>
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper list
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper restore &lt;number&gt;
+</code></pre></div><h2 id="set-default-subvolume">Set default subvolume</h2>
+<ol>
+<li>
+<p>List subvolume on filsystem.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub list /
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ID 256 gen 15137 top level 5 path home
+<span style="display:block;width:100%;background-color:#e1e1e1">ID 257 gen 11927 top level 5 path root
+</span></code></pre></div></li>
+<li>
+<p>Set default subvolume for the mounted filesystem to the <code>root</code> subvolume.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub set-default <span style="color:#ae81ff">257</span> /
+</code></pre></div></li>
+<li>
+<p>Remove subvolume from <code>/etc/fstab</code> since it&rsquo;s now default.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#d88200">&#39;s/subvol=root,//&#39;</span> /etc/fstab
+</code></pre></div></li>
+<li>
+<p>Update grub to use the default volume. Use <code>SUSE_BTRFS_SNAPSHOT_BOOTING</code> grub config to avoid adding root subvolume to the grub kernel parameters.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -q SUSE /etc/sysconfig/grub <span style="color:#f92672">||</span> <span style="color:#8045ff">\
+</span><span style="color:#8045ff"></span>    <span style="color:#111">echo</span> <span style="color:#111">SUSE_BTRFS_SNAPSHOT_BOOTING</span><span style="color:#f92672">=</span><span style="color:#111">true</span> <span style="color:#111">|</span> <span style="color:#8045ff">\
+</span><span style="color:#8045ff"></span>    sudo tee -a /etc/sysconfig/grub
+</code></pre></div></li>
+<li>
+<p>Update grub config. This updates grub configuration on an EFI system.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grub2-mkconfig &gt; /boot/efi/EFI/fedora/grub.cfg
+</code></pre></div></li>
+</ol>
+<h2 id="install-and-configure-snapper">Install and configure snapper</h2>
+<ol>
+<li>
+<p>Install snapper.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dnf install snapper
+</code></pre></div></li>
+<li>
+<p>Add default snapper configuration.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper create-config /
+</code></pre></div></li>
+<li>
+<p>Keep number of <code>NUMBER</code> snapshots to <code>3</code>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(NUMBER_LIMIT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
+</code></pre></div></li>
+<li>
+<p>Keep number of <code>IMPORTANT</code> snapshots to <code>3</code></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(NUMBER_LIMIT_IMPORTANT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
+</code></pre></div></li>
+<li>
+<p>Keep number of <code>TIMELINE</code> snapshot to one each day for 7 days.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_HOURLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_DAILY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_WEEKLY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_MONTHLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_YEARLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+</code></pre></div></li>
+<li>
+<p>Enable snapper.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl <span style="color:#111">enable</span> snapper-boot.timer --now
+systemctl <span style="color:#111">enable</span> snapper-cleanup.timer --now
+systemctl <span style="color:#111">enable</span> snapper-timeline.timer --now
+</code></pre></div></li>
+</ol>
+<h2 id="example-output">Example output</h2>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper --iso list
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"> # | Type   | Pre # | Date                | User | Cleanup  | Description           | Userdata     
+---+--------+-------+---------------------+------+----------+-----------------------+--------------
+0  | single |       |                     | root |          | current               |              
+2  | single |       | 2020-08-25 17:10:57 | root | number   | rollback backup       | important=yes
+4  | single |       | 2020-08-25 17:13:49 | root | number   | rollback backup of #3 | important=yes
+<span style="display:block;width:100%;background-color:#e1e1e1">5* | single |       | 2020-08-25 17:13:49 | root |          |                       |              
+</span>6  | single |       | 2020-08-25 17:31:16 | root | number   | boot                  |              
+7  | single |       | 2020-08-25 18:00:56 | root | timeline | timeline              |              
+8  | single |       | 2020-08-25 18:11:41 | root | number   | boot                  |              
+9  | single |       | 2020-08-25 19:00:48 | root | timeline | timeline              |              
+</code></pre></div><p>Highlighted current running snapshot.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

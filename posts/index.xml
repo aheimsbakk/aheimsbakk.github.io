@@ -6,10 +6,20 @@
     <description>Recent content in Posts on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 22:41:04 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 18:21:20 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>snapper - filesystem snapshot management</title>
+      <link>https://blog.heimsbakk.net/posts/20200825-snapper/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20200825-snapper/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;code&gt;man&lt;/code&gt;: &lt;em&gt;Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>git - the simple guide</title>

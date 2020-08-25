@@ -6,10 +6,37 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 22:41:04 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 18:21:20 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>btrfs</title>
+      <link>https://blog.heimsbakk.net/tags/btrfs/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/btrfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fedora</title>
+      <link>https://blog.heimsbakk.net/tags/fedora/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>howto</title>
+      <link>https://blog.heimsbakk.net/tags/howto/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/howto/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>git</title>
@@ -215,15 +242,6 @@
       <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/virtualbox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>howto</title>
-      <link>https://blog.heimsbakk.net/tags/howto/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/howto/</guid>
       <description></description>
     </item>
     
