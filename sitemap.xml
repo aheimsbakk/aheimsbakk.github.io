@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2020-08-25T18:21:20+02:00</lastmod>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/fedora/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/kernel/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/uris/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20210224-kernel/</loc>
+    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
   </url>
   
   <url>
@@ -18,32 +53,12 @@
   </url>
   
   <url>
-    <loc>https://blog.heimsbakk.net/categories/</loc>
-    <lastmod>2020-08-25T18:21:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/fedora/</loc>
-    <lastmod>2020-08-25T18:21:20+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.heimsbakk.net/tags/howto/</loc>
     <lastmod>2020-08-25T18:21:20+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2020-08-25T18:21:20+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.heimsbakk.net/posts/20200825-snapper/</loc>
-    <lastmod>2020-08-25T18:21:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/</loc>
     <lastmod>2020-08-25T18:21:20+02:00</lastmod>
   </url>
   
@@ -64,11 +79,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/link/</loc>
-    <lastmod>2020-08-18T22:41:04+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/categories/uris/</loc>
     <lastmod>2020-08-18T22:41:04+02:00</lastmod>
   </url>
   
@@ -274,11 +284,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/20150111-zram/</loc>
-    <lastmod>2015-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/kernel/</loc>
     <lastmod>2015-01-11T00:00:00+00:00</lastmod>
   </url>
   

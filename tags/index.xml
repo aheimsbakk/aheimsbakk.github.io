@@ -6,22 +6,31 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2020 18:21:20 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 19:29:10 +0100</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fedora</title>
+      <link>https://blog.heimsbakk.net/tags/fedora/</link>
+      <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://blog.heimsbakk.net/tags/kernel/</link>
+      <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>btrfs</title>
       <link>https://blog.heimsbakk.net/tags/btrfs/</link>
       <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/btrfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fedora</title>
-      <link>https://blog.heimsbakk.net/tags/fedora/</link>
-      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/fedora/</guid>
       <description></description>
     </item>
     
@@ -256,15 +265,6 @@
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/yubikey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kernel</title>
-      <link>https://blog.heimsbakk.net/tags/kernel/</link>
-      <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/kernel/</guid>
       <description></description>
     </item>
     
