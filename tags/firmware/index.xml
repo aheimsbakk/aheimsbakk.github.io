@@ -6,11 +6,7 @@
     <description>Recent content in firmware on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Apr 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.heimsbakk.net/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RT-N66u with Tomato by Shibby firmware</title>
       <link>https://blog.heimsbakk.net/posts/20140417-tomato/</link>

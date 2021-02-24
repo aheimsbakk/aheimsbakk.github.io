@@ -6,11 +6,7 @@
     <description>Recent content in yubikey on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.heimsbakk.net/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSH with YubiKey NEO on Fedora made easy</title>
       <link>https://blog.heimsbakk.net/posts/20180105-yubikey/</link>

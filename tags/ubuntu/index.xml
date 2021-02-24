@@ -6,11 +6,7 @@
     <description>Recent content in ubuntu on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
-    
-	<atom:link href="https://blog.heimsbakk.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vagrant with Ubuntu Focal (20.04)</title>
       <link>https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/</link>
