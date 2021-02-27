@@ -8,7 +8,7 @@
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
 		<meta name="generator" content="Hugo 0.80.0" />
-		<title>Use Vanilla kernel on Fedora &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<title>Malware lists for PiHole &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
@@ -51,19 +51,17 @@
             <article>
                 <header>
                     <h1>
-                        Use Vanilla kernel on Fedora
+                        Malware lists for PiHole
                     </h1>
                     <h2 class="headline">
-                    Feb 24, 2021 19:29
-                    · 62 words
+                    Feb 27, 2021 18:30
+                    · 139 words
                     · 1 minute read
                       <span class="tags">
                       
                       
                           
-                              <a href="https://blog.heimsbakk.net/tags/fedora">fedora</a>
-                          
-                              <a href="https://blog.heimsbakk.net/tags/kernel">kernel</a>
+                              <a href="https://blog.heimsbakk.net/tags/security">security</a>
                           
                               <a href="https://blog.heimsbakk.net/tags/link">link</a>
                           
@@ -74,8 +72,13 @@
                 </header>
                 
                 <section id="post-body">
-                    <p>Excerpt: <em>The Linux vanilla kernel repositories for Fedora offer RPM packages containing vanilla builds of different Linux kernel version lines. These packages are meant for Fedora users that want to access the latest Linux kernels quickly and comfortably; either the latest mainline kernel, the latest stable kernel or a vanilla variant of the Linux kernel version line Fedora uses currently.</em></p>
-<p>Link: <a href="https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories">https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories</a></p>
+                    <p>Excerpt from <a href="https://en.wikipedia.org/wiki/Pi-hole">Wikipedia</a>: <em>Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for use on embedded devices with network capability, such as the Raspberry Pi, but it can be used on other machines running Linux, including cloud implementations.</em></p>
+<p>Configuring <a href="https://pi-hole.net/">PiHole</a> to resolve IP towards <a href="https://www.quad9.net/">Quad9</a>, which is currently the best public available malware domain filtering DNS service. On top of that you can add your own lists. Recommended lists are the two below.</p>
+<p>Sources for malware lists:</p>
+<ul>
+<li>A blocklist of malicious websites that are being used for malware distribution, based on the Database dump (CSV) of Abuse.ch. <a href="https://curben.gitlab.io/malware-filter/urlhaus-filter-domains.txt">Domains and IP addresses</a>, source at <a href="https://gitlab.com/curben/urlhaus-filter">GitHub</a>.</li>
+<li>Unified hosts file with base extensions. <a href="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts">Adware + malware</a>, source at <a href="https://github.com/StevenBlack/hosts">GitHub</a></li>
+</ul>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 

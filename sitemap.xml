@@ -4,12 +4,42 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/</loc>
-    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/link/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20210227-pihole-lists/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/security/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/categories/uris/</loc>
+    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
   </url>
   
   <url>
@@ -19,21 +49,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/kernel/</loc>
-    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/</loc>
-    <lastmod>2021-02-24T19:29:10+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/categories/uris/</loc>
     <lastmod>2021-02-24T19:29:10+01:00</lastmod>
   </url>
   
@@ -74,11 +89,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/guide/</loc>
-    <lastmod>2020-08-18T22:41:04+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/link/</loc>
     <lastmod>2020-08-18T22:41:04+02:00</lastmod>
   </url>
   
@@ -204,11 +214,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/oneliner/</loc>
-    <lastmod>2020-07-31T16:25:02+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/security/</loc>
     <lastmod>2020-07-31T16:25:02+02:00</lastmod>
   </url>
   

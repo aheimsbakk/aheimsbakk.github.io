@@ -6,7 +6,16 @@
     <description>Recent content in uris on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Feb 2021 19:29:10 +0100</lastBuildDate><atom:link href="https://blog.heimsbakk.net/categories/uris/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Feb 2021 18:30:20 +0100</lastBuildDate><atom:link href="https://blog.heimsbakk.net/categories/uris/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Malware lists for PiHole</title>
+      <link>https://blog.heimsbakk.net/posts/20210227-pihole-lists/</link>
+      <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20210227-pihole-lists/</guid>
+      <description>Excerpt from Wikipedia: Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for use on embedded devices with network capability, such as the Raspberry Pi, but it can be used on other machines running Linux, including cloud implementations.</description>
+    </item>
+    
     <item>
       <title>Use Vanilla kernel on Fedora</title>
       <link>https://blog.heimsbakk.net/posts/20210224-kernel/</link>
