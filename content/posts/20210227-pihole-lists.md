@@ -16,7 +16,7 @@ Configuring [PiHole](https://pi-hole.net/) to resolve IP towards [Quad9](https:/
 Sources for malware lists:
 
 * A blocklist of malicious websites that are being used for malware distribution, based on the Database dump (CSV) of Abuse.ch. [Domains and IP addresses](https://curben.gitlab.io/malware-filter/urlhaus-filter-domains.txt), source at [GitHub](https://gitlab.com/curben/urlhaus-filter).
-* Unified hosts file with base extensions. [Adware + malware](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), source at [GitHub](https://github.com/StevenBlack/hosts)
+* [Steven Black](http://stevenblack.com/)s unified hosts file with base extensions. [Adware + malware](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), source at [GitHub](https://github.com/StevenBlack/hosts)
 
 <!---
 vim: set spell spelllang=en:
