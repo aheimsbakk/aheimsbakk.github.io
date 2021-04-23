@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+		<meta name="generator" content="Hugo 0.80.0" />
+		<title>Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root
+                    </h1>
+                    <h2 class="headline">
+                    Apr 23, 2021 21:18
+                    · 292 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/btrfs">btrfs</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>How to convert a root filesystem on a <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 b</a> running <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu 20.04</a> 64 bit to <a href="https://btrfs.wiki.kernel.org/">Btrfs</a> in a few simple steps.</p>
+<h2 id="why">Why</h2>
+<p>First, why should I care about doing this.</p>
+<ul>
+<li>Btrfs is SSD-aware, even on a SD card. The copy on write filesystem will ensure that your writes will be spread out and decrease wear leveling.</li>
+<li>You can enable a cpu friendly, <a href="https://github.com/facebook/zstd">zstd</a>, compression that decreases the amount of data written to your SD card.</li>
+</ul>
+<h2 id="how">How</h2>
+<ol>
+<li>Flash Ubuntu on the SD card as usual.</li>
+<li>Boot once as usual and let the filsystem expand to the space of the SD card.</li>
+<li>Log into the Raspberry Pi.</li>
+<li>Tell boot to read from a Btrfs filesystem on next boot
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#d88200">&#39;s/ext4/btrfs/&#39;</span> /boot/firmware/cmdline.txt
+</code></pre></div></li>
+<li>Update <code>/etc/fstab</code> with new fileystem, and ensure minimum writes to SD card.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#d88200">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> /etc/fstab
+</code></pre></div></li>
+<li>Shutdown your system.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo shutdown -h now
+</code></pre></div></li>
+<li>Take out your SD card and put it into your <strong>Linux</strong> workstation or laptop. Convert the filesystem on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs-convert -p /dev/sda2
+</code></pre></div></li>
+<li>Put the SD card back in the Raspberry Pi and boot. Voila! You have a Btrfs root filesystem.</li>
+<li>Log into the Rasberry Pi for some cleanup.</li>
+<li>Remove the old <code>ext2</code> backup.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
+</code></pre></div></li>
+<li>Defrag and compress already existing OS.
+<pre><code class="language-btrfs" data-lang="btrfs">sudo btrfs fi def -czstd -r -v /
+</code></pre></li>
+</ol>
+<p>Congratulation! Now you have a Btrfs root filesystem with compression. Writes will take less space, and wear leveling is down. Note that you also have saved space by running a <code>df -h /</code>. Enjoy an SD card that will last longer than you are used to.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2021 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

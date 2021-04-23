@@ -6,7 +6,25 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Feb 2021 18:30:20 +0100</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Apr 2021 21:18:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>btrfs</title>
+      <link>https://blog.heimsbakk.net/tags/btrfs/</link>
+      <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/btrfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pi</title>
+      <link>https://blog.heimsbakk.net/tags/pi/</link>
+      <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/pi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>link</title>
       <link>https://blog.heimsbakk.net/tags/link/</link>
@@ -40,15 +58,6 @@
       <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>btrfs</title>
-      <link>https://blog.heimsbakk.net/tags/btrfs/</link>
-      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/btrfs/</guid>
       <description></description>
     </item>
     
