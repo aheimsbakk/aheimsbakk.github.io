@@ -102,8 +102,8 @@
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
 </code></pre></div></li>
 <li>Defrag and compress already existing OS.
-<pre><code class="language-btrfs" data-lang="btrfs">sudo btrfs fi def -czstd -r -v /
-</code></pre></li>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs <span style="color:#00a8c8">fi</span> def -czstd -r -v /
+</code></pre></div></li>
 </ol>
 <p>Congratulations! Now you have a Btrfs root file system with compression. Writes will take less space, and wear leveling is down. Note that you also have saved space by running a <code>df -h /</code>. Enjoy a SD card that will last longer than you are used to.</p>
 <!-- raw HTML omitted -->
