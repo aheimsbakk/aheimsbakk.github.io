@@ -55,7 +55,7 @@
                     </h1>
                     <h2 class="headline">
                     Apr 23, 2021 21:18
-                    · 292 words
+                    · 300 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -72,32 +72,32 @@
                 </header>
                 
                 <section id="post-body">
-                    <p>How to convert a root filesystem on a <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 b</a> running <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu 20.04</a> 64 bit to <a href="https://btrfs.wiki.kernel.org/">Btrfs</a> in a few simple steps.</p>
+                    <p>How to convert a root file system on a <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 b</a> running <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu 20.04</a> 64 bit to <a href="https://btrfs.wiki.kernel.org/">Btrfs</a> in a few simple steps.</p>
 <h2 id="why">Why</h2>
 <p>First, why should I care about doing this.</p>
 <ul>
-<li>Btrfs is SSD-aware, even on a SD card. The copy on write filesystem will ensure that your writes will be spread out and decrease wear leveling.</li>
-<li>You can enable a cpu friendly, <a href="https://github.com/facebook/zstd">zstd</a>, compression that decreases the amount of data written to your SD card.</li>
+<li>Btrfs is SSD-aware, even on a SD card. The copy on write file system will ensure that your writes will be spread out and decrease wear leveling.</li>
+<li>You can enable a CPU friendly compression, <a href="https://github.com/facebook/zstd">zstd</a>, that decreases the amount of data written to your SD card.</li>
 </ul>
 <h2 id="how">How</h2>
 <ol>
 <li>Flash Ubuntu on the SD card as usual.</li>
-<li>Boot once as usual and let the filsystem expand to the space of the SD card.</li>
+<li>Boot once as usual and let the file system expand to the space of the SD card.</li>
 <li>Log into the Raspberry Pi.</li>
-<li>Tell boot to read from a Btrfs filesystem on next boot
+<li>Tell boot to read from a Btrfs file system on next boot
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#d88200">&#39;s/ext4/btrfs/&#39;</span> /boot/firmware/cmdline.txt
 </code></pre></div></li>
-<li>Update <code>/etc/fstab</code> with new fileystem, and ensure minimum writes to SD card.
+<li>Update <code>/etc/fstab</code> with new file system, and ensure minimum writes to SD card.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#d88200">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> /etc/fstab
 </code></pre></div></li>
 <li>Shutdown your system.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo shutdown -h now
 </code></pre></div></li>
-<li>Take out your SD card and put it into your <strong>Linux</strong> workstation or laptop. Convert the filesystem on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
+<li>Take out your SD card and put it into your <strong>Linux</strong> workstation or laptop. Convert the file system on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs-convert -p /dev/sda2
 </code></pre></div></li>
-<li>Put the SD card back in the Raspberry Pi and boot. Voila! You have a Btrfs root filesystem.</li>
-<li>Log into the Rasberry Pi for some cleanup.</li>
+<li>Put the SD card back in the Raspberry Pi and boot. Voila! You have a Btrfs root file system.</li>
+<li>Log into the Raspberry Pi for some cleanup.</li>
 <li>Remove the old <code>ext2</code> backup.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
 </code></pre></div></li>
@@ -105,7 +105,7 @@
 <pre><code class="language-btrfs" data-lang="btrfs">sudo btrfs fi def -czstd -r -v /
 </code></pre></li>
 </ol>
-<p>Congratulation! Now you have a Btrfs root filesystem with compression. Writes will take less space, and wear leveling is down. Note that you also have saved space by running a <code>df -h /</code>. Enjoy an SD card that will last longer than you are used to.</p>
+<p>Congratulations! Now you have a Btrfs root file system with compression. Writes will take less space, and wear leveling is down. Note that you also have saved space by running a <code>df -h /</code>. Enjoy a SD card that will last longer than you are used to.</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
                 </section>
