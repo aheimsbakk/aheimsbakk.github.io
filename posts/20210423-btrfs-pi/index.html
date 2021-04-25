@@ -55,7 +55,7 @@
                     </h1>
                     <h2 class="headline">
                     Apr 23, 2021 21:18
-                    · 298 words
+                    · 286 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -80,23 +80,26 @@
 <li>You can enable a CPU friendly compression, <a href="https://github.com/facebook/zstd">zstd</a>, that decreases the amount of data written to your SD card.</li>
 </ul>
 <h2 id="how">How</h2>
+<h3 id="using-the-raspberry-pi">Using the Raspberry PI</h3>
 <ol>
 <li>Flash Ubuntu on the SD card as usual.</li>
-<li>Boot once as usual and let the file system expand to the space of the SD card.</li>
-<li>Log into the Raspberry Pi.</li>
+<li>Mount the partitions and go find where the partitions are mounted, example on Fedora.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> /run/media/<span style="color:#d88200">${</span><span style="color:#111">USER</span><span style="color:#d88200">}</span>
+</code></pre></div></li>
 <li>Tell boot to read from a Btrfs file system on next boot
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#d88200">&#39;s/ext4/btrfs/&#39;</span> /boot/firmware/cmdline.txt
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#d88200">&#39;s/ext4/btrfs/&#39;</span> system-boot/cmdline.txt
 </code></pre></div></li>
 <li>Update <code>/etc/fstab</code> with new file system, and ensure minimum writes to SD card.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#d88200">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> /etc/fstab
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#d88200">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> writable/etc/fstab
 </code></pre></div></li>
-<li>Shutdown your system.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo halt
+<li>Unmount the file system.
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo umount system-boot
+sudo umount writable
 </code></pre></div></li>
-<li>Take out your SD card and put it into your <strong>Linux</strong> workstation or laptop. Convert the file system on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
+<li>Convert the file system on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs-convert -p /dev/sda2
 </code></pre></div></li>
-<li>Put the SD card back in the Raspberry Pi and boot. Voila! You have a Btrfs root file system.</li>
+<li>Put the SD card in the Raspberry Pi and boot. Voila! You have a Btrfs root file system.</li>
 <li>Log into the Raspberry Pi for some cleanup.</li>
 <li>Remove the old <code>ext2</code> backup.
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
