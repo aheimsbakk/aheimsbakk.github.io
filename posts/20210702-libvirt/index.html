@@ -55,7 +55,7 @@
                     </h1>
                     <h2 class="headline">
                     Jul 2, 2021 22:45
-                    · 279 words
+                    · 280 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -96,7 +96,7 @@
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-resize my-vm01.qcow2 20G --pool default
 </code></pre></div></li>
 <li>Create the VM.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --os-variant short-id<span style="color:#f92672">=</span>ubuntu20.04 --import --disk <span style="color:#111">vol</span><span style="color:#f92672">=</span>default/my-vm01.qcow2,bus<span style="color:#f92672">=</span>virtio,driver.discard<span style="color:#f92672">=</span>unmap --cloud-init --network <span style="color:#111">network</span><span style="color:#f92672">=</span>default,model<span style="color:#f92672">=</span>virtio --cpu host --vcpus <span style="color:#ae81ff">2</span> --memory <span style="color:#ae81ff">1024</span> --name my-vm01
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --os-variant short-id<span style="color:#f92672">=</span>ubuntu20.04 --import --disk <span style="color:#111">vol</span><span style="color:#f92672">=</span>default/my-vm01.qcow2,bus<span style="color:#f92672">=</span>virtio,driver.discard<span style="color:#f92672">=</span>unmap --cloud-init --network <span style="color:#111">bridge</span><span style="color:#f92672">=</span>virbr0,model<span style="color:#f92672">=</span>virtio --cpu host --vcpus <span style="color:#ae81ff">2</span> --memory <span style="color:#ae81ff">1024</span> --name my-vm01
 </code></pre></div></li>
 </ol>
 <p>Short explanation of the last command parameters.</p>
@@ -104,7 +104,7 @@
 <li><code>--import</code>&mdash; import an existing image</li>
 <li><code>--disk</code> &mdash; use <code>my-vm01.qcow2</code> in <code>default</code> pool with virtio og and hole punching</li>
 <li><code>--cloud-init</code> &mdash; use cloud init, installation will set a random root password</li>
-<li><code>--network</code> &mdash; use the default network with virtio</li>
+<li><code>--network</code> &mdash; use the default bridge <code>virbr0</code> with virtio</li>
 <li><code>--cpu</code> &mdash; copy host cpu information, change if you need better compatibility</li>
 <li><code>--vcpus</code> &mdash; number of virtual cpus</li>
 <li><code>--memory</code>&mdash; MB memory</li>
