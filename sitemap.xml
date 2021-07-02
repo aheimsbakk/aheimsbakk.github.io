@@ -4,21 +4,46 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2021-05-11T23:06:44+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/bash/</loc>
-    <lastmod>2021-05-11T23:06:44+02:00</lastmod>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/blog/</loc>
-    <lastmod>2021-05-11T23:06:44+02:00</lastmod>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/ubuntu/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20210702-libvirt/</loc>
+    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/bash/</loc>
     <lastmod>2021-05-11T23:06:44+02:00</lastmod>
   </url>
   
@@ -30,26 +55,6 @@
   <url>
     <loc>https://blog.heimsbakk.net/posts/20210511-mtr/</loc>
     <lastmod>2021-05-11T23:06:44+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2021-05-11T23:06:44+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/</loc>
-    <lastmod>2021-05-11T23:06:44+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
-    <lastmod>2021-05-11T18:22:08+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/ubuntu/</loc>
-    <lastmod>2021-05-11T18:22:08+02:00</lastmod>
   </url>
   
   <url>
