@@ -12,6 +12,8 @@ tags:
 
 From Wikipedia: [WireGuard](https://www.wireguard.com/) is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.
 
+<!-- more -->
+
 ## Installation
 
 Install the package that contain the `wg-quick` helper tool.
