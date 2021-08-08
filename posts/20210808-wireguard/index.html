@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Arnulf Heimsbakk">
+		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+		<meta name="generator" content="Hugo 0.80.0" />
+		<title>Wireguard VPN server &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+		
+
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+		
+		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
+	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
+	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
+	<a href='https://blog.heimsbakk.net/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Wireguard VPN server
+                    </h1>
+                    <h2 class="headline">
+                    Aug 8, 2021 15:56
+                    · 505 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.heimsbakk.net/tags/network">network</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/security">security</a>
+                          
+                              <a href="https://blog.heimsbakk.net/tags/wireguard">wireguard</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    <p>From Wikipedia: <a href="https://www.wireguard.com/">WireGuard</a> is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.</p>
+<h2 id="installation">Installation</h2>
+<p>Install the package that contain the <code>wg-quick</code> helper tool.</p>
+<h3 id="fedora">Fedora</h3>
+<pre><code>sudo dnf install -y wireguard-tools
+</code></pre>
+<h3 id="ubuntu">Ubuntu</h3>
+<pre><code>sudo apt-get install -y wireguard-tools resolvconf
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Wireguard is a point to point VPN. Talking about VPN server and VPN clients doesn&rsquo;t make much sense with Wireguard, but it helps to keep sense of which configuration to use where.</p>
+<p>On the server we enable IP for both IPv4 and IPv6 and forwards packages to let the clients have internet access. Server and clients communicate on private address ranges. In this example we use <code>10.0.0.0/24</code> and <code>fd00::/64</code>.</p>
+<h3 id="server-and-client">Server and client</h3>
+<p>Generate private and public key for server and clients.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Secure Wireguard keys and config</span>
+<span style="color:#111">umask</span> <span style="color:#ae81ff">077</span>
+
+<span style="color:#75715e"># Generate private and public key</span>
+wg genkey <span style="color:#111">|</span> sudo tee /etc/wireguard/privatekey <span style="color:#111">|</span> wg pubkey <span style="color:#111">|</span> sudo tee /etc/wireguard/publickey
+</code></pre></div><h3 id="server">Server</h3>
+<p>If you want to change server IP and Wireguard subnets, do it here.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">export</span> <span style="color:#111">IPV4_IP</span><span style="color:#f92672">=</span>10.0.0.1
+<span style="color:#111">export</span> <span style="color:#111">IPV4_NET</span><span style="color:#f92672">=</span>10.0.0.0/24
+<span style="color:#111">export</span> <span style="color:#111">IPV6_IP</span><span style="color:#f92672">=</span>fd00::1
+<span style="color:#111">export</span> <span style="color:#111">IPV6_NET</span><span style="color:#f92672">=</span>fd00::/64
+</code></pre></div><p>Configure the IP forwarding and main Wireguard configuration.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Set variables</span>
+<span style="color:#111">GATEWAY_INTERFACE</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>ip route <span style="color:#111">|</span> grep default <span style="color:#111">|</span> cut -d<span style="color:#d88200">&#39; &#39;</span> -f5<span style="color:#00a8c8">)</span>
+<span style="color:#111">PRIVATE_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#00a8c8">)</span>
+<span style="color:#111">PUBLIC_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#00a8c8">)</span>
+
+<span style="color:#75715e"># Allow IP forwarding</span>
+cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-forward.conf
+</span><span style="color:#d88200">net.ipv4.conf.all.forwarding=1
+</span><span style="color:#d88200">net.ipv6.conf.all.forwarding=1
+</span><span style="color:#d88200">EOF</span>
+sudo sysctl -p /etc/sysctl.d/99-forward.conf
+
+<span style="color:#75715e"># Secure Wireguard keys and config</span>
+<span style="color:#111">umask</span> <span style="color:#ae81ff">077</span>
+
+<span style="color:#75715e"># Create inital configuration</span>
+cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span><span style="color:#d88200">[Interface]
+</span><span style="color:#d88200">Address = $IPV4_IP, $IPV6_IP
+</span><span style="color:#d88200">SaveConfig = true
+</span><span style="color:#d88200">PostUp = iptables -I FORWARD -i %i -j ACCEPT; iptables -t nat -I POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -I FORWARD -i %i -j ACCEPT; ip6tables -t nat -I POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span><span style="color:#d88200">PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -D FORWARD -i %i -j ACCEPT; ip6tables -t nat -D POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span><span style="color:#d88200">ListenPort = 51820
+</span><span style="color:#d88200">PrivateKey = $PRIVATE_KEY
+</span><span style="color:#d88200">EOF</span>
+
+<span style="color:#75715e"># Enable wireguard configuration</span>
+sudo systemctl <span style="color:#111">enable</span> wg-quick@wg0 --now
+
+<span style="color:#75715e"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+<span style="color:#111">test</span> -f /usr/sbin/ufw <span style="color:#f92672">&amp;&amp;</span> ufw allow 51820/udp
+</code></pre></div><h3 id="clients">Client(s)</h3>
+<p>Change variables for each client.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">export</span> <span style="color:#111">IPV4_IP</span><span style="color:#f92672">=</span>10.0.0.10
+<span style="color:#111">export</span> <span style="color:#111">IPV6_IP</span><span style="color:#f92672">=</span>fd00::10
+<span style="color:#75715e"># Change to your servers key and address</span>
+<span style="color:#111">export</span> <span style="color:#111">SERVER_PUBLIC_KEY</span><span style="color:#f92672">=</span>hN5CiKMB8hiV4zoX/hztqamV/Lpz2TcPUGFtABRQYgc<span style="color:#f92672">=</span>
+<span style="color:#111">export</span> <span style="color:#111">SERVER_ADDRESS</span><span style="color:#f92672">=</span>my.wireguard.server.foo:51820
+</code></pre></div><p>And then write the client configuration.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Set variables</span>
+<span style="color:#111">PRIVATE_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#00a8c8">)</span>
+<span style="color:#111">PUBLIC_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#00a8c8">)</span>
+
+cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span><span style="color:#d88200">[Interface]
+</span><span style="color:#d88200">PrivateKey = $PRIVATE_KEY
+</span><span style="color:#d88200">DNS = 1.1.1.1, 1.0.0.1
+</span><span style="color:#d88200">Address = $IPV4_IP, $IPV6_IP
+</span><span style="color:#d88200">ListenPort = 51820
+</span><span style="color:#d88200">
+</span><span style="color:#d88200">[Peer]
+</span><span style="color:#d88200">PublicKey = $SERVER_PUBLIC_KEY
+</span><span style="color:#d88200">AllowedIPs = 0.0.0.0/0, ::/0
+</span><span style="color:#d88200"># If your client is behind a NAT firewall
+</span><span style="color:#d88200">PersistentKeepalive = 25
+</span><span style="color:#d88200">Endpoint = $SERVER_ADDRESS
+</span><span style="color:#d88200">EOF</span>
+
+<span style="color:#75715e"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+<span style="color:#111">test</span> -f /usr/sbin/ufw <span style="color:#f92672">&amp;&amp;</span> ufw allow 51820/udp
+
+<span style="color:#75715e"># Write out command to run on the server once to add this client</span>
+<span style="color:#111">echo</span> wg <span style="color:#111">set</span> wg0 peer <span style="color:#111">$PUBLIC_KEY</span> allowed-ips <span style="color:#111">$IPV4_IP</span>,<span style="color:#111">$IPV6_IP</span>
+</code></pre></div><p>The <code>SaveConfig</code> on the server ensures that the client will be stored permanently.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/aheimsbakk">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
+        <i class="fa fa-linkedin-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/aheimsbakk">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2021 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.heimsbakk.net/js/main.js"></script>
+<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

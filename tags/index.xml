@@ -6,7 +6,34 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Jul 2021 22:45:53 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 15:56:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>network</title>
+      <link>https://blog.heimsbakk.net/tags/network/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://blog.heimsbakk.net/tags/security/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wireguard</title>
+      <link>https://blog.heimsbakk.net/tags/wireguard/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/wireguard/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>libvirt</title>
       <link>https://blog.heimsbakk.net/tags/libvirt/</link>
@@ -67,15 +94,6 @@
       <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/link/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://blog.heimsbakk.net/tags/security/</link>
-      <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/security/</guid>
       <description></description>
     </item>
     
@@ -184,15 +202,6 @@
       <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/bug/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://blog.heimsbakk.net/tags/network/</link>
-      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/network/</guid>
       <description></description>
     </item>
     

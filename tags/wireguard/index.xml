@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wireguard on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/wireguard/</link>
+    <description>Recent content in wireguard on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 08 Aug 2021 15:56:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/wireguard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wireguard VPN server</title>
+      <link>https://blog.heimsbakk.net/posts/20210808-wireguard/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20210808-wireguard/</guid>
+      <description>From Wikipedia: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.
+Installation Install the package that contain the wg-quick helper tool.
+Fedora sudo dnf install -y wireguard-tools  Ubuntu sudo apt-get install -y wireguard-tools resolvconf  Configuration Wireguard is a point to point VPN.</description>
+    </item>
+    
+  </channel>
+</rss>

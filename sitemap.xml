@@ -4,31 +4,51 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/blog/</loc>
-    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/categories/</loc>
-    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
-    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+    <loc>https://blog.heimsbakk.net/tags/network/</loc>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2021-07-02T22:45:53+02:00</lastmod>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/security/</loc>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/wireguard/</loc>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/posts/20210808-wireguard/</loc>
+    <lastmod>2021-08-08T15:56:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.heimsbakk.net/tags/libvirt/</loc>
     <lastmod>2021-07-02T22:45:53+02:00</lastmod>
   </url>
   
@@ -84,11 +104,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/20210227-pihole-lists/</loc>
-    <lastmod>2021-02-27T18:30:20+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/security/</loc>
     <lastmod>2021-02-27T18:30:20+01:00</lastmod>
   </url>
   
@@ -214,11 +229,6 @@
   
   <url>
     <loc>https://blog.heimsbakk.net/posts/20200807-hardware-unit-hang/</loc>
-    <lastmod>2020-08-07T01:20:05+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.heimsbakk.net/tags/network/</loc>
     <lastmod>2020-08-07T01:20:05+02:00</lastmod>
   </url>
   
