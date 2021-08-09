@@ -133,7 +133,16 @@ test -f /usr/sbin/ufw && ufw allow 51820/udp
 echo wg set wg0 peer $PUBLIC_KEY allowed-ips $IPV4_IP,$IPV6_IP
 ```
 
-The `SaveConfig` on the server ensures that the client will be stored permanently.
+The `SaveConfig` on the server ensures that the client will be stored permanently. Now you are ready to use the VPN.
+
+* Start VPN client
+    ```bash
+    wg-quick up wg0
+    ```
+* Stop VPN client
+    ```bash
+    wg-quick down wg0
+    ```
 
 
 <!---
