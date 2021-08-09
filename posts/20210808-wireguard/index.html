@@ -55,7 +55,7 @@
                     </h1>
                     <h2 class="headline">
                     Aug 8, 2021 15:56
-                    · 505 words
+                    · 525 words
                     · 3 minute read
                       <span class="tags">
                       
@@ -163,7 +163,15 @@ cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
 
 <span style="color:#75715e"># Write out command to run on the server once to add this client</span>
 <span style="color:#111">echo</span> wg <span style="color:#111">set</span> wg0 peer <span style="color:#111">$PUBLIC_KEY</span> allowed-ips <span style="color:#111">$IPV4_IP</span>,<span style="color:#111">$IPV6_IP</span>
-</code></pre></div><p>The <code>SaveConfig</code> on the server ensures that the client will be stored permanently.</p>
+</code></pre></div><p>The <code>SaveConfig</code> on the server ensures that the client will be stored permanently. Now you are ready to use the VPN.</p>
+<ul>
+<li>Start VPN client
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick up wg0
+</code></pre></div></li>
+<li>Stop VPN client
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick down wg0
+</code></pre></div></li>
+</ul>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
                 </section>
