@@ -6,7 +6,16 @@
     <description>Recent content in blog on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Aug 2021 15:56:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Luks decryption with clevis and TPM2 on Fedora</title>
+      <link>https://blog.heimsbakk.net/posts/20220406-clevis/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Wireguard VPN server</title>
       <link>https://blog.heimsbakk.net/posts/20210808-wireguard/</link>
@@ -272,10 +281,7 @@ A way to be able to blog from anywhere is to use Dropbox as repository for the y
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-rst/</guid>
-      <description>&lt;div class=&#34;document&#34;&gt;
-
-
-&lt;p&gt;My cheat sheet for &lt;a class=&#34;reference external&#34; href=&#34;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&#34;&gt;reStructuredText&lt;/a&gt; syntax with examples how it will look after parsing. &lt;a class=&#34;reference external&#34; href=&#34;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&#34;&gt;reStructuredText&lt;/a&gt; is an alternative for &lt;a class=&#34;reference external&#34; href=&#34;http://daringfireball.net/projects/markdown&#34;&gt;Markedown&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description>
+      <description>My cheat sheet for `reStructuredText &lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&gt;`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown &lt;http://daringfireball.net/projects/markdown&gt;`_.&lt;/div&gt;</description>
     </item>
     
     <item>

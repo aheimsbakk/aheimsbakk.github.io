@@ -6,7 +6,16 @@
     <description>Recent content in howto on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2020 18:21:20 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Luks decryption with clevis and TPM2 on Fedora</title>
+      <link>https://blog.heimsbakk.net/posts/20220406-clevis/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>snapper - filesystem snapshot management</title>
       <link>https://blog.heimsbakk.net/posts/20200825-snapper/</link>

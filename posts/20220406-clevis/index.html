@@ -8,7 +8,7 @@
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
 		<meta name="generator" content="Hugo 0.80.0" />
-		<title>Ubuntu cloud images with KVM &middot; &gt; /dev/null 2&gt;&amp;1</title>
+		<title>Luks decryption with clevis and TPM2 on Fedora &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
@@ -51,19 +51,19 @@
             <article>
                 <header>
                     <h1>
-                        Ubuntu cloud images with KVM
+                        Luks decryption with clevis and TPM2 on Fedora
                     </h1>
                     <h2 class="headline">
-                    May 11, 2021 18:22
-                    · 195 words
-                    · 1 minute read
+                    Apr 8, 2022 00:00
+                    · 269 words
+                    · 2 minute read
                       <span class="tags">
                       
                       
                           
-                              <a href="https://blog.heimsbakk.net/tags/libvirt">libvirt</a>
+                              <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
                           
-                              <a href="https://blog.heimsbakk.net/tags/ubuntu">ubuntu</a>
+                              <a href="https://blog.heimsbakk.net/tags/security">security</a>
                           
                       
                       
@@ -72,33 +72,53 @@
                 </header>
                 
                 <section id="post-body">
-                    <p>Ubuntu are using <a href="https://cloudinit.readthedocs.io/en/latest/"><code>cloud-init</code></a> for their <a href="https://cloud-images.ubuntu.com/">cloud images</a>. This can be used in combination with <a href="https://libvirt.org/"><code>libvirtd</code></a> and <a href="https://www.linux-kvm.org/page/Main_Page"><code>kvm</code></a> to pre-configure your virtual machine at boot.</p>
-<h2 id="prepare-cloud-init-configuration">Prepare cloud-init configuration</h2>
-<p>You can specify much more configuration than we&rsquo;ve done in this example. This configuration sets the password <code>ubuntu</code> for the default user for the image. On Ubuntu images this user is <code>ubuntu</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat &gt;user-data <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">#cloud-config
-</span><span style="color:#d88200">password: ubuntu
-</span><span style="color:#d88200">chpasswd: { expire: False }
-</span><span style="color:#d88200">ssh_pwauth: True
-</span><span style="color:#d88200">EOF</span>
-</code></pre></div><p>Create a disk image out of the configuration.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cloud-localds user-data.img user-data
-</code></pre></div><h2 id="virtual-machine-using-cloud-init">Virtual machine using cloud-init</h2>
-<h3 id="placing-the-files">Placing the files</h3>
-<ol>
-<li>Download your prefered cloud image which ends with <code>.img</code>. They are <a href="https://en.wikipedia.org/wiki/Qcow">qcow2</a> images.</li>
-<li>Copy the image to <code>/var/lib/libvirit/images/your-vm-name.img</code></li>
-<li>Resize the disk to the size you want, example 16G.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">qemu-img resize /var/lib/libvirt/images/your-vm-name.img 16G
-</code></pre></div></li>
-<li>Copy the configuration image to <code>/var/lib/libvirt/images/user-data.img</code></li>
-</ol>
-<h3 id="creating-the-vm">Creating the VM</h3>
+                    <p>Why should you encrypt your disc in the first place? It&rsquo;s for your own privacy. It&rsquo;s to ensure that personal data doesn&rsquo;t go astray.</p>
+<p>Examples when your data may go astray.</p>
 <ul>
-<li>Create the VM definition. Use <code>your-vm-name.img</code> as your primary disk.</li>
-<li>Then add a secondary disk with the configuration data, <code>user-data.img</code>.</li>
-<li>Boot the virtual machine. Now it will run <code>cloud-init</code> on first boot.</li>
-<li>After first boot you can remove the <code>user-data.img</code> disk. This can be done live. You need to do this step if you want to use snapshots from the graphical interface.</li>
+<li>You sell your computer.</li>
+<li>Give a disc to a family member or a friend.</li>
+<li>You put the disc in the recycling bin.</li>
+<li>Someone steals your computer.</li>
+</ul>
+<p>From the Github repo: <em><a href="https://github.com/latchset/clevis"><code>clevis</code></a> is a pluggable framework for automated decryption. It can be used to provide automated decryption of data or even automated unlocking of LUKS volumes.</em></p>
+<p>The idea is to automatic unlock the disc during boot without typing a password by binding the disk to &ldquo;your&rdquo; computer and storing a key in the <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">Trusted Platform Module</a>, TPM.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="fedora">Fedora</h3>
+<pre><code>sudo dnf install -y clevis clevis-dracut clevis-udisks2
+</code></pre>
+<h2 id="setup">Setup</h2>
+<p>Preparations before you begin.</p>
+<ul>
+<li>Turn off boot from USB and network in BIOS.</li>
+<li>Optionally turn on secure boot in BIOS.</li>
+<li>Set a strong BIOS password.</li>
+</ul>
+<h3 id="bind-pin-to-disk">Bind pin to disk</h3>
+<pre><code>sudo clevis luks bind -d /dev/nvme0n1p3 tpm2 '{&quot;pcr_ids&quot;:&quot;0,1,5,7&quot;}'
+</code></pre>
+<p>Automated disc encryption will fail if</p>
+<ul>
+<li><code>0.</code> UEFI firmware has changed.</li>
+<li><code>1.</code> Firmware configuration has changed.</li>
+<li><code>5.</code> Bootloader has changed, including GPT.</li>
+<li><code>7.</code> Secure boot has changed.</li>
+</ul>
+<p>Platform Configuration Registers (PCR) <a href="https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12/tables/1">table</a>.</p>
+<h3 id="list-pins-bound-to-disk">List pins bound to disk</h3>
+<pre><code>sudo clevis luks list -d /dev/nvme0n1p3
+</code></pre>
+<h3 id="unbind-pin-from-disk">Unbind pin from disk</h3>
+<pre><code>sudo clevis luks unbind -d /dev/nvme0n1p3 -s 1
+</code></pre>
+<h2 id="remove-all-acces-to-the-disk">Remove all acces to the disk</h2>
+<p>Before you give away your disk or computer. You can erase all access to your data with a simple command.</p>
+<pre><code>sudo cryptsetup erase /dev/nvme0n1p3
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li>Always good guides at <a href="https://wiki.archlinux.org/title/Trusted_Platform_Module#systemd-cryptenroll">archlinux</a> wiki.</li>
+<li><a href="https://kowalski7cc.xyz/blog/luks2-tpm2-clevis-fedora31">Kowalski7cc</a> has a good write-up.</li>
+<li><a href="https://trustedcomputinggroup.org/resource/pc-client-platform-tpm-profile-ptp-specification/">TCG PC Client Platform TPM Profile (PTP) Specification</a>.</li>
 </ul>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->

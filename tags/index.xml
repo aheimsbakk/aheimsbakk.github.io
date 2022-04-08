@@ -6,22 +6,31 @@
     <description>Recent content in Tags on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Aug 2021 15:56:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>network</title>
-      <link>https://blog.heimsbakk.net/tags/network/</link>
-      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      <title>howto</title>
+      <link>https://blog.heimsbakk.net/tags/howto/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.heimsbakk.net/tags/network/</guid>
+      <guid>https://blog.heimsbakk.net/tags/howto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>security</title>
       <link>https://blog.heimsbakk.net/tags/security/</link>
-      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://blog.heimsbakk.net/tags/network/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/tags/network/</guid>
       <description></description>
     </item>
     
@@ -112,15 +121,6 @@
       <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate>
       
       <guid>https://blog.heimsbakk.net/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>howto</title>
-      <link>https://blog.heimsbakk.net/tags/howto/</link>
-      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/tags/howto/</guid>
       <description></description>
     </item>
     
