@@ -13,7 +13,7 @@ echo "**"
 cd public
 git add .
 git commit -m "published @ $(date -I)"
-git push
+git push origin HEAD:master
 cd ..
 
 echo "**"
