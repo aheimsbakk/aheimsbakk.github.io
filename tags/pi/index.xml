@@ -6,7 +6,16 @@
     <description>Recent content in pi on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Apr 2021 21:18:52 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/pi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspberry Pi Zero 2 W</title>
+      <link>https://blog.heimsbakk.net/posts/20220508-zero/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20220508-zero/</guid>
+      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root</title>
       <link>https://blog.heimsbakk.net/posts/20210423-btrfs-pi/</link>
