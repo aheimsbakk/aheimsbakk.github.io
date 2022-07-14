@@ -4,7 +4,7 @@ echo "**"
 echo "** Generate blog"
 echo "**"
 
-hugo
+./hugo
 
 echo "**"
 echo "** Publish blog $(date -I)"
