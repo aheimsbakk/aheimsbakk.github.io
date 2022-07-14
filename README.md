@@ -7,5 +7,5 @@
     Overriden in `layouts/partials/svgs`. Changed the heading of the SVG to get correct size and color as follows.
     ```jinja
     <svg fill="{{ .fill }}" width="{{ .width }}" height="{{ .height }}" \>
-      ```
+    ```
 * Misc CSS overrides in `static/css`.
