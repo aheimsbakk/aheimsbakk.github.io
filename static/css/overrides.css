@@ -1,0 +1,98 @@
+/*
+ * Widen all pages.
+ */
+
+#list-page {
+    max-width: 768px;
+}
+
+#page-404 {
+    max-width: 768px;
+}
+
+#section {
+    max-width: 768px;
+}
+
+#tags {
+    max-width: 768px;
+}
+
+#archive {
+    max-width: 768px;
+}
+
+#single {
+    max-width: 768px;
+}
+
+/*
+ * Increase standard font size, and darken font.
+ */
+
+body {
+  font: normal 16px/1.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #202020;
+  line-height: 1.5;
+}
+
+/*
+ * Darken links and light hover.
+ */
+
+a {
+  color: #0366d6;
+}
+
+a:hover {
+  color: #5badf0;
+}
+
+nav.navigation a {
+  color: #0366d6;
+}
+nav.navigation a:hover {
+  color: #5badf0
+}
+
+nav.navigation a.button {
+  background: #0366d6;
+}
+
+.profile .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 0%;
+}
+
+/*
+ * Readability for code blocks and inline code.
+ */
+
+.highlight pre {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.02);
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+p code {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+li code {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-size: inherit;
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 0 2px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 2px 2px;
+  line-height: inherit;
+  word-wrap: break-word;
+  text-indent: 0;
+}
