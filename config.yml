@@ -23,7 +23,7 @@ markup:
     lineNos: false
     lineNumbersInTable: true
     noClasses: true
-    style: monokailight
+    style: pygments
     tabWidth: 4
 
 social:
