@@ -47,3 +47,10 @@ nav.navigation a:hover {
 nav.navigation a.button {
   background: #0366d6;
 }
+
+.profile .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 0%;
+}
+
