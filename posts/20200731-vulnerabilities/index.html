@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>List CPU vulnerabilities &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -73,8 +73,8 @@
                 
                 <section id="post-body">
                     <p>Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at <a href="https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html">Hardware vulnerabilities</a>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -E <span style="color:#d88200">&#39;.*&#39;</span> /sys/devices/system/cpu/vulnerabilities/* <span style="color:#111">|</span> <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>    sed -E <span style="color:#d88200">&#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&gt; \3/&#39;</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -E <span style="color:#ba2121">&#39;.*&#39;</span> /sys/devices/system/cpu/vulnerabilities/* | <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    sed -E <span style="color:#ba2121">&#39;s/(^.*\/)([^:]*):(.*$)/\2 -=&gt; \3/&#39;</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
                 </section>

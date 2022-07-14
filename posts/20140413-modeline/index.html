@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Modeline in vim &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -73,11 +73,11 @@
                 
                 <section id="post-body">
                     <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75af00">set</span> <span style="color:#75af00">modeline</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">set modeline<span style="">
 </span></code></pre></div><p>The modeline should be the first line in the file. You can set it inn multiple ways as shown below.</p>
-<pre><code># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
-</code></pre><pre><code>/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */
-</code></pre><pre><code>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
+<pre tabindex="0"><code># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
+</code></pre><pre tabindex="0"><code>/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */
+</code></pre><pre tabindex="0"><code>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 </code></pre><h2 id="explanation">Explanation</h2>
 <ul>
 <li><code>enc=UTF-8</code><br>

@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Find duplicate files &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -73,7 +73,7 @@
                 
                 <section id="post-body">
                     <p>Find all duplicate files in current and sub-directories with bash.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#d88200">&#39;%s\n&#39;</span> <span style="color:#111">|</span> sort -rn <span style="color:#111">|</span> uniq -d <span style="color:#111">|</span> xargs -I<span style="color:#f92672">{}</span> -n1 find -type f -size <span style="color:#f92672">{}</span>c -print0 <span style="color:#111">|</span> xargs -0 md5sum <span style="color:#111">|</span> sort <span style="color:#111">|</span> uniq -w32 --all-repeated<span style="color:#f92672">=</span>separate
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find -not -empty -type f -printf <span style="color:#ba2121">&#39;%s\n&#39;</span> | sort -rn | uniq -d | xargs -I<span style="color:#666">{}</span> -n1 find -type f -size <span style="color:#666">{}</span>c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated<span style="color:#666">=</span>separate
 </code></pre></div><h2 id="breakdown">Breakdown</h2>
 <ol>
 <li>Find all non empty files and print out size.</li>
@@ -86,9 +86,9 @@
 </ol>
 <h2 id="alternatively">Alternatively</h2>
 <p>Or do it the easy way and install a tool for finding duplicates files. This tool is much faster than the oneliner above.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install fdupes
 </code></pre></div><p>This does more or less the same thing as the oneliner.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fdupes -r .
 </code></pre></div>
                 </section>
             </article>

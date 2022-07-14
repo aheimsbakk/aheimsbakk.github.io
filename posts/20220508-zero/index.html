@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Raspberry Pi Zero 2 W &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -74,8 +74,9 @@
                 <section id="post-body">
                     <p>Bootstrap Raspberry Pi Zero 2 W with <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu</a> using <a href="https://cloudinit.readthedocs.io/">cloud-init</a>. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a <a href="https://getfedora.org/">Fedora Desktop</a>. Adjust scripts if you use another <a href="https://en.wikipedia.org/wiki/Linux_distribution">distro</a>.</p>
 <p>This blog post is written in the influence of a cold. Take care with your copy and pasting. Hope you enjoy this nifty way to bootstrap Ubuntu PI systems.</p>
-<p>👍 <strong><em>Tip!</em></strong> Fetch your public SSH keys from <a href="https://github.com">GitHub</a> with <code>wget -O - https://github.com/username.keys</code>.</p>
-<h1 id="before-you-begin">Before you begin</h1>
+<p>👍 <strong><em>Tip!</em></strong> Fetch your public SSH keys from <a href="https://github.com">GitHub</a> with</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget -O - https://github.com/username.keys
+</code></pre></div><h1 id="before-you-begin">Before you begin</h1>
 <p>If you want to access your Pi over OTG, use connection sharing, for example in NetworkManger.  Remember to open incoming ports for DHCP and DNS in your firewall.</p>
 <ul>
 <li><code>53</code></li>
@@ -85,91 +86,91 @@
 <h2 id="write-os-to-sd-card">Write OS to SD card</h2>
 <p>Download Raspberry Ubuntu from <a href="https://ubuntu.com/download/raspberry-pi">Install Ubuntu on a Raspberry Pi</a>. Why Ubuntu and not <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a>. Ubuntu contain <a href="https://btrfs.wiki.kernel.org">btrfs</a> kernel module in <a href="https://en.wikipedia.org/wiki/Initial_ramdisk">initramfs</a>.</p>
 <p>😯 <strong><em>Important!</em></strong> Do not copy and paste from the internet without examine the code. Ensure that your SD card is mounted on <code>/dev/sdb</code> or change all the scripts to your device.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo bash <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">  xzcat ubuntu-22.04-preinstalled-server-arm64+raspi.img.xz | dd of=/dev/sdb bs=1M status=progress
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
+</span><span style="color:#ba2121">  xzcat ubuntu-22.04-preinstalled-server-arm64+raspi.img.xz | dd of=/dev/sdb bs=1M status=progress
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div><p>Take out and put the SD card back into to the computer. Let the computer  mount the file systems before you continue.</p>
 <h2 id="cloud-init">cloud-init</h2>
 <p>Export your WiFi network and password to shell variables.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">export</span> <span style="color:#111">WIFI_NAME</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;internett&#34;</span>
-<span style="color:#111">export</span> <span style="color:#111">WIFI_PASS</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;password&#34;</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008000">export</span> <span style="color:#19177c">WIFI_NAME</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;internett&#34;</span>
+<span style="color:#008000">export</span> <span style="color:#19177c">WIFI_PASS</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;password&#34;</span>
 </code></pre></div><p>Write cloud-init configuration files.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo bash <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">  cd /run/media/${USER}
-</span><span style="color:#d88200">  cat &lt;&lt;CONF &gt; system-boot/user-data
-</span><span style="color:#d88200">#cloud-config
-</span><span style="color:#d88200">hostname: zero
-</span><span style="color:#d88200">password: ubuntu
-</span><span style="color:#d88200">ssh_pwauth: true
-</span><span style="color:#d88200">ssh_import_id:
-</span><span style="color:#d88200">  - gh:${USER}
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">write_files:
-</span><span style="color:#d88200">  - path: /boot/firmware/config.txt
-</span><span style="color:#d88200">    append: true
-</span><span style="color:#d88200">    content: |
-</span><span style="color:#d88200">      dtoverlay=dwc2
-</span><span style="color:#d88200">  - path: /etc/modules
-</span><span style="color:#d88200">    permissions: &#39;0644&#39;
-</span><span style="color:#d88200">    content: |
-</span><span style="color:#d88200">      dwc2
-</span><span style="color:#d88200">      g_ether
-</span><span style="color:#d88200">  - path: /etc/modprobe.d/g_ether.conf
-</span><span style="color:#d88200">    permissions: &#39;0644&#39;
-</span><span style="color:#d88200">    content: |
-</span><span style="color:#d88200">      options g_ether host_addr=42:00:00:00:00:02 dev_addr=42:00:00:00:00:01
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">packages:
-</span><span style="color:#d88200">  - linux-modules-extra-raspi
-</span><span style="color:#d88200">  - zram-tools
-</span><span style="color:#d88200">package_update: true
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">timezone: UTC
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">runcmd:
-</span><span style="color:#d88200">  - /usr/sbin/update-initramfs -u
-</span><span style="color:#d88200">  - /usr/bin/systemctl enable zramswap --now
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">power_state:
-</span><span style="color:#d88200">  delay: now
-</span><span style="color:#d88200">  mode: reboot
-</span><span style="color:#d88200">  message: reboot into new initramfs
-</span><span style="color:#d88200">  condition: true
-</span><span style="color:#d88200">CONF
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">  cat &lt;&lt;CONF &gt; writable/etc/cloud/cloud.cfg.d/10-network.cfg
-</span><span style="color:#d88200">network:
-</span><span style="color:#d88200">  version: 2
-</span><span style="color:#d88200">  ethernets:
-</span><span style="color:#d88200">    usb0:
-</span><span style="color:#d88200">      dhcp4: true
-</span><span style="color:#d88200">      dhcp6: true
-</span><span style="color:#d88200">      optional: true
-</span><span style="color:#d88200">  wifis:
-</span><span style="color:#d88200">    wlan0:
-</span><span style="color:#d88200">      dhcp4: yes
-</span><span style="color:#d88200">      dhcp6: yes
-</span><span style="color:#d88200">      optional: true
-</span><span style="color:#d88200">      access-points:
-</span><span style="color:#d88200">        &#34;${WIFI_NAME}&#34;:
-</span><span style="color:#d88200">            password: &#34;${WIFI_PASS}&#34;
-</span><span style="color:#d88200">CONF
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
+</span><span style="color:#ba2121">  cd /run/media/${USER}
+</span><span style="color:#ba2121">  cat &lt;&lt;CONF &gt; system-boot/user-data
+</span><span style="color:#ba2121">#cloud-config
+</span><span style="color:#ba2121">hostname: zero
+</span><span style="color:#ba2121">password: ubuntu
+</span><span style="color:#ba2121">ssh_pwauth: true
+</span><span style="color:#ba2121">ssh_import_id:
+</span><span style="color:#ba2121">  - gh:${USER}
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">write_files:
+</span><span style="color:#ba2121">  - path: /boot/firmware/config.txt
+</span><span style="color:#ba2121">    append: true
+</span><span style="color:#ba2121">    content: |
+</span><span style="color:#ba2121">      dtoverlay=dwc2
+</span><span style="color:#ba2121">  - path: /etc/modules
+</span><span style="color:#ba2121">    permissions: &#39;0644&#39;
+</span><span style="color:#ba2121">    content: |
+</span><span style="color:#ba2121">      dwc2
+</span><span style="color:#ba2121">      g_ether
+</span><span style="color:#ba2121">  - path: /etc/modprobe.d/g_ether.conf
+</span><span style="color:#ba2121">    permissions: &#39;0644&#39;
+</span><span style="color:#ba2121">    content: |
+</span><span style="color:#ba2121">      options g_ether host_addr=42:00:00:00:00:02 dev_addr=42:00:00:00:00:01
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">packages:
+</span><span style="color:#ba2121">  - linux-modules-extra-raspi
+</span><span style="color:#ba2121">  - zram-tools
+</span><span style="color:#ba2121">package_update: true
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">timezone: UTC
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">runcmd:
+</span><span style="color:#ba2121">  - /usr/sbin/update-initramfs -u
+</span><span style="color:#ba2121">  - /usr/bin/systemctl enable zramswap --now
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">power_state:
+</span><span style="color:#ba2121">  delay: now
+</span><span style="color:#ba2121">  mode: reboot
+</span><span style="color:#ba2121">  message: reboot into new initramfs
+</span><span style="color:#ba2121">  condition: true
+</span><span style="color:#ba2121">CONF
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">  cat &lt;&lt;CONF &gt; writable/etc/cloud/cloud.cfg.d/10-network.cfg
+</span><span style="color:#ba2121">network:
+</span><span style="color:#ba2121">  version: 2
+</span><span style="color:#ba2121">  ethernets:
+</span><span style="color:#ba2121">    usb0:
+</span><span style="color:#ba2121">      dhcp4: true
+</span><span style="color:#ba2121">      dhcp6: true
+</span><span style="color:#ba2121">      optional: true
+</span><span style="color:#ba2121">  wifis:
+</span><span style="color:#ba2121">    wlan0:
+</span><span style="color:#ba2121">      dhcp4: yes
+</span><span style="color:#ba2121">      dhcp6: yes
+</span><span style="color:#ba2121">      optional: true
+</span><span style="color:#ba2121">      access-points:
+</span><span style="color:#ba2121">        &#34;${WIFI_NAME}&#34;:
+</span><span style="color:#ba2121">            password: &#34;${WIFI_PASS}&#34;
+</span><span style="color:#ba2121">CONF
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div><h2 id="convert-root-file-system-to-btrfs">Convert root file system to Btrfs</h2>
 <p>If you want to use Btrfs instead of default ext4.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo bash <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">  cd /run/media/${USER}
-</span><span style="color:#d88200">  sed -i &#39;s/ext4/btrfs/&#39; system-boot/cmdline.txt
-</span><span style="color:#d88200">  sed -E -i &#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39; writable/etc/fstab
-</span><span style="color:#d88200">  umount system-boot writable
-</span><span style="color:#d88200">  btrfs-convert -p /dev/sdb2
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
+</span><span style="color:#ba2121">  cd /run/media/${USER}
+</span><span style="color:#ba2121">  sed -i &#39;s/ext4/btrfs/&#39; system-boot/cmdline.txt
+</span><span style="color:#ba2121">  sed -E -i &#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39; writable/etc/fstab
+</span><span style="color:#ba2121">  umount system-boot writable
+</span><span style="color:#ba2121">  btrfs-convert -p /dev/sdb2
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div><p>Re-mount SD card and then run the script to clean up after conversion and compress existing operative system.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo bash <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">  cd /run/media/${USER}
-</span><span style="color:#d88200">  btrfs sub del writable/ext2_saved
-</span><span style="color:#d88200">  btrfs fi def -czstd -r -v writable/
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
+</span><span style="color:#ba2121">  cd /run/media/${USER}
+</span><span style="color:#ba2121">  btrfs sub del writable/ext2_saved
+</span><span style="color:#ba2121">  btrfs fi def -czstd -r -v writable/
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
                 </section>

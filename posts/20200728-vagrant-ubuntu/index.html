@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Vagrant with Ubuntu Focal (20.04) &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -79,83 +79,83 @@
 <p>This can easily be remedied with adding the missing redirect of the console to a file.</p>
 <h1 id="workaround">Workaround</h1>
 <p>Full output of a <code>Vagrantfile</code> with the workaround. Make a note of the <code>CURENT_PATH</code>. It&rsquo;s needed to put the redirect file in the current folder of the <code>Vagrantfile</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
-<span style="color:#75715e"># vi: set ft=ruby :</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#408080;font-style:italic"># -*- mode: ruby -*-</span>
+<span style="color:#408080;font-style:italic"># vi: set ft=ruby :</span>
 
-<span style="color:#75715e"># Find working directory.</span>
-<span style="color:#00a8c8">CURRENT_PATH</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">File</span><span style="color:#f92672">.</span><span style="color:#111">dirname</span><span style="color:#111">(</span><span style="color:#00a8c8">File</span><span style="color:#f92672">.</span><span style="color:#111">expand_path</span><span style="color:#111">(</span><span style="color:#111">__FILE__</span><span style="color:#111">))</span>
+<span style="color:#408080;font-style:italic"># Find working directory.</span>
+<span style="color:#800">CURRENT_PATH</span> <span style="color:#666">=</span> <span style="color:#800">File</span><span style="color:#666">.</span>dirname(<span style="color:#800">File</span><span style="color:#666">.</span>expand_path(__FILE__))
 
-<span style="color:#75715e"># All Vagrant configuration is done below. The &#34;2&#34; in Vagrant.configure</span>
-<span style="color:#75715e"># configures the configuration version (we support older styles for</span>
-<span style="color:#75715e"># backwards compatibility). Please don&#39;t change it unless you know what</span>
-<span style="color:#75715e"># you&#39;re doing.</span>
-<span style="color:#00a8c8">Vagrant</span><span style="color:#f92672">.</span><span style="color:#111">configure</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">config</span><span style="color:#f92672">|</span>
-  <span style="color:#75715e"># The most common configuration options are documented and commented below.</span>
-  <span style="color:#75715e"># For a complete reference, please see the online documentation at</span>
-  <span style="color:#75715e"># https://docs.vagrantup.com.</span>
+<span style="color:#408080;font-style:italic"># All Vagrant configuration is done below. The &#34;2&#34; in Vagrant.configure</span>
+<span style="color:#408080;font-style:italic"># configures the configuration version (we support older styles for</span>
+<span style="color:#408080;font-style:italic"># backwards compatibility). Please don&#39;t change it unless you know what</span>
+<span style="color:#408080;font-style:italic"># you&#39;re doing.</span>
+<span style="color:#800">Vagrant</span><span style="color:#666">.</span>configure(<span style="color:#ba2121">&#34;2&#34;</span>) <span style="color:#008000;font-weight:bold">do</span> <span style="color:#666">|</span>config<span style="color:#666">|</span>
+  <span style="color:#408080;font-style:italic"># The most common configuration options are documented and commented below.</span>
+  <span style="color:#408080;font-style:italic"># For a complete reference, please see the online documentation at</span>
+  <span style="color:#408080;font-style:italic"># https://docs.vagrantup.com.</span>
 
-  <span style="color:#75715e"># Every Vagrant development environment requires a box. You can search for</span>
-  <span style="color:#75715e"># boxes at https://vagrantcloud.com/search.</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">box</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;ubuntu/focal64&#34;</span>
+  <span style="color:#408080;font-style:italic"># Every Vagrant development environment requires a box. You can search for</span>
+  <span style="color:#408080;font-style:italic"># boxes at https://vagrantcloud.com/search.</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>box <span style="color:#666">=</span> <span style="color:#ba2121">&#34;ubuntu/focal64&#34;</span>
 
-  <span style="color:#75715e"># Disable automatic box update checking. If you disable this, then</span>
-  <span style="color:#75715e"># boxes will only be checked for updates when the user runs</span>
-  <span style="color:#75715e"># `vagrant box outdated`. This is not recommended.</span>
-  <span style="color:#75715e"># config.vm.box_check_update = false</span>
+  <span style="color:#408080;font-style:italic"># Disable automatic box update checking. If you disable this, then</span>
+  <span style="color:#408080;font-style:italic"># boxes will only be checked for updates when the user runs</span>
+  <span style="color:#408080;font-style:italic"># `vagrant box outdated`. This is not recommended.</span>
+  <span style="color:#408080;font-style:italic"># config.vm.box_check_update = false</span>
 
-  <span style="color:#75715e"># Create a forwarded port mapping which allows access to a specific port</span>
-  <span style="color:#75715e"># within the machine from a port on the host machine. In the example below,</span>
-  <span style="color:#75715e"># accessing &#34;localhost:8080&#34; will access port 80 on the guest machine.</span>
-  <span style="color:#75715e"># NOTE: This will enable public access to the opened port</span>
-  <span style="color:#75715e"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080</span>
+  <span style="color:#408080;font-style:italic"># Create a forwarded port mapping which allows access to a specific port</span>
+  <span style="color:#408080;font-style:italic"># within the machine from a port on the host machine. In the example below,</span>
+  <span style="color:#408080;font-style:italic"># accessing &#34;localhost:8080&#34; will access port 80 on the guest machine.</span>
+  <span style="color:#408080;font-style:italic"># NOTE: This will enable public access to the opened port</span>
+  <span style="color:#408080;font-style:italic"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080</span>
 
-  <span style="color:#75715e"># Create a forwarded port mapping which allows access to a specific port</span>
-  <span style="color:#75715e"># within the machine from a port on the host machine and only allow access</span>
-  <span style="color:#75715e"># via 127.0.0.1 to disable public access</span>
-  <span style="color:#75715e"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080, host_ip: &#34;127.0.0.1&#34;</span>
+  <span style="color:#408080;font-style:italic"># Create a forwarded port mapping which allows access to a specific port</span>
+  <span style="color:#408080;font-style:italic"># within the machine from a port on the host machine and only allow access</span>
+  <span style="color:#408080;font-style:italic"># via 127.0.0.1 to disable public access</span>
+  <span style="color:#408080;font-style:italic"># config.vm.network &#34;forwarded_port&#34;, guest: 80, host: 8080, host_ip: &#34;127.0.0.1&#34;</span>
 
-  <span style="color:#75715e"># Create a private network, which allows host-only access to the machine</span>
-  <span style="color:#75715e"># using a specific IP.</span>
-  <span style="color:#75715e"># config.vm.network &#34;private_network&#34;, ip: &#34;192.168.33.10&#34;</span>
+  <span style="color:#408080;font-style:italic"># Create a private network, which allows host-only access to the machine</span>
+  <span style="color:#408080;font-style:italic"># using a specific IP.</span>
+  <span style="color:#408080;font-style:italic"># config.vm.network &#34;private_network&#34;, ip: &#34;192.168.33.10&#34;</span>
 
-  <span style="color:#75715e"># Create a public network, which generally matched to bridged network.</span>
-  <span style="color:#75715e"># Bridged networks make the machine appear as another physical device on</span>
-  <span style="color:#75715e"># your network.</span>
-  <span style="color:#75715e"># config.vm.network &#34;public_network&#34;</span>
+  <span style="color:#408080;font-style:italic"># Create a public network, which generally matched to bridged network.</span>
+  <span style="color:#408080;font-style:italic"># Bridged networks make the machine appear as another physical device on</span>
+  <span style="color:#408080;font-style:italic"># your network.</span>
+  <span style="color:#408080;font-style:italic"># config.vm.network &#34;public_network&#34;</span>
 
-  <span style="color:#75715e"># Share an additional folder to the guest VM. The first argument is</span>
-  <span style="color:#75715e"># the path on the host to the actual folder. The second argument is</span>
-  <span style="color:#75715e"># the path on the guest to mount the folder. And the optional third</span>
-  <span style="color:#75715e"># argument is a set of non-required options.</span>
-  <span style="color:#75715e"># config.vm.synced_folder &#34;../data&#34;, &#34;/vagrant_data&#34;</span>
+  <span style="color:#408080;font-style:italic"># Share an additional folder to the guest VM. The first argument is</span>
+  <span style="color:#408080;font-style:italic"># the path on the host to the actual folder. The second argument is</span>
+  <span style="color:#408080;font-style:italic"># the path on the guest to mount the folder. And the optional third</span>
+  <span style="color:#408080;font-style:italic"># argument is a set of non-required options.</span>
+  <span style="color:#408080;font-style:italic"># config.vm.synced_folder &#34;../data&#34;, &#34;/vagrant_data&#34;</span>
 
-  <span style="color:#75715e"># Provider-specific configuration so you can fine-tune various</span>
-  <span style="color:#75715e"># backing providers for Vagrant. These expose provider-specific options.</span>
-  <span style="color:#75715e"># Example for VirtualBox:</span>
-  <span style="color:#75715e">#</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">provider</span> <span style="color:#d88200">&#34;virtualbox&#34;</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">vb</span><span style="color:#f92672">|</span>
-  <span style="color:#75715e">#   # Display the VirtualBox GUI when booting the machine</span>
-  <span style="color:#75715e">#   vb.gui = true</span>
-  <span style="color:#75715e">#</span>
-  <span style="color:#75715e">#   # Customize the amount of memory on the VM:</span>
-  <span style="color:#75715e">#   vb.memory = &#34;1024&#34;</span>
+  <span style="color:#408080;font-style:italic"># Provider-specific configuration so you can fine-tune various</span>
+  <span style="color:#408080;font-style:italic"># backing providers for Vagrant. These expose provider-specific options.</span>
+  <span style="color:#408080;font-style:italic"># Example for VirtualBox:</span>
+  <span style="color:#408080;font-style:italic">#</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>provider <span style="color:#ba2121">&#34;virtualbox&#34;</span> <span style="color:#008000;font-weight:bold">do</span> <span style="color:#666">|</span>vb<span style="color:#666">|</span>
+  <span style="color:#408080;font-style:italic">#   # Display the VirtualBox GUI when booting the machine</span>
+  <span style="color:#408080;font-style:italic">#   vb.gui = true</span>
+  <span style="color:#408080;font-style:italic">#</span>
+  <span style="color:#408080;font-style:italic">#   # Customize the amount of memory on the VM:</span>
+  <span style="color:#408080;font-style:italic">#   vb.memory = &#34;1024&#34;</span>
 
-    <span style="color:#75715e"># Add missing console output</span>
-    <span style="color:#111">vb</span><span style="color:#f92672">.</span><span style="color:#111">customize</span> <span style="color:#f92672">[</span><span style="color:#d88200">&#34;modifyvm&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">:id</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--uart1&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;0x3F8&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;4&#34;</span><span style="color:#f92672">]</span>
-    <span style="color:#111">vb</span><span style="color:#f92672">.</span><span style="color:#111">customize</span> <span style="color:#f92672">[</span><span style="color:#d88200">&#34;modifyvm&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">:id</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--uartmode1&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;file&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;</span><span style="color:#d88200">#{</span><span style="color:#00a8c8">CURRENT_PATH</span><span style="color:#d88200">}</span><span style="color:#d88200">/console.out&#34;</span><span style="color:#f92672">]</span>
-  <span style="color:#00a8c8">end</span>
-  <span style="color:#75715e">#</span>
-  <span style="color:#75715e"># View the documentation for the provider you are using for more</span>
-  <span style="color:#75715e"># information on available options.</span>
+    <span style="color:#408080;font-style:italic"># Add missing console output</span>
+    vb<span style="color:#666">.</span>customize <span style="color:#666">[</span><span style="color:#ba2121">&#34;modifyvm&#34;</span>, <span style="color:#19177c">:id</span>, <span style="color:#ba2121">&#34;--uart1&#34;</span>, <span style="color:#ba2121">&#34;0x3F8&#34;</span>, <span style="color:#ba2121">&#34;4&#34;</span><span style="color:#666">]</span>
+    vb<span style="color:#666">.</span>customize <span style="color:#666">[</span><span style="color:#ba2121">&#34;modifyvm&#34;</span>, <span style="color:#19177c">:id</span>, <span style="color:#ba2121">&#34;--uartmode1&#34;</span>, <span style="color:#ba2121">&#34;file&#34;</span>, <span style="color:#ba2121">&#34;</span><span style="color:#b68;font-weight:bold">#{</span><span style="color:#800">CURRENT_PATH</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#ba2121">/console.out&#34;</span><span style="color:#666">]</span>
+  <span style="color:#008000;font-weight:bold">end</span>
+  <span style="color:#408080;font-style:italic">#</span>
+  <span style="color:#408080;font-style:italic"># View the documentation for the provider you are using for more</span>
+  <span style="color:#408080;font-style:italic"># information on available options.</span>
 
-  <span style="color:#75715e"># Enable provisioning with a shell script. Additional provisioners such as</span>
-  <span style="color:#75715e"># Ansible, Chef, Docker, Puppet and Salt are also available. Please see the</span>
-  <span style="color:#75715e"># documentation for more information about their specific syntax and use.</span>
-  <span style="color:#75715e"># config.vm.provision &#34;shell&#34;, inline: &lt;&lt;-SHELL</span>
-  <span style="color:#75715e">#   apt-get update</span>
-  <span style="color:#75715e">#   apt-get install -y apache2</span>
-  <span style="color:#75715e"># SHELL</span>
-<span style="color:#00a8c8">end</span>
+  <span style="color:#408080;font-style:italic"># Enable provisioning with a shell script. Additional provisioners such as</span>
+  <span style="color:#408080;font-style:italic"># Ansible, Chef, Docker, Puppet and Salt are also available. Please see the</span>
+  <span style="color:#408080;font-style:italic"># documentation for more information about their specific syntax and use.</span>
+  <span style="color:#408080;font-style:italic"># config.vm.provision &#34;shell&#34;, inline: &lt;&lt;-SHELL</span>
+  <span style="color:#408080;font-style:italic">#   apt-get update</span>
+  <span style="color:#408080;font-style:italic">#   apt-get install -y apache2</span>
+  <span style="color:#408080;font-style:italic"># SHELL</span>
+<span style="color:#008000;font-weight:bold">end</span>
 </code></pre></div>
                 </section>
             </article>

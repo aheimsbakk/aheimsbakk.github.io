@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Libvirt and Vagrant &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -77,33 +77,33 @@
 <p>The biggest feature is that it allows for more permanent development environments and direct connection to already existing <a href="https://en.wikipedia.org/wiki/Bridging_(networking)">network bridges</a>.</p>
 <h2 id="preparation">Preparation</h2>
 <p>Allow your user to manage libvirt VMs on the computer.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -Ga libvirt <span style="color:#00a8c8">$(</span>whoami<span style="color:#00a8c8">)</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -Ga libvirt <span style="color:#008000;font-weight:bold">$(</span>whoami<span style="color:#008000;font-weight:bold">)</span>
 </code></pre></div><h2 id="vagrantfile">Vagrantfile</h2>
 <p>Below is an example of a <code>Vagrantfile</code> that creates a VM with connection to a bridge <code>bridge0</code> on a network <code>192.168.1.0/24</code> that restart automatically after a reboot of the host.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># -*- mode: ruby -*-</span>
-<span style="color:#75715e"># vi: set ft=ruby :</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#408080;font-style:italic"># -*- mode: ruby -*-</span>
+<span style="color:#408080;font-style:italic"># vi: set ft=ruby :</span>
 
-<span style="color:#00a8c8">Vagrant</span><span style="color:#f92672">.</span><span style="color:#111">configure</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">config</span><span style="color:#f92672">|</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">box</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;debian/buster64&#34;</span>
+<span style="color:#800">Vagrant</span><span style="color:#666">.</span>configure(<span style="color:#ba2121">&#34;2&#34;</span>) <span style="color:#008000;font-weight:bold">do</span> <span style="color:#666">|</span>config<span style="color:#666">|</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>box <span style="color:#666">=</span> <span style="color:#ba2121">&#34;debian/buster64&#34;</span>
 
-  <span style="color:#75715e"># Connect to bridge named bridge0 with public IP 192.168.1.100</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">network</span> <span style="color:#d88200">&#34;public_network&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">dev</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge0&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">mode</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">type</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;bridge&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">ip</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;192.168.1.100&#34;</span>
+  <span style="color:#408080;font-style:italic"># Connect to bridge named bridge0 with public IP 192.168.1.100</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>network <span style="color:#ba2121">&#34;public_network&#34;</span>, <span style="color:#19177c">dev</span>: <span style="color:#ba2121">&#34;bridge0&#34;</span>, <span style="color:#19177c">mode</span>: <span style="color:#ba2121">&#34;bridge&#34;</span>, <span style="color:#19177c">type</span>: <span style="color:#ba2121">&#34;bridge&#34;</span>, <span style="color:#19177c">ip</span>: <span style="color:#ba2121">&#34;192.168.1.100&#34;</span>
 
-  <span style="color:#75715e"># Use rsync to sync files into /vagrant</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">synced_folder</span> <span style="color:#d88200">&#34;.&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/vagrant&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">type</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;rsync&#34;</span>
+  <span style="color:#408080;font-style:italic"># Use rsync to sync files into /vagrant</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>synced_folder <span style="color:#ba2121">&#34;.&#34;</span>, <span style="color:#ba2121">&#34;/vagrant&#34;</span>, <span style="color:#19177c">type</span>: <span style="color:#ba2121">&#34;rsync&#34;</span>
 
-  <span style="color:#75715e"># Libvirt provider</span>
-  <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#111">vm</span><span style="color:#f92672">.</span><span style="color:#111">provider</span> <span style="color:#d88200">&#34;libvirt&#34;</span> <span style="color:#00a8c8">do</span> <span style="color:#f92672">|</span><span style="color:#111">l</span><span style="color:#f92672">|</span>
-    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">cpus</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">memory</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;256&#34;</span>
+  <span style="color:#408080;font-style:italic"># Libvirt provider</span>
+  config<span style="color:#666">.</span>vm<span style="color:#666">.</span>provider <span style="color:#ba2121">&#34;libvirt&#34;</span> <span style="color:#008000;font-weight:bold">do</span> <span style="color:#666">|</span>l<span style="color:#666">|</span>
+    l<span style="color:#666">.</span>cpus <span style="color:#666">=</span> <span style="color:#666">1</span>
+    l<span style="color:#666">.</span>memory <span style="color:#666">=</span> <span style="color:#ba2121">&#34;256&#34;</span>
 
-    <span style="color:#75715e"># Use qemu:///system sesion, not the user session qemu:///session</span>
-    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">qemu_use_session</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span>
+    <span style="color:#408080;font-style:italic"># Use qemu:///system sesion, not the user session qemu:///session</span>
+    l<span style="color:#666">.</span>qemu_use_session <span style="color:#666">=</span> <span style="color:#008000">false</span>
 
-    <span style="color:#75715e"># Restart on host reboot</span>
-    <span style="color:#111">l</span><span style="color:#f92672">.</span><span style="color:#111">autostart</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span>
-  <span style="color:#00a8c8">end</span>
-<span style="color:#00a8c8">end</span>
+    <span style="color:#408080;font-style:italic"># Restart on host reboot</span>
+    l<span style="color:#666">.</span>autostart <span style="color:#666">=</span> <span style="color:#008000">true</span>
+  <span style="color:#008000;font-weight:bold">end</span>
+<span style="color:#008000;font-weight:bold">end</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 

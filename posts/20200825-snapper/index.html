@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>snapper - filesystem snapshot management &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -78,76 +78,76 @@
 <p><em>Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.</em></p>
 <p>This is my notes. Use at your own risk.</p>
 <h2 id="usage">Usage</h2>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper list
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper restore &lt;number&gt;
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper list
+</code></pre></div><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper restore &lt;number&gt;
 </code></pre></div><h2 id="set-default-subvolume">Set default subvolume</h2>
 <ol>
 <li>
 <p>List subvolume on filsystem.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub list /
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ID 256 gen 15137 top level 5 path home
-<span style="display:block;width:100%;background-color:#e1e1e1">ID 257 gen 11927 top level 5 path root
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub list /
+</code></pre></div><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ID 256 gen 15137 top level 5 path home
+<span style="display:block;width:100%;background-color:#e5e5e5">ID 257 gen 11927 top level 5 path root
 </span></code></pre></div></li>
 <li>
 <p>Set default subvolume for the mounted filesystem to the <code>root</code> subvolume.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub set-default <span style="color:#ae81ff">257</span> /
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">btrfs sub set-default <span style="color:#666">257</span> /
 </code></pre></div></li>
 <li>
 <p>Remove subvolume from <code>/etc/fstab</code> since it&rsquo;s now default.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#d88200">&#39;s/subvol=root,//&#39;</span> /etc/fstab
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#ba2121">&#39;s/subvol=root,//&#39;</span> /etc/fstab
 </code></pre></div></li>
 <li>
 <p>Update grub to use the default volume. Use <code>SUSE_BTRFS_SNAPSHOT_BOOTING</code> grub config to avoid adding root subvolume to the grub kernel parameters.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -q SUSE /etc/sysconfig/grub <span style="color:#f92672">||</span> <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>    <span style="color:#111">echo</span> <span style="color:#111">SUSE_BTRFS_SNAPSHOT_BOOTING</span><span style="color:#f92672">=</span><span style="color:#111">true</span> <span style="color:#111">|</span> <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>    sudo tee -a /etc/sysconfig/grub
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep -q SUSE /etc/sysconfig/grub <span style="color:#666">||</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    <span style="color:#008000">echo</span> <span style="color:#19177c">SUSE_BTRFS_SNAPSHOT_BOOTING</span><span style="color:#666">=</span><span style="color:#008000">true</span> | <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    sudo tee -a /etc/sysconfig/grub
 </code></pre></div></li>
 <li>
 <p>Update grub config. This updates grub configuration on an EFI system.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grub2-mkconfig &gt; /boot/efi/EFI/fedora/grub.cfg
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grub2-mkconfig &gt; /boot/efi/EFI/fedora/grub.cfg
 </code></pre></div></li>
 </ol>
 <h2 id="install-and-configure-snapper">Install and configure snapper</h2>
 <ol>
 <li>
 <p>Install snapper.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dnf install snapper
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dnf install snapper
 </code></pre></div></li>
 <li>
 <p>Add default snapper configuration.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper create-config /
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper create-config /
 </code></pre></div></li>
 <li>
 <p>Keep number of <code>NUMBER</code> snapshots to <code>3</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(NUMBER_LIMIT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#ba2121">&#39;s/(NUMBER_LIMIT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
 </code></pre></div></li>
 <li>
 <p>Keep number of <code>IMPORTANT</code> snapshots to <code>3</code></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(NUMBER_LIMIT_IMPORTANT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#ba2121">&#39;s/(NUMBER_LIMIT_IMPORTANT)=(.*)/\1=&#34;3&#34;/&#39;</span> /etc/snapper/configs/root
 </code></pre></div></li>
 <li>
 <p>Keep number of <code>TIMELINE</code> snapshot to one each day for 7 days.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_HOURLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
-sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_DAILY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
-sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_WEEKLY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
-sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_MONTHLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
-sed -Ei <span style="color:#d88200">&#39;s/(TIMELINE_LIMIT_YEARLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -Ei <span style="color:#ba2121">&#39;s/(TIMELINE_LIMIT_HOURLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#ba2121">&#39;s/(TIMELINE_LIMIT_DAILY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#ba2121">&#39;s/(TIMELINE_LIMIT_WEEKLY)=(.*)/\1=&#34;7&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#ba2121">&#39;s/(TIMELINE_LIMIT_MONTHLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
+sed -Ei <span style="color:#ba2121">&#39;s/(TIMELINE_LIMIT_YEARLY)=(.*)/\1=&#34;0&#34;/&#39;</span> /etc/snapper/configs/root
 </code></pre></div></li>
 <li>
 <p>Enable snapper.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl <span style="color:#111">enable</span> snapper-boot.timer --now
-systemctl <span style="color:#111">enable</span> snapper-cleanup.timer --now
-systemctl <span style="color:#111">enable</span> snapper-timeline.timer --now
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl <span style="color:#008000">enable</span> snapper-boot.timer --now
+systemctl <span style="color:#008000">enable</span> snapper-cleanup.timer --now
+systemctl <span style="color:#008000">enable</span> snapper-timeline.timer --now
 </code></pre></div></li>
 </ol>
 <h2 id="example-output">Example output</h2>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper --iso list
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"> # | Type   | Pre # | Date                | User | Cleanup  | Description           | Userdata     
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">snapper --iso list
+</code></pre></div><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain"> # | Type   | Pre # | Date                | User | Cleanup  | Description           | Userdata     
 ---+--------+-------+---------------------+------+----------+-----------------------+--------------
 0  | single |       |                     | root |          | current               |              
 2  | single |       | 2020-08-25 17:10:57 | root | number   | rollback backup       | important=yes
 4  | single |       | 2020-08-25 17:13:49 | root | number   | rollback backup of #3 | important=yes
-<span style="display:block;width:100%;background-color:#e1e1e1">5* | single |       | 2020-08-25 17:13:49 | root |          |                       |              
+<span style="display:block;width:100%;background-color:#e5e5e5">5* | single |       | 2020-08-25 17:13:49 | root |          |                       |              
 </span>6  | single |       | 2020-08-25 17:31:16 | root | number   | boot                  |              
 7  | single |       | 2020-08-25 18:00:56 | root | timeline | timeline              |              
 8  | single |       | 2020-08-25 18:11:41 | root | number   | boot                  |              

@@ -1,13 +1,15 @@
+#wrapper {
+    max-width: 768px;
+}
+
 #wrapper.home {
-    max-width: 720px;
+    max-width: 768px;
 }
 
 #wrapper.post {
     max-width: 768px;
 }
 
-/*
 #wrapper.tags {
     max-width: 768px;
 }
-*/

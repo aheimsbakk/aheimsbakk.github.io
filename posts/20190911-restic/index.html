@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Design an online ransomware safe backup with restic &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -78,9 +78,9 @@
 <p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers.</p>
 <h2 id="problem">Problem</h2>
 <p>Setting up an automated backup from one macine is no problem. This can be done quite easily with</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups init
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups init
 </code></pre></div><p>Backups is then done with</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -p password_file -r sftp://user@destination/srv/backups backup /srv/backmeup
 </code></pre></div><p>If a malicious actor has access to the source machine, they will have read and write access to the backup on the destination. To avoid giving the malicious actor write access to already existing backups, we need to ensure that existing backups on the destination never is changed. This is done by making the destination immutable. When data is written, it cannot be changed later.</p>
 <h2 id="solution">Solution</h2>
 <p>This can be solved in couple of ways</p>
@@ -89,7 +89,7 @@
 <li>Make any destination immutable by relying all traffic through a secured <em>rclone</em> proxy with the <code>--append-only</code> forced.</li>
 </ol>
 <h2 id="design-rely-traffic-through-proxy">Design, rely traffic through proxy</h2>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">     source               intermediate                destination
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">     source               intermediate                destination
 +---------------+       +--------------+  chosen     +-----------+
 |               |  SSH  | rclone       |  transport  | favorite  |
 | /srv/backmeup | ----&gt; | append only  | ----------&gt; | cloud     |
@@ -100,11 +100,11 @@
 <ol>
 <li>
 <p>Create a SSH key on the <em>source</em> without a password.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -f .ssh/id_ed25519 -N <span style="color:#d88200">&#39;&#39;</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -f .ssh/id_ed25519 -N <span style="color:#ba2121">&#39;&#39;</span>
 </code></pre></div></li>
 <li>
 <p>Cat the newly created key <code>.ssh/id_ed25519.pub</code></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
 </code></pre></div></li>
 </ol>
 <h3 id="on-intermediate">On <em>intermediate</em></h3>
@@ -117,32 +117,32 @@
 </li>
 <li>
 <p>Create a <em>rclone</em> profile, in this case it&rsquo;s called <em>myprofile</em>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone config
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone config
 </code></pre></div></li>
 <li>
 <p>Test the profile.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone ls myprofile:
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rclone ls myprofile:
 </code></pre></div></li>
 <li>
 <p>Allow <em>source</em> to SSH into <em>intermediate</em> and run a very limited <em>rclone</em> which only may append data to <em>myprofile</em>. Edit <code>.ssh/authorized_keys</code>.</p>
-<pre><code>restrict,command=&quot;rclone serve restic --stdio --append-only myprofile:backups&quot; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+<pre tabindex="0"><code>restrict,command=&quot;rclone serve restic --stdio --append-only myprofile:backups&quot; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
 </code></pre></li>
 </ol>
 <h3 id="back-on-source">Back on <em>source</em></h3>
 <ol>
 <li>
 <p>Create a unique password for the backup. Take note of this password! You will not be able to restore without it.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apg -m <span style="color:#ae81ff">32</span> <span style="color:#111">|</span> head -1 &gt; restic.pwd
-chmod <span style="color:#ae81ff">400</span> restic.pwd
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apg -m <span style="color:#666">32</span> | head -1 &gt; restic.pwd
+chmod <span style="color:#666">400</span> restic.pwd
 cat restic.pwd
 </code></pre></div></li>
 <li>
 <p>Initiate <em>restic</em> backup repository.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#f92672">=</span><span style="color:#d88200">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: init
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#666">=</span><span style="color:#ba2121">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: init
 </code></pre></div></li>
 <li>
 <p>Back up your data.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#f92672">=</span><span style="color:#d88200">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: backup /srv/backmeup
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">restic -o rclone.program<span style="color:#666">=</span><span style="color:#ba2121">&#39;ssh user@intermediate&#39;</span> -p restic.pwd -r rclone: backup /srv/backmeup
 </code></pre></div></li>
 <li>
 <p>Create a job that run <em>restic</em> regularly.</p>

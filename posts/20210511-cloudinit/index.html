@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Ubuntu cloud images with KVM &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -75,21 +75,21 @@
                     <p>Ubuntu are using <a href="https://cloudinit.readthedocs.io/en/latest/"><code>cloud-init</code></a> for their <a href="https://cloud-images.ubuntu.com/">cloud images</a>. This can be used in combination with <a href="https://libvirt.org/"><code>libvirtd</code></a> and <a href="https://www.linux-kvm.org/page/Main_Page"><code>kvm</code></a> to pre-configure your virtual machine at boot.</p>
 <h2 id="prepare-cloud-init-configuration">Prepare cloud-init configuration</h2>
 <p>You can specify much more configuration than we&rsquo;ve done in this example. This configuration sets the password <code>ubuntu</code> for the default user for the image. On Ubuntu images this user is <code>ubuntu</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat &gt;user-data <span style="color:#d88200">&lt;&lt;EOF
-</span><span style="color:#d88200">#cloud-config
-</span><span style="color:#d88200">password: ubuntu
-</span><span style="color:#d88200">chpasswd: { expire: False }
-</span><span style="color:#d88200">ssh_pwauth: True
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat &gt;user-data <span style="color:#ba2121">&lt;&lt;EOF
+</span><span style="color:#ba2121">#cloud-config
+</span><span style="color:#ba2121">password: ubuntu
+</span><span style="color:#ba2121">chpasswd: { expire: False }
+</span><span style="color:#ba2121">ssh_pwauth: True
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div><p>Create a disk image out of the configuration.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cloud-localds user-data.img user-data
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cloud-localds user-data.img user-data
 </code></pre></div><h2 id="virtual-machine-using-cloud-init">Virtual machine using cloud-init</h2>
 <h3 id="placing-the-files">Placing the files</h3>
 <ol>
 <li>Download your prefered cloud image which ends with <code>.img</code>. They are <a href="https://en.wikipedia.org/wiki/Qcow">qcow2</a> images.</li>
 <li>Copy the image to <code>/var/lib/libvirit/images/your-vm-name.img</code></li>
 <li>Resize the disk to the size you want, example 16G.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">qemu-img resize /var/lib/libvirt/images/your-vm-name.img 16G
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">qemu-img resize /var/lib/libvirt/images/your-vm-name.img 16G
 </code></pre></div></li>
 <li>Copy the configuration image to <code>/var/lib/libvirt/images/user-data.img</code></li>
 </ol>

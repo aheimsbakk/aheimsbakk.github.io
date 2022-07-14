@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -83,28 +83,28 @@
 <ol>
 <li>Flash Ubuntu on the SD card as usual.</li>
 <li>Mount the partitions and go to where the partitions are mounted, example on Fedora.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> /run/media/<span style="color:#d88200">${</span><span style="color:#111">USER</span><span style="color:#d88200">}</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">cd</span> /run/media/<span style="color:#b68;font-weight:bold">${</span><span style="color:#19177c">USER</span><span style="color:#b68;font-weight:bold">}</span>
 </code></pre></div></li>
 <li>Tell boot to read from a Btrfs file system on next boot
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#d88200">&#39;s/ext4/btrfs/&#39;</span> system-boot/cmdline.txt
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -i <span style="color:#ba2121">&#39;s/ext4/btrfs/&#39;</span> system-boot/cmdline.txt
 </code></pre></div></li>
 <li>Update <code>/etc/fstab</code> with new file system, and ensure minimum writes to SD card.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#d88200">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> writable/etc/fstab
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sed -E -i <span style="color:#ba2121">&#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39;</span> writable/etc/fstab
 </code></pre></div></li>
 <li>Unmount the file system.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo umount system-boot
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo umount system-boot
 sudo umount writable
 </code></pre></div></li>
 <li>Convert the file system on the SD card. If the SD cards <code>ext4</code> partition are <code>/dev/sda2</code> then the command will be as follows. Let the command finish.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs-convert -p /dev/sda2
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs-convert -p /dev/sda2
 </code></pre></div></li>
 <li>Put the SD card in the Raspberry Pi and boot. Voila! You have a Btrfs root file system.</li>
 <li>Log into the Raspberry Pi for some cleanup.</li>
 <li>Remove the old <code>ext2</code> backup.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs sub del /ext2_saved
 </code></pre></div></li>
 <li>Defrag and compress already existing OS.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs <span style="color:#00a8c8">fi</span> def -czstd -r -v /
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo btrfs <span style="color:#008000;font-weight:bold">fi</span> def -czstd -r -v /
 </code></pre></div></li>
 </ol>
 <p>Congratulations! Now you have a Btrfs root file system with compression. Writes will take less space, and wear leveling is down. Note that you also have saved space by running a <code>df -h /</code>. Enjoy a SD card that will last longer than you are used to.</p>

@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Compressed RAM based block devices &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -80,23 +80,23 @@
 </ul>
 <h1 id="example-of-compressed-swap-in-memory">Example of compressed swap in memory</h1>
 <p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Load the module and create one zram device, /dev/zram0</span>
-modprobe zram <span style="color:#111">num_devices</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#408080;font-style:italic"># Load the module and create one zram device, /dev/zram0</span>
+modprobe zram <span style="color:#19177c">num_devices</span><span style="color:#666">=</span><span style="color:#666">1</span>
 
-<span style="color:#75715e"># Maximum of compressed streams (keep same as CPUs)</span>
-<span style="color:#111">echo</span> <span style="color:#ae81ff">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
+<span style="color:#408080;font-style:italic"># Maximum of compressed streams (keep same as CPUs)</span>
+<span style="color:#008000">echo</span> <span style="color:#666">4</span> &gt; /sys/devices/virtual/block/zram0/max_comp_streams
 
-<span style="color:#75715e"># Size of zram0 device in k/m/g</span>
-<span style="color:#111">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
+<span style="color:#408080;font-style:italic"># Size of zram0 device in k/m/g</span>
+<span style="color:#008000">echo</span> 2g &gt; /sys/devices/virtual/block/zram0/disksize
 
-<span style="color:#75715e"># Comression compression algorithm to use</span>
-<span style="color:#111">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
+<span style="color:#408080;font-style:italic"># Comression compression algorithm to use</span>
+<span style="color:#008000">echo</span> lzo &gt; /sys/devices/virtual/block/zram0/comp_algorithm
 
-<span style="color:#75715e"># Create the swap file system</span>
+<span style="color:#408080;font-style:italic"># Create the swap file system</span>
 mkswap /dev/zram0
 
-<span style="color:#75715e"># Enable the swap partition with high priority</span>
-swapon /dev/zram0 -p <span style="color:#ae81ff">10</span>
+<span style="color:#408080;font-style:italic"># Enable the swap partition with high priority</span>
+swapon /dev/zram0 -p <span style="color:#666">10</span>
 </code></pre></div>
                 </section>
             </article>

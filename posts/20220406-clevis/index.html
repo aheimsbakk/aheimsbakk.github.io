@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Luks decryption with clevis and TPM2 on Fedora &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -84,7 +84,7 @@
 <p>The idea is to automatic unlock the disc during boot without typing a password by binding the disk to &ldquo;your&rdquo; computer and storing a key in the <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">Trusted Platform Module</a>, TPM.</p>
 <h2 id="installation">Installation</h2>
 <h3 id="fedora">Fedora</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y clevis clevis-dracut clevis-udisks2
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y clevis clevis-dracut clevis-udisks2
 </code></pre></div><h2 id="setup">Setup</h2>
 <p>Preparations before you begin.</p>
 <ul>
@@ -93,7 +93,7 @@
 <li>Set a strong BIOS password.</li>
 </ul>
 <h3 id="bind-pin-to-disk">Bind pin to disk</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#111">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#d88200">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
 </code></pre></div><p>Automated disc encryption will fail if</p>
 <ul>
 <li><code>0.</code> UEFI firmware has changed.</li>
@@ -103,12 +103,12 @@
 </ul>
 <p>Platform Configuration Registers (PCR) <a href="https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12/tables/1">table</a>.</p>
 <h3 id="list-pins-bound-to-disk">List pins bound to disk</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
 </code></pre></div><h3 id="unbind-pin-from-disk">Unbind pin from disk</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks unbind -d /dev/nvme0n1p3 -s <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks unbind -d /dev/nvme0n1p3 -s <span style="color:#666">1</span>
 </code></pre></div><h2 id="remove-all-acces-to-the-disk">Remove all acces to the disk</h2>
 <p>Before you give away your disk or computer. You can erase all access to your data with a simple command.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cryptsetup erase /dev/nvme0n1p3
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cryptsetup erase /dev/nvme0n1p3
 </code></pre></div><h2 id="references">References</h2>
 <ul>
 <li>Always good guides at <a href="https://wiki.archlinux.org/title/Trusted_Platform_Module#systemd-cryptenroll">archlinux</a> wiki.</li>

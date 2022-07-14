@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Wireguard VPN server &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -88,88 +88,88 @@
 <p>On the server we enable IP for both IPv4 and IPv6 and forwards packages to let the clients have internet access. Server and clients communicate on private address ranges. In this example we use <code>10.0.0.0/24</code> and <code>fd00::/64</code>.</p>
 <h3 id="server-and-client">Server and client</h3>
 <p>Generate private and public key for server and clients.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Secure Wireguard keys and config</span>
-<span style="color:#111">umask</span> <span style="color:#ae81ff">077</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#408080;font-style:italic"># Secure Wireguard keys and config</span>
+<span style="color:#008000">umask</span> <span style="color:#666">077</span>
 
-<span style="color:#75715e"># Generate private and public key</span>
-wg genkey <span style="color:#111">|</span> sudo tee /etc/wireguard/privatekey <span style="color:#111">|</span> wg pubkey <span style="color:#111">|</span> sudo tee /etc/wireguard/publickey
+<span style="color:#408080;font-style:italic"># Generate private and public key</span>
+wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
 </code></pre></div><h3 id="server">Server</h3>
 <p>If you want to change server IP and Wireguard subnets, do it here.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">export</span> <span style="color:#111">IPV4_IP</span><span style="color:#f92672">=</span>10.0.0.1
-<span style="color:#111">export</span> <span style="color:#111">IPV4_NET</span><span style="color:#f92672">=</span>10.0.0.0/24
-<span style="color:#111">export</span> <span style="color:#111">IPV6_IP</span><span style="color:#f92672">=</span>fd00::1
-<span style="color:#111">export</span> <span style="color:#111">IPV6_NET</span><span style="color:#f92672">=</span>fd00::/64
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">export</span> <span style="color:#19177c">IPV4_IP</span><span style="color:#666">=</span>10.0.0.1
+<span style="color:#008000">export</span> <span style="color:#19177c">IPV4_NET</span><span style="color:#666">=</span>10.0.0.0/24
+<span style="color:#008000">export</span> <span style="color:#19177c">IPV6_IP</span><span style="color:#666">=</span>fd00::1
+<span style="color:#008000">export</span> <span style="color:#19177c">IPV6_NET</span><span style="color:#666">=</span>fd00::/64
 </code></pre></div><p>Configure the IP forwarding and main Wireguard configuration.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Set variables</span>
-<span style="color:#111">GATEWAY_INTERFACE</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>ip route <span style="color:#111">|</span> grep default <span style="color:#111">|</span> cut -d<span style="color:#d88200">&#39; &#39;</span> -f5<span style="color:#00a8c8">)</span>
-<span style="color:#111">PRIVATE_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#00a8c8">)</span>
-<span style="color:#111">PUBLIC_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#00a8c8">)</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#408080;font-style:italic"># Set variables</span>
+<span style="color:#19177c">GATEWAY_INTERFACE</span><span style="color:#666">=</span><span style="color:#008000;font-weight:bold">$(</span>ip route | grep default | cut -d<span style="color:#ba2121">&#39; &#39;</span> -f5<span style="color:#008000;font-weight:bold">)</span>
+<span style="color:#19177c">PRIVATE_KEY</span><span style="color:#666">=</span><span style="color:#008000;font-weight:bold">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#008000;font-weight:bold">)</span>
+<span style="color:#19177c">PUBLIC_KEY</span><span style="color:#666">=</span><span style="color:#008000;font-weight:bold">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#008000;font-weight:bold">)</span>
 
-<span style="color:#75715e"># Allow IP forwarding</span>
-cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-forward.conf
-</span><span style="color:#d88200">net.ipv4.conf.all.forwarding=1
-</span><span style="color:#d88200">net.ipv6.conf.all.forwarding=1
-</span><span style="color:#d88200">EOF</span>
+<span style="color:#408080;font-style:italic"># Allow IP forwarding</span>
+cat <span style="color:#ba2121">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-forward.conf
+</span><span style="color:#ba2121">net.ipv4.conf.all.forwarding=1
+</span><span style="color:#ba2121">net.ipv6.conf.all.forwarding=1
+</span><span style="color:#ba2121">EOF</span>
 sudo sysctl -p /etc/sysctl.d/99-forward.conf
 
-<span style="color:#75715e"># Secure Wireguard keys and config</span>
-<span style="color:#111">umask</span> <span style="color:#ae81ff">077</span>
+<span style="color:#408080;font-style:italic"># Secure Wireguard keys and config</span>
+<span style="color:#008000">umask</span> <span style="color:#666">077</span>
 
-<span style="color:#75715e"># Create inital configuration</span>
-cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
-</span><span style="color:#d88200">[Interface]
-</span><span style="color:#d88200">Address = $IPV4_IP, $IPV6_IP
-</span><span style="color:#d88200">SaveConfig = true
-</span><span style="color:#d88200">PostUp = iptables -I FORWARD -i %i -j ACCEPT; iptables -t nat -I POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -I FORWARD -i %i -j ACCEPT; ip6tables -t nat -I POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
-</span><span style="color:#d88200">PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -D FORWARD -i %i -j ACCEPT; ip6tables -t nat -D POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
-</span><span style="color:#d88200">ListenPort = 51820
-</span><span style="color:#d88200">PrivateKey = $PRIVATE_KEY
-</span><span style="color:#d88200">EOF</span>
+<span style="color:#408080;font-style:italic"># Create inital configuration</span>
+cat <span style="color:#ba2121">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span><span style="color:#ba2121">[Interface]
+</span><span style="color:#ba2121">Address = $IPV4_IP, $IPV6_IP
+</span><span style="color:#ba2121">SaveConfig = true
+</span><span style="color:#ba2121">PostUp = iptables -I FORWARD -i %i -j ACCEPT; iptables -t nat -I POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -I FORWARD -i %i -j ACCEPT; ip6tables -t nat -I POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span><span style="color:#ba2121">PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -D FORWARD -i %i -j ACCEPT; ip6tables -t nat -D POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span><span style="color:#ba2121">ListenPort = 51820
+</span><span style="color:#ba2121">PrivateKey = $PRIVATE_KEY
+</span><span style="color:#ba2121">EOF</span>
 
-<span style="color:#75715e"># Enable wireguard configuration</span>
-sudo systemctl <span style="color:#111">enable</span> wg-quick@wg0 --now
+<span style="color:#408080;font-style:italic"># Enable wireguard configuration</span>
+sudo systemctl <span style="color:#008000">enable</span> wg-quick@wg0 --now
 
-<span style="color:#75715e"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
-<span style="color:#111">test</span> -f /usr/sbin/ufw <span style="color:#f92672">&amp;&amp;</span> ufw allow 51820/udp
+<span style="color:#408080;font-style:italic"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+<span style="color:#008000">test</span> -f /usr/sbin/ufw <span style="color:#666">&amp;&amp;</span> ufw allow 51820/udp
 </code></pre></div><h3 id="clients">Client(s)</h3>
 <p>Change variables for each client.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">export</span> <span style="color:#111">IPV4_IP</span><span style="color:#f92672">=</span>10.0.0.10
-<span style="color:#111">export</span> <span style="color:#111">IPV6_IP</span><span style="color:#f92672">=</span>fd00::10
-<span style="color:#75715e"># Change to your servers key and address</span>
-<span style="color:#111">export</span> <span style="color:#111">SERVER_PUBLIC_KEY</span><span style="color:#f92672">=</span>hN5CiKMB8hiV4zoX/hztqamV/Lpz2TcPUGFtABRQYgc<span style="color:#f92672">=</span>
-<span style="color:#111">export</span> <span style="color:#111">SERVER_ADDRESS</span><span style="color:#f92672">=</span>my.wireguard.server.foo:51820
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">export</span> <span style="color:#19177c">IPV4_IP</span><span style="color:#666">=</span>10.0.0.10
+<span style="color:#008000">export</span> <span style="color:#19177c">IPV6_IP</span><span style="color:#666">=</span>fd00::10
+<span style="color:#408080;font-style:italic"># Change to your servers key and address</span>
+<span style="color:#008000">export</span> <span style="color:#19177c">SERVER_PUBLIC_KEY</span><span style="color:#666">=</span>hN5CiKMB8hiV4zoX/hztqamV/Lpz2TcPUGFtABRQYgc<span style="color:#666">=</span>
+<span style="color:#008000">export</span> <span style="color:#19177c">SERVER_ADDRESS</span><span style="color:#666">=</span>my.wireguard.server.foo:51820
 </code></pre></div><p>And then write the client configuration.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Set variables</span>
-<span style="color:#111">PRIVATE_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#00a8c8">)</span>
-<span style="color:#111">PUBLIC_KEY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#00a8c8">)</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#408080;font-style:italic"># Set variables</span>
+<span style="color:#19177c">PRIVATE_KEY</span><span style="color:#666">=</span><span style="color:#008000;font-weight:bold">$(</span>sudo cat /etc/wireguard/privatekey<span style="color:#008000;font-weight:bold">)</span>
+<span style="color:#19177c">PUBLIC_KEY</span><span style="color:#666">=</span><span style="color:#008000;font-weight:bold">$(</span>sudo cat /etc/wireguard/publickey<span style="color:#008000;font-weight:bold">)</span>
 
-cat <span style="color:#d88200">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
-</span><span style="color:#d88200">[Interface]
-</span><span style="color:#d88200">PrivateKey = $PRIVATE_KEY
-</span><span style="color:#d88200">DNS = 1.1.1.1, 1.0.0.1
-</span><span style="color:#d88200">Address = $IPV4_IP, $IPV6_IP
-</span><span style="color:#d88200">ListenPort = 51820
-</span><span style="color:#d88200">
-</span><span style="color:#d88200">[Peer]
-</span><span style="color:#d88200">PublicKey = $SERVER_PUBLIC_KEY
-</span><span style="color:#d88200">AllowedIPs = 0.0.0.0/0, ::/0
-</span><span style="color:#d88200"># If your client is behind a NAT firewall
-</span><span style="color:#d88200">PersistentKeepalive = 25
-</span><span style="color:#d88200">Endpoint = $SERVER_ADDRESS
-</span><span style="color:#d88200">EOF</span>
+cat <span style="color:#ba2121">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span><span style="color:#ba2121">[Interface]
+</span><span style="color:#ba2121">PrivateKey = $PRIVATE_KEY
+</span><span style="color:#ba2121">DNS = 1.1.1.1, 1.0.0.1
+</span><span style="color:#ba2121">Address = $IPV4_IP, $IPV6_IP
+</span><span style="color:#ba2121">ListenPort = 51820
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">[Peer]
+</span><span style="color:#ba2121">PublicKey = $SERVER_PUBLIC_KEY
+</span><span style="color:#ba2121">AllowedIPs = 0.0.0.0/0, ::/0
+</span><span style="color:#ba2121"># If your client is behind a NAT firewall
+</span><span style="color:#ba2121">PersistentKeepalive = 25
+</span><span style="color:#ba2121">Endpoint = $SERVER_ADDRESS
+</span><span style="color:#ba2121">EOF</span>
 
-<span style="color:#75715e"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
-<span style="color:#111">test</span> -f /usr/sbin/ufw <span style="color:#f92672">&amp;&amp;</span> ufw allow 51820/udp
+<span style="color:#408080;font-style:italic"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+<span style="color:#008000">test</span> -f /usr/sbin/ufw <span style="color:#666">&amp;&amp;</span> ufw allow 51820/udp
 
-<span style="color:#75715e"># Write out command to run on the server once to add this client</span>
-<span style="color:#111">echo</span> wg <span style="color:#111">set</span> wg0 peer <span style="color:#111">$PUBLIC_KEY</span> allowed-ips <span style="color:#111">$IPV4_IP</span>,<span style="color:#111">$IPV6_IP</span>
+<span style="color:#408080;font-style:italic"># Write out command to run on the server once to add this client</span>
+<span style="color:#008000">echo</span> wg <span style="color:#008000">set</span> wg0 peer <span style="color:#19177c">$PUBLIC_KEY</span> allowed-ips <span style="color:#19177c">$IPV4_IP</span>,<span style="color:#19177c">$IPV6_IP</span>
 </code></pre></div><p>The <code>SaveConfig</code> on the server ensures that the client will be stored permanently. Now you are ready to use the VPN.</p>
 <ul>
 <li>Start VPN client
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick up wg0
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick up wg0
 </code></pre></div></li>
 <li>Stop VPN client
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick down wg0
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wg-quick down wg0
 </code></pre></div></li>
 </ul>
 <!-- raw HTML omitted -->

@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Ubuntu cloud images with virt-install &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -77,26 +77,26 @@
 <p>This only need to be done once, or when you want to update the cloud image.</p>
 <ol>
 <li>Download a Ubuntu Focal image from <a href="https://cloud-images.ubuntu.com">Ubuntu Cloud Images</a>.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
 </code></pre></div></li>
 <li>Create an empty image in the default storage pool. This is a storage space where we upload the cloud image. Note that we use the correct postfix on the name here.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-create-as default focal-server-cloudimg-amd64.qcow2 20G
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-create-as default focal-server-cloudimg-amd64.qcow2 20G
 </code></pre></div></li>
 <li>Upload the downloaded cloud image to the storage pool in the reserved spaced.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-upload focal-server-cloudimg-amd64.qcow2 focal-server-cloudimg-amd64.img --sparse --pool default
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-upload focal-server-cloudimg-amd64.qcow2 focal-server-cloudimg-amd64.img --sparse --pool default
 </code></pre></div></li>
 </ol>
 <h2 id="create-the-vm">Create the VM</h2>
 <p>Now we use the cloud image as a template for all our new VMs. Change the size and <code>virt-install</code> parameters to make it your own.</p>
 <ol>
 <li>Clone the cloud image to <code>my-vm01.qcow2</code>. The clone is our bootable VM.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-clone focal-server-cloudimg-amd64.qcow2 my-vm01.qcow2 --pool default
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-clone focal-server-cloudimg-amd64.qcow2 my-vm01.qcow2 --pool default
 </code></pre></div></li>
 <li>Resize the new image to the prefered size, in our example <code>20GB</code>.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-resize my-vm01.qcow2 20G --pool default
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virsh vol-resize my-vm01.qcow2 20G --pool default
 </code></pre></div></li>
 <li>Create the VM.
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --os-variant short-id<span style="color:#f92672">=</span>ubuntu20.04 --import --disk <span style="color:#111">vol</span><span style="color:#f92672">=</span>default/my-vm01.qcow2,bus<span style="color:#f92672">=</span>virtio,driver.discard<span style="color:#f92672">=</span>unmap --cloud-init --network <span style="color:#111">bridge</span><span style="color:#f92672">=</span>virbr0,model<span style="color:#f92672">=</span>virtio --cpu host --vcpus <span style="color:#ae81ff">2</span> --memory <span style="color:#ae81ff">1024</span> --name my-vm01
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --os-variant short-id<span style="color:#666">=</span>ubuntu20.04 --import --disk <span style="color:#19177c">vol</span><span style="color:#666">=</span>default/my-vm01.qcow2,bus<span style="color:#666">=</span>virtio,driver.discard<span style="color:#666">=</span>unmap --cloud-init --network <span style="color:#19177c">bridge</span><span style="color:#666">=</span>virbr0,model<span style="color:#666">=</span>virtio --cpu host --vcpus <span style="color:#666">2</span> --memory <span style="color:#666">1024</span> --name my-vm01
 </code></pre></div></li>
 </ol>
 <p>Short explanation of the last command parameters.</p>

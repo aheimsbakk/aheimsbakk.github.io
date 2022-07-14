@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Bootstrap Debian VM with virt-install &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -76,42 +76,42 @@
 <h2 id="preparations">Preparations</h2>
 <h3 id="install-software">Install software</h3>
 <p><code>libvirt</code> is already installed on Fedora 32. It&rsquo;s used in Gnome Boxes. We will not use that for this. We&rsquo;ll do it the old fashioned way with <code>virt-install</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y virt-manager virt-install
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y virt-manager virt-install
 </code></pre></div><h3 id="user-access-to-libvirt">User access to <code>libvirt</code></h3>
 <p>Add your user to the group <code>libvirt</code>.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -aG libvirtd <span style="color:#111">$USER</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -aG libvirtd <span style="color:#19177c">$USER</span>
 </code></pre></div><h2 id="installation">Installation</h2>
 <ol>
 <li>
 <p>Create a default <code>preseed.cfg</code> file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition. This file can be reused to your hearts desire.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">osinfo-install-script -p jeos debian10
-sed -i <span style="color:#d88200">&#39;s/home/oneroot/&#39;</span> preseed.cfg
-cat <span style="color:#d88200">&lt;&lt;EOF &gt;&gt; preseed.cfg
-</span><span style="color:#d88200">d-i partman-basicfilesystems/no_swap boolean false
-</span><span style="color:#d88200">d-i partman-auto/expert_recipe string oneroot :: 1000 50 -1 ext4 \\
-</span><span style="color:#d88200"> \$primary{ } \$bootable{ } method{ format } \\
-</span><span style="color:#d88200"> format{ } use_filesystem{ } filesystem{ ext4 } \\
-</span><span style="color:#d88200"> mountpoint{ / } \\
-</span><span style="color:#d88200">.
-</span><span style="color:#d88200">EOF</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">osinfo-install-script -p jeos debian10
+sed -i <span style="color:#ba2121">&#39;s/home/oneroot/&#39;</span> preseed.cfg
+cat <span style="color:#ba2121">&lt;&lt;EOF &gt;&gt; preseed.cfg
+</span><span style="color:#ba2121">d-i partman-basicfilesystems/no_swap boolean false
+</span><span style="color:#ba2121">d-i partman-auto/expert_recipe string oneroot :: 1000 50 -1 ext4 \\
+</span><span style="color:#ba2121"> \$primary{ } \$bootable{ } method{ format } \\
+</span><span style="color:#ba2121"> format{ } use_filesystem{ } filesystem{ ext4 } \\
+</span><span style="color:#ba2121"> mountpoint{ / } \\
+</span><span style="color:#ba2121">.
+</span><span style="color:#ba2121">EOF</span>
 </code></pre></div></li>
 <li>
 <p>Edit <code>preseed.cfg</code> and make your own customisations if any.</p>
 </li>
 <li>
 <p>Install VM and send back some information to the community with popularity contest.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --connect qemu:///system <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --console pty,target_type<span style="color:#f92672">=</span>serial <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --disk <span style="color:#111">size</span><span style="color:#f92672">=</span>10,driver.discard<span style="color:#f92672">=</span>unmap,target.bus<span style="color:#f92672">=</span>virtio <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --graphics none <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --initrd-inject preseed.cfg <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --location http://ftp.no.debian.org/debian/dists/buster/main/installer-amd64 <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --name debian10 <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --os-type linux <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --os-variant debian10 <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --ram <span style="color:#ae81ff">2048</span> <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --vcpus <span style="color:#ae81ff">2</span> <span style="color:#8045ff">\
-</span><span style="color:#8045ff"></span>  --extra-args <span style="color:#d88200">&#39;console=ttyS0,115200n8 serial locale=nb_NO keymap=no auto=true mirror/country=manual mirror/http/hostname=ftp.no.debian.org mirror/http/directory=/debian mirror/http/proxy= passwd/make-user=false popularity-contest/participate=true file=/preseed.cfg&#39;</span>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virt-install --connect qemu:///system <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --console pty,target_type<span style="color:#666">=</span>serial <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --disk <span style="color:#19177c">size</span><span style="color:#666">=</span>10,driver.discard<span style="color:#666">=</span>unmap,target.bus<span style="color:#666">=</span>virtio <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --graphics none <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --initrd-inject preseed.cfg <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --location http://ftp.no.debian.org/debian/dists/buster/main/installer-amd64 <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --name debian10 <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --os-type linux <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --os-variant debian10 <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --ram <span style="color:#666">2048</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --vcpus <span style="color:#666">2</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --extra-args <span style="color:#ba2121">&#39;console=ttyS0,115200n8 serial locale=nb_NO keymap=no auto=true mirror/country=manual mirror/http/hostname=ftp.no.debian.org mirror/http/directory=/debian mirror/http/proxy= passwd/make-user=false popularity-contest/participate=true file=/preseed.cfg&#39;</span>
 </code></pre></div></li>
 </ol>
 <!-- raw HTML omitted -->

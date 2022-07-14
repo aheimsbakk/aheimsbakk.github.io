@@ -7,7 +7,7 @@
 		
 		<meta name="author" content="Arnulf Heimsbakk">
 		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.80.0" />
+		<meta name="generator" content="Hugo 0.89.4" />
 		<title>Remove unused kernels &middot; &gt; /dev/null 2&gt;&amp;1</title>
 		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
 		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
@@ -77,7 +77,7 @@
                 
                 <section id="post-body">
                     <p>Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dpkg-query -f <span style="color:#d88200">&#39;${Package}\n&#39;</span> -W <span style="color:#111">|</span>  egrep <span style="color:#d88200">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> <span style="color:#111">|</span> grep -v <span style="color:#00a8c8">$(</span>uname -r <span style="color:#111">|</span> sed <span style="color:#d88200">&#39;s/-generic//&#39;</span><span style="color:#00a8c8">)</span> <span style="color:#111">|</span> sudo xargs apt-get -q -q -yy --purge remove
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dpkg-query -f <span style="color:#ba2121">&#39;${Package}\n&#39;</span> -W |  egrep <span style="color:#ba2121">&#39;linux-(headers|image)-[[:digit:]].*(|-generic)&#39;</span> | grep -v <span style="color:#008000;font-weight:bold">$(</span>uname -r | sed <span style="color:#ba2121">&#39;s/-generic//&#39;</span><span style="color:#008000;font-weight:bold">)</span> | sudo xargs apt-get -q -q -yy --purge remove
 </code></pre></div><h2 id="breakdown">Breakdown</h2>
 <ol>
 <li>List all packages.</li>
