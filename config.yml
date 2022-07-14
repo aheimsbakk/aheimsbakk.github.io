@@ -1,7 +1,8 @@
 baseurl: https://blog.heimsbakk.net/
 languageCode: en
 title: "> /dev/null 2>&1"
-theme: cactus-plus
+#theme: cactus-plus
+theme: mini
 #googleAnalytics: "your_google_analytics_id"
 hasCJKLanguage: false
 summaryLength: 50
@@ -27,9 +28,12 @@ markup:
     tabWidth: 4
 
 social:
-  twitter-square: https://twitter.com/aheimsbakk
-  github-square: https://github.com/aheimsbakk
-  linkedin-square: https://www.linkedin.com/in/arnulfheimsbakk
+  #twitter-square: https://twitter.com/aheimsbakk
+  twitter: https://twitter.com/aheimsbakk
+  #github-square: https://github.com/aheimsbakk
+  github: https://github.com/aheimsbakk
+  #linkedin-square: https://www.linkedin.com/in/arnulfheimsbakk
+  linkedin: https://www.linkedin.com/in/arnulfheimsbakk
 
 privacy:
   disqus:

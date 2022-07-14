@@ -5,3 +5,6 @@
 	path = public
 	url = git@github.com:aheimsbakk/aheimsbakk.github.io
 	branch = master
+[submodule "themes/mini"]
+	path = themes/mini
+	url = https://github.com/nodejh/hugo-theme-mini.git
