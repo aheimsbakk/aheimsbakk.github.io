@@ -13,7 +13,7 @@
       <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210423-btrfs-pi/</guid>
-      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
+      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
     </item>
     
     <item>

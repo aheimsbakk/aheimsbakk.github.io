@@ -1,97 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<meta name="author" content="Arnulf Heimsbakk">
-		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.89.4" />
-		<title>Raspberry Pi Zero 2 W &middot; &gt; /dev/null 2&gt;&amp;1</title>
-		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+  <head>
+    <title>Raspberry Pi Zero 2 W | &gt; /dev/null 2&gt;&amp;1</title>
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
-		
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Bootstrap Raspberry Pi Zero 2 W with Ubuntu using cloud-init. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a Fedora Desktop. Adjust scripts if you use another distro.">
+<meta name="generator" content="Hugo 0.89.4" />
 
-		
-		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-		
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
-		
-	</head>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-    <body>
-       <nav class="main-nav">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
 	
+		<a href="/"> <span class="arrow">←</span>Home</a>
 	
-		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
-	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
-	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
-	<a href='https://blog.heimsbakk.net/about'>About</a>
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
 
 	
 
 	
-	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	  <a class="button" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
 	
 </nav>
 
 
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
-                        Raspberry Pi Zero 2 W
-                    </h1>
-                    <h2 class="headline">
-                    May 8, 2022 00:00
-                    · 412 words
-                    · 2 minute read
-                      <span class="tags">
-                      
-                      
-                          
-                              <a href="https://blog.heimsbakk.net/tags/network">network</a>
-                          
-                              <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                <section id="post-body">
-                    <p>Bootstrap Raspberry Pi Zero 2 W with <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu</a> using <a href="https://cloudinit.readthedocs.io/">cloud-init</a>. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a <a href="https://getfedora.org/">Fedora Desktop</a>. Adjust scripts if you use another <a href="https://en.wikipedia.org/wiki/Linux_distribution">distro</a>.</p>
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Raspberry Pi Zero 2 W</h1>
+
+    <div class="tip">
+        <time datetime="2022-05-08 00:00:00 &#43;0000 UTC">May 8, 2022</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          412 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>Bootstrap Raspberry Pi Zero 2 W with <a href="https://ubuntu.com/download/raspberry-pi" target="_blank" rel="noopener">Ubuntu</a> using <a href="https://cloudinit.readthedocs.io/" target="_blank" rel="noopener">cloud-init</a>. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a <a href="https://getfedora.org/" target="_blank" rel="noopener">Fedora Desktop</a>. Adjust scripts if you use another <a href="https://en.wikipedia.org/wiki/Linux_distribution" target="_blank" rel="noopener">distro</a>.</p>
 <p>This blog post is written in the influence of a cold. Take care with your copy and pasting. Hope you enjoy this nifty way to bootstrap Ubuntu PI systems.</p>
-<p>👍 <strong><em>Tip!</em></strong> Fetch your public SSH keys from <a href="https://github.com">GitHub</a> with</p>
+<p>👍 <strong><em>Tip!</em></strong> Fetch your public SSH keys from <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> with</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget -O - https://github.com/username.keys
-</code></pre></div><h1 id="before-you-begin">Before you begin</h1>
-<p>If you want to access your Pi over OTG, use connection sharing, for example in NetworkManger.  Remember to open incoming ports for DHCP and DNS in your firewall.</p>
+</code></pre></div><h1 id="before-you-begin">Before you begin <a href="#before-you-begin" class="anchor">🔗</a></h1><p>If you want to access your Pi over OTG, use connection sharing, for example in NetworkManger.  Remember to open incoming ports for DHCP and DNS in your firewall.</p>
 <ul>
 <li><code>53</code></li>
 <li><code>67</code></li>
 <li><code>68</code></li>
 </ul>
-<h2 id="write-os-to-sd-card">Write OS to SD card</h2>
-<p>Download Raspberry Ubuntu from <a href="https://ubuntu.com/download/raspberry-pi">Install Ubuntu on a Raspberry Pi</a>. Why Ubuntu and not <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a>. Ubuntu contain <a href="https://btrfs.wiki.kernel.org">btrfs</a> kernel module in <a href="https://en.wikipedia.org/wiki/Initial_ramdisk">initramfs</a>.</p>
+<h2 id="write-os-to-sd-card">Write OS to SD card <a href="#write-os-to-sd-card" class="anchor">🔗</a></h2><p>Download Raspberry Ubuntu from <a href="https://ubuntu.com/download/raspberry-pi" target="_blank" rel="noopener">Install Ubuntu on a Raspberry Pi</a>. Why Ubuntu and not <a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">Raspberry Pi OS</a>. Ubuntu contain <a href="https://btrfs.wiki.kernel.org" target="_blank" rel="noopener">btrfs</a> kernel module in <a href="https://en.wikipedia.org/wiki/Initial_ramdisk" target="_blank" rel="noopener">initramfs</a>.</p>
 <p>😯 <strong><em>Important!</em></strong> Do not copy and paste from the internet without examine the code. Ensure that your SD card is mounted on <code>/dev/sdb</code> or change all the scripts to your device.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
 </span><span style="color:#ba2121">  xzcat ubuntu-22.04-preinstalled-server-arm64+raspi.img.xz | dd of=/dev/sdb bs=1M status=progress
 </span><span style="color:#ba2121">EOF</span>
 </code></pre></div><p>Take out and put the SD card back into to the computer. Let the computer  mount the file systems before you continue.</p>
-<h2 id="cloud-init">cloud-init</h2>
-<p>Export your WiFi network and password to shell variables.</p>
+<h2 id="cloud-init">cloud-init <a href="#cloud-init" class="anchor">🔗</a></h2><p>Export your WiFi network and password to shell variables.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008000">export</span> <span style="color:#19177c">WIFI_NAME</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;internett&#34;</span>
 <span style="color:#008000">export</span> <span style="color:#19177c">WIFI_PASS</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;password&#34;</span>
 </code></pre></div><p>Write cloud-init configuration files.</p>
@@ -156,8 +162,7 @@
 </span><span style="color:#ba2121">            password: &#34;${WIFI_PASS}&#34;
 </span><span style="color:#ba2121">CONF
 </span><span style="color:#ba2121">EOF</span>
-</code></pre></div><h2 id="convert-root-file-system-to-btrfs">Convert root file system to Btrfs</h2>
-<p>If you want to use Btrfs instead of default ext4.</p>
+</code></pre></div><h2 id="convert-root-file-system-to-btrfs">Convert root file system to Btrfs <a href="#convert-root-file-system-to-btrfs" class="anchor">🔗</a></h2><p>If you want to use Btrfs instead of default ext4.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo bash <span style="color:#ba2121">&lt;&lt;EOF
 </span><span style="color:#ba2121">  cd /run/media/${USER}
 </span><span style="color:#ba2121">  sed -i &#39;s/ext4/btrfs/&#39; system-boot/cmdline.txt
@@ -173,60 +178,80 @@
 </span><span style="color:#ba2121">EOF</span>
 </code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-                </section>
-            </article>
+    </div>
 
+    
+        <div class="tags">
             
-
+                <a href="https://blog.heimsbakk.net/tags/network">network</a>
             
-
+                <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
             
+        </div>
+    
+    
+    
 
-            <footer id="footer">
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
     
         <div id="social">
 
-	
-	
-    <a class="symbol" href="https://github.com/aheimsbakk">
-        <i class="fa fa-github-square"></i>
+
+    <a class="symbol" href="https://github.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
-        <i class="fa fa-linkedin-square"></i>
+
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M27.26 27.271h-4.733v-7.427c0-1.771-0.037-4.047-2.475-4.047-2.468 0-2.844 1.921-2.844 3.916v7.557h-4.739v-15.271h4.552v2.083h0.061c0.636-1.203 2.183-2.468 4.491-2.468 4.801 0 5.692 3.161 5.692 7.271v8.385zM7.115 9.912c-1.527 0-2.751-1.235-2.751-2.756 0-1.516 1.229-2.749 2.751-2.749s2.755 1.233 2.755 2.749c0 1.521-1.233 2.756-2.755 2.756zM9.489 27.271h-4.749v-15.271h4.749zM29.636 0h-27.276c-1.303 0-2.36 1.031-2.36 2.307v27.387c0 1.276 1.057 2.307 2.36 2.307h27.271c1.301 0 2.369-1.031 2.369-2.307v-27.387c0-1.276-1.068-2.307-2.369-2.307z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://twitter.com/aheimsbakk">
-        <i class="fa fa-twitter-square"></i>
+
+    <a class="symbol" href="https://twitter.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"/>
+</svg>
+
     </a>
-    
 
 
 </div>
 
     
-    <p class="small">
+
+    <div class="copyright">
     
-       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Arnulf Heimsbakk
     
-    </p>
-    <p class="small">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
 </footer>
 
-        </section>
-
-        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
-<script src="https://blog.heimsbakk.net/js/main.js"></script>
-<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 
-
-
-
-
-
-    </body>
+  </body>
 </html>

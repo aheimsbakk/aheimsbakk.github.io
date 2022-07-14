@@ -1,15 +1,30 @@
-#wrapper {
+#list-page {
     max-width: 768px;
 }
 
-#wrapper.home {
+#page-404 {
     max-width: 768px;
 }
 
-#wrapper.post {
+#section {
     max-width: 768px;
 }
 
-#wrapper.tags {
+
+#tags {
     max-width: 768px;
+}
+
+#archive {
+    max-width: 768px;
+}
+
+#single {
+    max-width: 768px;
+}
+
+body {
+  font: normal 16px/1.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #202020;
+  line-height: 1.5;
 }

@@ -1,290 +1,330 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<meta name="author" content="Arnulf Heimsbakk">
-		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.89.4" />
-		<title>&gt; /dev/null 2&gt;&amp;1</title>
-		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+  <head>
+    <title>&gt; /dev/null 2&gt;&amp;1</title>
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
-		
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+<meta name="generator" content="Hugo 0.89.4" />
 
-		
-		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-		
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
-		
-	</head>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-	<body>
-    <nav class="main-nav">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+  
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+    <link href="/index.xml" rel="feed" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
+  
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
 	
-	
-	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
-	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
-	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
-	<a href='https://blog.heimsbakk.net/about'>About</a>
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
 
 	
 
 	
-	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	  <a class="button" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
 	
 </nav>
 
 
-    <div class="profile">
-    <section id="wrapper">
-        <header id="header">
-            <a href='https://blog.heimsbakk.net/about'>
-                <img id="avatar" class="2x" src="https://blog.heimsbakk.net/images/avatar.png"/>
-            </a>
-            <h1>&gt; /dev/null 2&gt;&amp;1</h1>
-            <h2>ramblings of a sysadmin</h2>
-        </header>
-    </section>
+    <main class="main">
+      
+<header class="profile">
+    
+        <img class="avatar" alt="avatar" src="/images/avatar.png" />
+    
+
+    <h1>&gt; /dev/null 2&gt;&amp;1</h1>
+    
+    
+      <h2>ramblings of a sysadmin</h2>
+    
+</header>
+
+<div id="list-page">
+    
+    
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20200801-hwloc/'>Portable Hardware Locality (hwloc)</a></h1>
+            <div class ="date">
+                <time datetime="2020-08-01 16:58:55 &#43;0200 CEST">Aug 1, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">From the website: The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, …) of the hierarchical topology of modern architectures, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20200731-vulnerabilities/'>List CPU vulnerabilities</a></h1>
+            <div class ="date">
+                <time datetime="2020-07-31 16:25:02 &#43;0200 CEST">Jul 31, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
+</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20200730-libvirt-bootstrap/'>Bootstrap Debian VM with virt-install</a></h1>
+            <div class ="date">
+                <time datetime="2020-07-30 18:57:10 &#43;0200 CEST">Jul 30, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
+Preparations 🔗Install software 🔗libvirt is already installed on Fedora 32. It’s used in Gnome Boxes. We will not use that for this. We’ll do it the old fashioned way with virt-install.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20200728-vagrant-libvirt/'>Libvirt and Vagrant</a></h1>
+            <div class ="date">
+                <time datetime="2020-07-28 15:43:42 &#43;0200 CEST">Jul 28, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It’s the default combination on most Linux systems, also on my favorite - Fedora.
+This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn’t available as a box, but Debian is.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20200728-vagrant-ubuntu/'>Vagrant with Ubuntu Focal (20.04)</a></h1>
+            <div class ="date">
+                <time datetime="2020-07-28 11:49:13 &#43;0200 CEST">Jul 28, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
+There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20190911-restic/'>Design an online ransomware safe backup with restic</a></h1>
+            <div class ="date">
+                <time datetime="2019-09-11 00:00:00 &#43;0000 UTC">Sep 11, 2019</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
+restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20180105-yubikey/'>SSH with YubiKey NEO on Fedora made easy</a></h1>
+            <div class ="date">
+                <time datetime="2018-12-13 00:00:00 &#43;0000 UTC">Dec 13, 2018</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20160326-syncthing/'>Distributed syncing with Syncthing</a></h1>
+            <div class ="date">
+                <time datetime="2016-03-26 00:00:00 &#43;0000 UTC">Mar 26, 2016</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">I’ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It’s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
+Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20150111-zram/'>Compressed RAM based block devices</a></h1>
+            <div class ="date">
+                <time datetime="2015-01-11 00:00:00 &#43;0000 UTC">Jan 11, 2015</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, …). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/20150110-pa/'>Record a PulseAudio sound stream</a></h1>
+            <div class ="date">
+                <time datetime="2015-01-10 00:00:00 &#43;0000 UTC">Jan 10, 2015</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don’t have the option to save audio to a file.
+The PulseAudio sound server in your desktop makes this quite easy.
+I’ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file.</div>
+          
+
+        </section>
+    
+
+    
+        <div class="pagination">
+          
+              <span class="prev">
+                  <a href="/page/2/">
+                      <span class="arrow">←</span> Newer posts
+                  </a>
+            </span>
+          
+          
+          
+              <span class="next">
+                  <a href="/page/4/">
+                      Older posts <span class="arrow">→</span>
+                  </a>
+              </span>
+          
+        </div>
+    
+
+
 </div>
 
-
-    <section id="wrapper" class="home">
-        <ul id="post-list">
+    </main>
     
-    
-        
-            <li>
-                <aside class="dates">Aug 1</aside>
-                <a href='https://blog.heimsbakk.net/posts/20200801-hwloc/'>
-                    Portable Hardware Locality (hwloc)
-                    
-                        
-                            <h2>From the website: The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, …) of the hierarchical topology of modern architectures, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jul 31</aside>
-                <a href='https://blog.heimsbakk.net/posts/20200731-vulnerabilities/'>
-                    List CPU vulnerabilities
-                    
-                        
-                            <h2>Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at Hardware vulnerabilities.
-</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jul 30</aside>
-                <a href='https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/'>
-                    Bootstrap Debian VM with virt-install
-                    
-                        
-                            <h2>Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
-Preparations Install software libvirt is already installed on Fedora 32. It’s used in Gnome Boxes. We will not use that for this. We’ll do it the old fashioned way with virt-install.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jul 28</aside>
-                <a href='https://blog.heimsbakk.net/posts/20200728-vagrant-libvirt/'>
-                    Libvirt and Vagrant
-                    
-                        
-                            <h2>Libvirt is the default toolkit to manage virtualization platforms on Linux. Libvirt and qemu is a great combination with Vagrant. It’s the default combination on most Linux systems, also on my favorite - Fedora.
-This combination allows for some awesome features and some restrictions. One of the restrictions is that Ubuntu isn’t available as a box, but Debian is.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jul 28</aside>
-                <a href='https://blog.heimsbakk.net/posts/20200728-vagrant-ubuntu/'>
-                    Vagrant with Ubuntu Focal (20.04)
-                    
-                        
-                            <h2>Vagrant is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.
-There is a bug in the latest version of Ubuntu (Vagrant Box) that makes it hang during boot. It even hangs the VirtualBox and makes the GUI misbehave.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Sep 11</aside>
-                <a href='https://blog.heimsbakk.net/posts/20190911-restic/'>
-                    Design an online ransomware safe backup with restic
-                    
-                        
-                            <h2>The only way to be safe for ransomware, except for keeping a offline backup, is to have a immutable online backup.
-restic is a deduplication backup sofware, designed for ease of use and security. Rclone is a versatile program for syncing data between a huge variety of protocols and cloud providers.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Dec 13</aside>
-                <a href='https://blog.heimsbakk.net/posts/20180105-yubikey/'>
-                    SSH with YubiKey NEO on Fedora made easy
-                    
-                        
-                            <h2>Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
-Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Mar 26</aside>
-                <a href='https://blog.heimsbakk.net/posts/20160326-syncthing/'>
-                    Distributed syncing with Syncthing
-                    
-                        
-                            <h2>I’ve tried to ditch Dropbox for a long time. But the need for synchronizing folders between my computers have held me back. Syncthing solves this for me. It’s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.
-Excerpt from Syncthings homepage: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jan 11</aside>
-                <a href='https://blog.heimsbakk.net/posts/20150111-zram/'>
-                    Compressed RAM based block devices
-                    
-                        
-                            <h2>From zram documentation: The zram module creates RAM based block devices named /dev/zram(= 0, 1, …). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Jan 10</aside>
-                <a href='https://blog.heimsbakk.net/posts/20150110-pa/'>
-                    Record a PulseAudio sound stream
-                    
-                        
-                            <h2>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don’t have the option to save audio to a file.
-The PulseAudio sound server in your desktop makes this quite easy.
-I’ve created a small script that captures the current playing sound stream and redirects it to FLAC audio file.</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-</ul>
-
-        <nav id="post-nav">
-    
-        
-        <span class="prev">
-            <a href="/page/2/">
-                <span class="arrow">←</span> Newer Posts
-            </a>
-        </span>
-        
-        
-        <span class="next">
-            <a href="/page/4/">
-                Older Posts <span class="arrow">→</span>
-            </a>
-        </span>
-        
-    
-</nav>
-        <footer id="footer">
+    <footer id="footer">
     
         <div id="social">
 
-	
-	
-    <a class="symbol" href="https://github.com/aheimsbakk">
-        <i class="fa fa-github-square"></i>
+
+    <a class="symbol" href="https://github.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
-        <i class="fa fa-linkedin-square"></i>
+
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M27.26 27.271h-4.733v-7.427c0-1.771-0.037-4.047-2.475-4.047-2.468 0-2.844 1.921-2.844 3.916v7.557h-4.739v-15.271h4.552v2.083h0.061c0.636-1.203 2.183-2.468 4.491-2.468 4.801 0 5.692 3.161 5.692 7.271v8.385zM7.115 9.912c-1.527 0-2.751-1.235-2.751-2.756 0-1.516 1.229-2.749 2.751-2.749s2.755 1.233 2.755 2.749c0 1.521-1.233 2.756-2.755 2.756zM9.489 27.271h-4.749v-15.271h4.749zM29.636 0h-27.276c-1.303 0-2.36 1.031-2.36 2.307v27.387c0 1.276 1.057 2.307 2.36 2.307h27.271c1.301 0 2.369-1.031 2.369-2.307v-27.387c0-1.276-1.068-2.307-2.369-2.307z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://twitter.com/aheimsbakk">
-        <i class="fa fa-twitter-square"></i>
+
+    <a class="symbol" href="https://twitter.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"/>
+</svg>
+
     </a>
-    
 
 
 </div>
 
     
-    <p class="small">
+
+    <div class="copyright">
     
-       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Arnulf Heimsbakk
     
-    </p>
-    <p class="small">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
 </footer>
 
-    </section>
-
-    <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
-<script src="https://blog.heimsbakk.net/js/main.js"></script>
-<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 
-
-
-
-
-
-    </body>
+  </body>
 </html>

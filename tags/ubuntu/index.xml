@@ -14,7 +14,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20210702-libvirt/</guid>
       <description>Earlier we looked at how we could use Ubuntu cloud images with KVM. Now we will use the libvirt cli virsh and virt-install to do the same process. virt-install is a part of the virt-manager supporting tools.
-Fetch the Ubuntu Cloud image This only need to be done once, or when you want to update the cloud image.</description>
+Fetch the Ubuntu Cloud image 🔗This only need to be done once, or when you want to update the cloud image.</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Tue, 11 May 2021 18:22:08 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210511-cloudinit/</guid>
-      <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
     </item>
     
     <item>

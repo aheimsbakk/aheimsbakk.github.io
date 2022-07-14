@@ -22,7 +22,7 @@
       <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210808-wireguard/</guid>
-      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
+      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
-      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt me
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
-      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -1,85 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<meta name="author" content="Arnulf Heimsbakk">
-		<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
-		<meta name="generator" content="Hugo 0.89.4" />
-		<title>Modeline in vim &middot; &gt; /dev/null 2&gt;&amp;1</title>
-		<link rel="shortcut icon" href="https://blog.heimsbakk.net/images/favicon.ico">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/style.css">
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/highlight.css">
+  <head>
+    <title>Modeline in vim | &gt; /dev/null 2&gt;&amp;1</title>
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/font-awesome.min.css">
-		
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Options set in .vimrc applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in .vimrc to take advantage of this option.">
+<meta name="generator" content="Hugo 0.89.4" />
 
-		
-		<link href="https://blog.heimsbakk.net/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-		
 
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
-		
-		<link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
-		
-	</head>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-    <body>
-       <nav class="main-nav">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/code-size.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://blog.heimsbakk.net/css/width.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
 	
+		<a href="/"> <span class="arrow">←</span>Home</a>
 	
-		<a href='https://blog.heimsbakk.net/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://blog.heimsbakk.net/posts'>Archive</a>
-	<a href='https://blog.heimsbakk.net/categories'>Categories</a>
-	<a href='https://blog.heimsbakk.net/tags'>Tags</a>
-	<a href='https://blog.heimsbakk.net/about'>About</a>
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
 
 	
 
 	
-	<a class="cta" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
+	  <a class="button" href="https://blog.heimsbakk.net/index.xml">Subscribe</a>
 	
 </nav>
 
 
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
-                        Modeline in vim
-                    </h1>
-                    <h2 class="headline">
-                    Apr 13, 2014 00:00
-                    · 179 words
-                    · 1 minute read
-                      <span class="tags">
-                      
-                      
-                          
-                              <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
-                          
-                              <a href="https://blog.heimsbakk.net/tags/vim">vim</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                <section id="post-body">
-                    <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Modeline in vim</h1>
+
+    <div class="tip">
+        <time datetime="2014-04-13 00:00:00 &#43;0000 UTC">Apr 13, 2014</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          180 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">set modeline<span style="">
 </span></code></pre></div><p>The modeline should be the first line in the file. You can set it inn multiple ways as shown below.</p>
 <pre tabindex="0"><code># vim: set ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
 </code></pre><pre tabindex="0"><code>/* vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm: */
 </code></pre><pre tabindex="0"><code>// vim: set enc=UTF-8 ai et ts=4 sts=4 sw=4 tw=79 cc=80 wrap wb nu sm:
-</code></pre><h2 id="explanation">Explanation</h2>
-<ul>
+</code></pre><h2 id="explanation">Explanation <a href="#explanation" class="anchor">🔗</a></h2><ul>
 <li><code>enc=UTF-8</code><br>
 Set encoding to UTF-8</li>
 <li><code>ai</code><br>
@@ -105,62 +113,81 @@ Show line numbers</li>
 <li><code>sm</code><br>
 Show matching brackets</li>
 </ul>
-<h2 id="links">Links</h2>
-<p>More information in the Vim <a href="http://vimdoc.sourceforge.net/htmldoc">documentations</a> under <a href="http://vimdoc.sourceforge.net/htmldoc/options.html">options</a>.</p>
-                </section>
-            </article>
+<h2 id="links">Links <a href="#links" class="anchor">🔗</a></h2><p>More information in the Vim <a href="http://vimdoc.sourceforge.net/htmldoc" target="_blank" rel="noopener">documentations</a> under <a href="http://vimdoc.sourceforge.net/htmldoc/options.html" target="_blank" rel="noopener">options</a>.</p>
+    </div>
 
+    
+        <div class="tags">
             
-
+                <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
             
-
+                <a href="https://blog.heimsbakk.net/tags/vim">vim</a>
             
+        </div>
+    
+    
+    
 
-            <footer id="footer">
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
     
         <div id="social">
 
-	
-	
-    <a class="symbol" href="https://github.com/aheimsbakk">
-        <i class="fa fa-github-square"></i>
+
+    <a class="symbol" href="https://github.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk">
-        <i class="fa fa-linkedin-square"></i>
+
+    <a class="symbol" href="https://www.linkedin.com/in/arnulfheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M27.26 27.271h-4.733v-7.427c0-1.771-0.037-4.047-2.475-4.047-2.468 0-2.844 1.921-2.844 3.916v7.557h-4.739v-15.271h4.552v2.083h0.061c0.636-1.203 2.183-2.468 4.491-2.468 4.801 0 5.692 3.161 5.692 7.271v8.385zM7.115 9.912c-1.527 0-2.751-1.235-2.751-2.756 0-1.516 1.229-2.749 2.751-2.749s2.755 1.233 2.755 2.749c0 1.521-1.233 2.756-2.755 2.756zM9.489 27.271h-4.749v-15.271h4.749zM29.636 0h-27.276c-1.303 0-2.36 1.031-2.36 2.307v27.387c0 1.276 1.057 2.307 2.36 2.307h27.271c1.301 0 2.369-1.031 2.369-2.307v-27.387c0-1.276-1.068-2.307-2.369-2.307z"/>
+</svg>
+
     </a>
-    
-    <a class="symbol" href="https://twitter.com/aheimsbakk">
-        <i class="fa fa-twitter-square"></i>
+
+    <a class="symbol" href="https://twitter.com/aheimsbakk" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"/>
+</svg>
+
     </a>
-    
 
 
 </div>
 
     
-    <p class="small">
+
+    <div class="copyright">
     
-       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> Arnulf Heimsbakk
+       © Copyright 
+       2022 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Arnulf Heimsbakk
     
-    </p>
-    <p class="small">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
 </footer>
 
-        </section>
-
-        <script src="https://blog.heimsbakk.net/js/jquery-3.3.1.min.js"></script>
-<script src="https://blog.heimsbakk.net/js/main.js"></script>
-<script src="https://blog.heimsbakk.net/js/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 
-
-
-
-
-
-    </body>
+  </body>
 </html>

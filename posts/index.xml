@@ -13,7 +13,7 @@
       <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20220508-zero/</guid>
-      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210808-wireguard/</guid>
-      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
+      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@
       
       <guid>https://blog.heimsbakk.net/posts/20210702-libvirt/</guid>
       <description>Earlier we looked at how we could use Ubuntu cloud images with KVM. Now we will use the libvirt cli virsh and virt-install to do the same process. virt-install is a part of the virt-manager supporting tools.
-Fetch the Ubuntu Cloud image This only need to be done once, or when you want to update the cloud image.</description>
+Fetch the Ubuntu Cloud image 🔗This only need to be done once, or when you want to update the cloud image.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Tue, 11 May 2021 23:06:44 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210511-mtr/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/traviscross/mtr&#34;&gt;mtr&lt;/a&gt; combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/traviscross/mtr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mtr&lt;/a&gt; combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Tue, 11 May 2021 18:22:08 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210511-cloudinit/</guid>
-      <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210423-btrfs-pi/</guid>
-      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
+      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -114,7 +114,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Mon, 17 Aug 2020 15:43:59 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200817-chess/</guid>
-      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chess&#34;&gt;Chess&lt;/a&gt; is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 square grid.&lt;/em&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chess&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chess&lt;/a&gt; is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 square grid.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -123,7 +123,7 @@ Fetch the Ubuntu Cloud image This only need to be done once, or when you want to
       <pubDate>Mon, 17 Aug 2020 14:36:38 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200817-origami/</guid>
-      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Origami&#34;&gt;Origami&lt;/a&gt; (折り紙, Japanese pronunciation: [oɾiɡami] or [oɾiꜜɡami], from ori meaning &amp;ldquo;folding&amp;rdquo;, and kami meaning &amp;ldquo;paper&amp;rdquo; (kami changes to gami due to rendaku)) is the art of paper folding, which is often associated with Japanese culture. In modern usage, the word &amp;ldquo;origami&amp;rdquo; is used as an inclusive term for all folding practices, regardless of their culture of origin.&lt;/em&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Origami&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Origami&lt;/a&gt; (折り紙, Japanese pronunciation: [oɾiɡami] or [oɾiꜜɡami], from ori meaning &amp;ldquo;folding&amp;rdquo;, and kami meaning &amp;ldquo;paper&amp;rdquo; (kami changes to gami due to rendaku)) is the art of paper folding, which is often associated with Japanese culture. In modern usage, the word &amp;ldquo;origami&amp;rdquo; is used as an inclusive term for all folding practices, regardless of their culture of origin.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -162,7 +162,7 @@ Excerpt from the website: LearnDocker.online is the most comprehensive online Do
       <pubDate>Fri, 07 Aug 2020 23:47:00 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200807-bmon/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/tgraf/bmon&#34;&gt;bmon&lt;/a&gt; is a monitoring and debugging tool to capture networking related statistics and prepare them visually in a human friendly way.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/tgraf/bmon&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bmon&lt;/a&gt; is a monitoring and debugging tool to capture networking related statistics and prepare them visually in a human friendly way.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -171,7 +171,7 @@ Excerpt from the website: LearnDocker.online is the most comprehensive online Do
       <pubDate>Fri, 07 Aug 2020 23:30:00 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200807-ncdu/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://dev.yorhel.nl/ncdu&#34;&gt;ncdu&lt;/a&gt; (NCurses Disk Usage) is a curses-based version of the well-known &lt;code&gt;du&lt;/code&gt;, and provides a fast way to see what directories are using your disk space.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://dev.yorhel.nl/ncdu&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ncdu&lt;/a&gt; (NCurses Disk Usage) is a curses-based version of the well-known &lt;code&gt;du&lt;/code&gt;, and provides a fast way to see what directories are using your disk space.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -180,8 +180,8 @@ Excerpt from the website: LearnDocker.online is the most comprehensive online Do
       <pubDate>Fri, 07 Aug 2020 14:22:43 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200807-tldr/</guid>
-      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -208,7 +208,7 @@ Excerpt from the website: LearnDocker.online is the most comprehensive online Do
       <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20200731-vulnerabilities/</guid>
-      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -218,7 +218,7 @@ Excerpt from the website: LearnDocker.online is the most comprehensive online Do
       
       <guid>https://blog.heimsbakk.net/posts/20200730-libvirt-bootstrap/</guid>
       <description>Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.
-Preparations Install software libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.</description>
+Preparations 🔗Install software 🔗libvirt is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with virt-install.</description>
     </item>
     
     <item>
@@ -298,7 +298,7 @@ I&amp;rsquo;ve created a small script that captures the current playing sound st
       
       <guid>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</guid>
       <description>If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
-One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.</description>
+One time configuration 🔗Install OpenStack plugin in Vagrant 🔗cd /tmp git clone https://github.</description>
     </item>
     
     <item>
@@ -355,7 +355,7 @@ To force enabling WebGL in the browser start it with the following options</desc
       
       <guid>https://blog.heimsbakk.net/posts/20140511-rootnexus/</guid>
       <description>Flashing a custom image on an Android mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. Then don&amp;rsquo;t!
-The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.</description>
+The bad and the good 🔗I&amp;rsquo;m only pointing out some of the cons and the pros here.</description>
     </item>
     
     <item>
@@ -383,7 +383,7 @@ A way to be able to blog from anywhere is to use Dropbox as repository for the y
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20140503-ssl/</guid>
-      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

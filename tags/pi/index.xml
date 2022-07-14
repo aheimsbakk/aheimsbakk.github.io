@@ -13,7 +13,7 @@
       <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20220508-zero/</guid>
-      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate>
       
       <guid>https://blog.heimsbakk.net/posts/20210423-btrfs-pi/</guid>
-      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
+      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
     </item>
     
   </channel>

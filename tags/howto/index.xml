@@ -73,7 +73,7 @@ I&amp;rsquo;ve created a small script that captures the current playing sound st
       
       <guid>https://blog.heimsbakk.net/posts/20141218-vagrant-openstack/</guid>
       <description>If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
-One time configuration Install OpenStack plugin in Vagrant cd /tmp git clone https://github.</description>
+One time configuration 🔗Install OpenStack plugin in Vagrant 🔗cd /tmp git clone https://github.</description>
     </item>
     
     <item>
@@ -103,7 +103,7 @@ To force enabling WebGL in the browser start it with the following options</desc
       
       <guid>https://blog.heimsbakk.net/posts/20140511-rootnexus/</guid>
       <description>Flashing a custom image on an Android mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. Then don&amp;rsquo;t!
-The bad and the good I&amp;rsquo;m only pointing out some of the cons and the pros here.</description>
+The bad and the good 🔗I&amp;rsquo;m only pointing out some of the cons and the pros here.</description>
     </item>
     
     <item>
