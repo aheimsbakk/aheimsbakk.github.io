@@ -10,7 +10,6 @@
     max-width: 768px;
 }
 
-
 #tags {
     max-width: 768px;
 }
@@ -27,4 +26,24 @@ body {
   font: normal 16px/1.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #202020;
   line-height: 1.5;
+}
+
+a {
+  color: #0366d6;
+}
+
+a:hover {
+  color: #5badf0;
+}
+
+
+nav.navigation a {
+  color: #0366d6;
+}
+nav.navigation a:hover {
+  color: #5badf0
+}
+
+nav.navigation a.button {
+  background: #0366d6;
 }
