@@ -1,11 +1,28 @@
-
-code {
-    font-size: 14px;
-    font-family: monospace, 'Menlo', 'Monaco', Courier;
+.highlight pre {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.02);
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
-pre code {
-    font-size: 14px;
-    font-family: monospace, 'Menlo', 'Monaco', Courier;
+
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
+p code {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+li code {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-size: inherit;
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 0 2px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 2px 2px;
+  line-height: inherit;
+  word-wrap: break-word;
+  text-indent: 0;
+}
