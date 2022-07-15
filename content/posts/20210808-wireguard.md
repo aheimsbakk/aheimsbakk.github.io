@@ -20,11 +20,15 @@ Install the package that contain the `wg-quick` helper tool.
 
 ### Fedora
 
-    sudo dnf install -y wireguard-tools
+```shell
+sudo dnf install -y wireguard-tools
+```
 
 ### Ubuntu
 
-    sudo apt-get install -y wireguard-tools resolvconf
+```bash
+sudo apt-get install -y wireguard-tools resolvconf
+```
 
 ## Configuration
 
