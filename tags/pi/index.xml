@@ -6,7 +6,16 @@
     <description>Recent content in pi on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/pi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap Raspberry Pi OS on Pi Zero 2 W</title>
+      <link>https://blog.heimsbakk.net/posts/20220510-zero2/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20220510-zero2/</guid>
+      <description>&lt;p&gt;Notes on bootstrapping Raspberry Pi OS. This blog post is written in the heavy influence of a cold. Take care with your copy and pasting. No more information at the point.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Raspberry Pi Zero 2 W</title>
       <link>https://blog.heimsbakk.net/posts/20220508-zero/</link>

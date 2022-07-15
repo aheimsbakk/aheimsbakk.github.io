@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>pi | &gt; /dev/null 2&gt;&amp;1</title>
+    <title>Bootstrap Raspberry Pi OS on Pi Zero 2 W | &gt; /dev/null 2&gt;&amp;1</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+<meta name="description" content="Notes on bootstrapping Raspberry Pi OS. This blog post is written in the heavy influence of a cold. Take care with your copy and pasting. No more information at the point.">
 <meta name="generator" content="Hugo 0.89.4" />
 
 
@@ -28,11 +28,6 @@
 
 
 
-
-  
-    <link href="/tags/pi/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-    <link href="/tags/pi/index.xml" rel="feed" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-  
 
 
   </head>
@@ -56,107 +51,77 @@
 
     <main class="main">
       
-<header class="profile">
+
+<section id="single">
+    <h1 class="title">Bootstrap Raspberry Pi OS on Pi Zero 2 W</h1>
+
+    <div class="tip">
+        <time datetime="2022-05-10 00:00:00 &#43;0000 UTC">May 10, 2022</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          140 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
     
-        <img class="avatar" alt="avatar" src="/images/avatar.png" />
     
 
-    <h1>&gt; /dev/null 2&gt;&amp;1</h1>
-    
-    
-      <h2>ramblings of a sysadmin</h2>
-    
-</header>
 
-<section id="archive">
-   
-    
-        <div class="group">
-            <h3 class="key">
-                2022
-            </h3>
+    <div class="content">
+      <p>Notes on bootstrapping Raspberry Pi OS. This blog post is written in the heavy influence of a cold. Take care with your copy and pasting. No more information at the point.</p>
+<h1 id="before-first-boot">Before first boot <a href="#before-first-boot" class="anchor">🔗</a></h1><p>Export your WiFi network and credentials to shell variables.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008000">export</span> <span style="color:#19177c">WIFI_NAME</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;internett&#34;</span>
+<span style="color:#008000">export</span> <span style="color:#19177c">WIFI_PASS</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;password&#34;</span>
+</code></pre></div><p>Run a configuration script before you put the SD Card in your Raspberry Pi Zero 2 W. Base folder is the folder where you have mounted the OS <code>boot</code> partition.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#008000">cd</span> /run/media/<span style="color:#b68;font-weight:bold">${</span><span style="color:#19177c">USER</span><span style="color:#b68;font-weight:bold">}</span>
 
+<span style="color:#408080;font-style:italic"># Enable ethernet over OTG</span>
+grep -q ^dtoverlay boot/config.txt <span style="color:#666">||</span> sed -i <span style="color:#ba2121">&#39;$ a\dtoverlay=dwc2&#39;</span> boot/config.txt
+sed -i -E <span style="color:#ba2121">&#39;/rootwait [^m]/ s/(rootwait)/\1 modules-load=dwc2,g_ether/&#39;</span> boot/cmdline.txt
+
+<span style="color:#408080;font-style:italic"># Set the good old pi:raspberry</span>
+<span style="color:#008000">echo</span> <span style="color:#ba2121">&#34;pi:</span><span style="color:#008000;font-weight:bold">$(</span><span style="color:#008000">echo</span> -n <span style="color:#ba2121">&#39;raspberry&#39;</span> | openssl passwd -6 -stdin<span style="color:#008000;font-weight:bold">)</span><span style="color:#ba2121">&#34;</span> &gt; boot/userconf.txt
+
+<span style="color:#408080;font-style:italic"># Enable SSHd</span>
+touch boot/ssh.txt
+
+<span style="color:#408080;font-style:italic"># Cofigure WIFI</span>
+cat <span style="color:#ba2121">&lt;&lt;CONF &gt; boot/wpa_supplicant.conf
+</span><span style="color:#ba2121">country=no
+</span><span style="color:#ba2121">update_config=1
+</span><span style="color:#ba2121">ctrl_interface=/var/run/wpa_supplicant
+</span><span style="color:#ba2121">
+</span><span style="color:#ba2121">network={
+</span><span style="color:#ba2121"> scan_ssid=1
+</span><span style="color:#ba2121"> ssid=&#34;${WIFI_NAME}&#34;
+</span><span style="color:#ba2121"> psk=&#34;${WIFI_PASS}&#34;
+</span><span style="color:#ba2121">}
+</span><span style="color:#ba2121">CONF</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+    </div>
+
+    
+        <div class="tags">
             
-                <div class="value">
-                  <div class="date">
-                      <time datetime="2022-05-10 00:00:00 &#43;0000 UTC">May 10</time>
-                  </div>
-                  <div class="title">
-                      <a href="https://blog.heimsbakk.net/posts/20220510-zero2/">
-                          Bootstrap Raspberry Pi OS on Pi Zero 2 W
-                      </a>
-
-                      
-                          <div class="tags">
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/network">network</a>
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
-                              
-                          </div>
-                      
-                  </div>
-                </div>
+                <a href="https://blog.heimsbakk.net/tags/network">network</a>
             
-                <div class="value">
-                  <div class="date">
-                      <time datetime="2022-05-08 00:00:00 &#43;0000 UTC">May 8</time>
-                  </div>
-                  <div class="title">
-                      <a href="https://blog.heimsbakk.net/posts/20220508-zero/">
-                          Raspberry Pi Zero 2 W
-                      </a>
-
-                      
-                          <div class="tags">
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/network">network</a>
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
-                              
-                          </div>
-                      
-                  </div>
-                </div>
-                      
+                <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
+            
         </div>
-
     
-        <div class="group">
-            <h3 class="key">
-                2021
-            </h3>
-
-            
-                <div class="value">
-                  <div class="date">
-                      <time datetime="2021-04-23 21:18:52 &#43;0200 CEST">Apr 23</time>
-                  </div>
-                  <div class="title">
-                      <a href="https://blog.heimsbakk.net/posts/20210423-btrfs-pi/">
-                          Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root
-                      </a>
-
-                      
-                          <div class="tags">
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/pi">pi</a>
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/btrfs">btrfs</a>
-                              
-                          </div>
-                      
-                  </div>
-                </div>
-                      
-        </div>
-
     
-
-
+    
 
 </section>
-
 
 
     </main>
