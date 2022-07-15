@@ -1,10 +1,26 @@
 #!/bin/bash
 
+if ! which rst2html.py > /dev/null
+then
+  echo "**"
+  echo "** Install missing dependency to use reStructuredText"
+  echo "**"
+
+  pip install --user rst2html
+fi
+
 echo "**"
 echo "** Generate blog"
 echo "**"
 
-./hugo-$(uname -p)
+case "$(uname -p)" in
+  x86_64|aarch64)
+    ./hugo-$(uname -p)
+    ;;
+  unknown)
+    ./hugo-aarch64
+    ;;
+esac
 
 echo "**"
 echo "** Publish blog $(date -I)"
