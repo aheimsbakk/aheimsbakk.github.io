@@ -78,11 +78,9 @@
     <div class="content">
       <p>From Wikipedia: <a href="https://www.wireguard.com/" target="_blank" rel="noopener">WireGuard</a> is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.</p>
 <h2 id="installation">Installation <a href="#installation" class="anchor">🔗</a></h2><p>Install the package that contain the <code>wg-quick</code> helper tool.</p>
-<h3 id="fedora">Fedora <a href="#fedora" class="anchor">🔗</a></h3><pre><code>sudo dnf install -y wireguard-tools
-</code></pre>
-<h3 id="ubuntu">Ubuntu <a href="#ubuntu" class="anchor">🔗</a></h3><pre><code>sudo apt-get install -y wireguard-tools resolvconf
-</code></pre>
-<h2 id="configuration">Configuration <a href="#configuration" class="anchor">🔗</a></h2><p>Wireguard is a point to point VPN. Talking about VPN server and VPN clients doesn&rsquo;t make much sense with Wireguard, but it helps to keep sense of which configuration to use where.</p>
+<h3 id="fedora">Fedora <a href="#fedora" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dnf install -y wireguard-tools
+</code></pre></div><h3 id="ubuntu">Ubuntu <a href="#ubuntu" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install -y wireguard-tools resolvconf
+</code></pre></div><h2 id="configuration">Configuration <a href="#configuration" class="anchor">🔗</a></h2><p>Wireguard is a point to point VPN. Talking about VPN server and VPN clients doesn&rsquo;t make much sense with Wireguard, but it helps to keep sense of which configuration to use where.</p>
 <p>On the server we enable IP for both IPv4 and IPv6 and forwards packages to let the clients have internet access. Server and clients communicate on private address ranges. In this example we use <code>10.0.0.0/24</code> and <code>fd00::/64</code>.</p>
 <h3 id="server-and-client">Server and client <a href="#server-and-client" class="anchor">🔗</a></h3><p>Generate private and public key for server and clients.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#408080;font-style:italic"># Secure Wireguard keys and config</span>
