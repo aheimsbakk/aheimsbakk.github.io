@@ -83,8 +83,8 @@ Using open Wi-Fi access points can be very useful and necessary, but it is inher
 <h2 id="preparations-create-ca">Preparations, create CA <a href="#preparations-create-ca" class="anchor">🔗</a></h2><p>Install necessary software. Although haveged, is not required, see <a href="2014-04-29-haveged">Better entropy with haveged</a>.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install easy-rsa haveged
 </code></pre></div><p>Create a work directory for <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"  target="_blank" rel="noopener">OpenVPN</a> <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"  target="_blank" rel="noopener">CA</a>. Take care to protect this directory and the files under it.</p>
-<pre tabindex="0"><code>make-cadir «yourdomain»
-</code></pre><p>Enter your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"  target="_blank" rel="noopener">CA</a> directory.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">make-cadir «yourdomain»
+</code></pre></div><p>Enter your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"  target="_blank" rel="noopener">CA</a> directory.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">cd</span> «yourdomain»
 </code></pre></div><p>Edit the <code>vars</code> file and change the following variables to something more sensible for you.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">export</span> <span style="color:#19177c">KEY_COUNTRY</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;US&#34;</span>
@@ -95,18 +95,17 @@ Using open Wi-Fi access points can be very useful and necessary, but it is inher
 </code></pre></div><p>Source the variables into current bash session.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">source</span> ./vars
 </code></pre></div><p>Do a initial clean.</p>
-<pre tabindex="0"><code>./clean-all
-</code></pre><p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"  target="_blank" rel="noopener">CA</a> public and private key.</p>
-<pre tabindex="0"><code>./build-ca
-</code></pre><p>Generate your <a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange"  target="_blank" rel="noopener">Diffie–Hellman</a> parameters.</p>
-<pre tabindex="0"><code>./build-dh
-</code></pre><p>Create your routers public and private key.</p>
-<pre tabindex="0"><code>./build-key-server «yourrouter»
-</code></pre><p>Listing of folder <code>keys</code> should look something like this now.</p>
-<pre><code>ca.crt  dh2048.pem  serial            «yourrouter».csr
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./clean-all
+</code></pre></div><p>Create your <a href="https://en.wikipedia.org/wiki/Certificate_authority" title="Certificate Authority"  target="_blank" rel="noopener">CA</a> public and private key.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./build-ca
+</code></pre></div><p>Generate your <a href="https://en.wikipedia.org/wiki/Diffie-Helmann" title="Diffie–Hellman key exchange"  target="_blank" rel="noopener">Diffie–Hellman</a> parameters.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./build-dh
+</code></pre></div><p>Create your routers public and private key.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./build-key-server «yourrouter»
+</code></pre></div><p>Listing of folder <code>keys</code> should look something like this now.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">ca.crt  dh2048.pem  serial            «yourrouter».csr
 ca.key  index.txt   «yourrouter».crt  «yourrouter».key
-</code></pre>
-<p>Now we are ready for configureing the <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"  target="_blank" rel="noopener">OpenVPN</a> server in the router running <a href="http://tomato.groov.pl" target="_blank" rel="noopener">Tomato by Shibby</a>.</p>
+</code></pre></div><p>Now we are ready for configureing the <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN"  target="_blank" rel="noopener">OpenVPN</a> server in the router running <a href="http://tomato.groov.pl" target="_blank" rel="noopener">Tomato by Shibby</a>.</p>
 <h2 id="configuring-openvpn-in-tomato">Configuring OpenVPN in Tomato <a href="#configuring-openvpn-in-tomato" class="anchor">🔗</a></h2><ol>
 <li>Log into the rouers admin interface.</li>
 <li>Go to the menu <strong>VPN Tunneling → OpenVPN Server</strong>.</li>

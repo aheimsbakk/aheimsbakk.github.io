@@ -122,8 +122,8 @@ restic is a deduplication backup sofware, designed for ease of use and security.
 </code></pre></div></li>
 <li>
 <p>Allow <em>source</em> to SSH into <em>intermediate</em> and run a very limited <em>rclone</em> which only may append data to <em>myprofile</em>. Edit <code>.ssh/authorized_keys</code>.</p>
-<pre tabindex="0"><code>restrict,command=&quot;rclone serve restic --stdio --append-only myprofile:backups&quot; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
-</code></pre></li>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">restrict,command=&#34;rclone serve restic --stdio --append-only myprofile:backups&#34; ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS2qJU7yIDRVY9cgjyJ0tGM32aB/aaeSwjQ0O/RTN6d
+</code></pre></div></li>
 </ol>
 <h3 id="back-on-source">Back on <em>source</em> <a href="#back-on-source" class="anchor">🔗</a></h3><ol>
 <li>

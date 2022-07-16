@@ -122,14 +122,14 @@ tel:+12125551212
 </ul>
 <h2 id="contact-information">Contact information <a href="#contact-information" class="anchor">🔗</a></h2><p>We have, for example, the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard</a> format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.</p>
 <p>NTT DoCoMo has popularized a compact <a href="https://web.archive.org/web/20130712164414/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/addressbook/" target="_blank" rel="noopener">MECARD format</a> for encoding contact information. For example, to encode the name Sean Owen, address &ldquo;76 9th Avenue, 4th Floor, New York, NY 10011&rdquo;, phone number &ldquo;212 555 1212&rdquo;, e-mail <code>srowen@example.com</code>, one would encode this in a barcode:</p>
-<pre tabindex="0"><code>MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
-</code></pre><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
+</code></pre></div><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
 <p>Readers should open a new address book entry, populated with the given data, and prompt the user to add a new contact.</p>
 <h3 id="au-format">AU format <a href="#au-format" class="anchor">🔗</a></h3><p>Note that KDDI AU also proposes a <a href="http://www.au.kddi.com/ezfactory/tec/two_dimensions/address.html" target="_blank" rel="noopener">slightly different format</a> for this information.</p>
 <h3 id="bizcard">BIZCARD <a href="#bizcard" class="anchor">🔗</a></h3><p>We have also observed a BIZCARD format in use but have yet to locate a definitive reference on the format. One can guess its structure from a few examples; it resembles the MECARD format:</p>
-<pre tabindex="0"><code>BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
-</code></pre><h3 id="vcard">vCard <a href="#vcard" class="anchor">🔗</a></h3><p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard" target="_blank" rel="noopener">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences" target="_blank" rel="noopener">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List" target="_blank" rel="noopener">Property lists</a> between the various versions of the vCard specification.</p>
-<pre tabindex="0"><code class="language-vcard" data-lang="vcard">BEGIN:VCARD
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
+</code></pre></div><h3 id="vcard">vCard <a href="#vcard" class="anchor">🔗</a></h3><p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard" target="_blank" rel="noopener">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences" target="_blank" rel="noopener">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List" target="_blank" rel="noopener">Property lists</a> between the various versions of the vCard specification.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BEGIN:VCARD
 VERSION:3.0
 N:Owen;Sean;;;
 FN:Sean Owen
@@ -137,7 +137,7 @@ TITLE:Software Engineer
 EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
 URL;TYPE=Homepage:https://example.com
 END:VCARD
-</code></pre><h2 id="smsmmsfacetime">SMS/MMS/FaceTime <a href="#smsmmsfacetime" class="anchor">🔗</a></h2><p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724" target="_blank" rel="noopener">RFC 5724</a> for details.</p>
+</code></pre></div><h2 id="smsmmsfacetime">SMS/MMS/FaceTime <a href="#smsmmsfacetime" class="anchor">🔗</a></h2><p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724" target="_blank" rel="noopener">RFC 5724</a> for details.</p>
 <p>Likewise <code>SMSTO:</code> URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS. We have heard of URIs of the form <code>sms:[number]:[subject]</code>, and likewise for other prefixes like <code>smsto:</code>.</p>
 <p>There appear to be &ldquo;mms:&rdquo; and &ldquo;MMSTO:&rdquo; URIs used like &ldquo;sms:&rdquo; URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.</p>
 <p>Readers should open a new SMS message, ready for the user to compose and send it.</p>
@@ -169,14 +169,14 @@ facetime-audio:me@icloud.com
 <li><a href="https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle" target="_blank" rel="noopener">Google Maps: Space Needle</a></li>
 </ul>
 <h2 id="calendar-events">Calendar Events <a href="#calendar-events" class="anchor">🔗</a></h2><p>The newer <a href="https://en.wikipedia.org/wiki/ICalendar" target="_blank" rel="noopener">iCalendar</a> (<code>.ics</code>) format, as well as the older <a href="https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0" target="_blank" rel="noopener">vCalendar</a> (<code>.vcs</code>) format both define a sub-set of their formats for <em>events</em>. These are <a href="https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html" target="_blank" rel="noopener">vEvents</a>.</p>
-<pre tabindex="0"><code class="language-vevent" data-lang="vevent">BEGIN:VEVENT
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BEGIN:VEVENT
 SUMMARY:Summer+Vacation!
 DTSTART:20180601T070000Z
 DTEND:20180831T070000Z
 END:VEVENT
-</code></pre><h2 id="wi-fi-network-config-android-ios-11">Wi-Fi Network config (Android, iOS 11+) <a href="#wi-fi-network-config-android-ios-11" class="anchor">🔗</a></h2><p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
-<pre tabindex="0"><code>WIFI:T:WPA;S:mynetwork;P:mypass;;
-</code></pre><table>
+</code></pre></div><h2 id="wi-fi-network-config-android-ios-11">Wi-Fi Network config (Android, iOS 11+) <a href="#wi-fi-network-config-android-ios-11" class="anchor">🔗</a></h2><p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">WIFI:T:WPA;S:mynetwork;P:mypass;;
+</code></pre></div><table>
 <thead>
 <tr>
 <th>Parameter</th>
@@ -291,14 +291,14 @@ tel:+12125551212
 </ul>
 <h2 id="contact-information-1">Contact information <a href="#contact-information-1" class="anchor">🔗</a></h2><p>We have, for example, the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard</a> format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.</p>
 <p>NTT DoCoMo has popularized a compact <a href="https://web.archive.org/web/20130712164414/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/addressbook/" target="_blank" rel="noopener">MECARD format</a> for encoding contact information. For example, to encode the name Sean Owen, address &ldquo;76 9th Avenue, 4th Floor, New York, NY 10011&rdquo;, phone number &ldquo;212 555 1212&rdquo;, e-mail <code>srowen@example.com</code>, one would encode this in a barcode:</p>
-<pre tabindex="0"><code>MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
-</code></pre><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
+</code></pre></div><p>See the link above for complete information. Note that this format has generally been used with QR Codes only in the past, but, may well be parsed and understood when encoded in a Data Matrix symbol too.</p>
 <p>Readers should open a new address book entry, populated with the given data, and prompt the user to add a new contact.</p>
 <h3 id="au-format-1">AU format <a href="#au-format-1" class="anchor">🔗</a></h3><p>Note that KDDI AU also proposes a <a href="http://www.au.kddi.com/ezfactory/tec/two_dimensions/address.html" target="_blank" rel="noopener">slightly different format</a> for this information.</p>
 <h3 id="bizcard-1">BIZCARD <a href="#bizcard-1" class="anchor">🔗</a></h3><p>We have also observed a BIZCARD format in use but have yet to locate a definitive reference on the format. One can guess its structure from a few examples; it resembles the MECARD format:</p>
-<pre tabindex="0"><code>BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
-</code></pre><h3 id="vcard-1">vCard <a href="#vcard-1" class="anchor">🔗</a></h3><p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard" target="_blank" rel="noopener">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences" target="_blank" rel="noopener">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List" target="_blank" rel="noopener">Property lists</a> between the various versions of the vCard specification.</p>
-<pre tabindex="0"><code class="language-vcard" data-lang="vcard">BEGIN:VCARD
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY 10011;B:+12125551212;E:srowen@google.com;;
+</code></pre></div><h3 id="vcard-1">vCard <a href="#vcard-1" class="anchor">🔗</a></h3><p>Many apps understand the <a href="https://en.wikipedia.org/wiki/VCard" target="_blank" rel="noopener">vCard specification</a>. The wiki for <a href="https://github.com/mangstadt/ez-vcard" target="_blank" rel="noopener">mangstadt/ez-vcard</a> provides documentation for <a href="https://github.com/mangstadt/ez-vcard/wiki/Version-differences" target="_blank" rel="noopener">Version differences</a> and <a href="https://github.com/mangstadt/ez-vcard/wiki/Property-List" target="_blank" rel="noopener">Property lists</a> between the various versions of the vCard specification.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BEGIN:VCARD
 VERSION:3.0
 N:Owen;Sean;;;
 FN:Sean Owen
@@ -306,7 +306,7 @@ TITLE:Software Engineer
 EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
 URL;TYPE=Homepage:https://example.com
 END:VCARD
-</code></pre><h2 id="smsmmsfacetime-1">SMS/MMS/FaceTime <a href="#smsmmsfacetime-1" class="anchor">🔗</a></h2><p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724" target="_blank" rel="noopener">RFC 5724</a> for details.</p>
+</code></pre></div><h2 id="smsmmsfacetime-1">SMS/MMS/FaceTime <a href="#smsmmsfacetime-1" class="anchor">🔗</a></h2><p>Much like an e-mail address, one can encode an SMS shortcode or number by creating an <code>sms</code> URI. For example to create a link to the number 12345 one would encode <code>sms:12345</code>. See <a href="https://tools.ietf.org/html/rfc5724" target="_blank" rel="noopener">RFC 5724</a> for details.</p>
 <p>Likewise <code>SMSTO:</code> URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS. We have heard of URIs of the form <code>sms:[number]:[subject]</code>, and likewise for other prefixes like <code>smsto:</code>.</p>
 <p>There appear to be &ldquo;mms:&rdquo; and &ldquo;MMSTO:&rdquo; URIs used like &ldquo;sms:&rdquo; URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.</p>
 <p>Readers should open a new SMS message, ready for the user to compose and send it.</p>
@@ -338,14 +338,14 @@ facetime-audio:me@icloud.com
 <li><a href="https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&amp;auid=17457489312301189071&amp;ll=47.620521,-122.349293&amp;lsp=9902&amp;q=Space%20Needle" target="_blank" rel="noopener">Google Maps: Space Needle</a></li>
 </ul>
 <h2 id="calendar-events-1">Calendar Events <a href="#calendar-events-1" class="anchor">🔗</a></h2><p>The newer <a href="https://en.wikipedia.org/wiki/ICalendar" target="_blank" rel="noopener">iCalendar</a> (<code>.ics</code>) format, as well as the older <a href="https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0" target="_blank" rel="noopener">vCalendar</a> (<code>.vcs</code>) format both define a sub-set of their formats for <em>events</em>. These are <a href="https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html" target="_blank" rel="noopener">vEvents</a>.</p>
-<pre tabindex="0"><code class="language-vevent" data-lang="vevent">BEGIN:VEVENT
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">BEGIN:VEVENT
 SUMMARY:Summer+Vacation!
 DTSTART:20180601T070000Z
 DTEND:20180831T070000Z
 END:VEVENT
-</code></pre><h2 id="wi-fi-network-config-android-ios-11-1">Wi-Fi Network config (Android, iOS 11+) <a href="#wi-fi-network-config-android-ios-11-1" class="anchor">🔗</a></h2><p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
-<pre tabindex="0"><code>WIFI:T:WPA;S:mynetwork;P:mypass;;
-</code></pre><table>
+</code></pre></div><h2 id="wi-fi-network-config-android-ios-11-1">Wi-Fi Network config (Android, iOS 11+) <a href="#wi-fi-network-config-android-ios-11-1" class="anchor">🔗</a></h2><p>We propose a syntax like &ldquo;MECARD&rdquo; for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device&rsquo;s Wi-Fi accordingly. Example:</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">WIFI:T:WPA;S:mynetwork;P:mypass;;
+</code></pre></div><table>
 <thead>
 <tr>
 <th>Parameter</th>

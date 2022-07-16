@@ -110,6 +110,15 @@ li pre code {
 }
 
 /*
+ * profile
+ */
+
+.profile h2 {
+  font-size: 14px;
+  margin-bottom: 36px;
+}
+
+/*
  * rst fixes!
  */
 

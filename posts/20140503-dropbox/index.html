@@ -94,8 +94,8 @@ A way to be able to blog from anywhere is to use Dropbox as repository for the y
 <p>Then allow the <code>www-data</code> user to run incron.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">echo</span> www-data | sudo tee -a /etc/incron.allow
 </code></pre></div><p>And as a final step make the incrontab entry for <code>www-data</code> with <code>ìncrontab -e</code></p>
-<pre tabindex="0"><code>/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
-</code></pre><p>Now <a href="http://blog.getpelican.com" target="_blank" rel="noopener">Pelican</a> will recreate the blog on each change in <code>~/Dropbox/Pelican/content</code>. Happy blogging!</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/var/www/Dropbox/Pelican/content IN_ATTRIB,IN_CREATE,IN_DELETE,IN_NO_LOOP make --directory /var/www/Dropbox/Pelican dropbox_upload
+</code></pre></div><p>Now <a href="http://blog.getpelican.com" target="_blank" rel="noopener">Pelican</a> will recreate the blog on each change in <code>~/Dropbox/Pelican/content</code>. Happy blogging!</p>
 
     </div>
 
