@@ -56,12 +56,12 @@
     <h1 class="title">Luks decryption with clevis and TPM2 on Fedora</h1>
 
     <div class="tip">
-        <time datetime="2022-04-08 00:00:00 &#43;0000 UTC">Apr 8, 2022</time>
+        <time datetime="2022-10-20 00:00:00 &#43;0000 UTC">Oct 20, 2022</time>
         <span class="split">
           ·
         </span>
         <span>
-          270 words
+          289 words
         </span>
         <span class="split">
           ·
@@ -87,14 +87,14 @@
 <p>From the Github repo: <em><a href="https://github.com/latchset/clevis" target="_blank" rel="noopener"><code>clevis</code></a> is a pluggable framework for automated decryption. It can be used to provide automated decryption of data or even automated unlocking of LUKS volumes.</em></p>
 <p>The idea is to automatic unlock the disc during boot without typing a password by binding the disk to &ldquo;your&rdquo; computer and storing a key in the <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module" target="_blank" rel="noopener">Trusted Platform Module</a>, TPM.</p>
 <h2 id="installation">Installation <a href="#installation" class="anchor">🔗</a></h2><h3 id="fedora">Fedora <a href="#fedora" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y clevis clevis-dracut clevis-udisks2
+</code></pre></div><h3 id="debian">Debian <a href="#debian" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install -y clevis clevis-initramfs clevis-tpm2 clevis-udisks2
 </code></pre></div><h2 id="setup">Setup <a href="#setup" class="anchor">🔗</a></h2><p>Preparations before you begin.</p>
 <ul>
 <li>Turn off boot from USB and network in BIOS.</li>
 <li>Optionally turn on secure boot in BIOS.</li>
 <li>Set a strong BIOS password.</li>
 </ul>
-<h3 id="bind-pin-to-disk">Bind pin to disk <a href="#bind-pin-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
-</code></pre></div><p>Automated disc encryption will fail if</p>
+<h3 id="bind-pin-to-disk">Bind pin to disk <a href="#bind-pin-to-disk" class="anchor">🔗</a></h3><p>Automated disc encryption will fail if</p>
 <ul>
 <li><code>0.</code> UEFI firmware has changed.</li>
 <li><code>1.</code> Firmware configuration has changed.</li>
@@ -102,7 +102,9 @@
 <li><code>7.</code> Secure boot has changed.</li>
 </ul>
 <p>Platform Configuration Registers (PCR) <a href="https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12/tables/1" target="_blank" rel="noopener">table</a>.</p>
-<h3 id="list-pins-bound-to-disk">List pins bound to disk <a href="#list-pins-bound-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
+<h4 id="fedora-1">Fedora <a href="#fedora-1" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
+</code></pre></div><h4 id="debian-1">Debian <a href="#debian-1" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_bank&#34;:&#34;sha256&#34;,&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
+</code></pre></div><h3 id="list-pins-bound-to-disk">List pins bound to disk <a href="#list-pins-bound-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
 </code></pre></div><h3 id="unbind-pin-from-disk">Unbind pin from disk <a href="#unbind-pin-from-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks unbind -d /dev/nvme0n1p3 -s <span style="color:#666">1</span>
 </code></pre></div><h2 id="remove-all-acces-to-the-disk">Remove all acces to the disk <a href="#remove-all-acces-to-the-disk" class="anchor">🔗</a></h2><p>Before you give away your disk or computer. You can erase all access to your data with a simple command.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cryptsetup erase /dev/nvme0n1p3

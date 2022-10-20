@@ -6,7 +6,16 @@
     <description>Recent content on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Luks decryption with clevis and TPM2 on Fedora</title>
+      <link>https://blog.heimsbakk.net/posts/20220406-clevis/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Bootstrap Raspberry Pi OS on Pi Zero 2 W</title>
       <link>https://blog.heimsbakk.net/posts/20220510-zero2/</link>
@@ -23,15 +32,6 @@
       
       <guid>https://blog.heimsbakk.net/posts/20220508-zero/</guid>
       <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Luks decryption with clevis and TPM2 on Fedora</title>
-      <link>https://blog.heimsbakk.net/posts/20220406-clevis/</link>
-      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.heimsbakk.net/posts/20220406-clevis/</guid>
-      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
     </item>
     
     <item>
