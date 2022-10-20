@@ -15,7 +15,7 @@ echo "**"
 
 case "$(uname -p)" in
   x86_64|aarch64)
-    ./hugo-$(uname -p)
+    ./hugo-$(uname -m)
     ;;
   unknown)
     ./hugo-aarch64
