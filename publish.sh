@@ -13,7 +13,7 @@ echo "**"
 echo "** Generate blog"
 echo "**"
 
-case "$(uname -p)" in
+case "$(uname -m)" in
   x86_64|aarch64)
     ./hugo-$(uname -m)
     ;;
