@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Luks decryption with clevis and TPM2 on Fedora | &gt; /dev/null 2&gt;&amp;1</title>
+    <title>Luks decryption with clevis and TPM2 | &gt; /dev/null 2&gt;&amp;1</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
@@ -53,15 +53,15 @@
       
 
 <section id="single">
-    <h1 class="title">Luks decryption with clevis and TPM2 on Fedora</h1>
+    <h1 class="title">Luks decryption with clevis and TPM2</h1>
 
     <div class="tip">
-        <time datetime="2022-04-08 00:00:00 &#43;0000 UTC">Apr 8, 2022</time>
+        <time datetime="2022-10-20 00:00:00 &#43;0000 UTC">Oct 20, 2022</time>
         <span class="split">
           ·
         </span>
         <span>
-          270 words
+          289 words
         </span>
         <span class="split">
           ·
@@ -87,14 +87,14 @@
 <p>From the Github repo: <em><a href="https://github.com/latchset/clevis" target="_blank" rel="noopener"><code>clevis</code></a> is a pluggable framework for automated decryption. It can be used to provide automated decryption of data or even automated unlocking of LUKS volumes.</em></p>
 <p>The idea is to automatic unlock the disc during boot without typing a password by binding the disk to &ldquo;your&rdquo; computer and storing a key in the <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module" target="_blank" rel="noopener">Trusted Platform Module</a>, TPM.</p>
 <h2 id="installation">Installation <a href="#installation" class="anchor">🔗</a></h2><h3 id="fedora">Fedora <a href="#fedora" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install -y clevis clevis-dracut clevis-udisks2
+</code></pre></div><h3 id="debian">Debian <a href="#debian" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install -y clevis clevis-initramfs clevis-tpm2 clevis-udisks2
 </code></pre></div><h2 id="setup">Setup <a href="#setup" class="anchor">🔗</a></h2><p>Preparations before you begin.</p>
 <ul>
 <li>Turn off boot from USB and network in BIOS.</li>
 <li>Optionally turn on secure boot in BIOS.</li>
 <li>Set a strong BIOS password.</li>
 </ul>
-<h3 id="bind-pin-to-disk">Bind pin to disk <a href="#bind-pin-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
-</code></pre></div><p>Automated disc encryption will fail if</p>
+<h3 id="bind-pin-to-disk">Bind pin to disk <a href="#bind-pin-to-disk" class="anchor">🔗</a></h3><p>Automated disc encryption will fail if</p>
 <ul>
 <li><code>0.</code> UEFI firmware has changed.</li>
 <li><code>1.</code> Firmware configuration has changed.</li>
@@ -102,7 +102,9 @@
 <li><code>7.</code> Secure boot has changed.</li>
 </ul>
 <p>Platform Configuration Registers (PCR) <a href="https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12/tables/1" target="_blank" rel="noopener">table</a>.</p>
-<h3 id="list-pins-bound-to-disk">List pins bound to disk <a href="#list-pins-bound-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
+<h4 id="fedora-1">Fedora <a href="#fedora-1" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
+</code></pre></div><h4 id="debian-1">Debian <a href="#debian-1" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks <span style="color:#008000">bind</span> -d /dev/nvme0n1p3 tpm2 <span style="color:#ba2121">&#39;{&#34;pcr_bank&#34;:&#34;sha256&#34;,&#34;pcr_ids&#34;:&#34;0,1,5,7&#34;}&#39;</span>
+</code></pre></div><h3 id="list-pins-bound-to-disk">List pins bound to disk <a href="#list-pins-bound-to-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks list -d /dev/nvme0n1p3
 </code></pre></div><h3 id="unbind-pin-from-disk">Unbind pin from disk <a href="#unbind-pin-from-disk" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo clevis luks unbind -d /dev/nvme0n1p3 -s <span style="color:#666">1</span>
 </code></pre></div><h2 id="remove-all-acces-to-the-disk">Remove all acces to the disk <a href="#remove-all-acces-to-the-disk" class="anchor">🔗</a></h2><p>Before you give away your disk or computer. You can erase all access to your data with a simple command.</p>
 <div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cryptsetup erase /dev/nvme0n1p3
@@ -149,6 +151,14 @@
         
         <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <path d="M27.26 27.271h-4.733v-7.427c0-1.771-0.037-4.047-2.475-4.047-2.468 0-2.844 1.921-2.844 3.916v7.557h-4.739v-15.271h4.552v2.083h0.061c0.636-1.203 2.183-2.468 4.491-2.468 4.801 0 5.692 3.161 5.692 7.271v8.385zM7.115 9.912c-1.527 0-2.751-1.235-2.751-2.756 0-1.516 1.229-2.749 2.751-2.749s2.755 1.233 2.755 2.749c0 1.521-1.233 2.756-2.755 2.756zM9.489 27.271h-4.749v-15.271h4.749zM29.636 0h-27.276c-1.303 0-2.36 1.031-2.36 2.307v27.387c0 1.276 1.057 2.307 2.36 2.307h27.271c1.301 0 2.369-1.031 2.369-2.307v-27.387c0-1.276-1.068-2.307-2.369-2.307z"/>
+</svg>
+
+    </a>
+
+    <a class="symbol" href="https://twit.social/@arnulf" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="bi bi-mastodon">
+  <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"/>
 </svg>
 
     </a>
