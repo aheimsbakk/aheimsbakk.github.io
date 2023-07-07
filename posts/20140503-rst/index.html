@@ -6,7 +6,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="My cheat sheet for `reStructuredText `_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown `_.">
+<meta name="description" content="
+
+
+My cheat sheet for reStructuredText syntax with examples how it will look after parsing. reStructuredText is an alternative for Markedown.">
 <meta name="generator" content="Hugo 0.89.4" />
 
 
@@ -61,13 +64,13 @@
           ·
         </span>
         <span>
-          721 words
+          556 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          4 minute read
+          3 minute read
         </span>
     </div>
 
@@ -76,294 +79,302 @@
 
 
     <div class="content">
-      My cheat sheet for `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown <http://daringfireball.net/projects/markdown>`_.
-
-
-
-* Examples taken from `reStructuredText Markup Specification`_
-* See also `reStructuredText Directives`_
-
-.. _`reStructuredText Directives`: http://docutils.sourceforge.net/docs/ref/rst/directives.html
-.. _`reStructuredText Markup Specification`: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
-
-======================
-Blog arthicle metadata
-======================
-
-.. code:: rst
-
-    reStructuredText cheat sheet
-    ############################
-
-    :date: 2014-05-03 18:00
-    :tags: cheatsheet, pelican
-    :category: blog
-    :slug: 2014-05-03-rst
-    :author: arnulf
-    :summary: My cheat sheet for `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ syntax with examples how it will look after parsing. reStructuredText_ is an alternative for `Markedown <http://daringfireball.net/projects/markdown>`_.
-
-========
-Sections
-========
-
-`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#sections>`__
-
-.. code:: rst
-
-    ===============
-     Second heading
-    ===============
-
-    ---------------
-     Third heading
-    ---------------
-
-    Fourth heading
-    ==============
-
-    Fift heading
-    -------------
-
-    Sixt heading
-    `````````````
-
-===============
-Second heading
-===============
-
----------------
-Third heading
----------------
-
-Fourth heading
-==============
-
-Fift heading
-------------
-
-Sixt heading
-`````````````
-
-=====================
-Quick Syntax Overview
-=====================
-
-`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#quick-syntax-overview>`__
-
-..  code:: rst
-
-    Paragraphs contain text and may contain inline markup: *emphasis*, **strong emphasis**, `interpreted text`, ``inline literals``, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references ([1]_), citation references ([CIT2002]_), substitution references (|example|), _`inline internal targets` and :code:`code snippets`.
-
-Paragraphs contain text and may contain inline markup: *emphasis*, **strong emphasis**, `interpreted text`, ``inline literals``, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references ([1]_), citation references
-([CIT2002]_), substitution references (|example|), _`inline internal targets` and :code:`code snippets`. 
-
------
-Lists
------
-
-.. code:: rst
-
-    * One 
-
-    * Two
-
-     1. Test
-
-     2. Test
-
-    * Three
-
-
-* One 
-
-* Two
-
- 1. Test
-
- 2. Test
-
-* Three
-
----------
-Footnotes
----------
-
-..  code:: rst
-
-    ..  [1] A footnote contains body elements, consistently
-        indented by at least 3 spaces.
-
-..  [1] A footnote contains body elements, consistently
-    indented by at least 3 spaces.
-
----------
-Citations
----------
-
-..  code:: rst
-
-    ..  [CIT2002] Just like a footnote, except the label is
-        textual.
-
-..  [CIT2002] Just like a footnote, except the label is
-    textual.
-
-
------------------
-Hyperlink targets
------------------
-
-.. code:: rst   
-
-    .. _Python: http://www.python.org
-
-    .. _example:   
-
-    The "_example" target above points to this paragraph.
-
-.. _Python: http://www.python.org
-
-.. _example: 
-
-The "_example" target above points to this paragraph.
-
-----------------
-Replacement text
-----------------
-
-.. code:: rst
-
-    ..  |example| replace:: Replaced text
-
-..  |example| replace:: Replaced text
-
------------------------
-Inline internal targets
------------------------
-
-.. code:: rst
-
-    Point to `inline internal targets`_.
-
-Point to `inline internal targets`_.
-
---------------------
-Definitions of terms
---------------------
-
-.. code:: rest
-
-    term (up to a line of text)
-       Definition of the term, which must be indented
-
-       and can even consist of multiple paragraphs
-
-    next term
-       Description.
-
-term (up to a line of text)
-   Definition of the term, which must be indented
-
-   and can even consist of multiple paragraphs
-
-next term
-   Description.
-
-----------
-Field list
-----------
-
-.. code:: rst
-
-    :what: Field lists map field names to field bodies, like
-           database records.  They are often part of an extension
-           syntax.
-
-    :how: The field marker is a colon, the field name, and a
-          colon.
-
-          The field body may contain one or more body elements,
-          indented relative to the field marker.
-
-:what: Field lists map field names to field bodies, like
-       database records.  They are often part of an extension
-       syntax.
-
-:how: The field marker is a colon, the field name, and a
-      colon.
-
-      The field body may contain one or more body elements,
-      indented relative to the field marker.
-
-==============
-Visualize math
-==============
-
-`rST doc <http://docutils.sourceforge.net/docs/ref/rst/directives.html#math>`__
-
-.. code:: rst
-
-    .. math::
-
-      α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
-
-.. math::
-
-  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
-
-
-======
-Tables   
-======     
-
-`rST doc <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#grid-tables>`__
-
------------
-Grid tables
------------
-
-.. code:: rst
-
-    +--------------+----------+-----------+---------------+
-    | row 1, col 1 | column 2 | column 3  | column 4      |
-    +==============+==========+===========+===============+
-    | row 2        |  Use the command :code:`ls | more`.  |
-    +--------------+----------+-----------+---------------+
-    | row 3        |          |           |               |
-    +--------------+----------+-----------+---------------+
-
-+--------------+----------+-----------+---------------+
-| row 1, col 1 | column 2 | column 3  | column 4      |
-+==============+==========+===========+===============+
-| row 2        |  Use the command :code:`ls | more`.  |
-+--------------+----------+-----------+---------------+
-| row 3        |          |           |               |
-+--------------+----------+-----------+---------------+
-
-
--------------
-Simple tables
--------------
-
-.. code:: rst
-
-    =====  =====  =======
-    A      B      A and B
-    =====  =====  =======
-    False  False  False
-    True   False  False
-    False  True   False
-    True   True   True
-    =====  =====  =======
-
-=====  =====  =======
-A      B      A and B
-=====  =====  =======
-False  False  False
-True   False  False
-False  True   False
-True   True   True
-=====  =====  =======
+      <div class="document">
+
+
+<p>My cheat sheet for <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText</a> syntax with examples how it will look after parsing. <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText</a> is an alternative for <a class="reference external" href="http://daringfireball.net/projects/markdown">Markedown</a>.</p>
+<ul class="simple">
+<li>Examples taken from <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
+<li>See also <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html">reStructuredText Directives</a></li>
+</ul>
+<div class="section" id="blog-arthicle-metadata">
+<h2>Blog arthicle metadata</h2>
+<pre class="code rst literal-block">
+<span class="generic heading">reStructuredText cheat sheet</span>
+<span class="generic heading">############################</span>
+<span class="whitespace">
+</span><span class="name class">:date:</span> 2014-05-03 18:00<span class="whitespace">
+</span><span class="name class">:tags:</span> cheatsheet, pelican<span class="whitespace">
+</span><span class="name class">:category:</span> blog<span class="whitespace">
+</span><span class="name class">:slug:</span> 2014-05-03-rst<span class="whitespace">
+</span><span class="name class">:author:</span> arnulf<span class="whitespace">
+</span><span class="name class">:summary:</span> My cheat sheet for <span class="literal string">`reStructuredText </span><span class="literal string interpol">&lt;http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html&gt;</span><span class="literal string">`_</span> syntax with examples how it will look after parsing. reStructuredText_ is an alternative for <span class="literal string">`Markedown </span><span class="literal string interpol">&lt;http://daringfireball.net/projects/markdown&gt;</span><span class="literal string">`_</span>.
+</pre>
+</div>
+<div class="section" id="sections">
+<h2>Sections</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#sections">rST doc</a></p>
+<pre class="code rst literal-block">
+<span class="generic heading">===============</span>
+<span class="generic heading"> Second heading</span>
+<span class="generic heading">===============</span>
+<span class="whitespace">
+</span><span class="generic heading">---------------</span>
+<span class="generic heading"> Third heading</span>
+<span class="generic heading">---------------</span>
+<span class="whitespace">
+</span><span class="generic heading">Fourth heading</span>
+<span class="generic heading">==============</span>
+<span class="whitespace">
+</span><span class="generic heading">Fift heading</span>
+<span class="generic heading">-------------</span>
+<span class="whitespace">
+</span><span class="generic heading">Sixt heading</span>
+<span class="generic heading">`````````````</span>
+</pre>
+</div>
+<div class="section" id="second-heading">
+<h2>Second heading</h2>
+<div class="section" id="third-heading">
+<h3>Third heading</h3>
+<div class="section" id="fourth-heading">
+<h4>Fourth heading</h4>
+<div class="section" id="fift-heading">
+<h5>Fift heading</h5>
+<div class="section" id="sixt-heading">
+<h6>Sixt heading</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="quick-syntax-overview">
+<h2>Quick Syntax Overview</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#quick-syntax-overview">rST doc</a></p>
+<pre class="code rst literal-block">
+Paragraphs contain text and may contain inline markup: <span class="generic emph">*emphasis*</span>, <span class="generic strong">**strong emphasis**</span>, <span class="name variable">`interpreted text`</span>, <span class="literal string">``inline literals``</span>, standalone hyperlinks (http://www.python.org), external hyperlinks (Python_), internal cross-references (example_), footnote references (<span class="literal string">[1]_</span>), citation references (<span class="literal string">[CIT2002]_</span>), substitution references (|example|), _<span class="name variable">`inline internal targets`</span> and <span class="name attribute">:code:</span><span class="name variable">`code snippets`</span>.
+</pre>
+<p>Paragraphs contain text and may contain inline markup: <em>emphasis</em>, <strong>strong emphasis</strong>, <cite>interpreted text</cite>, <tt class="docutils literal">inline literals</tt>, standalone hyperlinks (<a class="reference external" href="http://www.python.org">http://www.python.org</a>), external hyperlinks (<a class="reference external" href="http://www.python.org">Python</a>), internal cross-references (<a class="reference internal" href="#example">example</a>), footnote references (<a class="footnote-reference" href="#footnote-1" id="footnote-reference-1">[1]</a>), citation references
+(<a class="citation-reference" href="#cit2002" id="citation-reference-1">[CIT2002]</a>), substitution references (Replaced text), <span class="target" id="inline-internal-targets">inline internal targets</span> and <code>code snippets</code>.</p>
+<div class="section" id="lists">
+<h3>Lists</h3>
+<pre class="code rst literal-block">
+<span class="literal number">*</span> One<span class="whitespace">
+</span>
+<span class="literal number">*</span> Two<span class="whitespace">
+</span>
+ <span class="literal number">1.</span> Test<span class="whitespace">
+</span>
+ <span class="literal number">2.</span> Test<span class="whitespace">
+</span>
+<span class="literal number">*</span> Three
+</pre>
+<ul class="simple">
+<li>One</li>
+<li>Two</li>
+</ul>
+<blockquote>
+<ol class="arabic simple">
+<li>Test</li>
+<li>Test</li>
+</ol>
+</blockquote>
+<ul class="simple">
+<li>Three</li>
+</ul>
+</div>
+<div class="section" id="footnotes">
+<h3>Footnotes</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">[1]</span> A footnote contains body elements, consistently<span class="whitespace">
+</span>    indented by at least 3 spaces.
+</pre>
+<table class="docutils footnote" frame="void" id="footnote-1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-1">[1]</a></td><td>A footnote contains body elements, consistently
+indented by at least 3 spaces.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="citations">
+<h3>Citations</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">[CIT2002]</span> Just like a footnote, except the label is<span class="whitespace">
+</span>    textual.
+</pre>
+<table class="docutils citation" frame="void" id="cit2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#citation-reference-1">[CIT2002]</a></td><td>Just like a footnote, except the label is
+textual.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hyperlink-targets">
+<h3>Hyperlink targets</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span> <span class="name tag">_Python:</span> http://www.python.org<span class="whitespace">
+
+</span><span class="punctuation">..</span> <span class="name tag">_example:</span><span class="whitespace">
+
+</span>The &quot;_example&quot; target above points to this paragraph.
+</pre>
+<p id="example">The &quot;_example&quot; target above points to this paragraph.</p>
+</div>
+<div class="section" id="replacement-text">
+<h3>Replacement text</h3>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span>  <span class="name tag">|example|</span> <span class="operator word">replace</span><span class="punctuation">::</span> Replaced text
+</pre>
+</div>
+<div class="section" id="inline-internal-targets-1">
+<h3>Inline internal targets</h3>
+<pre class="code rst literal-block">
+Point to <span class="literal string">`inline internal targets`_</span>.
+</pre>
+<p>Point to <a class="reference internal" href="#inline-internal-targets">inline internal targets</a>.</p>
+</div>
+<div class="section" id="definitions-of-terms">
+<h3>Definitions of terms</h3>
+<pre class="code rest literal-block">
+term (up to a line of text)<span class="whitespace">
+</span>   Definition of the term, which must be indented<span class="whitespace">
+
+</span>   and can even consist of multiple paragraphs<span class="whitespace">
+
+</span>next term<span class="whitespace">
+</span>   Description.
+</pre>
+<dl class="docutils">
+<dt>term (up to a line of text)</dt>
+<dd><p class="first">Definition of the term, which must be indented</p>
+<p class="last">and can even consist of multiple paragraphs</p>
+</dd>
+<dt>next term</dt>
+<dd>Description.</dd>
+</dl>
+</div>
+<div class="section" id="field-list">
+<h3>Field list</h3>
+<pre class="code rst literal-block">
+<span class="name class">:what:</span> Field lists map field names to field bodies, like<span class="whitespace">
+</span>       database records.  They are often part of an extension<span class="whitespace">
+</span>       syntax.<span class="whitespace">
+
+</span><span class="name class">:how:</span> The field marker is a colon, the field name, and a<span class="whitespace">
+</span>      colon.<span class="whitespace">
+
+</span>      The field body may contain one or more body elements,<span class="whitespace">
+</span>      indented relative to the field marker.
+</pre>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">what:</th><td class="field-body"><p class="first">Field lists map field names to field bodies, like
+database records.  They are often part of an extension
+syntax.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">how:</th><td class="field-body"><p class="first">The field marker is a colon, the field name, and a
+colon.</p>
+<p class="last">The field body may contain one or more body elements,
+indented relative to the field marker.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="visualize-math">
+<h2>Visualize math</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">rST doc</a></p>
+<pre class="code rst literal-block">
+<span class="punctuation">..</span> <span class="operator word">math</span><span class="punctuation">::</span><span class="whitespace">
+
+</span>  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
+</pre>
+<div class="formula">
+<i>α</i><sub><i>t</i></sub>(<i>i</i>) = <i>P</i>(<i>O</i><sub>1</sub>, <i>O</i><sub>2</sub>, …<i>O</i><sub><i>t</i></sub>, <i>q</i><sub><i>t</i></sub> = <i>S</i><sub><i>i</i></sub><i>λ</i>)
+</div>
+</div>
+<div class="section" id="tables">
+<h2>Tables</h2>
+<p><a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#grid-tables">rST doc</a></p>
+<div class="section" id="grid-tables">
+<h3>Grid tables</h3>
+<pre class="code rst literal-block">
++--------------+----------+-----------+---------------+<span class="whitespace">
+</span><span class="operator">|</span> row 1, col 1 | column 2 | column 3  | column 4      |<span class="whitespace">
+</span>+==============+==========+===========+===============+<span class="whitespace">
+</span><span class="operator">|</span> row 2        |  Use the command <span class="name attribute">:code:</span><span class="name variable">`ls | more`</span>.  |<span class="whitespace">
+</span>+--------------+----------+-----------+---------------+<span class="whitespace">
+</span><span class="operator">|</span> row 3        |          |           |               |<span class="whitespace">
+</span>+--------------+----------+-----------+---------------+
+</pre>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="20%" />
+<col width="22%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">row 1, col 1</th>
+<th class="head">column 2</th>
+<th class="head">column 3</th>
+<th class="head">column 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>row 2</td>
+<td colspan="3">Use the command <code>ls | more</code>.</td>
+</tr>
+<tr><td>row 3</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simple-tables">
+<h3>Simple tables</h3>
+<pre class="code rst literal-block">
+=====  =====  =======<span class="whitespace">
+</span>A      B      A and B<span class="whitespace">
+</span>=====  =====  =======<span class="whitespace">
+</span>False  False  False<span class="whitespace">
+</span>True   False  False<span class="whitespace">
+</span>False  True   False<span class="whitespace">
+</span>True   True   True<span class="whitespace">
+</span>=====  =====  =======
+</pre>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A and B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
     </div>
 
     
