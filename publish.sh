@@ -6,7 +6,7 @@ then
   echo "** Install missing dependency to use reStructuredText"
   echo "**"
 
-  pip install --user rst2html
+  pip install --user --break-system-packages rst2html
 fi
 
 echo "**"
