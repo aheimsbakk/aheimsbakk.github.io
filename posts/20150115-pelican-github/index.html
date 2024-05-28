@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>origami | &gt; /dev/null 2&gt;&amp;1</title>
+    <title>Use GitHub to host a Pelican blog | &gt; /dev/null 2&gt;&amp;1</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+<meta name="description" content="Create a git repository
+ :::bash mkdir blog cd blog git init touch README.md git add README.md git commit -a -m &quot;initial commit&quot;    Create a working branch for our blog, the master branch will be the blog content
+  git branch blog git checkout blog  Initialize the blog with pelican-quickstart  pelican-quickstart Welcome to pelican-quickstart v3.">
 <meta name="generator" content="Hugo 0.89.4" />
 
 
@@ -28,11 +30,6 @@
 
 
 
-
-  
-    <link href="/tags/origami/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-    <link href="/tags/origami/index.xml" rel="feed" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-  
 
 
   </head>
@@ -56,56 +53,97 @@
 
     <main class="main">
       
-<header class="profile">
+
+<section id="single">
+    <h1 class="title">Use GitHub to host a Pelican blog</h1>
+
+    <div class="tip">
+        <time datetime="2015-01-15 00:00:00 &#43;0000 UTC">Jan 15, 2015</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          276 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
     
-        <img class="avatar" alt="avatar" src="/images/avatar.png" />
     
 
-    <h1>&gt; /dev/null 2&gt;&amp;1</h1>
-    
-    
-      <h2>ramblings of a sysadmin</h2>
-    
-</header>
 
-<section id="archive">
-   
-    
-        <div class="group">
-            <h3 class="key">
-                2020
-            </h3>
+    <div class="content">
+      <ul>
+<li>
+<p>Create a git repository</p>
+<pre><code>  :::bash
+  mkdir blog
+  cd blog
+  git init
+  touch README.md
+  git add README.md
+  git commit -a -m &quot;initial commit&quot;
+</code></pre>
+</li>
+<li>
+<p>Create a working branch for our blog, the master branch will be the blog content</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch blog
+git checkout blog
+</code></pre></div><ul>
+<li>Initialize the blog with <code>pelican-quickstart</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pelican-quickstart
 
+Welcome to pelican-quickstart v3.4.0.
+
+This script will <span style="color:#008000">help</span> you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+&gt; Where <span style="color:#008000;font-weight:bold">do</span> you want to create your new web site? <span style="color:#666">[</span>.<span style="color:#666">]</span>
+&gt; What will be the title of this web site? My Blog
+&gt; Who will be the author of this web site? John Doe
+&gt; What will be the default language of this web site? <span style="color:#666">[</span>en<span style="color:#666">]</span>
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span style="color:#666">(</span>Y/n<span style="color:#666">)</span> n
+&gt; Do you want to <span style="color:#008000">enable</span> article pagination? <span style="color:#666">(</span>Y/n<span style="color:#666">)</span>
+&gt; How many articles per page <span style="color:#008000;font-weight:bold">do</span> you want? <span style="color:#666">[</span>10<span style="color:#666">]</span>
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span style="color:#666">(</span>Y/n<span style="color:#666">)</span>
+&gt; Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? <span style="color:#666">(</span>Y/n<span style="color:#666">)</span>
+&gt; Do you want to upload your website using FTP? <span style="color:#666">(</span>y/N<span style="color:#666">)</span>
+&gt; Do you want to upload your website using SSH? <span style="color:#666">(</span>y/N<span style="color:#666">)</span>
+&gt; Do you want to upload your website using Dropbox? <span style="color:#666">(</span>y/N<span style="color:#666">)</span>
+&gt; Do you want to upload your website using S3? <span style="color:#666">(</span>y/N<span style="color:#666">)</span>
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span style="color:#666">(</span>y/N<span style="color:#666">)</span>
+&gt; Do you want to upload your website using GitHub Pages? <span style="color:#666">(</span>y/N<span style="color:#666">)</span> y
+&gt; Is this your personal page <span style="color:#666">(</span>username.github.io<span style="color:#666">)</span>? <span style="color:#666">(</span>y/N<span style="color:#666">)</span> y
+Done. Your new project is available at /tmp/blog
+</code></pre></div><ul>
+<li></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
             
-                <div class="value">
-                  <div class="date">
-                      <time datetime="2020-08-17 14:36:38 &#43;0200 CEST">Aug 17</time>
-                  </div>
-                  <div class="title">
-                      <a href="https://blog.heimsbakk.net/posts/20200817-origami/">
-                          Origami / Paper Folding
-                      </a>
-
-                      
-                          <div class="tags">
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/link">link</a>
-                              
-                                  <a href="https://blog.heimsbakk.net/tags/origami">origami</a>
-                              
-                          </div>
-                      
-                  </div>
-                </div>
-                      
+                <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
+            
+                <a href="https://blog.heimsbakk.net/tags/pelican">pelican</a>
+            
         </div>
-
     
-
-
+    
+    
 
 </section>
-
 
 
     </main>

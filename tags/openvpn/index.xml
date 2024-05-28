@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openvpn on &gt; /dev/null 2&gt;&amp;1</title>
+    <link>https://blog.heimsbakk.net/tags/openvpn/</link>
+    <description>Recent content in openvpn on &gt; /dev/null 2&gt;&amp;1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenVPN server on RT-N66u</title>
+      <link>https://blog.heimsbakk.net/posts/20140417-openvpn/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20140417-openvpn/</guid>
+      <description>Prerequisite RT-N66u with Tomato by Shibby firmware.
+Configuring OpenVPN on the home router is a practical way to access the home network from anywhere. In addition to get access of all equipment at home it is a way to securely surfing on insecure Wi-Fi networks on Cafés.</description>
+    </item>
+    
+  </channel>
+</rss>
