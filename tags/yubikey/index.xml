@@ -6,7 +6,17 @@
     <description>Recent content in yubikey on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 May 2024 16:50:55 +0200</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YubiKey bash setup</title>
+      <link>https://blog.heimsbakk.net/posts/20240528-yubikey/</link>
+      <pubDate>Tue, 28 May 2024 16:50:55 +0200</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20240528-yubikey/</guid>
+      <description>From Wikipedia: The YubiKey is a hardware authentication device manufactured by Yubico to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.
+To get up and running on a new machine with minimal fuss.</description>
+    </item>
+    
     <item>
       <title>SSH with YubiKey NEO on Fedora made easy</title>
       <link>https://blog.heimsbakk.net/posts/20180105-yubikey/</link>

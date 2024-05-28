@@ -6,7 +6,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="From Wikipedia: The YubiKey is a hardware authentication device manufactured by Yubico to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO Alliance.">
+<meta name="description" content="From Wikipedia: The YubiKey is a hardware authentication device manufactured by Yubico to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.
+To get up and running on a new machine with minimal fuss.">
 <meta name="generator" content="Hugo 0.89.4" />
 
 
@@ -61,7 +62,7 @@
           ·
         </span>
         <span>
-          44 words
+          133 words
         </span>
         <span class="split">
           ·
@@ -76,7 +77,24 @@
 
 
     <div class="content">
-      <p>From Wikipedia: <em>The <a href="https://en.wikipedia.org/wiki/YubiKey" target="_blank" rel="noopener">YubiKey</a> is a hardware authentication device manufactured by <a href="https://www.yubico.com/" target="_blank" rel="noopener">Yubico</a> to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO Alliance.</em></p>
+      <p>From Wikipedia: <em>The <a href="https://en.wikipedia.org/wiki/YubiKey" target="_blank" rel="noopener">YubiKey</a> is a hardware authentication device manufactured by <a href="https://www.yubico.com/" target="_blank" rel="noopener">Yubico</a> to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.</em></p>
+<p>To get up and running on a new machine with minimal fuss.</p>
+<h2 id="bashrc"><code>.bashrc</code> <a href="#bashrc" class="anchor">🔗</a></h2><p>When you are not logged in via SSH, start the <code>gpg-agent</code>. Copy and paste into your terminal to append the configuration to your current <code>.bashrc</code>.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#ba2121">&lt;&lt;EOF &gt;&gt; ~/.bashrc
+</span><span style="color:#ba2121">if [[ -z &#34;\$SSH_CONNECTION&#34; ]]
+</span><span style="color:#ba2121">then
+</span><span style="color:#ba2121">  export SSH_AUTH_SOCK=\$(gpgconf --list-dirs agent-ssh-socket)
+</span><span style="color:#ba2121">  gpgconf --launch gpg-agent
+</span><span style="color:#ba2121">fi
+</span><span style="color:#ba2121">EOF</span>
+</code></pre></div><h2 id="gnupggpg-agentconf"><code>.gnupg/gpg-agent.conf</code> <a href="#gnupggpg-agentconf" class="anchor">🔗</a></h2><p>Configure the <code>gpg-agent</code> to enable SSH support. Copy and paste into your terminal to overwrites the file <code>.gnupg/gpg-agent.conf</code> with this configuration.</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#ba2121">&lt;&lt;EOF &gt; ~/.gnupg/gpg-agent.conf
+</span><span style="color:#ba2121">enable-ssh-support
+</span><span style="color:#ba2121">default-cache-ttl 600
+</span><span style="color:#ba2121">max-cache-ttl 7200
+</span><span style="color:#ba2121">EOF</span>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
     </div>
 
