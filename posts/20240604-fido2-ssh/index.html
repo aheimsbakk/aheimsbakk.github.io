@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>&gt; /dev/null 2&gt;&amp;1</title>
+    <title>Use resident SSH key(s) on YubKey using Fido2 | &gt; /dev/null 2&gt;&amp;1</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="This blog is mostly updated with stuff I don&#39;t want to forget. The content is configuration snippets or links for use at home.">
+<meta name="description" content="From Wikipedia: The YubiKey is a hardware authentication device manufactured by Yubico to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.
+We&rsquo;re going to create a ed25519 SSH key that lives on the YubiKey.">
 <meta name="generator" content="Hugo 0.89.4" />
 
 
@@ -28,11 +29,6 @@
 
 
 
-
-  
-    <link href="/categories/index.xml" rel="alternate" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-    <link href="/categories/index.xml" rel="feed" type="application/rss+xml" title="&gt; /dev/null 2&gt;&amp;1" />
-  
 
 
   </head>
@@ -56,37 +52,87 @@
 
     <main class="main">
       
-<header class="profile">
+
+<section id="single">
+    <h1 class="title">Use resident SSH key(s) on YubKey using Fido2</h1>
+
+    <div class="tip">
+        <time datetime="2024-06-04 00:00:00 &#43;0000 UTC">Jun 4, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          268 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
     
-        <img class="avatar" alt="avatar" src="/images/avatar.png" />
     
 
-    <h1>&gt; /dev/null 2&gt;&amp;1</h1>
+
+    <div class="content">
+      <p>From Wikipedia: <em>The <a href="https://en.wikipedia.org/wiki/YubiKey" target="_blank" rel="noopener">YubiKey</a> is a hardware authentication device manufactured by <a href="https://www.yubico.com/" target="_blank" rel="noopener">Yubico</a> to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the <a href="https://en.wikipedia.org/wiki/FIDO_Alliance" target="_blank" rel="noopener">FIDO Alliance</a>.</em></p>
+<p>We&rsquo;re going to create a <a href="https://en.wikipedia.org/wiki/EdDSA" target="_blank" rel="noopener">ed25519</a> SSH key that lives on the YubiKey. This works a bit different than GPG keys. Both private and public key resides on the YubiKey.</p>
+<h2 id="caveats">Caveats <a href="#caveats" class="anchor">🔗</a></h2><p>Lets start with things that you should know.</p>
+<ul>
+<li>You will only have one copy of your key that can&rsquo;t be used without the YubiKey.</li>
+<li>Ref. <a href="https://wiki.archlinux.org/title/SSH_keys" target="_blank" rel="noopener">Arch Wiki/SSH keys</a> there is a <a href="https://bugzilla.mindrot.org/show_bug.cgi?id=3572" target="_blank" rel="noopener">bug</a>, you can&rsquo;t use pin verification for every use.
+<ul>
+<li>Presence is mandatory - push button on use.</li>
+</ul>
+</li>
+<li>Ensure that you have a different key to access your computers, Yubikeys can be lost!</li>
+</ul>
+<h2 id="configuration">Configuration <a href="#configuration" class="anchor">🔗</a></h2><ul>
+<li>Create a new key. Application <code>ssh:</code> is mandatory, <code>domain</code> may be useful and <code>user</code> is optional.
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519-sk -O resident -O <span style="color:#19177c">application</span><span style="color:#666">=</span><span style="color:#ba2121">&#34;ssh:domain -O user=&#34;</span><span style="color:#008000;font-weight:bold">$(</span>whoami<span style="color:#008000;font-weight:bold">)</span><span style="color:#ba2121">&#34;
+</span></code></pre></div></li>
+<li>Sett a password for the private key.</li>
+<li>Remove private and public key from you machine.
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm <span style="color:#19177c">$HOME</span>/.ssh/id_ed25519_sk*
+</code></pre></div></li>
+</ul>
+<h2 id="day-to-day-usage">Day to day usage <a href="#day-to-day-usage" class="anchor">🔗</a></h2><p>Read the key from the YubiKey and SSH as normal. You need to press the key every time it starts blinking to verify that you are present.</p>
+<ul>
+<li>Add your YubiKey SSH key(s) to the <code>ssh-agent</code>.
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-add -K
+</code></pre></div></li>
+</ul>
+<h2 id="fetch-a-copy-of-the-keys">Fetch a copy of the key(s) <a href="#fetch-a-copy-of-the-keys" class="anchor">🔗</a></h2><p>You still need the YubiKey to use SSH. But now your <code>ssh-agent</code> can know about the keys all the time.</p>
+<ul>
+<li>Go to you <code>.ssh</code> directory.
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000">cd</span> <span style="color:#19177c">$HOME</span>/.ssh
+</code></pre></div></li>
+<li>Download your keys.
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -K
+</code></pre></div></li>
+<li>Set a password on the private key.</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://blog.heimsbakk.net/tags/yubikey">yubikey</a>
+            
+                <a href="https://blog.heimsbakk.net/tags/howto">howto</a>
+            
+        </div>
     
     
-      <h2>ramblings of a sysadmin</h2>
     
-</header>
-<section id="tags">
-      
-      
-          
-              <span class="tag">
-                  <a href="/tags/blog">
-                    BLOG <span>(40)</span>
-                </a>
-              </span>
-          
-      
-          
-              <span class="tag">
-                  <a href="/tags/uris">
-                    URIS <span>(17)</span>
-                </a>
-              </span>
-          
-      
+
 </section>
+
 
     </main>
     

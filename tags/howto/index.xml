@@ -6,7 +6,17 @@
     <description>Recent content in howto on &gt; /dev/null 2&gt;&amp;1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.heimsbakk.net/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use resident SSH key(s) on YubKey using Fido2</title>
+      <link>https://blog.heimsbakk.net/posts/20240604-fido2-ssh/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.heimsbakk.net/posts/20240604-fido2-ssh/</guid>
+      <description>From Wikipedia: The YubiKey is a hardware authentication device manufactured by Yubico to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.
+We&amp;rsquo;re going to create a ed25519 SSH key that lives on the YubiKey.</description>
+    </item>
+    
     <item>
       <title>Luks decryption with clevis and TPM2</title>
       <link>https://blog.heimsbakk.net/posts/20220406-clevis/</link>

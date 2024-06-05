@@ -3,31 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.heimsbakk.net/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/categories/blog/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/categories/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/tags/howto/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/posts/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/tags/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/posts/20240604-fido2-ssh/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.heimsbakk.net/tags/yubikey/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.heimsbakk.net/tags/bash/</loc>
     <lastmod>2024-05-28T16:50:55+02:00</lastmod>
   </url><url>
-    <loc>https://blog.heimsbakk.net/categories/blog/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.heimsbakk.net/categories/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.heimsbakk.net/posts/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.heimsbakk.net/tags/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.heimsbakk.net/tags/yubikey/</loc>
-    <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
     <loc>https://blog.heimsbakk.net/posts/20240528-yubikey/</loc>
     <lastmod>2024-05-28T16:50:55+02:00</lastmod>
-  </url><url>
-    <loc>https://blog.heimsbakk.net/tags/howto/</loc>
-    <lastmod>2022-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.heimsbakk.net/posts/20220406-clevis/</loc>
     <lastmod>2022-10-20T00:00:00+00:00</lastmod>
