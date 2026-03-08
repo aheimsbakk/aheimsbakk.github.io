@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chromium on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/chromium/</link>
+    <description>Recent content in Chromium on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Thu, 19 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/chromium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>View Google Earth in the browser</title>
+      <link>https://aheimsbakk.github.io/post/20140619-webgl/</link>
+      <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140619-webgl/</guid>
+      <description>&lt;p&gt;Google now supports Google Earth in Google Maps. As far as I know it works in &lt;a href=&#34;https://en.wikipedia.org/wiki/Google_Chrome&#34;&gt;Chrome&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Chromium_%28web_browser%29&#34;&gt;Chromium&lt;/a&gt;. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.&lt;/p&gt;&#xA;&lt;p&gt;To force enabling &lt;a href=&#34;https://en.wikipedia.org/wiki/WebGL&#34;&gt;WebGL&lt;/a&gt; in the browser start it with the following options&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chromium-browser --enable-webgl --ignore-gpu-blacklist&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use Google Earth in &lt;a href=&#34;https://maps.google.com&#34;&gt;maps.google.com&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

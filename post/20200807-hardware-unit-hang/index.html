@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>e1000e: Detected Hardware Unit Hang - Realtime</title>
+
+  <meta name="description" content="Are you, as I, suffering from Detected Hardware Unit Hang in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&hellip;">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20200807-hardware-unit-hang\/",
+          "name": "E1000e detected hardware unit hang"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "e1000e: Detected Hardware Unit Hang",
+  "description" : "Are you, as I, suffering from Detected Hardware Unit Hang in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on\u0026hellip;\n",
+  "inLanguage" : "en",
+  "wordCount":  312 ,
+  "datePublished" : "2020-08-07T01:20:05\u002b02:00",
+  "dateModified" : "2020-08-07T01:20:05\u002b02:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "NetworkManager, bug, network" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20200807-hardware-unit-hang\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="e1000e: Detected Hardware Unit Hang" />
+<meta property="og:description" content="Are you, as I, suffering from Detected Hardware Unit Hang in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&hellip;">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20200807-hardware-unit-hang/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="e1000e: Detected Hardware Unit Hang" />
+  <meta name="twitter:description" content="Are you, as I, suffering from Detected Hardware Unit Hang in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then …">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>e1000e: Detected Hardware Unit Hang</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-08-07
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;312&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Are you, as I, suffering from <em>Detected Hardware Unit Hang</em> in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&hellip;</p>
+<h2 id="workaround">Workaround</h2>
+<p>The workaround is to turn off TCP offloading on the network card. This can be done with <code>ethtool</code> or with NetworkManager as a more permanent solution. I found the workaround on Server Fault, <a href="https://serverfault.com/questions/616485/e1000e-reset-adapter-unexpectedly-detected-hardware-unit-hang">e1000e Reset adapter unexpectedly / Detected Hardware Unit Hang</a>.</p>
+<h3 id="ethtool">ethtool</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ethtool -K eth0 tx off rx off
+</span></span></code></pre></div><h3 id="networkmanager">NetworkManager</h3>
+<p>This was my permanent solution on my problem. See <em>The bug</em>. Documentation of this way of modifying the network card was provided by RedHat at <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-ethtool-offload-features-using-networkmanager_configuring-and-managing-networking">Chapter 29. Configuring ethtool offload features using NetworkManager</a>.</p>
+<ol>
+<li>Find the network card NetworkManger connection name. My network card name is <code>eno1</code>. See the log excerpt from <em>The bug</em>.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli dev show eno1 <span class="p">|</span> grep -i general.conn
+</span></span></code></pre></div></li>
+<li>Add permanent configuration to the connection. My connection is named <code>bridge0 slave 1</code>.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli con modify <span class="s1">&#39;bridge0 slave 1&#39;</span> ethtool.feature-rx off ethtool.feature-tx off
+</span></span></code></pre></div></li>
+<li>Activate.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmcli con up <span class="s1">&#39;bridge0 slave 1&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="the-bug">The bug</h2>
+<p>You detect it in the <strong>kernel</strong> log. You&rsquo;ll see them in <code>dmesg</code> or <code>journalctl -b -t kernel</code> it will look something like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line hl"><span class="cl">[ 2044.821230] e1000e 0000:00:1f.6 eno1: Detected Hardware Unit Hang:
+</span></span><span class="line"><span class="cl">                 TDH                  &lt;3e&gt;
+</span></span><span class="line"><span class="cl">                 TDT                  &lt;6d&gt;
+</span></span><span class="line"><span class="cl">                 next_to_use          &lt;6d&gt;
+</span></span><span class="line"><span class="cl">                 next_to_clean        &lt;3d&gt;
+</span></span><span class="line"><span class="cl">               buffer_info[next_to_clean]:
+</span></span><span class="line"><span class="cl">                 time_stamp           &lt;1001a884a&gt;
+</span></span><span class="line"><span class="cl">                 next_to_watch        &lt;3e&gt;
+</span></span><span class="line"><span class="cl">                 jiffies              &lt;1001a9f40&gt;
+</span></span><span class="line"><span class="cl">                 next_to_watch.status &lt;0&gt;
+</span></span><span class="line"><span class="cl">               MAC Status             &lt;40080083&gt;
+</span></span><span class="line"><span class="cl">               PHY Status             &lt;796d&gt;
+</span></span><span class="line"><span class="cl">               PHY 1000BASE-T Status  &lt;3c00&gt;
+</span></span><span class="line"><span class="cl">               PHY Extended Status    &lt;3000&gt;
+</span></span><span class="line"><span class="cl">               PCI Status             &lt;10&gt;
+</span></span><span class="line"><span class="cl">[ 2046.036778] e1000e 0000:00:1f.6 eno1: Reset adapter unexpectedly
+</span></span><span class="line"><span class="cl">[ 2046.036873] bridge0: port 1(eno1) entered disabled state
+</span></span><span class="line"><span class="cl">[ 2051.705902] e1000e 0000:00:1f.6 eno1: NIC Link is Up 1000 Mbps Full Duplex, Flow Control: Rx/Tx
+</span></span><span class="line"><span class="cl">[ 2051.706018] bridge0: port 1(eno1) entered blocking state
+</span></span><span class="line"><span class="cl">[ 2051.706023] bridge0: port 1(eno1) entered forwarding state
+</span></span></code></pre></div><p>This was taken from my own <code>dmesg</code>.</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/networkmanager/">NetworkManager</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/bug/">bug</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/network/">network</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20220510-zero2/">Bootstrap Raspberry Pi OS on Pi Zero 2 W</a></li>
+                
+                    <li><a href="/post/20220508-zero/">Raspberry Pi Zero 2 W</a></li>
+                
+                    <li><a href="/post/20210808-wireguard/">Wireguard VPN server</a></li>
+                
+                    <li><a href="/post/20160326-syncthing/">Distributed syncing with Syncthing</a></li>
+                
+                    <li><a href="/post/20140501-easyrsa/">Configuring OpenVPN server on RTN66U</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20200801-hwloc/" data-toggle="tooltip" data-placement="top" title="Portable Hardware Locality (hwloc)">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20200807-tldr/" data-toggle="tooltip" data-placement="top" title="tldr - a supplement to man">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

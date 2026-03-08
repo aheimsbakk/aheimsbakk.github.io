@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>mtr - combining traceroute and ping - Realtime</title>
+
+  <meta name="description" content="mtr combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20210511-mtr\/",
+          "name": "Mtr combining traceroute and ping"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "mtr - combining traceroute and ping",
+  "description" : "mtr combines the functionality of the traceroute and ping programs in a single network diagnostic tool.\n",
+  "inLanguage" : "en",
+  "wordCount":  22 ,
+  "datePublished" : "2021-05-11T23:06:44\u002b02:00",
+  "dateModified" : "2021-05-11T23:06:44\u002b02:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "bash, command" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20210511-mtr\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="mtr - combining traceroute and ping" />
+<meta property="og:description" content="mtr combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20210511-mtr/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="mtr - combining traceroute and ping" />
+  <meta name="twitter:description" content="mtr combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>mtr - combining traceroute and ping</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-05-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;22&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><a href="https://github.com/traviscross/mtr">mtr</a> combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.</p>
+<h2 id="install-on-fedora">Install on Fedora</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dnf install mtr
+</span></span></code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/bash/">bash</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/command/">command</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20240528-yubikey/">YubiKey bash setup</a></li>
+                
+                    <li><a href="/post/20200807-bmon/">bmon - bandwidth monitor and rate estimator</a></li>
+                
+                    <li><a href="/post/20200807-ncdu/">ncdu - NCurses Disk Usage</a></li>
+                
+                    <li><a href="/post/20200807-tldr/">tldr - a supplement to man</a></li>
+                
+                    <li><a href="/post/20140413-duplicates/">Find duplicate files</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20210511-cloudinit/" data-toggle="tooltip" data-placement="top" title="Ubuntu cloud images with KVM">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20210702-libvirt/" data-toggle="tooltip" data-placement="top" title="Ubuntu cloud images with virt-install">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

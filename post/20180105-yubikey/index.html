@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>SSH with YubiKey NEO on Fedora made easy - Realtime</title>
+
+  <meta name="description" content="Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key
+Pre requests
+
+
+Install the YubiKey management software.">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20180105-yubikey\/",
+          "name": "SSH with yubi key neo on fedora made easy"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "SSH with YubiKey NEO on Fedora made easy",
+  "description" : "Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.\nExcerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.\nThis is a short how-to to get startet with using Yubikey to SSH into your servers.\nYubiKey as private SSH key Pre requests Install the YubiKey management software.\n",
+  "inLanguage" : "en",
+  "wordCount":  567 ,
+  "datePublished" : "2018-12-13T00:00:00\u002b00:00",
+  "dateModified" : "2018-12-13T00:00:00\u002b00:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "howto, security, yubikey" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20180105-yubikey\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="SSH with YubiKey NEO on Fedora made easy" />
+<meta property="og:description" content="Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The YubiKey allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.
+This is a short how-to to get startet with using Yubikey to SSH into your servers.
+YubiKey as private SSH key
+Pre requests
+
+
+Install the YubiKey management software.">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20180105-yubikey/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="SSH with YubiKey NEO on Fedora made easy" />
+  <meta name="twitter:description" content="Your private SSH key is the key for the kingdom. This means always having a password on the key. With YubiKey, you can keep your secret key outside your machine too.
+Excerpt from Wikipedia: The …">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>SSH with YubiKey NEO on Fedora made easy</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2018-12-13
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Your private SSH key is the key for the kingdom. This means always having a password on the key. With <a href="https://www.yubico.com/">YubiKey</a>, you can keep your secret key outside your machine too.</p>
+<p>Excerpt from Wikipedia: <em>The <a href="https://www.yubico.com/">YubiKey</a> allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</em></p>
+<p>This is a short <a href="https://en.wikipedia.org/wiki/How-to">how-to</a> to get startet with using Yubikey to SSH into your servers.</p>
+<h2 id="yubikey-as-private-ssh-key">YubiKey as private SSH key</h2>
+<h3 id="pre-requests">Pre requests</h3>
+<ol>
+<li>
+<p>Install the YubiKey management software.</p>
+<pre><code> sudo dnf install yubikey-manager
+</code></pre>
+</li>
+<li>
+<p>Insert YubiKey</p>
+</li>
+<li>
+<p>Check that OpenPGP is enabled on your YubiKey.</p>
+<pre><code> ykman info
+</code></pre>
+<p>Expected output should include the following.</p>
+<pre><code>     OPGP:      Enabled
+</code></pre>
+<p>If you get an error, <strong>restart</strong> your computer and goto 2. Yes, I know this is Linux, but we&rsquo;re just doing it the easy way. It should work the second time around.</p>
+</li>
+<li>
+<p>Set preferred number of retries when entering PIN on YubiKey. Default is 3 for user pin, 3 for unlock user pin (reset), 3 for admin pin. In the example admin retries is increased to 5.</p>
+<pre><code> ykman openpgp set-pin-retries 3 3 5
+</code></pre>
+</li>
+</ol>
+<h3 id="generate-openpgp-key-on-yubikey">Generate OpenPGP key on YubiKey</h3>
+<p>Use <code>gpg2</code> for the rest.</p>
+<ol>
+<li>
+<p>Generate PGP certificate on the key.</p>
+<pre><code> gpg2 --edit-card
+ gpg/card&gt; admin
+ gpg/card&gt; generate
+</code></pre>
+</li>
+<li>
+<p>Follow the instructions.</p>
+</li>
+<li>
+<p>Optionally set <code>login</code>, <code>lang</code> and <code>sex</code>.</p>
+</li>
+<li>
+<p>Enter the  password menu.</p>
+<pre><code> gpg/card&gt; passwd
+</code></pre>
+<ul>
+<li>
+<p>Change user PIN, menu <code>1</code>.</p>
+</li>
+<li>
+<p>Change admin PIN, menu <code>3</code>. The easiest is to keep to numbers to avoid accidentally locking you YubiKey. If that happens you need to reset it with <code>ykman</code>.</p>
+</li>
+<li>
+<p>Set a reset PIN if you want, menu <code>4</code>. Used to unblock the user PIN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Exit to shell. <code>Q</code>, <code>Q</code>.</p>
+</li>
+<li>
+<p>Find your public key and export it to a keyserver.</p>
+<pre><code> gpg2 --list-keys --keyid-format long
+ gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --send-keys ABCDEF1234567890
+</code></pre>
+</li>
+<li>
+<p>You uploaded the key to a pool of machines. Now it&rsquo;s a time to go and fetch a coffee, and let some time go to avoid frustrations while the pool is updating.</p>
+</li>
+<li>
+<p>Find the URL for your public key on <a href="http://pool.sks-keyservers.net:11371">http://pool.sks-keyservers.net:11371</a>.</p>
+</li>
+<li>
+<p>Go back to the YubiKey and add the URL for the public key.</p>
+<pre><code> gpg2 --edit-card
+ gpg/card&gt; admin
+ gpg/card&gt; url
+</code></pre>
+<p>Paste in the URL for the your public key, <code>http://pool.sks-keyservers.net:11371/pks/lookup?op=get&amp;search=0xABCDEF0123456789</code></p>
+</li>
+<li>
+<p>Test fetching public key from the keyserver.</p>
+<pre><code> gpg/card&gt; fetch
+</code></pre>
+</li>
+<li>
+<p>Generate a revocation certificate and store it in a safe place. Safe place may be paper or your favorite password manager.</p>
+<pre><code> gpg2 --generate-revocation ABCDEF0123456789
+</code></pre>
+</li>
+<li>
+<p>Everyting OK! Wohoo!</p>
+</li>
+</ol>
+<h3 id="change-ssh-to-use-gpg-agent">Change SSH to use gpg-agent</h3>
+<p>Go to shell and edit your <code>.bashrc</code> to start <code>gpg-agent</code> and with SSH support. You will lose your private key and need to revoke it with the revocation certificat.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim .bashrc
+</span></span></code></pre></div><p>Add the following.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">if</span> ! pgrep -u <span class="nv">$USER</span> -f <span class="s2">&#34;gpg-agent.*enable-ssh-support&#34;</span> &gt; /dev/null
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">    pkill gpg-agent
+</span></span><span class="line"><span class="cl">    gpg-agent --homedir <span class="nv">$HOME</span>/.gnupg --daemon --enable-ssh-support
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_AUTH_SOCK</span><span class="o">=</span><span class="k">$(</span>gpgconf --list-dir agent-ssh-socket<span class="k">)</span>
+</span></span></code></pre></div><p>Close your shell and open a new one to reload <code>.bashrc</code>. If you have problems, kill existing <code>gpg-agent</code> with <code>pkill gpg-agent</code>, close and open the shell again.</p>
+<h3 id="public-ssh-key">Public SSH key</h3>
+<p>Get your public SSH key.</p>
+<pre><code> gpg2 --export-ssh-key ABCDEF0123456789
+</code></pre>
+<p>Add this public SSH key to all your servers <code>authorized_keys</code> and your good to go :)</p>
+<h2 id="caveats">Caveats</h2>
+<ul>
+<li>
+<p>YubiKey must be present to log into a server.</p>
+</li>
+<li>
+<p>If user PIN is entered to many times, it need to be unlocked with reset PIN.</p>
+</li>
+<li>
+<p>If admin PIN is entered wrong to many times, YubiKey is locked and need to be reset with <code>ykman</code>. You will lose your private key and need to revoke it with the revocation certificat.</p>
+</li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/yubikey/">yubikey</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20240604-fido2-ssh/">Use resident SSH key(s) on YubKey using Fido2</a></li>
+                
+                    <li><a href="/post/20240528-yubikey/">YubiKey bash setup</a></li>
+                
+                    <li><a href="/post/20220406-clevis/">Luks decryption with clevis and TPM2</a></li>
+                
+                    <li><a href="/post/20210808-wireguard/">Wireguard VPN server</a></li>
+                
+                    <li><a href="/post/20210227-pihole-lists/">Malware lists for PiHole</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20160326-syncthing/" data-toggle="tooltip" data-placement="top" title="Distributed syncing with Syncthing">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20190911-restic/" data-toggle="tooltip" data-placement="top" title="Design an online ransomware safe backup with restic">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

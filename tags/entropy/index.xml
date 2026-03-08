@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Entropy on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/entropy/</link>
+    <description>Recent content in Entropy on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 29 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/entropy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better entropy with haveged</title>
+      <link>https://aheimsbakk.github.io/post/20140429-haveged/</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140429-haveged/</guid>
+      <description>&lt;p&gt;Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a &lt;a href=&#34;https://en.wikipedia.org/wiki/TRNG&#34; title=&#34;True Random Number Generator&#34;&gt;TRNG&lt;/a&gt; than a &lt;a href=&#34;https://en.wikipedia.org/wiki/PRNG&#34; title=&#34;PseudoRandom Number Generator&#34;&gt;PRNG&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

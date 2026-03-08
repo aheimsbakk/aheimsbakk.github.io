@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Raspberry Pi Zero 2 W - Realtime</title>
+
+  <meta name="description" content="Bootstrap Raspberry Pi Zero 2 W with Ubuntu using cloud-init. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a Fedora Desktop. Adjust scripts if you use another distro.">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20220508-zero\/",
+          "name": "Raspberry pi zero 2 w"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "Raspberry Pi Zero 2 W",
+  "description" : "Bootstrap Raspberry Pi Zero 2 W with Ubuntu using cloud-init. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a Fedora Desktop. Adjust scripts if you use another distro.\n",
+  "inLanguage" : "en",
+  "wordCount":  412 ,
+  "datePublished" : "2022-05-08T00:00:00\u002b00:00",
+  "dateModified" : "2022-05-08T00:00:00\u002b00:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "network, pi" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20220508-zero\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Raspberry Pi Zero 2 W" />
+<meta property="og:description" content="Bootstrap Raspberry Pi Zero 2 W with Ubuntu using cloud-init. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a Fedora Desktop. Adjust scripts if you use another distro.">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20220508-zero/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="Raspberry Pi Zero 2 W" />
+  <meta name="twitter:description" content="Bootstrap Raspberry Pi Zero 2 W with Ubuntu using cloud-init. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a Fedora Desktop. …">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Raspberry Pi Zero 2 W</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-05-08
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;412&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Bootstrap Raspberry Pi Zero 2 W with <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu</a> using <a href="https://cloudinit.readthedocs.io/">cloud-init</a>. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a <a href="https://getfedora.org/">Fedora Desktop</a>. Adjust scripts if you use another <a href="https://en.wikipedia.org/wiki/Linux_distribution">distro</a>.</p>
+<p>This blog post is written in the influence of a cold. Take care with your copy and pasting. Hope you enjoy this nifty way to bootstrap Ubuntu PI systems.</p>
+<p>👍 <strong><em>Tip!</em></strong> Fetch your public SSH keys from <a href="https://github.com">GitHub</a> with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wget -O - https://github.com/username.keys
+</span></span></code></pre></div><h1 id="before-you-begin">Before you begin</h1>
+<p>If you want to access your Pi over OTG, use connection sharing, for example in NetworkManger.  Remember to open incoming ports for DHCP and DNS in your firewall.</p>
+<ul>
+<li><code>53</code></li>
+<li><code>67</code></li>
+<li><code>68</code></li>
+</ul>
+<h2 id="write-os-to-sd-card">Write OS to SD card</h2>
+<p>Download Raspberry Ubuntu from <a href="https://ubuntu.com/download/raspberry-pi">Install Ubuntu on a Raspberry Pi</a>. Why Ubuntu and not <a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a>. Ubuntu contain <a href="https://btrfs.wiki.kernel.org">btrfs</a> kernel module in <a href="https://en.wikipedia.org/wiki/Initial_ramdisk">initramfs</a>.</p>
+<p>😯 <strong><em>Important!</em></strong> Do not copy and paste from the internet without examine the code. Ensure that your SD card is mounted on <code>/dev/sdb</code> or change all the scripts to your device.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo bash <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">  xzcat ubuntu-22.04-preinstalled-server-arm64+raspi.img.xz | dd of=/dev/sdb bs=1M status=progress
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><p>Take out and put the SD card back into to the computer. Let the computer  mount the file systems before you continue.</p>
+<h2 id="cloud-init">cloud-init</h2>
+<p>Export your WiFi network and password to shell variables.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">WIFI_NAME</span><span class="o">=</span><span class="s2">&#34;internett&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">WIFI_PASS</span><span class="o">=</span><span class="s2">&#34;password&#34;</span>
+</span></span></code></pre></div><p>Write cloud-init configuration files.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo bash <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">  cd /run/media/${USER}
+</span></span></span><span class="line"><span class="cl"><span class="s">  cat &lt;&lt;CONF &gt; system-boot/user-data
+</span></span></span><span class="line"><span class="cl"><span class="s">#cloud-config
+</span></span></span><span class="line"><span class="cl"><span class="s">hostname: zero
+</span></span></span><span class="line"><span class="cl"><span class="s">password: ubuntu
+</span></span></span><span class="line"><span class="cl"><span class="s">ssh_pwauth: true
+</span></span></span><span class="line"><span class="cl"><span class="s">ssh_import_id:
+</span></span></span><span class="line"><span class="cl"><span class="s">  - gh:${USER}
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">write_files:
+</span></span></span><span class="line"><span class="cl"><span class="s">  - path: /boot/firmware/config.txt
+</span></span></span><span class="line"><span class="cl"><span class="s">    append: true
+</span></span></span><span class="line"><span class="cl"><span class="s">    content: |
+</span></span></span><span class="line"><span class="cl"><span class="s">      dtoverlay=dwc2
+</span></span></span><span class="line"><span class="cl"><span class="s">  - path: /etc/modules
+</span></span></span><span class="line"><span class="cl"><span class="s">    permissions: &#39;0644&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">    content: |
+</span></span></span><span class="line"><span class="cl"><span class="s">      dwc2
+</span></span></span><span class="line"><span class="cl"><span class="s">      g_ether
+</span></span></span><span class="line"><span class="cl"><span class="s">  - path: /etc/modprobe.d/g_ether.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">    permissions: &#39;0644&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">    content: |
+</span></span></span><span class="line"><span class="cl"><span class="s">      options g_ether host_addr=42:00:00:00:00:02 dev_addr=42:00:00:00:00:01
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">packages:
+</span></span></span><span class="line"><span class="cl"><span class="s">  - linux-modules-extra-raspi
+</span></span></span><span class="line"><span class="cl"><span class="s">  - zram-tools
+</span></span></span><span class="line"><span class="cl"><span class="s">package_update: true
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">timezone: UTC
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">runcmd:
+</span></span></span><span class="line"><span class="cl"><span class="s">  - /usr/sbin/update-initramfs -u
+</span></span></span><span class="line"><span class="cl"><span class="s">  - /usr/bin/systemctl enable zramswap --now
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">power_state:
+</span></span></span><span class="line"><span class="cl"><span class="s">  delay: now
+</span></span></span><span class="line"><span class="cl"><span class="s">  mode: reboot
+</span></span></span><span class="line"><span class="cl"><span class="s">  message: reboot into new initramfs
+</span></span></span><span class="line"><span class="cl"><span class="s">  condition: true
+</span></span></span><span class="line"><span class="cl"><span class="s">CONF
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  cat &lt;&lt;CONF &gt; writable/etc/cloud/cloud.cfg.d/10-network.cfg
+</span></span></span><span class="line"><span class="cl"><span class="s">network:
+</span></span></span><span class="line"><span class="cl"><span class="s">  version: 2
+</span></span></span><span class="line"><span class="cl"><span class="s">  ethernets:
+</span></span></span><span class="line"><span class="cl"><span class="s">    usb0:
+</span></span></span><span class="line"><span class="cl"><span class="s">      dhcp4: true
+</span></span></span><span class="line"><span class="cl"><span class="s">      dhcp6: true
+</span></span></span><span class="line"><span class="cl"><span class="s">      optional: true
+</span></span></span><span class="line"><span class="cl"><span class="s">  wifis:
+</span></span></span><span class="line"><span class="cl"><span class="s">    wlan0:
+</span></span></span><span class="line"><span class="cl"><span class="s">      dhcp4: yes
+</span></span></span><span class="line"><span class="cl"><span class="s">      dhcp6: yes
+</span></span></span><span class="line"><span class="cl"><span class="s">      optional: true
+</span></span></span><span class="line"><span class="cl"><span class="s">      access-points:
+</span></span></span><span class="line"><span class="cl"><span class="s">        &#34;${WIFI_NAME}&#34;:
+</span></span></span><span class="line"><span class="cl"><span class="s">            password: &#34;${WIFI_PASS}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">CONF
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><h2 id="convert-root-file-system-to-btrfs">Convert root file system to Btrfs</h2>
+<p>If you want to use Btrfs instead of default ext4.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo bash <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">  cd /run/media/${USER}
+</span></span></span><span class="line"><span class="cl"><span class="s">  sed -i &#39;s/ext4/btrfs/&#39; system-boot/cmdline.txt
+</span></span></span><span class="line"><span class="cl"><span class="s">  sed -E -i &#39;s|(.*)ext4.*|\1btrfs compress=zstd:1,noatime,nodiratime 0 0|&#39; writable/etc/fstab
+</span></span></span><span class="line"><span class="cl"><span class="s">  umount system-boot writable
+</span></span></span><span class="line"><span class="cl"><span class="s">  btrfs-convert -p /dev/sdb2
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><p>Re-mount SD card and then run the script to clean up after conversion and compress existing operative system.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo bash <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">  cd /run/media/${USER}
+</span></span></span><span class="line"><span class="cl"><span class="s">  btrfs sub del writable/ext2_saved
+</span></span></span><span class="line"><span class="cl"><span class="s">  btrfs fi def -czstd -r -v writable/
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/network/">network</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/pi/">pi</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20220510-zero2/">Bootstrap Raspberry Pi OS on Pi Zero 2 W</a></li>
+                
+                    <li><a href="/post/20210808-wireguard/">Wireguard VPN server</a></li>
+                
+                    <li><a href="/post/20210423-btrfs-pi/">Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root</a></li>
+                
+                    <li><a href="/post/20200807-hardware-unit-hang/">e1000e: Detected Hardware Unit Hang</a></li>
+                
+                    <li><a href="/post/20160326-syncthing/">Distributed syncing with Syncthing</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20210808-wireguard/" data-toggle="tooltip" data-placement="top" title="Wireguard VPN server">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20220510-zero2/" data-toggle="tooltip" data-placement="top" title="Bootstrap Raspberry Pi OS on Pi Zero 2 W">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

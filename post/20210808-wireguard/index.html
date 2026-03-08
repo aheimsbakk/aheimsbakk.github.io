@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Wireguard VPN server - Realtime</title>
+
+  <meta name="description" content="From Wikipedia: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20210808-wireguard\/",
+          "name": "Wireguard VPN server"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "Wireguard VPN server",
+  "description" : "From Wikipedia: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.\n",
+  "inLanguage" : "en",
+  "wordCount":  525 ,
+  "datePublished" : "2021-08-08T15:56:52\u002b02:00",
+  "dateModified" : "2021-08-08T15:56:52\u002b02:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "network, security, wireguard" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20210808-wireguard\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Wireguard VPN server" />
+<meta property="og:description" content="From Wikipedia: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20210808-wireguard/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="Wireguard VPN server" />
+  <meta name="twitter:description" content="From Wikipedia: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high …">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Wireguard VPN server</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2021-08-08
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;525&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>From Wikipedia: <a href="https://www.wireguard.com/">WireGuard</a> is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.</p>
+<h2 id="installation">Installation</h2>
+<p>Install the package that contain the <code>wg-quick</code> helper tool.</p>
+<h3 id="fedora">Fedora</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo dnf install -y wireguard-tools
+</span></span></code></pre></div><h3 id="ubuntu">Ubuntu</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install -y wireguard-tools resolvconf
+</span></span></code></pre></div><h2 id="configuration">Configuration</h2>
+<p>Wireguard is a point to point VPN. Talking about VPN server and VPN clients doesn&rsquo;t make much sense with Wireguard, but it helps to keep sense of which configuration to use where.</p>
+<p>On the server we enable IP for both IPv4 and IPv6 and forwards packages to let the clients have internet access. Server and clients communicate on private address ranges. In this example we use <code>10.0.0.0/24</code> and <code>fd00::/64</code>.</p>
+<h3 id="server-and-client">Server and client</h3>
+<p>Generate private and public key for server and clients.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Secure Wireguard keys and config</span>
+</span></span><span class="line"><span class="cl"><span class="nb">umask</span> <span class="m">077</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Generate private and public key</span>
+</span></span><span class="line"><span class="cl">wg genkey <span class="p">|</span> sudo tee /etc/wireguard/privatekey <span class="p">|</span> wg pubkey <span class="p">|</span> sudo tee /etc/wireguard/publickey
+</span></span></code></pre></div><h3 id="server">Server</h3>
+<p>If you want to change server IP and Wireguard subnets, do it here.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV4_IP</span><span class="o">=</span>10.0.0.1
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV4_NET</span><span class="o">=</span>10.0.0.0/24
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV6_IP</span><span class="o">=</span>fd00::1
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV6_NET</span><span class="o">=</span>fd00::/64
+</span></span></code></pre></div><p>Configure the IP forwarding and main Wireguard configuration.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Set variables</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GATEWAY_INTERFACE</span><span class="o">=</span><span class="k">$(</span>ip route <span class="p">|</span> grep default <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f5<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PRIVATE_KEY</span><span class="o">=</span><span class="k">$(</span>sudo cat /etc/wireguard/privatekey<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PUBLIC_KEY</span><span class="o">=</span><span class="k">$(</span>sudo cat /etc/wireguard/publickey<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow IP forwarding</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-forward.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">net.ipv4.conf.all.forwarding=1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.ipv6.conf.all.forwarding=1
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">sudo sysctl -p /etc/sysctl.d/99-forward.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Secure Wireguard keys and config</span>
+</span></span><span class="line"><span class="cl"><span class="nb">umask</span> <span class="m">077</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create inital configuration</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">[Interface]
+</span></span></span><span class="line"><span class="cl"><span class="s">Address = $IPV4_IP, $IPV6_IP
+</span></span></span><span class="line"><span class="cl"><span class="s">SaveConfig = true
+</span></span></span><span class="line"><span class="cl"><span class="s">PostUp = iptables -I FORWARD -i %i -j ACCEPT; iptables -t nat -I POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -I FORWARD -i %i -j ACCEPT; ip6tables -t nat -I POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span></span></span><span class="line"><span class="cl"><span class="s">PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -s $IPV4_NET -o $GATEWAY_INTERFACE -j MASQUERADE; ip6tables -D FORWARD -i %i -j ACCEPT; ip6tables -t nat -D POSTROUTING -s $IPV6_NET -o $GATEWAY_INTERFACE -j MASQUERADE
+</span></span></span><span class="line"><span class="cl"><span class="s">ListenPort = 51820
+</span></span></span><span class="line"><span class="cl"><span class="s">PrivateKey = $PRIVATE_KEY
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enable wireguard configuration</span>
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> wg-quick@wg0 --now
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+</span></span><span class="line"><span class="cl"><span class="nb">test</span> -f /usr/sbin/ufw <span class="o">&amp;&amp;</span> ufw allow 51820/udp
+</span></span></code></pre></div><h3 id="clients">Client(s)</h3>
+<p>Change variables for each client.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV4_IP</span><span class="o">=</span>10.0.0.10
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IPV6_IP</span><span class="o">=</span>fd00::10
+</span></span><span class="line"><span class="cl"><span class="c1"># Change to your servers key and address</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SERVER_PUBLIC_KEY</span><span class="o">=</span>hN5CiKMB8hiV4zoX/hztqamV/Lpz2TcPUGFtABRQYgc<span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SERVER_ADDRESS</span><span class="o">=</span>my.wireguard.server.foo:51820
+</span></span></code></pre></div><p>And then write the client configuration.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Set variables</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PRIVATE_KEY</span><span class="o">=</span><span class="k">$(</span>sudo cat /etc/wireguard/privatekey<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PUBLIC_KEY</span><span class="o">=</span><span class="k">$(</span>sudo cat /etc/wireguard/publickey<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/wireguard/wg0.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">[Interface]
+</span></span></span><span class="line"><span class="cl"><span class="s">PrivateKey = $PRIVATE_KEY
+</span></span></span><span class="line"><span class="cl"><span class="s">DNS = 1.1.1.1, 1.0.0.1
+</span></span></span><span class="line"><span class="cl"><span class="s">Address = $IPV4_IP, $IPV6_IP
+</span></span></span><span class="line"><span class="cl"><span class="s">ListenPort = 51820
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[Peer]
+</span></span></span><span class="line"><span class="cl"><span class="s">PublicKey = $SERVER_PUBLIC_KEY
+</span></span></span><span class="line"><span class="cl"><span class="s">AllowedIPs = 0.0.0.0/0, ::/0
+</span></span></span><span class="line"><span class="cl"><span class="s"># If your client is behind a NAT firewall
+</span></span></span><span class="line"><span class="cl"><span class="s">PersistentKeepalive = 25
+</span></span></span><span class="line"><span class="cl"><span class="s">Endpoint = $SERVER_ADDRESS
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow wireguard port, replace with firewalld if you&#39;re using it</span>
+</span></span><span class="line"><span class="cl"><span class="nb">test</span> -f /usr/sbin/ufw <span class="o">&amp;&amp;</span> ufw allow 51820/udp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Write out command to run on the server once to add this client</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> wg <span class="nb">set</span> wg0 peer <span class="nv">$PUBLIC_KEY</span> allowed-ips <span class="nv">$IPV4_IP</span>,<span class="nv">$IPV6_IP</span>
+</span></span></code></pre></div><p>The <code>SaveConfig</code> on the server ensures that the client will be stored permanently. Now you are ready to use the VPN.</p>
+<ul>
+<li>Start VPN client
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wg-quick up wg0
+</span></span></code></pre></div></li>
+<li>Stop VPN client
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wg-quick down wg0
+</span></span></code></pre></div></li>
+</ul>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/network/">network</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/wireguard/">wireguard</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20220406-clevis/">Luks decryption with clevis and TPM2</a></li>
+                
+                    <li><a href="/post/20220510-zero2/">Bootstrap Raspberry Pi OS on Pi Zero 2 W</a></li>
+                
+                    <li><a href="/post/20220508-zero/">Raspberry Pi Zero 2 W</a></li>
+                
+                    <li><a href="/post/20210227-pihole-lists/">Malware lists for PiHole</a></li>
+                
+                    <li><a href="/post/20200807-hardware-unit-hang/">e1000e: Detected Hardware Unit Hang</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20210702-libvirt/" data-toggle="tooltip" data-placement="top" title="Ubuntu cloud images with virt-install">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20220508-zero/" data-toggle="tooltip" data-placement="top" title="Raspberry Pi Zero 2 W">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

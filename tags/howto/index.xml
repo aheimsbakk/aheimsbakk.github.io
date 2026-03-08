@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Howto on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/howto/</link>
+    <description>Recent content in Howto on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use resident SSH key(s) on YubKey using Fido2</title>
+      <link>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the &lt;a href=&#34;https://en.wikipedia.org/wiki/FIDO_Alliance&#34;&gt;FIDO Alliance&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Luks decryption with clevis and TPM2</title>
+      <link>https://aheimsbakk.github.io/post/20220406-clevis/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>snapper - filesystem snapshot management</title>
+      <link>https://aheimsbakk.github.io/post/20200825-snapper/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200825-snapper/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;code&gt;man&lt;/code&gt;: &lt;em&gt;Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://aheimsbakk.github.io/post/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20190911-restic/</guid>
+      <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://aheimsbakk.github.io/post/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20180105-yubikey/</guid>
+      <description>&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a short &lt;a href=&#34;https://en.wikipedia.org/wiki/How-to&#34;&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;yubikey-as-private-ssh-key&#34;&gt;YubiKey as private SSH key&lt;/h2&gt;&#xA;&lt;h3 id=&#34;pre-requests&#34;&gt;Pre requests&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install the YubiKey management software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Compressed RAM based block devices</title>
+      <link>https://aheimsbakk.github.io/post/20150111-zram/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20150111-zram/</guid>
+      <description>&lt;p&gt;From &lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zramID (ID = 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;example-of-compressed-swap-in-memory&#34;&gt;Example of compressed swap in memory&lt;/h1&gt;&#xA;&lt;p&gt;Write this commands in &lt;code&gt;/etc/rc.local&lt;/code&gt; to create a 2G compressed swap partition in memory.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Record a PulseAudio sound stream</title>
+      <link>https://aheimsbakk.github.io/post/20150110-pa/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20150110-pa/</guid>
+      <description>&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/PulseAudio&#34;&gt;PulseAudio&lt;/a&gt; sound server in your desktop makes this quite easy.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to &lt;a href=&#34;https://en.wikipedia.org/wiki/Flac&#34; title=&#34;Free Lossless Audio Codec&#34;&gt;FLAC&lt;/a&gt; audio file. After the capture is started, you can start playing sound from other programs. It won&amp;rsquo;t interfere with the current capture.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vagrant with OpenStack</title>
+      <link>https://aheimsbakk.github.io/post/20141218-vagrant-openstack/</link>
+      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141218-vagrant-openstack/</guid>
+      <description>&lt;p&gt;If you want to use &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; with &lt;a href=&#34;http://www.openstack.org&#34;&gt;OpenStack&lt;/a&gt;, you need to prepare &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; with installing the &lt;a href=&#34;https://github.com/cloudbau/vagrant-openstack-plugin&#34;&gt;vagrant-openstack-plugin&lt;/a&gt;. I had some problems installing it directly through &lt;code&gt;vagrant plugin install&lt;/code&gt;. I had to clone it from &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt; and install it manually.&lt;/p&gt;&#xA;&lt;h2 id=&#34;one-time-configuration&#34;&gt;One time configuration&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-openstack-plugin-in-vagrant&#34;&gt;Install OpenStack plugin in Vagrant&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /tmp&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/cloudbau/vagrant-openstack-plugin&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; vagrant-openstack-plugin&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gem build vagrant-openstack-plugin.gemspec&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant plugin install vagrant-openstack-plugin-*.gem&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add a dummy box to &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; thats needed by the plugin.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;download-openstack-rc-file&#34;&gt;Download OpenStack RC file&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Log into OpenStack&lt;/li&gt;&#xA;&lt;li&gt;Download OpenStack API RC file&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;Project&lt;/code&gt; -&amp;gt; &lt;code&gt;Compute&lt;/code&gt; -&amp;gt; &lt;code&gt;Access &amp;amp; Security&lt;/code&gt; -&amp;gt; &lt;code&gt;API Access&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Down RC file by hitting &lt;code&gt;Download OpenStack RC File&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Put &lt;code&gt;$USER-openrc.sh&lt;/code&gt; in your &lt;code&gt;~/&lt;/code&gt; or somewhere you prefer&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;configure-a-vagrant-vm&#34;&gt;Configure a Vagrant VM&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vagrantfile&#34;&gt;Vagrantfile&lt;/h3&gt;&#xA;&lt;p&gt;This is a default generic Vagrant file which starts a &lt;code&gt;m1.tiny&lt;/code&gt; flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name &lt;code&gt;$USER_ssh_key&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fio - flexible I/O tester</title>
+      <link>https://aheimsbakk.github.io/post/20141215-fio/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141215-fio/</guid>
+      <description>&lt;p&gt;From man page: &lt;code&gt;fio&lt;/code&gt; &lt;em&gt;is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This example only show how to use &lt;code&gt;fio&lt;/code&gt; to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>View Google Earth in the browser</title>
+      <link>https://aheimsbakk.github.io/post/20140619-webgl/</link>
+      <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140619-webgl/</guid>
+      <description>&lt;p&gt;Google now supports Google Earth in Google Maps. As far as I know it works in &lt;a href=&#34;https://en.wikipedia.org/wiki/Google_Chrome&#34;&gt;Chrome&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Chromium_%28web_browser%29&#34;&gt;Chromium&lt;/a&gt;. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.&lt;/p&gt;&#xA;&lt;p&gt;To force enabling &lt;a href=&#34;https://en.wikipedia.org/wiki/WebGL&#34;&gt;WebGL&lt;/a&gt; in the browser start it with the following options&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chromium-browser --enable-webgl --ignore-gpu-blacklist&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use Google Earth in &lt;a href=&#34;https://maps.google.com&#34;&gt;maps.google.com&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Flashing a custom rom on Nexus 4</title>
+      <link>https://aheimsbakk.github.io/post/20140511-rootnexus/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140511-rootnexus/</guid>
+      <description>&lt;p&gt;Flashing a custom image on an &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. &lt;strong&gt;Then don&amp;rsquo;t!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-bad-and-the-good&#34;&gt;The bad and the good&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m only pointing out some of the cons and the pros here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;negative-sides&#34;&gt;Negative sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An OS image could contain &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt;; only use community trusted images.&lt;/li&gt;&#xA;&lt;li&gt;If you don&amp;rsquo;t pay attention you can get &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt; running as root. That&amp;rsquo;s B A D !&lt;/li&gt;&#xA;&lt;li&gt;May not have all the phones vendor functionality.&lt;/li&gt;&#xA;&lt;li&gt;The image may be buggy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;consequences-of-a-buggy-image&#34;&gt;Consequences of a buggy image&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lock up your phone when you least expect it.&lt;/li&gt;&#xA;&lt;li&gt;Drain the battery quicker.&lt;/li&gt;&#xA;&lt;li&gt;Suddenly reboot.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;positive-sides&#34;&gt;Positive sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You can get a newer more secure operating system.&lt;/li&gt;&#xA;&lt;li&gt;Use less battery.&lt;/li&gt;&#xA;&lt;li&gt;No &lt;a href=&#34;https://en.wikipedia.org/wiki/Crapware&#34; title=&#34;Pre-installed software&#34;&gt;crapware&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Extra security functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;flashing-cyanogenmod&#34;&gt;Flashing CyanogenMod&lt;/h2&gt;&#xA;&lt;p&gt;One of the custom &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; images based on &lt;a href=&#34;https://source.android.com&#34; title=&#34;Android Open Source Project&#34;&gt;AOSP&lt;/a&gt; is &lt;a href=&#34;http://www.cyanogenmod.org&#34;&gt;CyanogenMod&lt;/a&gt;. As I know, it&amp;rsquo;s one of the more used ones. Quite stable if you keep away from the &lt;a href=&#34;https://en.wikipedia.org/wiki/Nightlies&#34; title=&#34;Neutral build&#34;&gt;nightlies&lt;/a&gt; and rich on functionality but not bloated.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Auto generate Pelican blog from Dropbox</title>
+      <link>https://aheimsbakk.github.io/post/20140503-dropbox/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140503-dropbox/</guid>
+      <description>&lt;p&gt;This is my notes for how to update my &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog automaticlly when I write new posts. See &lt;a href=&#34;2014-04-12-pelican&#34;&gt;Creating a blog based on Pelican&lt;/a&gt; for getting started with &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog engine.&lt;/p&gt;&#xA;&lt;p&gt;A way to be able to blog from anywhere is to use &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; as repository for the your blog. Then let &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; auto regenerate the blog on changes in the &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; folder.&lt;/p&gt;&#xA;&lt;p&gt;A prerequest for this recipe is that &lt;code&gt;/var/www&lt;/code&gt; is not directly exposed to the web.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://aheimsbakk.github.io/post/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140501-easyrsa/</guid>
+      <description>&lt;p&gt;The router firmware Tomato, see previous post &lt;a href=&#34;2014-04-17-tomato&#34;&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;&#xA;&lt;p&gt;Using open &lt;a href=&#34;https://en.wikipedia.org/wiki/Wifi&#34; title=&#34;Wi-Fi&#34;&gt;Wi-Fi&lt;/a&gt; access points can be very useful and necessary, but it is inherently insecure. Using the router as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server can increase your privacy and security when you are on the go. By creating an encrypted &lt;a href=&#34;https://en.wikipedia.org/wiki/Vpn&#34; title=&#34;Virtual Private Network&#34;&gt;VPN&lt;/a&gt; connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RT-N66u with Tomato by Shibby firmware</title>
+      <link>https://aheimsbakk.github.io/post/20140417-tomato/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140417-tomato/</guid>
+      <description>&lt;p&gt;&lt;em&gt;This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don&amp;rsquo;t know what you are doing. Do not proceed.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Asus &lt;a href=&#34;http://www.asus.com/Networking/RTN66U&#34;&gt;RT-N66U&lt;/a&gt; is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better &lt;a href=&#34;http://en.wikipedia.org/wiki/Quality_of_service&#34; title=&#34;Quality of service&#34;&gt;QoS&lt;/a&gt;, &lt;a href=&#34;http://openvpn.net&#34;&gt;OpenVPN&lt;/a&gt; or just more control over the network I recommend installing &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; firmware.&lt;/p&gt;&#xA;&lt;p&gt;Download the latest version of the firmware from &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt;. Look for &lt;code&gt;Asus RT-N66u 64k&lt;/code&gt; in the version folder in &lt;a href=&#34;http://tomato.groov.pl/download/K26RT-N&#34;&gt;K26RT-N&lt;/a&gt; repository.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash getopts example</title>
+      <link>https://aheimsbakk.github.io/post/20140413-getopts/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-getopts/</guid>
+      <description>&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modeline in vim</title>
+      <link>https://aheimsbakk.github.io/post/20140413-modeline/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-modeline/</guid>
+      <description>&lt;p&gt;Options set in &lt;code&gt;.vimrc&lt;/code&gt; applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in &lt;code&gt;.vimrc&lt;/code&gt; to take advantage of this option.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a blog based on Pelican</title>
+      <link>https://aheimsbakk.github.io/post/20140412-pelican/</link>
+      <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140412-pelican/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://getpelican.com&#34;&gt;Pelican&lt;/a&gt; is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; or &lt;a href=&#34;http://www.dd-wrt.com&#34;&gt;dd-wrt&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install Pelican and package for &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;Markdown&lt;/a&gt; language. With Markdown you write the content in text and Pelican translates it to HTML.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

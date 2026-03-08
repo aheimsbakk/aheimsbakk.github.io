@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debian on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/debian/</link>
+    <description>Recent content in Debian on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Thu, 30 Jul 2020 18:57:10 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap Debian VM with virt-install</title>
+      <link>https://aheimsbakk.github.io/post/20200730-libvirt-bootstrap/</link>
+      <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200730-libvirt-bootstrap/</guid>
+      <description>&lt;p&gt;Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.&lt;/p&gt;&#xA;&lt;h2 id=&#34;preparations&#34;&gt;Preparations&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-software&#34;&gt;Install software&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;libvirt&lt;/code&gt; is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with &lt;code&gt;virt-install&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf install -y virt-manager virt-install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;user-access-to-libvirt&#34;&gt;User access to &lt;code&gt;libvirt&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Add your user to the group &lt;code&gt;libvirt&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo usermod -aG libvirtd &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a default &lt;code&gt;preseed.cfg&lt;/code&gt; file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition. This file can be reused to your hearts desire.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

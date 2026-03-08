@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Btrfs on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/btrfs/</link>
+    <description>Recent content in Btrfs on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 23 Apr 2021 21:18:52 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/btrfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root</title>
+      <link>https://aheimsbakk.github.io/post/20210423-btrfs-pi/</link>
+      <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210423-btrfs-pi/</guid>
+      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>snapper - filesystem snapshot management</title>
+      <link>https://aheimsbakk.github.io/post/20200825-snapper/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200825-snapper/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;code&gt;man&lt;/code&gt;: &lt;em&gt;Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

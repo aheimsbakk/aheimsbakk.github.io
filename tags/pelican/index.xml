@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pelican on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/pelican/</link>
+    <description>Recent content in Pelican on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/pelican/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Auto generate Pelican blog from Dropbox</title>
+      <link>https://aheimsbakk.github.io/post/20140503-dropbox/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140503-dropbox/</guid>
+      <description>&lt;p&gt;This is my notes for how to update my &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog automaticlly when I write new posts. See &lt;a href=&#34;2014-04-12-pelican&#34;&gt;Creating a blog based on Pelican&lt;/a&gt; for getting started with &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog engine.&lt;/p&gt;&#xA;&lt;p&gt;A way to be able to blog from anywhere is to use &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; as repository for the your blog. Then let &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; auto regenerate the blog on changes in the &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; folder.&lt;/p&gt;&#xA;&lt;p&gt;A prerequest for this recipe is that &lt;code&gt;/var/www&lt;/code&gt; is not directly exposed to the web.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a blog based on Pelican</title>
+      <link>https://aheimsbakk.github.io/post/20140412-pelican/</link>
+      <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140412-pelican/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://getpelican.com&#34;&gt;Pelican&lt;/a&gt; is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; or &lt;a href=&#34;http://www.dd-wrt.com&#34;&gt;dd-wrt&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install Pelican and package for &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;Markdown&lt;/a&gt; language. With Markdown you write the content in text and Pelican translates it to HTML.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

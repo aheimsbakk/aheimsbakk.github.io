@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/security/</link>
+    <description>Recent content in Security on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Luks decryption with clevis and TPM2</title>
+      <link>https://aheimsbakk.github.io/post/20220406-clevis/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wireguard VPN server</title>
+      <link>https://aheimsbakk.github.io/post/20210808-wireguard/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210808-wireguard/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Malware lists for PiHole</title>
+      <link>https://aheimsbakk.github.io/post/20210227-pihole-lists/</link>
+      <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210227-pihole-lists/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://en.wikipedia.org/wiki/Pi-hole&#34;&gt;Wikipedia&lt;/a&gt;: &lt;em&gt;Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for use on embedded devices with network capability, such as the Raspberry Pi, but it can be used on other machines running Linux, including cloud implementations.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Configuring &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; to resolve IP towards &lt;a href=&#34;https://www.quad9.net/&#34;&gt;Quad9&lt;/a&gt;, which is currently the best public available malware domain filtering DNS service. On top of that you can add your own lists. Recommended lists are the two below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>List CPU vulnerabilities</title>
+      <link>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</link>
+      <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</guid>
+      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://aheimsbakk.github.io/post/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20190911-restic/</guid>
+      <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://aheimsbakk.github.io/post/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20180105-yubikey/</guid>
+      <description>&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a short &lt;a href=&#34;https://en.wikipedia.org/wiki/How-to&#34;&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;yubikey-as-private-ssh-key&#34;&gt;YubiKey as private SSH key&lt;/h2&gt;&#xA;&lt;h3 id=&#34;pre-requests&#34;&gt;Pre requests&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install the YubiKey management software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Only Firefox is safe post Heartblead</title>
+      <link>https://aheimsbakk.github.io/post/20140512-revocation/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140512-revocation/</guid>
+      <description>&lt;p&gt;o&lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt; have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both &lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt;&amp;rsquo;s article on &lt;a href=&#34;https://www.grc.com/revocation/crlsets.htm&#34;&gt;An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets&lt;/a&gt; and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer &lt;a href=&#34;https://www.imperialviolet.org/2014/04/29/revocationagain.html&#34;&gt;Revocation still doesn&amp;rsquo;t work&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.grc.com/revocation.htm&#34;&gt;Security Certificate - Revocation Awareness Test&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Listen to &lt;a href=&#34;https://www.grc.com/securitynow.htm&#34;&gt;Security Now!&lt;/a&gt; episode 454 &lt;a href=&#34;https://www.grc.com/securitynow.htm#454&#34;&gt;Certificate Revocation Part 2&lt;/a&gt; in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OCSP Stapling on Apache</title>
+      <link>https://aheimsbakk.github.io/post/20140504-ocsp/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140504-ocsp/</guid>
+      <description>&lt;p&gt;Excerpt from Remy van Elsts tutorial: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; stapling is an enhancement to the standard &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; protocol that delivers &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses from the server with the certificate, eliminating the need for relying parties (web users) to check &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses with the issuing &lt;a href=&#34;https://en.wikipedia.org/wiki/Certificate_Authority&#34; title=&#34;Certificate authority&#34;&gt;CA&lt;/a&gt;. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with &lt;a href=&#34;http://httpd.apache.org&#34;&gt;Apache&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to get A&#43; on SSL Labs</title>
+      <link>https://aheimsbakk.github.io/post/20140503-ssl/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140503-ssl/</guid>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://aheimsbakk.github.io/post/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140501-easyrsa/</guid>
+      <description>&lt;p&gt;The router firmware Tomato, see previous post &lt;a href=&#34;2014-04-17-tomato&#34;&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;&#xA;&lt;p&gt;Using open &lt;a href=&#34;https://en.wikipedia.org/wiki/Wifi&#34; title=&#34;Wi-Fi&#34;&gt;Wi-Fi&lt;/a&gt; access points can be very useful and necessary, but it is inherently insecure. Using the router as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server can increase your privacy and security when you are on the go. By creating an encrypted &lt;a href=&#34;https://en.wikipedia.org/wiki/Vpn&#34; title=&#34;Virtual Private Network&#34;&gt;VPN&lt;/a&gt; connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Better entropy with haveged</title>
+      <link>https://aheimsbakk.github.io/post/20140429-haveged/</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140429-haveged/</guid>
+      <description>&lt;p&gt;Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a &lt;a href=&#34;https://en.wikipedia.org/wiki/TRNG&#34; title=&#34;True Random Number Generator&#34;&gt;TRNG&lt;/a&gt; than a &lt;a href=&#34;https://en.wikipedia.org/wiki/PRNG&#34; title=&#34;PseudoRandom Number Generator&#34;&gt;PRNG&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

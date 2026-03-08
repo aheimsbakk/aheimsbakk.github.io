@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Vagrant with OpenStack - Realtime</title>
+
+  <meta name="description" content="If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
+One time configuration
+Install OpenStack plugin in Vagrant
+cd /tmp
+git clone https://github.com/cloudbau/vagrant-openstack-plugin
+cd vagrant-openstack-plugin
+gem build vagrant-openstack-plugin.gemspec
+vagrant plugin install vagrant-openstack-plugin-*.gem
+Add a dummy box to Vagrant thats needed by the plugin.
+vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+Download OpenStack RC file
+
+Log into OpenStack
+Download OpenStack API RC file
+
+Go to Project -&gt; Compute -&gt; Access &amp; Security -&gt; API Access
+Down RC file by hitting Download OpenStack RC File
+Put $USER-openrc.sh in your ~/ or somewhere you prefer
+
+
+
+Configure a Vagrant VM
+Vagrantfile
+This is a default generic Vagrant file which starts a m1.tiny flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name $USER_ssh_key.">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/aheimsbakk.github.io\/post\/20141218-vagrant-openstack\/",
+          "name": "Vagrant with open stack"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "Vagrant with OpenStack",
+  "description" : "If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.\nOne time configuration Install OpenStack plugin in Vagrant cd \/tmp git clone https:\/\/github.com\/cloudbau\/vagrant-openstack-plugin cd vagrant-openstack-plugin gem build vagrant-openstack-plugin.gemspec vagrant plugin install vagrant-openstack-plugin-*.gem Add a dummy box to Vagrant thats needed by the plugin.\nvagrant box add dummy https:\/\/github.com\/cloudbau\/vagrant-openstack-plugin\/raw\/master\/dummy.box Download OpenStack RC file Log into OpenStack Download OpenStack API RC file Go to Project -\u0026gt; Compute -\u0026gt; Access \u0026amp; Security -\u0026gt; API Access Down RC file by hitting Download OpenStack RC File Put $USER-openrc.sh in your ~\/ or somewhere you prefer Configure a Vagrant VM Vagrantfile This is a default generic Vagrant file which starts a m1.tiny flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name $USER_ssh_key.\n",
+  "inLanguage" : "en",
+  "wordCount":  326 ,
+  "datePublished" : "2014-12-18T00:00:00\u002b00:00",
+  "dateModified" : "2014-12-18T00:00:00\u002b00:00",
+  "image" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+  "keywords" : [ "howto, vagrant" ],
+  "mainEntityOfPage" : "https:\/\/aheimsbakk.github.io\/post\/20141218-vagrant-openstack\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/aheimsbakk.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/aheimsbakk.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Vagrant with OpenStack" />
+<meta property="og:description" content="If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to clone it from Github and install it manually.
+One time configuration
+Install OpenStack plugin in Vagrant
+cd /tmp
+git clone https://github.com/cloudbau/vagrant-openstack-plugin
+cd vagrant-openstack-plugin
+gem build vagrant-openstack-plugin.gemspec
+vagrant plugin install vagrant-openstack-plugin-*.gem
+Add a dummy box to Vagrant thats needed by the plugin.
+vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+Download OpenStack RC file
+
+Log into OpenStack
+Download OpenStack API RC file
+
+Go to Project -&gt; Compute -&gt; Access &amp; Security -&gt; API Access
+Down RC file by hitting Download OpenStack RC File
+Put $USER-openrc.sh in your ~/ or somewhere you prefer
+
+
+
+Configure a Vagrant VM
+Vagrantfile
+This is a default generic Vagrant file which starts a m1.tiny flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name $USER_ssh_key.">
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/post/20141218-vagrant-openstack/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="Vagrant with OpenStack" />
+  <meta name="twitter:description" content="If you want to use Vagrant with OpenStack, you need to prepare Vagrant with installing the vagrant-openstack-plugin. I had some problems installing it directly through vagrant plugin install. I had to …">
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Vagrant with OpenStack</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-12-18
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;326&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually.</p>
+<h2 id="one-time-configuration">One time configuration</h2>
+<h3 id="install-openstack-plugin-in-vagrant">Install OpenStack plugin in Vagrant</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp
+</span></span><span class="line"><span class="cl">git clone https://github.com/cloudbau/vagrant-openstack-plugin
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> vagrant-openstack-plugin
+</span></span><span class="line"><span class="cl">gem build vagrant-openstack-plugin.gemspec
+</span></span><span class="line"><span class="cl">vagrant plugin install vagrant-openstack-plugin-*.gem
+</span></span></code></pre></div><p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+</span></span></code></pre></div><h3 id="download-openstack-rc-file">Download OpenStack RC file</h3>
+<ul>
+<li>Log into OpenStack</li>
+<li>Download OpenStack API RC file
+<ul>
+<li>Go to <code>Project</code> -&gt; <code>Compute</code> -&gt; <code>Access &amp; Security</code> -&gt; <code>API Access</code></li>
+<li>Down RC file by hitting <code>Download OpenStack RC File</code></li>
+<li>Put <code>$USER-openrc.sh</code> in your <code>~/</code> or somewhere you prefer</li>
+</ul>
+</li>
+</ul>
+<h2 id="configure-a-vagrant-vm">Configure a Vagrant VM</h2>
+<h3 id="vagrantfile">Vagrantfile</h3>
+<p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;vagrant-openstack-plugin&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&#34;dummy&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;/vagrant&#34;</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="s2">&#34;rsync&#34;</span><span class="p">,</span> <span class="ss">rsync__exclude</span><span class="p">:</span> <span class="s2">&#34;.git/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Make sure the private key from the key pair is provided</span>
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s2">&#34;~/.ssh/id_rsa&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:openstack</span> <span class="k">do</span> <span class="o">|</span><span class="n">os</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">username</span>     <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">api_key</span>      <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">flavor</span>       <span class="o">=</span> <span class="sr">/m1.tiny/</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">image</span>        <span class="o">=</span> <span class="s2">&#34;Ubuntu CI utopic 2014-09-18&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">endpoint</span>     <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">/tokens&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">keypair_name</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">_ssh_key&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">ssh_username</span> <span class="o">=</span> <span class="s2">&#34;ubuntu&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># The tenant have two networks, so need to specify at least one</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="s2">&#34;vagrant&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">floating_ip</span>        <span class="o">=</span> <span class="ss">:auto</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">floating_ip_pool</span>   <span class="o">=</span> <span class="s2">&#34;public&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;bootstrap.sh&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="s">&lt;&lt;-SCRIPT
+</span></span></span><span class="line"><span class="cl">    <span class="c1"># Set your country code here to get a local repositroy</span>
+</span></span><span class="line"><span class="cl">    <span class="no">CN</span><span class="o">=</span><span class="s2">&#34;no&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">grep</span> <span class="o">-</span><span class="n">q</span> <span class="n">repo</span><span class="o">.</span><span class="n">met</span><span class="o">.</span><span class="n">no</span> <span class="sr">/etc/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span> <span class="o">||</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span><span class="o">~</span> <span class="s2">&#34;s#nova.clouds.archive.ubuntu.com</span><span class="si">#$CN</span><span class="s2">.archive.ubuntu.com#g&#34;</span> <span class="sr">/etc/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+</span></span><span class="line"><span class="cl">    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+</span></span><span class="line"><span class="cl">  <span class="no">SCRIPT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&#34;myvm&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><h3 id="bootstrapsh">bootstrap.sh</h3>
+<p>Create your custom bootstrap file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Your aditional bootstrap here...</span>
+</span></span></code></pre></div><h2 id="running-vagrant">Running Vagrant</h2>
+<p>Remember to source your OpenStack RC file before you run Vagrant up. You need to do that in each shell windows you are going to run Vagrant in.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> ~/<span class="nv">$USER</span>-openrc.sh
+</span></span><span class="line"><span class="cl">vagrant up
+</span></span></code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+            
+              
+              <a href="https://aheimsbakk.github.io/tags/vagrant/">vagrant</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20240604-fido2-ssh/">Use resident SSH key(s) on YubKey using Fido2</a></li>
+                
+                    <li><a href="/post/20220406-clevis/">Luks decryption with clevis and TPM2</a></li>
+                
+                    <li><a href="/post/20200825-snapper/">snapper - filesystem snapshot management</a></li>
+                
+                    <li><a href="/post/20200728-vagrant-libvirt/">Libvirt and Vagrant</a></li>
+                
+                    <li><a href="/post/20200728-vagrant-ubuntu/">Vagrant with Ubuntu Focal (20.04)</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://aheimsbakk.github.io/post/20141215-fio/" data-toggle="tooltip" data-placement="top" title="fio - flexible I/O tester">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://aheimsbakk.github.io/post/20150110-pa/" data-toggle="tooltip" data-placement="top" title="Record a PulseAudio sound stream">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

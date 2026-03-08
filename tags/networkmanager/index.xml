@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NetworkManager on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/networkmanager/</link>
+    <description>Recent content in NetworkManager on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 07 Aug 2020 01:20:05 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/networkmanager/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>e1000e: Detected Hardware Unit Hang</title>
+      <link>https://aheimsbakk.github.io/post/20200807-hardware-unit-hang/</link>
+      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-hardware-unit-hang/</guid>
+      <description>&lt;p&gt;Are you, as I, suffering from &lt;em&gt;Detected Hardware Unit Hang&lt;/em&gt; in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

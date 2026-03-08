@@ -1,0 +1,1255 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Howto - Realtime</title>
+
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/aheimsbakk.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/aheimsbakk.github.io\/"
+  
+  
+  
+  
+}
+</script>
+
+<meta property="og:title" content="Howto" />
+<meta property="og:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+<meta property="og:url" content="https://aheimsbakk.github.io/tags/howto/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="Howto" />
+  <meta name="twitter:image" content="https://aheimsbakk.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://aheimsbakk.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.157.0">
+  <link rel="alternate" href="https://aheimsbakk.github.io/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aheimsbakk.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://aheimsbakk.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://aheimsbakk.github.io/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aheimsbakk.github.io/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applications</a>
+              <div class="navlinks-children">
+                
+                  <a href="/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/categories/blog">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Uris" href="/categories/uris">Uris</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://aheimsbakk.github.io/">
+            <img class="avatar-img" src="https://aheimsbakk.github.io/img/avatar.png" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="tags-heading">
+              
+                <h1>Howto</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20240604-fido2-ssh/">
+        <h2 class="post-title">Use resident SSH key(s) on YubKey using Fido2</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2024-06-04
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;284&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>From Wikipedia: <em>The <a href="https://en.wikipedia.org/wiki/YubiKey">YubiKey</a> is a hardware authentication device manufactured by <a href="https://www.yubico.com/">Yubico</a> to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the <a href="https://en.wikipedia.org/wiki/FIDO_Alliance">FIDO Alliance</a>.</em></p>
+        <a href="https://aheimsbakk.github.io/post/20240604-fido2-ssh/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/yubikey/">yubikey</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20220406-clevis/">
+        <h2 class="post-title">Luks decryption with clevis and TPM2</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2022-10-20
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;288&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Why should you encrypt your disc in the first place? It&rsquo;s for your own privacy. It&rsquo;s to ensure that personal data doesn&rsquo;t go astray.</p>
+        <a href="https://aheimsbakk.github.io/post/20220406-clevis/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20200825-snapper/">
+        <h2 class="post-title">snapper - filesystem snapshot management</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-08-25
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;400&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Excerpt from <code>man</code>: <em>Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.</em></p>
+<p><em>Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.</em></p>
+        <a href="https://aheimsbakk.github.io/post/20200825-snapper/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/btrfs/">btrfs</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/fedora/">fedora</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20190911-restic/">
+        <h2 class="post-title">Design an online ransomware safe backup with restic</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2019-09-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;495&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>The only way to be safe for <a href="https://en.wikipedia.org/wiki/Ransomware" title="Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.">ransomware</a>, except for keeping a offline backup, is to have a <a href="https://en.wikipedia.org/wiki/Immutable_object" title="An immutable object is an object whose state cannot be modified after it is created.">immutable</a> online backup.</p>
+<p><a href="https://restic.net" title="Backups done right!">restic</a> is a <a href="https://en.wikipedia.org/wiki/Data_deduplication" title="In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.">deduplication</a> backup sofware, designed for ease of use and security. <a href="https://rclone.org" title="Rclone - rsync for cloud storage.">Rclone</a> is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that <em>restic</em> can use <em>rclone</em> as a backend, and by that extend <em>restic</em> destination into most cloud providers.</p>
+        <a href="https://aheimsbakk.github.io/post/20190911-restic/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/restic/">restic</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20180105-yubikey/">
+        <h2 class="post-title">SSH with YubiKey NEO on Fedora made easy</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2018-12-13
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;567&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Your private SSH key is the key for the kingdom. This means always having a password on the key. With <a href="https://www.yubico.com/">YubiKey</a>, you can keep your secret key outside your machine too.</p>
+<p>Excerpt from Wikipedia: <em>The <a href="https://www.yubico.com/">YubiKey</a> allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.</em></p>
+<p>This is a short <a href="https://en.wikipedia.org/wiki/How-to">how-to</a> to get startet with using Yubikey to SSH into your servers.</p>
+<h2 id="yubikey-as-private-ssh-key">YubiKey as private SSH key</h2>
+<h3 id="pre-requests">Pre requests</h3>
+<ol>
+<li>
+<p>Install the YubiKey management software.</p>
+        <a href="https://aheimsbakk.github.io/post/20180105-yubikey/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/yubikey/">yubikey</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20150111-zram/">
+        <h2 class="post-title">Compressed RAM based block devices</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2015-01-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;152&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>From <a href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a> documentation: <em>The zram module creates RAM based block devices named /dev/zramID (ID = 0, 1, &hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)</em></p>
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/blockdev/zram.txt">zram</a></li>
+</ul>
+<h1 id="example-of-compressed-swap-in-memory">Example of compressed swap in memory</h1>
+<p>Write this commands in <code>/etc/rc.local</code> to create a 2G compressed swap partition in memory.</p>
+        <a href="https://aheimsbakk.github.io/post/20150111-zram/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/kernel/">kernel</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20150110-pa/">
+        <h2 class="post-title">Record a PulseAudio sound stream</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2015-01-10
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;349&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&rsquo;t have the option to save audio to a file.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/PulseAudio">PulseAudio</a> sound server in your desktop makes this quite easy.</p>
+<p>I&rsquo;ve created a small script that captures the current playing sound stream and redirects it to <a href="https://en.wikipedia.org/wiki/Flac" title="Free Lossless Audio Codec">FLAC</a> audio file. After the capture is started, you can start playing sound from other programs. It won&rsquo;t interfere with the current capture.</p>
+        <a href="https://aheimsbakk.github.io/post/20150110-pa/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/pulseaudio/">pulseaudio</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20141218-vagrant-openstack/">
+        <h2 class="post-title">Vagrant with OpenStack</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-12-18
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;326&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>If you want to use <a href="https://www.vagrantup.com">Vagrant</a> with <a href="http://www.openstack.org">OpenStack</a>, you need to prepare <a href="https://www.vagrantup.com">Vagrant</a> with installing the <a href="https://github.com/cloudbau/vagrant-openstack-plugin">vagrant-openstack-plugin</a>. I had some problems installing it directly through <code>vagrant plugin install</code>. I had to clone it from <a href="https://github.com">Github</a> and install it manually.</p>
+<h2 id="one-time-configuration">One time configuration</h2>
+<h3 id="install-openstack-plugin-in-vagrant">Install OpenStack plugin in Vagrant</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp
+</span></span><span class="line"><span class="cl">git clone https://github.com/cloudbau/vagrant-openstack-plugin
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> vagrant-openstack-plugin
+</span></span><span class="line"><span class="cl">gem build vagrant-openstack-plugin.gemspec
+</span></span><span class="line"><span class="cl">vagrant plugin install vagrant-openstack-plugin-*.gem
+</span></span></code></pre></div><p>Add a dummy box to <a href="https://www.vagrantup.com">Vagrant</a> thats needed by the plugin.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box
+</span></span></code></pre></div><h3 id="download-openstack-rc-file">Download OpenStack RC file</h3>
+<ul>
+<li>Log into OpenStack</li>
+<li>Download OpenStack API RC file
+<ul>
+<li>Go to <code>Project</code> -&gt; <code>Compute</code> -&gt; <code>Access &amp; Security</code> -&gt; <code>API Access</code></li>
+<li>Down RC file by hitting <code>Download OpenStack RC File</code></li>
+<li>Put <code>$USER-openrc.sh</code> in your <code>~/</code> or somewhere you prefer</li>
+</ul>
+</li>
+</ul>
+<h2 id="configure-a-vagrant-vm">Configure a Vagrant VM</h2>
+<h3 id="vagrantfile">Vagrantfile</h3>
+<p>This is a default generic Vagrant file which starts a <code>m1.tiny</code> flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name <code>$USER_ssh_key</code>.</p>
+        <a href="https://aheimsbakk.github.io/post/20141218-vagrant-openstack/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/vagrant/">vagrant</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20141215-fio/">
+        <h2 class="post-title">fio - flexible I/O tester</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-12-15
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;272&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>From man page: <code>fio</code> <em>is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.</em></p>
+<p>This example only show how to use <code>fio</code> to make reproduceable test on a file system. For me it&rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable.</p>
+        <a href="https://aheimsbakk.github.io/post/20141215-fio/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/benchmark/">benchmark</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140619-webgl/">
+        <h2 class="post-title">View Google Earth in the browser</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-06-19
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;62&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Google now supports Google Earth in Google Maps. As far as I know it works in <a href="https://en.wikipedia.org/wiki/Google_Chrome">Chrome</a> and <a href="https://en.wikipedia.org/wiki/Chromium_%28web_browser%29">Chromium</a>. If Google Earth isn&rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.</p>
+<p>To force enabling <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> in the browser start it with the following options</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chromium-browser --enable-webgl --ignore-gpu-blacklist
+</span></span></code></pre></div><p>Now you can use Google Earth in <a href="https://maps.google.com">maps.google.com</a>.</p>
+
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/chromium/">chromium</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140511-rootnexus/">
+        <h2 class="post-title">Flashing a custom rom on Nexus 4</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-05-11
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;670&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Flashing a custom image on an <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> mobile could be just fun. But if you don&rsquo;t know why you want to do it, or do it just because it&rsquo;s a challenge. <strong>Then don&rsquo;t!</strong></p>
+<h2 id="the-bad-and-the-good">The bad and the good</h2>
+<p>I&rsquo;m only pointing out some of the cons and the pros here.</p>
+<h3 id="negative-sides">Negative sides</h3>
+<ul>
+<li>An OS image could contain <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a>; only use community trusted images.</li>
+<li>If you don&rsquo;t pay attention you can get <a href="https://en.wikipedia.org/wiki/Malware" title="Malware">malware</a> running as root. That&rsquo;s B A D !</li>
+<li>May not have all the phones vendor functionality.</li>
+<li>The image may be buggy.</li>
+</ul>
+<h4 id="consequences-of-a-buggy-image">Consequences of a buggy image</h4>
+<ul>
+<li>Lock up your phone when you least expect it.</li>
+<li>Drain the battery quicker.</li>
+<li>Suddenly reboot.</li>
+</ul>
+<h3 id="positive-sides">Positive sides</h3>
+<ul>
+<li>You can get a newer more secure operating system.</li>
+<li>Use less battery.</li>
+<li>No <a href="https://en.wikipedia.org/wiki/Crapware" title="Pre-installed software">crapware</a>.</li>
+<li>Extra security functions.</li>
+</ul>
+<h2 id="flashing-cyanogenmod">Flashing CyanogenMod</h2>
+<p>One of the custom <a href="https://en.wikipedia.org/wiki/Android_%28operating_system%29" title="Android operating system">Android</a> images based on <a href="https://source.android.com" title="Android Open Source Project">AOSP</a> is <a href="http://www.cyanogenmod.org">CyanogenMod</a>. As I know, it&rsquo;s one of the more used ones. Quite stable if you keep away from the <a href="https://en.wikipedia.org/wiki/Nightlies" title="Neutral build">nightlies</a> and rich on functionality but not bloated.</p>
+        <a href="https://aheimsbakk.github.io/post/20140511-rootnexus/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/android/">android</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140503-dropbox/">
+        <h2 class="post-title">Auto generate Pelican blog from Dropbox</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-05-03
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;296&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>This is my notes for how to update my <a href="http://blog.getpelican.com">Pelican</a> blog automaticlly when I write new posts. See <a href="2014-04-12-pelican">Creating a blog based on Pelican</a> for getting started with <a href="http://blog.getpelican.com">Pelican</a> blog engine.</p>
+<p>A way to be able to blog from anywhere is to use <a href="https://www.dropbox.com">Dropbox</a> as repository for the your blog. Then let <a href="http://blog.getpelican.com">Pelican</a> auto regenerate the blog on changes in the <a href="https://www.dropbox.com">Dropbox</a> folder.</p>
+<p>A prerequest for this recipe is that <code>/var/www</code> is not directly exposed to the web.</p>
+        <a href="https://aheimsbakk.github.io/post/20140503-dropbox/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/pelican/">pelican</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140501-easyrsa/">
+        <h2 class="post-title">Configuring OpenVPN server on RTN66U</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-05-01
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;443&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>The router firmware Tomato, see previous post <a href="2014-04-17-tomato">RT-N66u with Tomato by Shibby firmware</a>, can act as an <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> server.</p>
+<p>Using open <a href="https://en.wikipedia.org/wiki/Wifi" title="Wi-Fi">Wi-Fi</a> access points can be very useful and necessary, but it is inherently insecure. Using the router as an <a href="https://en.wikipedia.org/wiki/OpenVPN" title="OpenVPN">OpenVPN</a> server can increase your privacy and security when you are on the go. By creating an encrypted <a href="https://en.wikipedia.org/wiki/Vpn" title="Virtual Private Network">VPN</a> connection back home to the router, you don&rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.</p>
+        <a href="https://aheimsbakk.github.io/post/20140501-easyrsa/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/network/">network</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/security/">security</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/vpn/">vpn</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140417-tomato/">
+        <h2 class="post-title">RT-N66u with Tomato by Shibby firmware</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-04-17
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;215&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p><em>This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don&rsquo;t know what you are doing. Do not proceed.</em></p>
+<p>Asus <a href="http://www.asus.com/Networking/RTN66U">RT-N66U</a> is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better <a href="http://en.wikipedia.org/wiki/Quality_of_service" title="Quality of service">QoS</a>, <a href="http://openvpn.net">OpenVPN</a> or just more control over the network I recommend installing <a href="http://tomato.groov.pl">Tomato by Shibby</a> firmware.</p>
+<p>Download the latest version of the firmware from <a href="http://tomato.groov.pl">Tomato by Shibby</a>. Look for <code>Asus RT-N66u 64k</code> in the version folder in <a href="http://tomato.groov.pl/download/K26RT-N">K26RT-N</a> repository.</p>
+        <a href="https://aheimsbakk.github.io/post/20140417-tomato/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/firmware/">firmware</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/network/">network</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140413-getopts/">
+        <h2 class="post-title">Bash getopts example</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-04-13
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;201&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)</p>
+        <a href="https://aheimsbakk.github.io/post/20140413-getopts/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/bash/">bash</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140413-modeline/">
+        <h2 class="post-title">Modeline in vim</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-04-13
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;180&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Options set in <code>.vimrc</code> applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in <code>.vimrc</code> to take advantage of this option.</p>
+        <a href="https://aheimsbakk.github.io/post/20140413-modeline/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/vim/">vim</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://aheimsbakk.github.io/post/20140412-pelican/">
+        <h2 class="post-title">Creating a blog based on Pelican</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2014-04-12
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;236&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p><a href="http://getpelican.com">Pelican</a> is a static website generator written in Python. It&rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as <a href="http://tomato.groov.pl">Tomato by Shibby</a> or <a href="http://www.dd-wrt.com">dd-wrt</a>.</p>
+<p>Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.</p>
+<ol>
+<li>
+<p>Install Pelican and package for <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> language. With Markdown you write the content in text and Pelican translates it to HTML.</p>
+        <a href="https://aheimsbakk.github.io/post/20140412-pelican/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/howto/">howto</a>&nbsp;
+        
+       
+       <a href="https://aheimsbakk.github.io/tags/pelican/">pelican</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          <li>
+            <a href="/tags/howto/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aheimsbakk.github.io/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.157.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://aheimsbakk.github.io/js/main.js"></script>
+<script src="https://aheimsbakk.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://aheimsbakk.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

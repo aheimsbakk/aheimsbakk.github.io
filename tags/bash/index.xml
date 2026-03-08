@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/bash/</link>
+    <description>Recent content in Bash on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 28 May 2024 16:50:55 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YubiKey bash setup</title>
+      <link>https://aheimsbakk.github.io/post/20240528-yubikey/</link>
+      <pubDate>Tue, 28 May 2024 16:50:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240528-yubikey/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;To get up and running on a new machine with minimal fuss.&lt;/p&gt;&#xA;&lt;h2 id=&#34;bashrc&#34;&gt;&lt;code&gt;.bashrc&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you are not logged in via SSH, start the &lt;code&gt;gpg-agent&lt;/code&gt;. Copy and paste into your terminal to append the configuration to your current &lt;code&gt;.bashrc&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>mtr - combining traceroute and ping</title>
+      <link>https://aheimsbakk.github.io/post/20210511-mtr/</link>
+      <pubDate>Tue, 11 May 2021 23:06:44 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210511-mtr/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/traviscross/mtr&#34;&gt;mtr&lt;/a&gt; combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>bmon - bandwidth monitor and rate estimator</title>
+      <link>https://aheimsbakk.github.io/post/20200807-bmon/</link>
+      <pubDate>Fri, 07 Aug 2020 23:47:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-bmon/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/tgraf/bmon&#34;&gt;bmon&lt;/a&gt; is a monitoring and debugging tool to capture networking related statistics and prepare them visually in a human friendly way.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ncdu - NCurses Disk Usage</title>
+      <link>https://aheimsbakk.github.io/post/20200807-ncdu/</link>
+      <pubDate>Fri, 07 Aug 2020 23:30:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-ncdu/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://dev.yorhel.nl/ncdu&#34;&gt;ncdu&lt;/a&gt; (NCurses Disk Usage) is a curses-based version of the well-known &lt;code&gt;du&lt;/code&gt;, and provides a fast way to see what directories are using your disk space.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>tldr - a supplement to man</title>
+      <link>https://aheimsbakk.github.io/post/20200807-tldr/</link>
+      <pubDate>Fri, 07 Aug 2020 14:22:43 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-tldr/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find duplicate files</title>
+      <link>https://aheimsbakk.github.io/post/20140413-duplicates/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-duplicates/</guid>
+      <description>&lt;p&gt;Find all duplicate files in current and sub-directories with bash.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://aheimsbakk.github.io/post/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-kernel/</guid>
+      <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash getopts example</title>
+      <link>https://aheimsbakk.github.io/post/20140413-getopts/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-getopts/</guid>
+      <description>&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

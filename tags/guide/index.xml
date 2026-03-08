@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guide on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/guide/</link>
+    <description>Recent content in Guide on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 18 Aug 2020 22:41:04 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git - the simple guide</title>
+      <link>https://aheimsbakk.github.io/post/20200818-git/</link>
+      <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200818-git/</guid>
+      <description>&lt;p&gt;Excerpt: &lt;em&gt;just a simple guide for getting started with git. no deep shit ;)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

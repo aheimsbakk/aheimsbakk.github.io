@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oneliner on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/oneliner/</link>
+    <description>Recent content in Oneliner on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 31 Jul 2020 16:25:02 +0200</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/oneliner/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>List CPU vulnerabilities</title>
+      <link>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</link>
+      <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</guid>
+      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find duplicate files</title>
+      <link>https://aheimsbakk.github.io/post/20140413-duplicates/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-duplicates/</guid>
+      <description>&lt;p&gt;Find all duplicate files in current and sub-directories with bash.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://aheimsbakk.github.io/post/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-kernel/</guid>
+      <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

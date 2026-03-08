@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yubikey on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/yubikey/</link>
+    <description>Recent content in Yubikey on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use resident SSH key(s) on YubKey using Fido2</title>
+      <link>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the &lt;a href=&#34;https://en.wikipedia.org/wiki/FIDO_Alliance&#34;&gt;FIDO Alliance&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>YubiKey bash setup</title>
+      <link>https://aheimsbakk.github.io/post/20240528-yubikey/</link>
+      <pubDate>Tue, 28 May 2024 16:50:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240528-yubikey/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;To get up and running on a new machine with minimal fuss.&lt;/p&gt;&#xA;&lt;h2 id=&#34;bashrc&#34;&gt;&lt;code&gt;.bashrc&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you are not logged in via SSH, start the &lt;code&gt;gpg-agent&lt;/code&gt;. Copy and paste into your terminal to append the configuration to your current &lt;code&gt;.bashrc&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://aheimsbakk.github.io/post/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20180105-yubikey/</guid>
+      <description>&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a short &lt;a href=&#34;https://en.wikipedia.org/wiki/How-to&#34;&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;yubikey-as-private-ssh-key&#34;&gt;YubiKey as private SSH key&lt;/h2&gt;&#xA;&lt;h3 id=&#34;pre-requests&#34;&gt;Pre requests&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install the YubiKey management software.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

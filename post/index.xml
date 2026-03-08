@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/post/</link>
+    <description>Recent content in Posts on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use resident SSH key(s) on YubKey using Fido2</title>
+      <link>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240604-fido2-ssh/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the &lt;a href=&#34;https://en.wikipedia.org/wiki/FIDO_Alliance&#34;&gt;FIDO Alliance&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>YubiKey bash setup</title>
+      <link>https://aheimsbakk.github.io/post/20240528-yubikey/</link>
+      <pubDate>Tue, 28 May 2024 16:50:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20240528-yubikey/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/YubiKey&#34;&gt;YubiKey&lt;/a&gt; is a hardware authentication device manufactured by &lt;a href=&#34;https://www.yubico.com/&#34;&gt;Yubico&lt;/a&gt; to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor (U2F) and FIDO2 protocols developed by the FIDO Alliance.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;To get up and running on a new machine with minimal fuss.&lt;/p&gt;&#xA;&lt;h2 id=&#34;bashrc&#34;&gt;&lt;code&gt;.bashrc&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you are not logged in via SSH, start the &lt;code&gt;gpg-agent&lt;/code&gt;. Copy and paste into your terminal to append the configuration to your current &lt;code&gt;.bashrc&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Luks decryption with clevis and TPM2</title>
+      <link>https://aheimsbakk.github.io/post/20220406-clevis/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20220406-clevis/</guid>
+      <description>&lt;p&gt;Why should you encrypt your disc in the first place? It&amp;rsquo;s for your own privacy. It&amp;rsquo;s to ensure that personal data doesn&amp;rsquo;t go astray.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bootstrap Raspberry Pi OS on Pi Zero 2 W</title>
+      <link>https://aheimsbakk.github.io/post/20220510-zero2/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20220510-zero2/</guid>
+      <description>&lt;p&gt;Notes on bootstrapping Raspberry Pi OS. This blog post is written in the heavy influence of a cold. Take care with your copy and pasting. No more information at the point.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry Pi Zero 2 W</title>
+      <link>https://aheimsbakk.github.io/post/20220508-zero/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20220508-zero/</guid>
+      <description>&lt;p&gt;Bootstrap Raspberry Pi Zero 2 W with &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu&lt;/a&gt; using &lt;a href=&#34;https://cloudinit.readthedocs.io/&#34;&gt;cloud-init&lt;/a&gt;. OTG configured as network card, WiFi, ssh-keys from GitHub and zram swap enabled. All examples are made to be run on a &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora Desktop&lt;/a&gt;. Adjust scripts if you use another &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_distribution&#34;&gt;distro&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wireguard VPN server</title>
+      <link>https://aheimsbakk.github.io/post/20210808-wireguard/</link>
+      <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210808-wireguard/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu cloud images with virt-install</title>
+      <link>https://aheimsbakk.github.io/post/20210702-libvirt/</link>
+      <pubDate>Fri, 02 Jul 2021 22:45:53 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210702-libvirt/</guid>
+      <description>&lt;p&gt;Earlier we looked at how we could use &lt;a href=&#34;https://aheimsbakk.github.io/posts/20210511-cloudinit/&#34;&gt;Ubuntu cloud images with KVM&lt;/a&gt;. Now we will use the &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirt&lt;/code&gt;&lt;/a&gt; cli  &lt;a href=&#34;https://libvirt.org/manpages/virsh.html&#34;&gt;&lt;code&gt;virsh&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://manpages.ubuntu.com/manpages/xenial/man1/virt-install.1.html&#34;&gt;&lt;code&gt;virt-install&lt;/code&gt;&lt;/a&gt; to do the same process. &lt;code&gt;virt-install&lt;/code&gt; is a part of the &lt;a href=&#34;https://virt-manager.org/&#34;&gt;&lt;code&gt;virt-manager&lt;/code&gt;&lt;/a&gt; supporting tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;fetch-the-ubuntu-cloud-image&#34;&gt;Fetch the Ubuntu Cloud image&lt;/h2&gt;&#xA;&lt;p&gt;This only need to be done once, or when you want to update the cloud image.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download a Ubuntu Focal image from &lt;a href=&#34;https://cloud-images.ubuntu.com&#34;&gt;Ubuntu Cloud Images&lt;/a&gt;.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Create an empty image in the default storage pool. This is a storage space where we upload the cloud image. Note that we use the correct postfix on the name here.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-create-as default focal-server-cloudimg-amd64.qcow2 20G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Upload the downloaded cloud image to the storage pool in the reserved spaced.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-upload focal-server-cloudimg-amd64.qcow2 focal-server-cloudimg-amd64.img --sparse --pool default&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;create-the-vm&#34;&gt;Create the VM&lt;/h2&gt;&#xA;&lt;p&gt;Now we use the cloud image as a template for all our new VMs. Change the size and &lt;code&gt;virt-install&lt;/code&gt; parameters to make it your own.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>mtr - combining traceroute and ping</title>
+      <link>https://aheimsbakk.github.io/post/20210511-mtr/</link>
+      <pubDate>Tue, 11 May 2021 23:06:44 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210511-mtr/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/traviscross/mtr&#34;&gt;mtr&lt;/a&gt; combines the functionality of the traceroute and ping programs in a single  network diagnostic tool.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu cloud images with KVM</title>
+      <link>https://aheimsbakk.github.io/post/20210511-cloudinit/</link>
+      <pubDate>Tue, 11 May 2021 18:22:08 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210511-cloudinit/</guid>
+      <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry Pi 4 - Ubuntu 20.04 w/Btrfs root</title>
+      <link>https://aheimsbakk.github.io/post/20210423-btrfs-pi/</link>
+      <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210423-btrfs-pi/</guid>
+      <description>&lt;p&gt;How to convert a root file system on a &lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;Raspberry Pi 4 b&lt;/a&gt; running &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;Ubuntu 20.04&lt;/a&gt; 64 bit to &lt;a href=&#34;https://btrfs.wiki.kernel.org/&#34;&gt;Btrfs&lt;/a&gt; in a few simple steps.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Malware lists for PiHole</title>
+      <link>https://aheimsbakk.github.io/post/20210227-pihole-lists/</link>
+      <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210227-pihole-lists/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://en.wikipedia.org/wiki/Pi-hole&#34;&gt;Wikipedia&lt;/a&gt;: &lt;em&gt;Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for use on embedded devices with network capability, such as the Raspberry Pi, but it can be used on other machines running Linux, including cloud implementations.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Configuring &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; to resolve IP towards &lt;a href=&#34;https://www.quad9.net/&#34;&gt;Quad9&lt;/a&gt;, which is currently the best public available malware domain filtering DNS service. On top of that you can add your own lists. Recommended lists are the two below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use Vanilla kernel on Fedora</title>
+      <link>https://aheimsbakk.github.io/post/20210224-kernel/</link>
+      <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20210224-kernel/</guid>
+      <description>&lt;p&gt;Excerpt: &lt;em&gt;The Linux vanilla kernel repositories for Fedora offer RPM packages containing vanilla builds of different Linux kernel version lines. These packages are meant for Fedora users that want to access the latest Linux kernels quickly and comfortably; either the latest mainline kernel, the latest stable kernel or a vanilla variant of the Linux kernel version line Fedora uses currently.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories&#34;&gt;https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>snapper - filesystem snapshot management</title>
+      <link>https://aheimsbakk.github.io/post/20200825-snapper/</link>
+      <pubDate>Tue, 25 Aug 2020 18:21:20 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200825-snapper/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;code&gt;man&lt;/code&gt;: &lt;em&gt;Snapper is a command-line program for filesystem snapshot management. It can create, delete and compare snapshots and undo changes done between snapshots.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Snapper never modifies the content of snapshots. Thus snapper creates read-only snapshots if supported by the kernel. Supported filesystems are btrfs as well as snapshots of LVM logical volumes with thin-provisioning.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>git - the simple guide</title>
+      <link>https://aheimsbakk.github.io/post/20200818-git/</link>
+      <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200818-git/</guid>
+      <description>&lt;p&gt;Excerpt: &lt;em&gt;just a simple guide for getting started with git. no deep shit ;)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chess resources</title>
+      <link>https://aheimsbakk.github.io/post/20200817-chess/</link>
+      <pubDate>Mon, 17 Aug 2020 15:43:59 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200817-chess/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chess&#34;&gt;Chess&lt;/a&gt; is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 square grid.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Origami / Paper Folding</title>
+      <link>https://aheimsbakk.github.io/post/20200817-origami/</link>
+      <pubDate>Mon, 17 Aug 2020 14:36:38 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200817-origami/</guid>
+      <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Origami&#34;&gt;Origami&lt;/a&gt; (折り紙, Japanese pronunciation: [oɾiɡami] or [oɾiꜜɡami], from ori meaning &amp;ldquo;folding&amp;rdquo;, and kami meaning &amp;ldquo;paper&amp;rdquo; (kami changes to gami due to rendaku)) is the art of paper folding, which is often associated with Japanese culture. In modern usage, the word &amp;ldquo;origami&amp;rdquo; is used as an inclusive term for all folding practices, regardless of their culture of origin.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tear free desktop on Intel graphics</title>
+      <link>https://aheimsbakk.github.io/post/20200811-tearfree/</link>
+      <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200811-tearfree/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;code&gt;man intel&lt;/code&gt;, option &amp;ldquo;TearFree&amp;rdquo;: &lt;em&gt;Disable or enable TearFree updates. This option forces X to perform all rendering to a backbuffer prior to updating the actual display. It requires an extra memory allocation  the  same size as a framebuffer, the occasional extra copy, and requires Damage tracking. Thus enabling TearFree requires more memory and is slower (reduced throughput) and introduces a small amount of output latency, but it should not impact input latency. However, the update to the screen is then performed  synchronously  with  the vertical  refresh  of  the  display  so  that  the  entire update is completed before the display starts its refresh. That is only one frame is ever visible, preventing an unsightly tear between two visible and differing frames. Note that this replicates what the compositing manager should be doing, however TearFree will redirect the compositor  updates  (and  those of fullscreen games) directly on to the scanout thus incurring no additional overhead in the composited case. Also note that not all compositing managers prevent tearing, and if the outputs are rotated, there will still be tearing without TearFree enabled.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Barcode Content</title>
+      <link>https://aheimsbakk.github.io/post/20200811-barcode/</link>
+      <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200811-barcode/</guid>
+      <description>&lt;p&gt;&lt;em&gt;This is a copy from the &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;ZXing&lt;/a&gt; repo &lt;a href=&#34;https://github.com/zxing/zxing/wiki&#34;&gt;wiki pages&lt;/a&gt; at commit hash &lt;code&gt;3110236&lt;/code&gt;. &lt;a href=&#34;https://github.com/zxing&#34;&gt;ZXing&lt;/a&gt; is an open-source, multi-format 1D/2D barcode image processing library implemented in Java, with ports to other languages.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself &amp;ndash; QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.&lt;/p&gt;&#xA;&lt;p&gt;2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like &lt;code&gt;https://google.com/m&lt;/code&gt;. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learn Docker with LearnDocker.online</title>
+      <link>https://aheimsbakk.github.io/post/20200811-docker/</link>
+      <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200811-docker/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve seen a lot of learning resources for &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;. Personally I think this is one of the better resources for beginners. Enjoy!&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from the website: &lt;em&gt;LearnDocker.online is the most comprehensive online Docker training program on the planet.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learndocker.online/&#34;&gt;LearnDocker.online&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>bmon - bandwidth monitor and rate estimator</title>
+      <link>https://aheimsbakk.github.io/post/20200807-bmon/</link>
+      <pubDate>Fri, 07 Aug 2020 23:47:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-bmon/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/tgraf/bmon&#34;&gt;bmon&lt;/a&gt; is a monitoring and debugging tool to capture networking related statistics and prepare them visually in a human friendly way.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ncdu - NCurses Disk Usage</title>
+      <link>https://aheimsbakk.github.io/post/20200807-ncdu/</link>
+      <pubDate>Fri, 07 Aug 2020 23:30:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-ncdu/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://dev.yorhel.nl/ncdu&#34;&gt;ncdu&lt;/a&gt; (NCurses Disk Usage) is a curses-based version of the well-known &lt;code&gt;du&lt;/code&gt;, and provides a fast way to see what directories are using your disk space.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>tldr - a supplement to man</title>
+      <link>https://aheimsbakk.github.io/post/20200807-tldr/</link>
+      <pubDate>Fri, 07 Aug 2020 14:22:43 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-tldr/</guid>
+      <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://tldr.sh/&#34;&gt;tldr.sh&lt;/a&gt;: &lt;em&gt;The tldr pages are a community effort to simplify the beloved man pages with practical examples.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Get more information at &lt;a href=&#34;https://github.com/tldr-pages/tldr&#34;&gt;tldr-pages at GitHub&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>e1000e: Detected Hardware Unit Hang</title>
+      <link>https://aheimsbakk.github.io/post/20200807-hardware-unit-hang/</link>
+      <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200807-hardware-unit-hang/</guid>
+      <description>&lt;p&gt;Are you, as I, suffering from &lt;em&gt;Detected Hardware Unit Hang&lt;/em&gt; in the kernel log from an e1000e network card? How do you notice it. A transfer goes to zero bytes for around 10 seconds, then restarts, then goes to zero, then restarts and so on&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Portable Hardware Locality (hwloc)</title>
+      <link>https://aheimsbakk.github.io/post/20200801-hwloc/</link>
+      <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200801-hwloc/</guid>
+      <description>&lt;p&gt;From the website: &lt;em&gt;The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, &amp;hellip;) of the &lt;strong&gt;hierarchical topology of modern architectures&lt;/strong&gt;, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.open-mpi.org/projects/hwloc/&#34;&gt;Portable Hardware Locality (hwloc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Install the GUI on Fedora.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>List CPU vulnerabilities</title>
+      <link>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</link>
+      <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200731-vulnerabilities/</guid>
+      <description>&lt;p&gt;Oneliner to list your CPU vulnerabilities and mitigations. Read more about the different vulnerabilities and mitigations at &lt;a href=&#34;https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html&#34;&gt;Hardware vulnerabilities&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bootstrap Debian VM with virt-install</title>
+      <link>https://aheimsbakk.github.io/post/20200730-libvirt-bootstrap/</link>
+      <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200730-libvirt-bootstrap/</guid>
+      <description>&lt;p&gt;Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.&lt;/p&gt;&#xA;&lt;h2 id=&#34;preparations&#34;&gt;Preparations&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-software&#34;&gt;Install software&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;libvirt&lt;/code&gt; is already installed on Fedora 32. It&amp;rsquo;s used in Gnome Boxes. We will not use that for this. We&amp;rsquo;ll do it the old fashioned way with &lt;code&gt;virt-install&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf install -y virt-manager virt-install&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;user-access-to-libvirt&#34;&gt;User access to &lt;code&gt;libvirt&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Add your user to the group &lt;code&gt;libvirt&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo usermod -aG libvirtd &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a default &lt;code&gt;preseed.cfg&lt;/code&gt; file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition. This file can be reused to your hearts desire.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Libvirt and Vagrant</title>
+      <link>https://aheimsbakk.github.io/post/20200728-vagrant-libvirt/</link>
+      <pubDate>Tue, 28 Jul 2020 15:43:42 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200728-vagrant-libvirt/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://libvirt.org/&#34;&gt;Libvirt&lt;/a&gt; is the default toolkit to manage virtualization platforms on Linux. Libvirt and &lt;a href=&#34;https://www.qemu.org/&#34;&gt;qemu&lt;/a&gt; is a great combination with &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. It&amp;rsquo;s the default combination on most &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux&#34;&gt;Linux&lt;/a&gt; systems, also on my favorite - &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This combination allows for some awesome features and some restrictions. One of the restrictions is that &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; isn&amp;rsquo;t available as a box, but &lt;a href=&#34;https://www.debian.org/&#34;&gt;Debian&lt;/a&gt; is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.&lt;/p&gt;&#xA;&lt;p&gt;The biggest feature is that it allows for more permanent development environments and direct connection to already existing &lt;a href=&#34;https://en.wikipedia.org/wiki/Bridging_(networking)&#34;&gt;network bridges&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vagrant with Ubuntu Focal (20.04)</title>
+      <link>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</link>
+      <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.&lt;/p&gt;&#xA;&lt;p&gt;There is a bug in the latest version of &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; (&lt;a href=&#34;https://app.vagrantup.com/boxes/search&#34;&gt;Vagrant Box&lt;/a&gt;) that makes it hang during boot. It even hangs the &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design an online ransomware safe backup with restic</title>
+      <link>https://aheimsbakk.github.io/post/20190911-restic/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20190911-restic/</guid>
+      <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH with YubiKey NEO on Fedora made easy</title>
+      <link>https://aheimsbakk.github.io/post/20180105-yubikey/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20180105-yubikey/</guid>
+      <description>&lt;p&gt;Your private SSH key is the key for the kingdom. This means always having a password on the key. With &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt;, you can keep your secret key outside your machine too.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Wikipedia: &lt;em&gt;The &lt;a href=&#34;https://www.yubico.com/&#34;&gt;YubiKey&lt;/a&gt; allows users to sign, encrypt and decrypt messages without exposing the private keys to the outside world.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a short &lt;a href=&#34;https://en.wikipedia.org/wiki/How-to&#34;&gt;how-to&lt;/a&gt; to get startet with using Yubikey to SSH into your servers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;yubikey-as-private-ssh-key&#34;&gt;YubiKey as private SSH key&lt;/h2&gt;&#xA;&lt;h3 id=&#34;pre-requests&#34;&gt;Pre requests&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install the YubiKey management software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Distributed syncing with Syncthing</title>
+      <link>https://aheimsbakk.github.io/post/20160326-syncthing/</link>
+      <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20160326-syncthing/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve tried to ditch &lt;a href=&#34;https://dropbox.com/&#34;&gt;Dropbox&lt;/a&gt; for a long time. But the need for synchronizing folders between my computers have held me back. &lt;a href=&#34;https://syncthing.net/&#34;&gt;Syncthing&lt;/a&gt; solves this for me. It&amp;rsquo;s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Syncthings homepage: &lt;em&gt;Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it&amp;rsquo;s transmitted over the Internet.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Compressed RAM based block devices</title>
+      <link>https://aheimsbakk.github.io/post/20150111-zram/</link>
+      <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20150111-zram/</guid>
+      <description>&lt;p&gt;From &lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zramID (ID = 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;example-of-compressed-swap-in-memory&#34;&gt;Example of compressed swap in memory&lt;/h1&gt;&#xA;&lt;p&gt;Write this commands in &lt;code&gt;/etc/rc.local&lt;/code&gt; to create a 2G compressed swap partition in memory.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Record a PulseAudio sound stream</title>
+      <link>https://aheimsbakk.github.io/post/20150110-pa/</link>
+      <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20150110-pa/</guid>
+      <description>&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/PulseAudio&#34;&gt;PulseAudio&lt;/a&gt; sound server in your desktop makes this quite easy.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to &lt;a href=&#34;https://en.wikipedia.org/wiki/Flac&#34; title=&#34;Free Lossless Audio Codec&#34;&gt;FLAC&lt;/a&gt; audio file. After the capture is started, you can start playing sound from other programs. It won&amp;rsquo;t interfere with the current capture.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vagrant with OpenStack</title>
+      <link>https://aheimsbakk.github.io/post/20141218-vagrant-openstack/</link>
+      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141218-vagrant-openstack/</guid>
+      <description>&lt;p&gt;If you want to use &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; with &lt;a href=&#34;http://www.openstack.org&#34;&gt;OpenStack&lt;/a&gt;, you need to prepare &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; with installing the &lt;a href=&#34;https://github.com/cloudbau/vagrant-openstack-plugin&#34;&gt;vagrant-openstack-plugin&lt;/a&gt;. I had some problems installing it directly through &lt;code&gt;vagrant plugin install&lt;/code&gt;. I had to clone it from &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt; and install it manually.&lt;/p&gt;&#xA;&lt;h2 id=&#34;one-time-configuration&#34;&gt;One time configuration&lt;/h2&gt;&#xA;&lt;h3 id=&#34;install-openstack-plugin-in-vagrant&#34;&gt;Install OpenStack plugin in Vagrant&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /tmp&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/cloudbau/vagrant-openstack-plugin&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; vagrant-openstack-plugin&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gem build vagrant-openstack-plugin.gemspec&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant plugin install vagrant-openstack-plugin-*.gem&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add a dummy box to &lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vagrant&lt;/a&gt; thats needed by the plugin.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant box add dummy https://github.com/cloudbau/vagrant-openstack-plugin/raw/master/dummy.box&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;download-openstack-rc-file&#34;&gt;Download OpenStack RC file&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Log into OpenStack&lt;/li&gt;&#xA;&lt;li&gt;Download OpenStack API RC file&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Go to &lt;code&gt;Project&lt;/code&gt; -&amp;gt; &lt;code&gt;Compute&lt;/code&gt; -&amp;gt; &lt;code&gt;Access &amp;amp; Security&lt;/code&gt; -&amp;gt; &lt;code&gt;API Access&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Down RC file by hitting &lt;code&gt;Download OpenStack RC File&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Put &lt;code&gt;$USER-openrc.sh&lt;/code&gt; in your &lt;code&gt;~/&lt;/code&gt; or somewhere you prefer&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;configure-a-vagrant-vm&#34;&gt;Configure a Vagrant VM&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vagrantfile&#34;&gt;Vagrantfile&lt;/h3&gt;&#xA;&lt;p&gt;This is a default generic Vagrant file which starts a &lt;code&gt;m1.tiny&lt;/code&gt; flavor image of Ubuntu Utopic. It requires that you already have added your ssh key to OpenStack. Please add your ssh key with the name &lt;code&gt;$USER_ssh_key&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fio - flexible I/O tester</title>
+      <link>https://aheimsbakk.github.io/post/20141215-fio/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141215-fio/</guid>
+      <description>&lt;p&gt;From man page: &lt;code&gt;fio&lt;/code&gt; &lt;em&gt;is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This example only show how to use &lt;code&gt;fio&lt;/code&gt; to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Power saving on laptop</title>
+      <link>https://aheimsbakk.github.io/post/20141214-powersave/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141214-powersave/</guid>
+      <description>&lt;p&gt;Notes for power saving on my i5 laptop.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>View Google Earth in the browser</title>
+      <link>https://aheimsbakk.github.io/post/20140619-webgl/</link>
+      <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140619-webgl/</guid>
+      <description>&lt;p&gt;Google now supports Google Earth in Google Maps. As far as I know it works in &lt;a href=&#34;https://en.wikipedia.org/wiki/Google_Chrome&#34;&gt;Chrome&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Chromium_%28web_browser%29&#34;&gt;Chromium&lt;/a&gt;. If Google Earth isn&amp;rsquo;t available where the satellite view options is, your graphic card is in the browsers blacklist.&lt;/p&gt;&#xA;&lt;p&gt;To force enabling &lt;a href=&#34;https://en.wikipedia.org/wiki/WebGL&#34;&gt;WebGL&lt;/a&gt; in the browser start it with the following options&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chromium-browser --enable-webgl --ignore-gpu-blacklist&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you can use Google Earth in &lt;a href=&#34;https://maps.google.com&#34;&gt;maps.google.com&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vagrant, development environments made easy</title>
+      <link>https://aheimsbakk.github.io/post/20140525-vagrant/</link>
+      <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140525-vagrant/</guid>
+      <description>&lt;p&gt;Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; &lt;code&gt;sudo apt-get install virtualbox&lt;/code&gt; first, you&amp;rsquo;ll be up and running in no time.&lt;/p&gt;&#xA;&lt;p&gt;Vagrant do profile itself for developers, but &lt;a href=&#34;https://en.wikipedia.org/wiki/Sysadmin&#34; title=&#34;System administrator&#34;&gt;sysadmin&lt;/a&gt;s has much to gain by using such tools to make life easier for themselves. Automation and reproducibility is key concepts in modern system administration. We need to think more and more like developers, as much as developers need to think more and more like &lt;a href=&#34;https://en.wikipedia.org/wiki/Sysadmin&#34; title=&#34;System administrator&#34;&gt;sysadmin&lt;/a&gt;s.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Only Firefox is safe post Heartblead</title>
+      <link>https://aheimsbakk.github.io/post/20140512-revocation/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140512-revocation/</guid>
+      <description>&lt;p&gt;o&lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt; have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both &lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt;&amp;rsquo;s article on &lt;a href=&#34;https://www.grc.com/revocation/crlsets.htm&#34;&gt;An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets&lt;/a&gt; and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer &lt;a href=&#34;https://www.imperialviolet.org/2014/04/29/revocationagain.html&#34;&gt;Revocation still doesn&amp;rsquo;t work&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.grc.com/revocation.htm&#34;&gt;Security Certificate - Revocation Awareness Test&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Listen to &lt;a href=&#34;https://www.grc.com/securitynow.htm&#34;&gt;Security Now!&lt;/a&gt; episode 454 &lt;a href=&#34;https://www.grc.com/securitynow.htm#454&#34;&gt;Certificate Revocation Part 2&lt;/a&gt; in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Flashing a custom rom on Nexus 4</title>
+      <link>https://aheimsbakk.github.io/post/20140511-rootnexus/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140511-rootnexus/</guid>
+      <description>&lt;p&gt;Flashing a custom image on an &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. &lt;strong&gt;Then don&amp;rsquo;t!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-bad-and-the-good&#34;&gt;The bad and the good&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m only pointing out some of the cons and the pros here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;negative-sides&#34;&gt;Negative sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An OS image could contain &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt;; only use community trusted images.&lt;/li&gt;&#xA;&lt;li&gt;If you don&amp;rsquo;t pay attention you can get &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt; running as root. That&amp;rsquo;s B A D !&lt;/li&gt;&#xA;&lt;li&gt;May not have all the phones vendor functionality.&lt;/li&gt;&#xA;&lt;li&gt;The image may be buggy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;consequences-of-a-buggy-image&#34;&gt;Consequences of a buggy image&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lock up your phone when you least expect it.&lt;/li&gt;&#xA;&lt;li&gt;Drain the battery quicker.&lt;/li&gt;&#xA;&lt;li&gt;Suddenly reboot.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;positive-sides&#34;&gt;Positive sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You can get a newer more secure operating system.&lt;/li&gt;&#xA;&lt;li&gt;Use less battery.&lt;/li&gt;&#xA;&lt;li&gt;No &lt;a href=&#34;https://en.wikipedia.org/wiki/Crapware&#34; title=&#34;Pre-installed software&#34;&gt;crapware&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Extra security functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;flashing-cyanogenmod&#34;&gt;Flashing CyanogenMod&lt;/h2&gt;&#xA;&lt;p&gt;One of the custom &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; images based on &lt;a href=&#34;https://source.android.com&#34; title=&#34;Android Open Source Project&#34;&gt;AOSP&lt;/a&gt; is &lt;a href=&#34;http://www.cyanogenmod.org&#34;&gt;CyanogenMod&lt;/a&gt;. As I know, it&amp;rsquo;s one of the more used ones. Quite stable if you keep away from the &lt;a href=&#34;https://en.wikipedia.org/wiki/Nightlies&#34; title=&#34;Neutral build&#34;&gt;nightlies&lt;/a&gt; and rich on functionality but not bloated.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OCSP Stapling on Apache</title>
+      <link>https://aheimsbakk.github.io/post/20140504-ocsp/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140504-ocsp/</guid>
+      <description>&lt;p&gt;Excerpt from Remy van Elsts tutorial: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; stapling is an enhancement to the standard &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; protocol that delivers &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses from the server with the certificate, eliminating the need for relying parties (web users) to check &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses with the issuing &lt;a href=&#34;https://en.wikipedia.org/wiki/Certificate_Authority&#34; title=&#34;Certificate authority&#34;&gt;CA&lt;/a&gt;. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with &lt;a href=&#34;http://httpd.apache.org&#34;&gt;Apache&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Auto generate Pelican blog from Dropbox</title>
+      <link>https://aheimsbakk.github.io/post/20140503-dropbox/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140503-dropbox/</guid>
+      <description>&lt;p&gt;This is my notes for how to update my &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog automaticlly when I write new posts. See &lt;a href=&#34;2014-04-12-pelican&#34;&gt;Creating a blog based on Pelican&lt;/a&gt; for getting started with &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; blog engine.&lt;/p&gt;&#xA;&lt;p&gt;A way to be able to blog from anywhere is to use &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; as repository for the your blog. Then let &lt;a href=&#34;http://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; auto regenerate the blog on changes in the &lt;a href=&#34;https://www.dropbox.com&#34;&gt;Dropbox&lt;/a&gt; folder.&lt;/p&gt;&#xA;&lt;p&gt;A prerequest for this recipe is that &lt;code&gt;/var/www&lt;/code&gt; is not directly exposed to the web.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to get A&#43; on SSL Labs</title>
+      <link>https://aheimsbakk.github.io/post/20140503-ssl/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140503-ssl/</guid>
+      <description>&lt;p&gt;This will show how to get A+ on &lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt; from &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Configuring OpenVPN server on RTN66U</title>
+      <link>https://aheimsbakk.github.io/post/20140501-easyrsa/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140501-easyrsa/</guid>
+      <description>&lt;p&gt;The router firmware Tomato, see previous post &lt;a href=&#34;2014-04-17-tomato&#34;&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;&#xA;&lt;p&gt;Using open &lt;a href=&#34;https://en.wikipedia.org/wiki/Wifi&#34; title=&#34;Wi-Fi&#34;&gt;Wi-Fi&lt;/a&gt; access points can be very useful and necessary, but it is inherently insecure. Using the router as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server can increase your privacy and security when you are on the go. By creating an encrypted &lt;a href=&#34;https://en.wikipedia.org/wiki/Vpn&#34; title=&#34;Virtual Private Network&#34;&gt;VPN&lt;/a&gt; connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Better entropy with haveged</title>
+      <link>https://aheimsbakk.github.io/post/20140429-haveged/</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140429-haveged/</guid>
+      <description>&lt;p&gt;Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a &lt;a href=&#34;https://en.wikipedia.org/wiki/TRNG&#34; title=&#34;True Random Number Generator&#34;&gt;TRNG&lt;/a&gt; than a &lt;a href=&#34;https://en.wikipedia.org/wiki/PRNG&#34; title=&#34;PseudoRandom Number Generator&#34;&gt;PRNG&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RT-N66u with Tomato by Shibby firmware</title>
+      <link>https://aheimsbakk.github.io/post/20140417-tomato/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140417-tomato/</guid>
+      <description>&lt;p&gt;&lt;em&gt;This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don&amp;rsquo;t know what you are doing. Do not proceed.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Asus &lt;a href=&#34;http://www.asus.com/Networking/RTN66U&#34;&gt;RT-N66U&lt;/a&gt; is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better &lt;a href=&#34;http://en.wikipedia.org/wiki/Quality_of_service&#34; title=&#34;Quality of service&#34;&gt;QoS&lt;/a&gt;, &lt;a href=&#34;http://openvpn.net&#34;&gt;OpenVPN&lt;/a&gt; or just more control over the network I recommend installing &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; firmware.&lt;/p&gt;&#xA;&lt;p&gt;Download the latest version of the firmware from &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt;. Look for &lt;code&gt;Asus RT-N66u 64k&lt;/code&gt; in the version folder in &lt;a href=&#34;http://tomato.groov.pl/download/K26RT-N&#34;&gt;K26RT-N&lt;/a&gt; repository.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find duplicate files</title>
+      <link>https://aheimsbakk.github.io/post/20140413-duplicates/</link>
+      <pubDate>Sun, 13 Apr 2014 21:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-duplicates/</guid>
+      <description>&lt;p&gt;Find all duplicate files in current and sub-directories with bash.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Remove unused kernels</title>
+      <link>https://aheimsbakk.github.io/post/20140413-kernel/</link>
+      <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-kernel/</guid>
+      <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash getopts example</title>
+      <link>https://aheimsbakk.github.io/post/20140413-getopts/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-getopts/</guid>
+      <description>&lt;p&gt;This is a small example how to use getopts in bash. I wrote it down for my own sake, as my own cheatsheet :)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cloud virtual machine</title>
+      <link>https://aheimsbakk.github.io/post/20140413-digitalocea/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-digitalocea/</guid>
+      <description>&lt;p&gt;Easiest way I know to create cloud virtual machine is to create a Droplet on Digital Ocean.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/?refcode=2c2348527899&#34;&gt;DigialOcean&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Modeline in vim</title>
+      <link>https://aheimsbakk.github.io/post/20140413-modeline/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-modeline/</guid>
+      <description>&lt;p&gt;Options set in &lt;code&gt;.vimrc&lt;/code&gt; applies to all vim files. You can use modelines to set specific vim options for one file. Modeline option must be set in &lt;code&gt;.vimrc&lt;/code&gt; to take advantage of this option.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSL Server Test</title>
+      <link>https://aheimsbakk.github.io/post/20140413-ssllabs/</link>
+      <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140413-ssllabs/</guid>
+      <description>&lt;p&gt;Run &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt; test to test the strength and combability of SSL certificate.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Creating a blog based on Pelican</title>
+      <link>https://aheimsbakk.github.io/post/20140412-pelican/</link>
+      <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140412-pelican/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://getpelican.com&#34;&gt;Pelican&lt;/a&gt; is a static website generator written in Python. It&amp;rsquo;s perfect for maintaining a tiny blog without having to mess around with databases. Static pages can be served from any Web server. Even your wireless router if you run custom firmware as &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; or &lt;a href=&#34;http://www.dd-wrt.com&#34;&gt;dd-wrt&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Running Ubuntu Trusty I chose to use Pelican package in repository. A very quick recipe for creating a blog with the default theme.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install Pelican and package for &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;Markdown&lt;/a&gt; language. With Markdown you write the content in text and Pelican translates it to HTML.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scaling in the Linux Networking Stack</title>
+      <link>https://aheimsbakk.github.io/post/20140412-link/</link>
+      <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20140412-link/</guid>
+      <description>&lt;p&gt;Documentation for increaseing parallelism and performance for multi-processor systems.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/html/latest/networking/scaling.html&#34;&gt;scaling.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Kollektiv Sanntid</title>
+      <link>https://aheimsbakk.github.io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/</guid>
+      <description>&lt;p&gt;Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kollektivsanntidorg&#34;&gt;&lt;a href=&#34;https://kollektiv.sanntid.org&#34;&gt;kollektiv.sanntid.org&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;This app uses data from &lt;a href=&#34;https://developer.entur.org/&#34;&gt;Entur&lt;/a&gt; to show live departures from Norwegian public transport. It&amp;rsquo;s built with the &lt;a href=&#34;https://developer.entur.org/pages-journeyplanner-journeyplanner&#34;&gt;JourneyPlanner API&lt;/a&gt; and is the first app I&amp;rsquo;ve created using vibe coding.&lt;/p&gt;&#xA;&lt;h3 id=&#34;finding-your-station&#34;&gt;Finding Your Station&lt;/h3&gt;&#xA;&lt;p&gt;There are two ways to pick a station:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;By name&lt;/strong&gt; — click the &lt;strong&gt;⚙️ settings&lt;/strong&gt; button in the top right, type in the &lt;strong&gt;Station or stop name&lt;/strong&gt; field, and select from the dropdown suggestions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

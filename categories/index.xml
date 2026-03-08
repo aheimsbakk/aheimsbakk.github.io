@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/categories/</link>
+    <description>Recent content in Categories on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://aheimsbakk.github.io/categories/blog/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uris</title>
+      <link>https://aheimsbakk.github.io/categories/uris/</link>
+      <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/categories/uris/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

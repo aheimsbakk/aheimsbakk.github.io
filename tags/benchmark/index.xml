@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Benchmark on sanntid.org</title>
+    <link>https://aheimsbakk.github.io/tags/benchmark/</link>
+    <description>Recent content in Benchmark on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Mon, 15 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://aheimsbakk.github.io/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fio - flexible I/O tester</title>
+      <link>https://aheimsbakk.github.io/post/20141215-fio/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://aheimsbakk.github.io/post/20141215-fio/</guid>
+      <description>&lt;p&gt;From man page: &lt;code&gt;fio&lt;/code&gt; &lt;em&gt;is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user. The typical use of fio is to write a job file matching the I/O load one wants to simulate.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This example only show how to use &lt;code&gt;fio&lt;/code&gt; to make reproduceable test on a file system. For me it&amp;rsquo;s been useful to catch changes in I/O throughput before and after a system has gone into production. Buy running the same tests on all systems the numbers are comparable.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
