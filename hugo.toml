@@ -9,7 +9,10 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
-paginate = 20
+
+[pagination]
+  pagerSize = 20
+  path = 'page'
 
 [Params]
   homeTitle = "Realtime" 
@@ -28,7 +31,7 @@ paginate = 20
   delayDisqus = false
   showRelatedPosts = true
 #  cusdisID = "XXX" # Get your App id from cusdis.com
-   hideAuthor = true
+  hideAuthor = true
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 #  disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way."
 
@@ -56,15 +59,12 @@ paginate = 20
   threshold = 80
   includeNewer = true
   toLower = true
-  count = 10  # Change this to your desired number
 
 [[related.indices]]
   name = "tags"
+  cardinalityThreshold = 50
   weight = 100
 
-[[related.indices]]
-  name = "date"
-  weight = 10
 
 [[menu.main]]
     identifier = "apps"
