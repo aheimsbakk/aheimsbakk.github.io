@@ -142,17 +142,16 @@ setup_worktree() {
     git worktree add -B gh-pages public origin/gh-pages
   else
     info "Creating orphan gh-pages branch..."
-    # --orphan in worktree add requires git >= 2.25; fall back for older versions
+    # git worktree add --orphan requires git >= 2.25;
+    # git switch --orphan (>= 2.23) clears index + worktree automatically.
     if git worktree add --orphan -b gh-pages public 2>/dev/null; then
       git -C public commit --allow-empty -m "chore: initialize gh-pages branch"
     else
       local cur
       cur=$(git symbolic-ref --short HEAD)
-      git checkout --orphan gh-pages
-      git rm -rf . --quiet 2>/dev/null || true
-      git clean -fdx --quiet 2>/dev/null || true
+      git switch --orphan gh-pages
       git commit --allow-empty -m "chore: initialize gh-pages branch"
-      git checkout "$cur"
+      git switch "$cur"
       git worktree add public gh-pages
     fi
   fi
