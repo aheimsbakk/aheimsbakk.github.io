@@ -9,6 +9,7 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
+paginate = 20
 
 [Params]
   homeTitle = "Realtime" 
