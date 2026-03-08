@@ -173,10 +173,11 @@ teardown_worktree() {
 do_build() {
   setup_worktree
 
-  # When deploying, wipe the worktree first so only Hugo output lands on gh-pages
+  # When deploying, wipe the worktree first so only Hugo output lands on gh-pages.
+  # Use a plain filesystem wipe instead of git-rm/git-clean so that nested git
+  # repos (e.g. themes/beautifulhugo as a submodule) are also removed correctly.
   if [[ "$PUSH" == true ]]; then
-    git -C public rm -rf . --quiet 2>/dev/null || true
-    git -C public clean -fdx --quiet 2>/dev/null || true
+    find public -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
     info "Cleared gh-pages worktree for clean deploy"
   fi
 

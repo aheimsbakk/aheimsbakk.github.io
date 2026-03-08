@@ -38,7 +38,7 @@ Everything after `--` is forwarded verbatim to Hugo.
 1. Ensure Hugo binary exists (download if needed).
 2. Auto-init any uninitialised git submodules.
 3. Mount `public/` as a git worktree on `gh-pages` (see Worktree section).
-4. If `--push`: wipe the worktree (`git rm -rf .` + `git clean -fdx`) so only Hugo output lands on gh-pages.
+4. If `--push`: wipe the worktree with a plain filesystem operation (`find public -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +`) so only Hugo output lands on gh-pages. This correctly handles nested git repos (e.g. theme submodules) that `git rm`/`git clean` cannot reliably remove.
 5. Create `public/.nojekyll` if absent.
 6. Run `hugo [--cleanDestinationDir] [extra args]`.
 7. If `--push`: `git add -A && git commit -m "deploy: build from <branch>@<sha>"` inside `public/`, then push both branches to origin.

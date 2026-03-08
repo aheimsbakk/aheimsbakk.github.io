@@ -152,6 +152,43 @@ NCOMMITS=$(git log --oneline gh-pages | wc -l | tr -d '[:space:]')
 
 # ══════════════════════════════════════════════════════════════════════════
 echo ""
+echo "── Test 5: origin/gh-pages polluted with a nested git repo (submodule) ─"
+make_repo t5
+cd "${TMPROOT}/t5"
+
+# Simulate a polluted gh-pages that contains a nested git repo (themes/beautifulhugo).
+# Push source files + a nested .git dir to origin/gh-pages so the wipe must handle it.
+main_tree=$(git rev-parse HEAD^{tree})
+polluted=$(git commit-tree "$main_tree" -m "polluted: source files in gh-pages")
+git push -q origin "${polluted}:refs/heads/gh-pages"
+
+# Check out gh-pages locally, add a fake nested git repo, push, then clean up local branch
+git worktree add _tmp_ghp gh-pages
+mkdir -p _tmp_ghp/themes/beautifulhugo
+git init -q _tmp_ghp/themes/beautifulhugo
+echo "# theme" > _tmp_ghp/themes/beautifulhugo/README.md
+# Commit the nested repo's dummy file (git won't track it as a submodule without .gitmodules,
+# but it will be a directory with a .git inside — exactly the submodule scenario)
+git -C _tmp_ghp add hugo.toml content archetypes
+git -C _tmp_ghp commit -q --allow-empty -m "polluted: add nested .git in themes/"
+git push -q origin gh-pages
+git worktree remove _tmp_ghp --force
+
+bash build.sh --push
+
+FILES=$(branch_files gh-pages)
+no_source_leak "$FILES" \
+  && pass "nested-git wipe: no source files on gh-pages" \
+  || fail "nested-git wipe: source files leaked onto gh-pages"
+printf '%s\n' "$FILES" | grep -q "^index\.html$" \
+  && pass "nested-git wipe: Hugo output present" \
+  || fail "nested-git wipe: Hugo output missing"
+printf '%s\n' "$FILES" | grep -E "^themes/" > /dev/null 2>&1 \
+  && fail "nested-git wipe: themes/ dir still present on gh-pages" \
+  || pass "nested-git wipe: themes/ dir cleanly removed"
+
+# ══════════════════════════════════════════════════════════════════════════
+echo ""
 printf "Results: \033[32m%d passed\033[0m, " "$PASS"
 [[ "$FAIL" -gt 0 ]] \
   && printf "\033[31m%d failed\033[0m\n" "$FAIL" \
