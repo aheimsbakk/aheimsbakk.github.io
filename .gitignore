@@ -1,0 +1,5 @@
+# Don't add build
+public/*
+
+# Ignore temporary files
+*lock

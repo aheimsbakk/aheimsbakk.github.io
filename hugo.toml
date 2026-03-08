@@ -1,0 +1,105 @@
+baseurl = "https://aheimsbakk.github.io"
+DefaultContentLanguage = "nb"
+title = "sanntid.org"
+theme = "beautifulhugo"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
+
+[Params]
+  homeTitle = "Realtime" 
+  subtitle = "ramblings of a sysadmin"
+  mainSections = ["post","posts"]
+  logo = "img/avatar.png"
+  favicon = "img/favicon.ico"
+  dateFormat = "2006-01-02"
+  commit = false
+  rss = true
+  comments = false
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = false
+  delayDisqus = false
+  showRelatedPosts = true
+#  cusdisID = "XXX" # Get your App id from cusdis.com
+   hideAuthor = true
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+#  disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way."
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Params.author]
+  name = "Arnulf Heimsbakk"
+  website = "sanntid.com"
+  email = "arnulf.heimsbakk@gmail.com"
+  github = "aheimsbakk"
+  linkedin = "arnulfheimsbakk"
+  mastodon = "https://infosec.exchange/@arnulf"
+
+
+[[menu.main]]
+    identifier = "apps"
+    name = "Applications"
+    weight = 1
+
+
+[[menu.main]]
+    parent = "apps"
+    name = "Kollektiv Sanntid"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 4
+
+[[menu.main]]
+    name = "Uris"
+    url = "categories/uris"
+    weight = 3
+
+[[menu.main]]
+    name = "Blog"
+    url = "/categories/blog"
+    weight = 3
+
+[[menu.main]]
+    name = "About"
+    url = "page/about"
+    weight = 5
+
+
+# [[menu.main]]
+#    parent = "samples"
+#    name = "Big Image Sample"
+#    url = "post/2017-03-07-bigimg-sample"
+#    weight = 1
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Math Sample"
+#    url = "post/2017-03-05-math-sample"
+#    weight = 2
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Code Sample"
+#    url = "post/2016-03-08-code-sample"
+#    weight = 3
+

@@ -1,0 +1,28 @@
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+span {
+  font-size: 16px;
+}
+
+/* Remove the shadow from the container/border */
+.navbar-custom .avatar-container .avatar-img-border {
+  width: 100%;
+  border-radius: 50%;
+  margin-left: -50%;
+  display: inline-block;
+  box-shadow: none; /* Shadow removed from here */
+}
+
+/* Apply the shadow directly to the image */
+.navbar-custom .avatar-container .avatar-img {
+  width: 100%;
+  border-radius: 0%;
+  display: block;
+
+  /* Remove box-shadow and use drop-shadow instead */
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
+  -webkit-filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
+}
