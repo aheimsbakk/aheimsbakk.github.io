@@ -1,6 +1,8 @@
 ---
 title: About
 subtitle: Hello there....
+bigimg:
+  - src: /img/bigme/about.webp
 ---
 
 This blog is mostly updated with stuff I don't want to forget. The content is configuration snippets or links for use at home. For more examples of what I do visit my [GithHub page](https://github.com/aheimsbakk/).

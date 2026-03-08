@@ -5,7 +5,6 @@ draft: false
 categories:
   - uris
 tags:
-  - link
   - network
 ---
 

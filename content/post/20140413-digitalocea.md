@@ -5,7 +5,6 @@ draft: false
 categories:
   - uris
 tags:
-  - link
 ---
 
 Easiest way I know to create cloud virtual machine is to create a Droplet on Digital Ocean.

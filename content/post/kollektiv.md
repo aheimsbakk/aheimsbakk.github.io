@@ -4,7 +4,7 @@ subtitle: Real-time public transport departure board for Norway
 type: page
 url: /
 bigimg:
-  - src: /img/bigme/tid.jpg
+  - src: /img/bigme/tid.webp
 ---
 
 Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.

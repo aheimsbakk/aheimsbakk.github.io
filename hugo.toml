@@ -1,5 +1,5 @@
 baseurl = "https://aheimsbakk.github.io"
-DefaultContentLanguage = "nb"
+DefaultContentLanguage = "en"
 title = "sanntid.org"
 theme = "beautifulhugo"
 pygmentsStyle = "trac"

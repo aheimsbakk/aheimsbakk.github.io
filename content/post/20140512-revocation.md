@@ -5,7 +5,6 @@ draft: false
 categories:
   - uris
 tags:
-  - link
   - security
 ---
 o[Steve Gibson] have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn't work. I recommend to read both [Steve Gibson]'s article on [An Evaluation of the Effectiveness of Chrome's CRLSets](https://www.grc.com/revocation/crlsets.htm) and Adam Langley's in my opinion a bit missplaced answer [Revocation still doesn't work](https://www.imperialviolet.org/2014/04/29/revocationagain.html).
