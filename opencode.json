@@ -1,0 +1,75 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+  "vibe": {
+      "description": "Interactive Copilot for fast, iterative pair-programming, coding, and debugging directly with the user.",
+      "mode": "primary",
+      "temperature": 0.3,
+      "prompt": "{file:./agents/prompts/vibe.md}",
+      "permission": {
+        "*": "allow",
+        "external_directory": "deny"  
+      }
+    },
+    "pm": {
+      "description": "Project Manager orchestrating the development process and communicating with the user",
+      "mode": "subagent",
+      "temperature": 0.0,
+      "prompt": "{file:./agents/prompts/pm.md}",
+      "permission": {
+        "*": "deny",
+        "read": "allow",
+        "task": "allow"
+      }
+    },
+    "brainstorm": {
+      "description": "Creative partner for bouncing ideas, discussing architecture, and solving open-ended problems",
+      "mode": "primary",
+      "temperature": 0.8,
+      "prompt": "{file:./agents/prompts/brainstorm.md}",
+      "permission": {
+        "*": "deny",
+        "read": "allow",
+        "task": "allow",
+        "question": "allow"
+      }
+    },
+    "architect": {
+      "description": "System Architect responsible for planning, API research, and blueprinting",
+      "mode": "subagent",
+      "temperature": 0.4,
+      "prompt": "{file:./agents/prompts/architect.md}",
+      "permission": {
+        "*": "allow",
+        "question": "deny",
+        "external_directory": "deny"  
+      }
+    },
+    "builder": {
+      "description": "Core Software Engineer implementing features and writing code",
+      "mode": "subagent",
+      "temperature": 0.2,
+      "prompt": "{file:./agents/prompts/builder.md}",
+      "permission": {
+        "*": "allow",
+        "external_directory": "deny"
+      }
+    },
+    "qa": {
+      "description": "Quality Assurance Engineer validating code, running tests, and checking hygiene",
+      "mode": "subagent",
+      "temperature": 0.0,
+      "prompt": "{file:./agents/prompts/qa.md}",
+      "permission": {
+        "*": "deny",
+        "read": "allow",
+        "list": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "bash": "allow",
+        "edit": "allow",
+        "lsp": "allow"
+      }
+    }
+  }
+}
