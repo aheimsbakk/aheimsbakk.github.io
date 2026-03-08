@@ -30,6 +30,8 @@ ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
   socialShare = false
   delayDisqus = false
   showRelatedPosts = true
+  related_content_limit = 5
+
 #  cusdisID = "XXX" # Get your App id from cusdis.com
   hideAuthor = true
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
@@ -54,17 +56,6 @@ ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
   github = "aheimsbakk"
   linkedin = "arnulfheimsbakk"
   mastodon = "https://infosec.exchange/@arnulf"
-
-[related]
-  threshold = 80
-  includeNewer = true
-  toLower = true
-
-[[related.indices]]
-  name = "tags"
-  cardinalityThreshold = 50
-  weight = 100
-
 
 [[menu.main]]
     identifier = "apps"
