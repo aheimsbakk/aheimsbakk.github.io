@@ -179,20 +179,6 @@ do_build() {
 
   info "Building Hugo site..."
   "$HUGO_BIN" "${hugo_args[@]+"${hugo_args[@]}"}"
-
-  local branch sha
-  branch=$(git symbolic-ref --short HEAD)
-  sha=$(git rev-parse --short HEAD)
-
-  git -C public add -A
-  if git -C public diff --cached --quiet; then
-    info "No changes to commit on gh-pages"
-  else
-    git -C public commit -m "deploy: build from ${branch}@${sha}"
-    info "gh-pages committed"
-  fi
-
-  teardown_worktree
 }
 
 # ── Serve ──────────────────────────────────────────────────────────────────
@@ -203,8 +189,18 @@ do_serve() {
 
 # ── Push ───────────────────────────────────────────────────────────────────
 do_push() {
-  local cur
+  local cur sha
   cur=$(git symbolic-ref --short HEAD)
+  sha=$(git rev-parse --short HEAD)
+
+  git -C public add -A
+  if git -C public diff --cached --quiet; then
+    info "No changes to commit on gh-pages"
+  else
+    git -C public commit -m "deploy: build from ${cur}@${sha}"
+    info "gh-pages committed"
+  fi
+
   info "Pushing ${cur} and gh-pages to origin..."
   git push origin "$cur"
   git push origin gh-pages
@@ -239,4 +235,5 @@ if [[ "$SERVE" == true ]]; then
 else
   do_build
   [[ "$PUSH" == true ]] && do_push
+  teardown_worktree
 fi

@@ -40,9 +40,8 @@ Everything after `--` is forwarded verbatim to Hugo.
 3. Mount `public/` as a git worktree on `gh-pages` (see Worktree section).
 4. Create `public/.nojekyll` if absent.
 5. Run `hugo [--cleanDestinationDir] [extra args]`.
-6. `git add -A && git commit -m "deploy: build from <branch>@<sha>"` inside `public/`.
+6. If `--push`: `git add -A && git commit -m "deploy: build from <branch>@<sha>"` inside `public/`, then push both branches to origin.
 7. Tear down worktree if `--remove-worktree` is set (default: keep mounted).
-8. If `--push`: push current source branch and `gh-pages` to `origin`.
 
 ---
 
