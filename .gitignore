@@ -1,5 +1,9 @@
-# Don't add build
-public/*
+# Don't add build in worktree
+public/
 
 # Ignore temporary files
 *lock
+
+# Hugo binary and download metadata (managed by build.sh)
+hugo
+.hugo_info
