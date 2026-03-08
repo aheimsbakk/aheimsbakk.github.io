@@ -11,7 +11,7 @@
 | `--hugo-version VERSION` | `-H` | `latest` | Hugo version to download |
 | `--extended` | `-e` | off | Use the extended Hugo edition (SCSS support) |
 | `--update` | `-u` | off | Re-download Hugo even if binary exists |
-| `--clean` | `-c` | off | Pass `--cleanDestinationDir` to Hugo |
+| `--clean` | `-c` | off | Remove all non-hidden files/dirs from `public/` before build (`.git` and `.nojekyll` are preserved) |
 | `--remove-worktree` | | off | Unmount `public/` worktree after build |
 | `--push` | | off | Push current branch + `gh-pages` to origin |
 | `--serve` | | off | Run `hugo server` instead of building |
@@ -39,7 +39,7 @@ Everything after `--` is forwarded verbatim to Hugo.
 2. Auto-init any uninitialised git submodules.
 3. Mount `public/` as a git worktree on `gh-pages` (see Worktree section).
 4. Create `public/.nojekyll` if absent.
-5. Run `hugo [--cleanDestinationDir] [extra args]`.
+5. Run `hugo [extra args]` (if `--clean` was used, non-hidden files/dirs were already removed from `public/` before this step).
 6. If `--push`: `git add -A && git commit -m "deploy: build from <branch>@<sha>"` inside `public/`, then push both branches to origin.
 7. Tear down worktree if `--remove-worktree` is set (default: keep mounted).
 

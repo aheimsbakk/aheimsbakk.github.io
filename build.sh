@@ -29,7 +29,7 @@ Options:
   -H, --hugo-version VERSION  Hugo version to download (default: latest)
   -e, --extended              Use the Hugo extended edition
   -u, --update                Re-download Hugo even if a binary already exists
-  -c, --clean                 Pass --cleanDestinationDir to Hugo on build
+  -c, --clean                 Remove all non-hidden files/dirs from public/ before build (keeps .git, .nojekyll)
       --remove-worktree       Remove public/ worktree after build (default: keep)
       --push                  Push current branch and gh-pages to origin
       --serve                 Run hugo server instead of building (includes --buildDrafts)
@@ -169,14 +169,30 @@ teardown_worktree() {
   fi
 }
 
+# ── Clean ──────────────────────────────────────────────────────────────────
+clean_public() {
+  info "Cleaning public/ (keeping .git and .nojekyll)..."
+  local entry
+  for entry in public/* public/.[!.]*; do
+    # Skip globs that matched nothing
+    [[ -e "$entry" || -L "$entry" ]] || continue
+    local name
+    name="$(basename "$entry")"
+    # Keep .git (worktree pointer) and .nojekyll
+    [[ "$name" == ".git" || "$name" == ".nojekyll" ]] && continue
+    rm -rf "$entry"
+  done
+}
+
 # ── Build ──────────────────────────────────────────────────────────────────
 do_build() {
   setup_worktree
 
   [[ -f "public/.nojekyll" ]] || { touch "public/.nojekyll"; info "Created .nojekyll"; }
 
+  [[ "$CLEAN" == true ]] && clean_public
+
   local hugo_args=()
-  [[ "$CLEAN" == true ]] && hugo_args+=(--cleanDestinationDir)
   [[ ${#EXTRA_ARGS[@]} -gt 0 ]] && hugo_args+=("${EXTRA_ARGS[@]}")
 
   info "Building Hugo site..."
