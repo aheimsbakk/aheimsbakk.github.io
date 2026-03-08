@@ -150,6 +150,7 @@ setup_worktree() {
       cur=$(git symbolic-ref --short HEAD)
       git checkout --orphan gh-pages
       git rm -rf . --quiet 2>/dev/null || true
+      git clean -fdx --quiet 2>/dev/null || true
       git commit --allow-empty -m "chore: initialize gh-pages branch"
       git checkout "$cur"
       git worktree add public gh-pages
@@ -170,6 +171,13 @@ teardown_worktree() {
 # ── Build ──────────────────────────────────────────────────────────────────
 do_build() {
   setup_worktree
+
+  # When deploying, wipe the worktree first so only Hugo output lands on gh-pages
+  if [[ "$PUSH" == true ]]; then
+    git -C public rm -rf . --quiet 2>/dev/null || true
+    git -C public clean -fdx --quiet 2>/dev/null || true
+    info "Cleared gh-pages worktree for clean deploy"
+  fi
 
   [[ -f "public/.nojekyll" ]] || { touch "public/.nojekyll"; info "Created .nojekyll"; }
 
