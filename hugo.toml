@@ -51,6 +51,19 @@ ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
   linkedin = "arnulfheimsbakk"
   mastodon = "https://infosec.exchange/@arnulf"
 
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = true
+  count = 10  # Change this to your desired number
+
+[[related.indices]]
+  name = "tags"
+  weight = 100
+
+[[related.indices]]
+  name = "date"
+  weight = 10
 
 [[menu.main]]
     identifier = "apps"

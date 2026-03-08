@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/home.md",
-                "mode": "preview",
+                "file": "post/20150111-zram.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "home"
+              "title": "20150111-zram"
             }
           }
         ]
@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -186,8 +185,8 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
-    "term/uris.md",
     "post/home.md",
+    "term/uris.md",
     "term",
     "page/about.md",
     "page/home.md.md",
