@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/android/</link>
+    <link>https://sanntid.org/tags/android/</link>
     <description>Recent content in Android on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Sun, 11 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flashing a custom rom on Nexus 4</title>
-      <link>https://aheimsbakk.github.io/post/20140511-rootnexus/</link>
+      <link>https://sanntid.org/post/20140511-rootnexus/</link>
       <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140511-rootnexus/</guid>
+      <guid>https://sanntid.org/post/20140511-rootnexus/</guid>
       <description>&lt;p&gt;Flashing a custom image on an &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; mobile could be just fun. But if you don&amp;rsquo;t know why you want to do it, or do it just because it&amp;rsquo;s a challenge. &lt;strong&gt;Then don&amp;rsquo;t!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-bad-and-the-good&#34;&gt;The bad and the good&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m only pointing out some of the cons and the pros here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;negative-sides&#34;&gt;Negative sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An OS image could contain &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt;; only use community trusted images.&lt;/li&gt;&#xA;&lt;li&gt;If you don&amp;rsquo;t pay attention you can get &lt;a href=&#34;https://en.wikipedia.org/wiki/Malware&#34; title=&#34;Malware&#34;&gt;malware&lt;/a&gt; running as root. That&amp;rsquo;s B A D !&lt;/li&gt;&#xA;&lt;li&gt;May not have all the phones vendor functionality.&lt;/li&gt;&#xA;&lt;li&gt;The image may be buggy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;consequences-of-a-buggy-image&#34;&gt;Consequences of a buggy image&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lock up your phone when you least expect it.&lt;/li&gt;&#xA;&lt;li&gt;Drain the battery quicker.&lt;/li&gt;&#xA;&lt;li&gt;Suddenly reboot.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;positive-sides&#34;&gt;Positive sides&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You can get a newer more secure operating system.&lt;/li&gt;&#xA;&lt;li&gt;Use less battery.&lt;/li&gt;&#xA;&lt;li&gt;No &lt;a href=&#34;https://en.wikipedia.org/wiki/Crapware&#34; title=&#34;Pre-installed software&#34;&gt;crapware&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Extra security functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;flashing-cyanogenmod&#34;&gt;Flashing CyanogenMod&lt;/h2&gt;&#xA;&lt;p&gt;One of the custom &lt;a href=&#34;https://en.wikipedia.org/wiki/Android_%28operating_system%29&#34; title=&#34;Android operating system&#34;&gt;Android&lt;/a&gt; images based on &lt;a href=&#34;https://source.android.com&#34; title=&#34;Android Open Source Project&#34;&gt;AOSP&lt;/a&gt; is &lt;a href=&#34;http://www.cyanogenmod.org&#34;&gt;CyanogenMod&lt;/a&gt;. As I know, it&amp;rsquo;s one of the more used ones. Quite stable if you keep away from the &lt;a href=&#34;https://en.wikipedia.org/wiki/Nightlies&#34; title=&#34;Neutral build&#34;&gt;nightlies&lt;/a&gt; and rich on functionality but not bloated.&lt;/p&gt;</description>
     </item>
   </channel>

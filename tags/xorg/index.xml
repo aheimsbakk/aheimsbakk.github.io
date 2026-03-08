@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xorg on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/xorg/</link>
+    <link>https://sanntid.org/tags/xorg/</link>
     <description>Recent content in Xorg on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Tue, 11 Aug 2020 22:48:52 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/xorg/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/xorg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tear free desktop on Intel graphics</title>
-      <link>https://aheimsbakk.github.io/post/20200811-tearfree/</link>
+      <link>https://sanntid.org/post/20200811-tearfree/</link>
       <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200811-tearfree/</guid>
+      <guid>https://sanntid.org/post/20200811-tearfree/</guid>
       <description>&lt;p&gt;Excerpt from &lt;code&gt;man intel&lt;/code&gt;, option &amp;ldquo;TearFree&amp;rdquo;: &lt;em&gt;Disable or enable TearFree updates. This option forces X to perform all rendering to a backbuffer prior to updating the actual display. It requires an extra memory allocation  the  same size as a framebuffer, the occasional extra copy, and requires Damage tracking. Thus enabling TearFree requires more memory and is slower (reduced throughput) and introduces a small amount of output latency, but it should not impact input latency. However, the update to the screen is then performed  synchronously  with  the vertical  refresh  of  the  display  so  that  the  entire update is completed before the display starts its refresh. That is only one frame is ever visible, preventing an unsightly tear between two visible and differing frames. Note that this replicates what the compositing manager should be doing, however TearFree will redirect the compositor  updates  (and  those of fullscreen games) directly on to the scanout thus incurring no additional overhead in the composited case. Also note that not all compositing managers prevent tearing, and if the outputs are rotated, there will still be tearing without TearFree enabled.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>

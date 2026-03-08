@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Firmware on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/firmware/</link>
+    <link>https://sanntid.org/tags/firmware/</link>
     <description>Recent content in Firmware on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Thu, 17 Apr 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RT-N66u with Tomato by Shibby firmware</title>
-      <link>https://aheimsbakk.github.io/post/20140417-tomato/</link>
+      <link>https://sanntid.org/post/20140417-tomato/</link>
       <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140417-tomato/</guid>
+      <guid>https://sanntid.org/post/20140417-tomato/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a part of my personal notes. Use this information at your own risk. If you are uncertain or don&amp;rsquo;t know what you are doing. Do not proceed.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Asus &lt;a href=&#34;http://www.asus.com/Networking/RTN66U&#34;&gt;RT-N66U&lt;/a&gt; is a Linux based wireless router. The stock firmware can be a bit limiting for the more advanced user. If you want better &lt;a href=&#34;http://en.wikipedia.org/wiki/Quality_of_service&#34; title=&#34;Quality of service&#34;&gt;QoS&lt;/a&gt;, &lt;a href=&#34;http://openvpn.net&#34;&gt;OpenVPN&lt;/a&gt; or just more control over the network I recommend installing &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt; firmware.&lt;/p&gt;&#xA;&lt;p&gt;Download the latest version of the firmware from &lt;a href=&#34;http://tomato.groov.pl&#34;&gt;Tomato by Shibby&lt;/a&gt;. Look for &lt;code&gt;Asus RT-N66u 64k&lt;/code&gt; in the version folder in &lt;a href=&#34;http://tomato.groov.pl/download/K26RT-N&#34;&gt;K26RT-N&lt;/a&gt; repository.&lt;/p&gt;</description>
     </item>
   </channel>

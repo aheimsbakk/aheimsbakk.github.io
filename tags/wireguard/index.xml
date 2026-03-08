@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wireguard on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/wireguard/</link>
+    <link>https://sanntid.org/tags/wireguard/</link>
     <description>Recent content in Wireguard on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Sun, 08 Aug 2021 15:56:52 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/wireguard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/wireguard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wireguard VPN server</title>
-      <link>https://aheimsbakk.github.io/post/20210808-wireguard/</link>
+      <link>https://sanntid.org/post/20210808-wireguard/</link>
       <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20210808-wireguard/</guid>
+      <guid>https://sanntid.org/post/20210808-wireguard/</guid>
       <description>&lt;p&gt;From Wikipedia: &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;WireGuard&lt;/a&gt; is a communication protocol and free and open-source software that implements encrypted virtual private networks (VPNs), and was designed with the goals of ease of use, high speed performance, and low attack surface.&lt;/p&gt;</description>
     </item>
   </channel>

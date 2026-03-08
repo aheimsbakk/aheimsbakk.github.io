@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vpn on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/vpn/</link>
+    <link>https://sanntid.org/tags/vpn/</link>
     <description>Recent content in Vpn on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Thu, 01 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuring OpenVPN server on RTN66U</title>
-      <link>https://aheimsbakk.github.io/post/20140501-easyrsa/</link>
+      <link>https://sanntid.org/post/20140501-easyrsa/</link>
       <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140501-easyrsa/</guid>
+      <guid>https://sanntid.org/post/20140501-easyrsa/</guid>
       <description>&lt;p&gt;The router firmware Tomato, see previous post &lt;a href=&#34;2014-04-17-tomato&#34;&gt;RT-N66u with Tomato by Shibby firmware&lt;/a&gt;, can act as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server.&lt;/p&gt;&#xA;&lt;p&gt;Using open &lt;a href=&#34;https://en.wikipedia.org/wiki/Wifi&#34; title=&#34;Wi-Fi&#34;&gt;Wi-Fi&lt;/a&gt; access points can be very useful and necessary, but it is inherently insecure. Using the router as an &lt;a href=&#34;https://en.wikipedia.org/wiki/OpenVPN&#34; title=&#34;OpenVPN&#34;&gt;OpenVPN&lt;/a&gt; server can increase your privacy and security when you are on the go. By creating an encrypted &lt;a href=&#34;https://en.wikipedia.org/wiki/Vpn&#34; title=&#34;Virtual Private Network&#34;&gt;VPN&lt;/a&gt; connection back home to the router, you don&amp;rsquo;t only get protection from nosy eavesdroppers but you get access to all your equipment behind the router at home as well.&lt;/p&gt;</description>
     </item>
   </channel>

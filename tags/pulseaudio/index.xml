@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pulseaudio on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/pulseaudio/</link>
+    <link>https://sanntid.org/tags/pulseaudio/</link>
     <description>Recent content in Pulseaudio on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Sat, 10 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/pulseaudio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/pulseaudio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Record a PulseAudio sound stream</title>
-      <link>https://aheimsbakk.github.io/post/20150110-pa/</link>
+      <link>https://sanntid.org/post/20150110-pa/</link>
       <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20150110-pa/</guid>
+      <guid>https://sanntid.org/post/20150110-pa/</guid>
       <description>&lt;p&gt;Ever wondered on how to record the audio from one application? Either the browser or a streaming application that don&amp;rsquo;t have the option to save audio to a file.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/PulseAudio&#34;&gt;PulseAudio&lt;/a&gt; sound server in your desktop makes this quite easy.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve created a small script that captures the current playing sound stream and redirects it to &lt;a href=&#34;https://en.wikipedia.org/wiki/Flac&#34; title=&#34;Free Lossless Audio Codec&#34;&gt;FLAC&lt;/a&gt; audio file. After the capture is started, you can start playing sound from other programs. It won&amp;rsquo;t interfere with the current capture.&lt;/p&gt;</description>
     </item>
   </channel>

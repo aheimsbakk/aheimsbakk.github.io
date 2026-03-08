@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Virtualbox on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/virtualbox/</link>
+    <link>https://sanntid.org/tags/virtualbox/</link>
     <description>Recent content in Virtualbox on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Tue, 28 Jul 2020 11:49:13 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vagrant with Ubuntu Focal (20.04)</title>
-      <link>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</link>
+      <link>https://sanntid.org/post/20200728-vagrant-ubuntu/</link>
       <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</guid>
+      <guid>https://sanntid.org/post/20200728-vagrant-ubuntu/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.&lt;/p&gt;&#xA;&lt;p&gt;There is a bug in the latest version of &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; (&lt;a href=&#34;https://app.vagrantup.com/boxes/search&#34;&gt;Vagrant Box&lt;/a&gt;) that makes it hang during boot. It even hangs the &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.&lt;/p&gt;</description>
     </item>
   </channel>

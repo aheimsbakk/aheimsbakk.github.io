@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/ubuntu/</link>
+    <link>https://sanntid.org/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Fri, 02 Jul 2021 22:45:53 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu cloud images with virt-install</title>
-      <link>https://aheimsbakk.github.io/post/20210702-libvirt/</link>
+      <link>https://sanntid.org/post/20210702-libvirt/</link>
       <pubDate>Fri, 02 Jul 2021 22:45:53 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20210702-libvirt/</guid>
-      <description>&lt;p&gt;Earlier we looked at how we could use &lt;a href=&#34;https://aheimsbakk.github.io/posts/20210511-cloudinit/&#34;&gt;Ubuntu cloud images with KVM&lt;/a&gt;. Now we will use the &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirt&lt;/code&gt;&lt;/a&gt; cli  &lt;a href=&#34;https://libvirt.org/manpages/virsh.html&#34;&gt;&lt;code&gt;virsh&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://manpages.ubuntu.com/manpages/xenial/man1/virt-install.1.html&#34;&gt;&lt;code&gt;virt-install&lt;/code&gt;&lt;/a&gt; to do the same process. &lt;code&gt;virt-install&lt;/code&gt; is a part of the &lt;a href=&#34;https://virt-manager.org/&#34;&gt;&lt;code&gt;virt-manager&lt;/code&gt;&lt;/a&gt; supporting tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;fetch-the-ubuntu-cloud-image&#34;&gt;Fetch the Ubuntu Cloud image&lt;/h2&gt;&#xA;&lt;p&gt;This only need to be done once, or when you want to update the cloud image.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download a Ubuntu Focal image from &lt;a href=&#34;https://cloud-images.ubuntu.com&#34;&gt;Ubuntu Cloud Images&lt;/a&gt;.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Create an empty image in the default storage pool. This is a storage space where we upload the cloud image. Note that we use the correct postfix on the name here.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-create-as default focal-server-cloudimg-amd64.qcow2 20G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Upload the downloaded cloud image to the storage pool in the reserved spaced.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-upload focal-server-cloudimg-amd64.qcow2 focal-server-cloudimg-amd64.img --sparse --pool default&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;create-the-vm&#34;&gt;Create the VM&lt;/h2&gt;&#xA;&lt;p&gt;Now we use the cloud image as a template for all our new VMs. Change the size and &lt;code&gt;virt-install&lt;/code&gt; parameters to make it your own.&lt;/p&gt;</description>
+      <guid>https://sanntid.org/post/20210702-libvirt/</guid>
+      <description>&lt;p&gt;Earlier we looked at how we could use &lt;a href=&#34;https://sanntid.org/posts/20210511-cloudinit/&#34;&gt;Ubuntu cloud images with KVM&lt;/a&gt;. Now we will use the &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirt&lt;/code&gt;&lt;/a&gt; cli  &lt;a href=&#34;https://libvirt.org/manpages/virsh.html&#34;&gt;&lt;code&gt;virsh&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://manpages.ubuntu.com/manpages/xenial/man1/virt-install.1.html&#34;&gt;&lt;code&gt;virt-install&lt;/code&gt;&lt;/a&gt; to do the same process. &lt;code&gt;virt-install&lt;/code&gt; is a part of the &lt;a href=&#34;https://virt-manager.org/&#34;&gt;&lt;code&gt;virt-manager&lt;/code&gt;&lt;/a&gt; supporting tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;fetch-the-ubuntu-cloud-image&#34;&gt;Fetch the Ubuntu Cloud image&lt;/h2&gt;&#xA;&lt;p&gt;This only need to be done once, or when you want to update the cloud image.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download a Ubuntu Focal image from &lt;a href=&#34;https://cloud-images.ubuntu.com&#34;&gt;Ubuntu Cloud Images&lt;/a&gt;.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Create an empty image in the default storage pool. This is a storage space where we upload the cloud image. Note that we use the correct postfix on the name here.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-create-as default focal-server-cloudimg-amd64.qcow2 20G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Upload the downloaded cloud image to the storage pool in the reserved spaced.&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;virsh vol-upload focal-server-cloudimg-amd64.qcow2 focal-server-cloudimg-amd64.img --sparse --pool default&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;create-the-vm&#34;&gt;Create the VM&lt;/h2&gt;&#xA;&lt;p&gt;Now we use the cloud image as a template for all our new VMs. Change the size and &lt;code&gt;virt-install&lt;/code&gt; parameters to make it your own.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ubuntu cloud images with KVM</title>
-      <link>https://aheimsbakk.github.io/post/20210511-cloudinit/</link>
+      <link>https://sanntid.org/post/20210511-cloudinit/</link>
       <pubDate>Tue, 11 May 2021 18:22:08 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20210511-cloudinit/</guid>
+      <guid>https://sanntid.org/post/20210511-cloudinit/</guid>
       <description>&lt;p&gt;Ubuntu are using &lt;a href=&#34;https://cloudinit.readthedocs.io/en/latest/&#34;&gt;&lt;code&gt;cloud-init&lt;/code&gt;&lt;/a&gt; for their &lt;a href=&#34;https://cloud-images.ubuntu.com/&#34;&gt;cloud images&lt;/a&gt;. This can be used in combination with &lt;a href=&#34;https://libvirt.org/&#34;&gt;&lt;code&gt;libvirtd&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://www.linux-kvm.org/page/Main_Page&#34;&gt;&lt;code&gt;kvm&lt;/code&gt;&lt;/a&gt; to pre-configure your virtual machine at boot.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vagrant with Ubuntu Focal (20.04)</title>
-      <link>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</link>
+      <link>https://sanntid.org/post/20200728-vagrant-ubuntu/</link>
       <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200728-vagrant-ubuntu/</guid>
+      <guid>https://sanntid.org/post/20200728-vagrant-ubuntu/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; is a great way to script development environments for system administrators. It works with full virtualization and is closer to the real hardware than container systems.&lt;/p&gt;&#xA;&lt;p&gt;There is a bug in the latest version of &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; (&lt;a href=&#34;https://app.vagrantup.com/boxes/search&#34;&gt;Vagrant Box&lt;/a&gt;) that makes it hang during boot. It even hangs the &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and makes the GUI misbehave. The reason is a missing redirect of the console serial device. Console output fills up a buffer and then just hangs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Remove unused kernels</title>
-      <link>https://aheimsbakk.github.io/post/20140413-kernel/</link>
+      <link>https://sanntid.org/post/20140413-kernel/</link>
       <pubDate>Sun, 13 Apr 2014 16:45:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140413-kernel/</guid>
+      <guid>https://sanntid.org/post/20140413-kernel/</guid>
       <description>&lt;p&gt;Removes all but current kernel and headers. This is a note for personal use. Use at your own risk :)&lt;/p&gt;</description>
     </item>
   </channel>

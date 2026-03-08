@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Restic on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/restic/</link>
+    <link>https://sanntid.org/tags/restic/</link>
     <description>Recent content in Restic on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/restic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/restic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Design an online ransomware safe backup with restic</title>
-      <link>https://aheimsbakk.github.io/post/20190911-restic/</link>
+      <link>https://sanntid.org/post/20190911-restic/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20190911-restic/</guid>
+      <guid>https://sanntid.org/post/20190911-restic/</guid>
       <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
     </item>
   </channel>

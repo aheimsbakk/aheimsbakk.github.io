@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cpu on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/cpu/</link>
+    <link>https://sanntid.org/tags/cpu/</link>
     <description>Recent content in Cpu on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Sat, 01 Aug 2020 16:58:55 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Portable Hardware Locality (hwloc)</title>
-      <link>https://aheimsbakk.github.io/post/20200801-hwloc/</link>
+      <link>https://sanntid.org/post/20200801-hwloc/</link>
       <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200801-hwloc/</guid>
+      <guid>https://sanntid.org/post/20200801-hwloc/</guid>
       <description>&lt;p&gt;From the website: &lt;em&gt;The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, &amp;hellip;) of the &lt;strong&gt;hierarchical topology of modern architectures&lt;/strong&gt;, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.open-mpi.org/projects/hwloc/&#34;&gt;Portable Hardware Locality (hwloc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Install the GUI on Fedora.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/page/</link>
+    <link>https://sanntid.org/page/</link>
     <description>Recent content in Pages on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <atom:link href="https://aheimsbakk.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>https://aheimsbakk.github.io/page/about/</link>
+      <link>https://sanntid.org/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/page/about/</guid>
+      <guid>https://sanntid.org/page/about/</guid>
       <description>&lt;p&gt;This blog is mostly updated with stuff I don&amp;rsquo;t want to forget. The content is configuration snippets or links for use at home. For more examples of what I do visit my &lt;a href=&#34;https://github.com/aheimsbakk/&#34;&gt;GithHub page&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

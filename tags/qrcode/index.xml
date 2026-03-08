@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Qrcode on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/qrcode/</link>
+    <link>https://sanntid.org/tags/qrcode/</link>
     <description>Recent content in Qrcode on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Tue, 11 Aug 2020 00:28:09 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/qrcode/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/qrcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Barcode Content</title>
-      <link>https://aheimsbakk.github.io/post/20200811-barcode/</link>
+      <link>https://sanntid.org/post/20200811-barcode/</link>
       <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200811-barcode/</guid>
+      <guid>https://sanntid.org/post/20200811-barcode/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a copy from the &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;ZXing&lt;/a&gt; repo &lt;a href=&#34;https://github.com/zxing/zxing/wiki&#34;&gt;wiki pages&lt;/a&gt; at commit hash &lt;code&gt;3110236&lt;/code&gt;. &lt;a href=&#34;https://github.com/zxing&#34;&gt;ZXing&lt;/a&gt; is an open-source, multi-format 1D/2D barcode image processing library implemented in Java, with ports to other languages.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself &amp;ndash; QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.&lt;/p&gt;&#xA;&lt;p&gt;2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like &lt;code&gt;https://google.com/m&lt;/code&gt;. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.&lt;/p&gt;</description>
     </item>
   </channel>

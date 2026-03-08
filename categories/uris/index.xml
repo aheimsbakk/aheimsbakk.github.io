@@ -2,131 +2,131 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Uris on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/categories/uris/</link>
+    <link>https://sanntid.org/categories/uris/</link>
     <description>Recent content in Uris on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Sat, 27 Feb 2021 18:30:20 +0100</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/categories/uris/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/categories/uris/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Malware lists for PiHole</title>
-      <link>https://aheimsbakk.github.io/post/20210227-pihole-lists/</link>
+      <link>https://sanntid.org/post/20210227-pihole-lists/</link>
       <pubDate>Sat, 27 Feb 2021 18:30:20 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20210227-pihole-lists/</guid>
+      <guid>https://sanntid.org/post/20210227-pihole-lists/</guid>
       <description>&lt;p&gt;Excerpt from &lt;a href=&#34;https://en.wikipedia.org/wiki/Pi-hole&#34;&gt;Wikipedia&lt;/a&gt;: &lt;em&gt;Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for use on embedded devices with network capability, such as the Raspberry Pi, but it can be used on other machines running Linux, including cloud implementations.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Configuring &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; to resolve IP towards &lt;a href=&#34;https://www.quad9.net/&#34;&gt;Quad9&lt;/a&gt;, which is currently the best public available malware domain filtering DNS service. On top of that you can add your own lists. Recommended lists are the two below.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Vanilla kernel on Fedora</title>
-      <link>https://aheimsbakk.github.io/post/20210224-kernel/</link>
+      <link>https://sanntid.org/post/20210224-kernel/</link>
       <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20210224-kernel/</guid>
+      <guid>https://sanntid.org/post/20210224-kernel/</guid>
       <description>&lt;p&gt;Excerpt: &lt;em&gt;The Linux vanilla kernel repositories for Fedora offer RPM packages containing vanilla builds of different Linux kernel version lines. These packages are meant for Fedora users that want to access the latest Linux kernels quickly and comfortably; either the latest mainline kernel, the latest stable kernel or a vanilla variant of the Linux kernel version line Fedora uses currently.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories&#34;&gt;https://fedoraproject.org/wiki/Kernel_Vanilla_Repositories&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>git - the simple guide</title>
-      <link>https://aheimsbakk.github.io/post/20200818-git/</link>
+      <link>https://sanntid.org/post/20200818-git/</link>
       <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200818-git/</guid>
+      <guid>https://sanntid.org/post/20200818-git/</guid>
       <description>&lt;p&gt;Excerpt: &lt;em&gt;just a simple guide for getting started with git. no deep shit ;)&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Chess resources</title>
-      <link>https://aheimsbakk.github.io/post/20200817-chess/</link>
+      <link>https://sanntid.org/post/20200817-chess/</link>
       <pubDate>Mon, 17 Aug 2020 15:43:59 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200817-chess/</guid>
+      <guid>https://sanntid.org/post/20200817-chess/</guid>
       <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Chess&#34;&gt;Chess&lt;/a&gt; is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 square grid.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Origami / Paper Folding</title>
-      <link>https://aheimsbakk.github.io/post/20200817-origami/</link>
+      <link>https://sanntid.org/post/20200817-origami/</link>
       <pubDate>Mon, 17 Aug 2020 14:36:38 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200817-origami/</guid>
+      <guid>https://sanntid.org/post/20200817-origami/</guid>
       <description>&lt;p&gt;From Wikipedia: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Origami&#34;&gt;Origami&lt;/a&gt; (折り紙, Japanese pronunciation: [oɾiɡami] or [oɾiꜜɡami], from ori meaning &amp;ldquo;folding&amp;rdquo;, and kami meaning &amp;ldquo;paper&amp;rdquo; (kami changes to gami due to rendaku)) is the art of paper folding, which is often associated with Japanese culture. In modern usage, the word &amp;ldquo;origami&amp;rdquo; is used as an inclusive term for all folding practices, regardless of their culture of origin.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Barcode Content</title>
-      <link>https://aheimsbakk.github.io/post/20200811-barcode/</link>
+      <link>https://sanntid.org/post/20200811-barcode/</link>
       <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200811-barcode/</guid>
+      <guid>https://sanntid.org/post/20200811-barcode/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is a copy from the &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;ZXing&lt;/a&gt; repo &lt;a href=&#34;https://github.com/zxing/zxing/wiki&#34;&gt;wiki pages&lt;/a&gt; at commit hash &lt;code&gt;3110236&lt;/code&gt;. &lt;a href=&#34;https://github.com/zxing&#34;&gt;ZXing&lt;/a&gt; is an open-source, multi-format 1D/2D barcode image processing library implemented in Java, with ports to other languages.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself &amp;ndash; QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.&lt;/p&gt;&#xA;&lt;p&gt;2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like &lt;code&gt;https://google.com/m&lt;/code&gt;. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learn Docker with LearnDocker.online</title>
-      <link>https://aheimsbakk.github.io/post/20200811-docker/</link>
+      <link>https://sanntid.org/post/20200811-docker/</link>
       <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200811-docker/</guid>
+      <guid>https://sanntid.org/post/20200811-docker/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve seen a lot of learning resources for &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;. Personally I think this is one of the better resources for beginners. Enjoy!&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from the website: &lt;em&gt;LearnDocker.online is the most comprehensive online Docker training program on the planet.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learndocker.online/&#34;&gt;LearnDocker.online&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Portable Hardware Locality (hwloc)</title>
-      <link>https://aheimsbakk.github.io/post/20200801-hwloc/</link>
+      <link>https://sanntid.org/post/20200801-hwloc/</link>
       <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200801-hwloc/</guid>
+      <guid>https://sanntid.org/post/20200801-hwloc/</guid>
       <description>&lt;p&gt;From the website: &lt;em&gt;The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, &amp;hellip;) of the &lt;strong&gt;hierarchical topology of modern architectures&lt;/strong&gt;, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. It also gathers various system attributes such as cache and memory information as well as the locality of I/O devices such as network interfaces, InfiniBand HCAs or GPUs.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.open-mpi.org/projects/hwloc/&#34;&gt;Portable Hardware Locality (hwloc)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Install the GUI on Fedora.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Distributed syncing with Syncthing</title>
-      <link>https://aheimsbakk.github.io/post/20160326-syncthing/</link>
+      <link>https://sanntid.org/post/20160326-syncthing/</link>
       <pubDate>Sat, 26 Mar 2016 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20160326-syncthing/</guid>
+      <guid>https://sanntid.org/post/20160326-syncthing/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve tried to ditch &lt;a href=&#34;https://dropbox.com/&#34;&gt;Dropbox&lt;/a&gt; for a long time. But the need for synchronizing folders between my computers have held me back. &lt;a href=&#34;https://syncthing.net/&#34;&gt;Syncthing&lt;/a&gt; solves this for me. It&amp;rsquo;s decentralized syncrhonization between all my units, including my phone, without the need to go through a 3rd party server.&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from Syncthings homepage: &lt;em&gt;Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it&amp;rsquo;s transmitted over the Internet.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Compressed RAM based block devices</title>
-      <link>https://aheimsbakk.github.io/post/20150111-zram/</link>
+      <link>https://sanntid.org/post/20150111-zram/</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20150111-zram/</guid>
+      <guid>https://sanntid.org/post/20150111-zram/</guid>
       <description>&lt;p&gt;From &lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt; documentation: &lt;em&gt;The zram module creates RAM based block devices named /dev/zramID (ID = 0, 1, &amp;hellip;). Pages written to these disks are compressed and stored in memory itself. These disks allow very fast I/O and compression provides good amounts of memory savings. Some of the usecases include /tmp storage, use as swap disks, various caches under /var and maybe many more :)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/Documentation/blockdev/zram.txt&#34;&gt;zram&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;example-of-compressed-swap-in-memory&#34;&gt;Example of compressed swap in memory&lt;/h1&gt;&#xA;&lt;p&gt;Write this commands in &lt;code&gt;/etc/rc.local&lt;/code&gt; to create a 2G compressed swap partition in memory.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vagrant, development environments made easy</title>
-      <link>https://aheimsbakk.github.io/post/20140525-vagrant/</link>
+      <link>https://sanntid.org/post/20140525-vagrant/</link>
       <pubDate>Sun, 25 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140525-vagrant/</guid>
+      <guid>https://sanntid.org/post/20140525-vagrant/</guid>
       <description>&lt;p&gt;Prototyping and testing configurations and system installations is time consuming on traditional hardware. That is why I started using Vagrant for nearly all development, prototyping and testing. It&amp;rsquo;s free and really easy to use. If you install &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; &lt;code&gt;sudo apt-get install virtualbox&lt;/code&gt; first, you&amp;rsquo;ll be up and running in no time.&lt;/p&gt;&#xA;&lt;p&gt;Vagrant do profile itself for developers, but &lt;a href=&#34;https://en.wikipedia.org/wiki/Sysadmin&#34; title=&#34;System administrator&#34;&gt;sysadmin&lt;/a&gt;s has much to gain by using such tools to make life easier for themselves. Automation and reproducibility is key concepts in modern system administration. We need to think more and more like developers, as much as developers need to think more and more like &lt;a href=&#34;https://en.wikipedia.org/wiki/Sysadmin&#34; title=&#34;System administrator&#34;&gt;sysadmin&lt;/a&gt;s.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Only Firefox is safe post Heartblead</title>
-      <link>https://aheimsbakk.github.io/post/20140512-revocation/</link>
+      <link>https://sanntid.org/post/20140512-revocation/</link>
       <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140512-revocation/</guid>
+      <guid>https://sanntid.org/post/20140512-revocation/</guid>
       <description>&lt;p&gt;o&lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt; have a nice round-up where he explains how certificate revocation does work and why Chrome and Chromiums certificate revocation scheme doesn&amp;rsquo;t work. I recommend to read both &lt;a href=&#34;https://en.wikipedia.org/wiki/Steve_Gibson_%28computer_programmer%29&#34;&gt;Steve Gibson&lt;/a&gt;&amp;rsquo;s article on &lt;a href=&#34;https://www.grc.com/revocation/crlsets.htm&#34;&gt;An Evaluation of the Effectiveness of Chrome&amp;rsquo;s CRLSets&lt;/a&gt; and Adam Langley&amp;rsquo;s in my opinion a bit missplaced answer &lt;a href=&#34;https://www.imperialviolet.org/2014/04/29/revocationagain.html&#34;&gt;Revocation still doesn&amp;rsquo;t work&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.grc.com/revocation.htm&#34;&gt;Security Certificate - Revocation Awareness Test&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Listen to &lt;a href=&#34;https://www.grc.com/securitynow.htm&#34;&gt;Security Now!&lt;/a&gt; episode 454 &lt;a href=&#34;https://www.grc.com/securitynow.htm#454&#34;&gt;Certificate Revocation Part 2&lt;/a&gt; in which Steve explains about both certificate revocation and Google&amp;rsquo;s CRLSets.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OCSP Stapling on Apache</title>
-      <link>https://aheimsbakk.github.io/post/20140504-ocsp/</link>
+      <link>https://sanntid.org/post/20140504-ocsp/</link>
       <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140504-ocsp/</guid>
+      <guid>https://sanntid.org/post/20140504-ocsp/</guid>
       <description>&lt;p&gt;Excerpt from Remy van Elsts tutorial: &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; stapling is an enhancement to the standard &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; protocol that delivers &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses from the server with the certificate, eliminating the need for relying parties (web users) to check &lt;a href=&#34;https://en.wikipedia.org/wiki/OCSP&#34; title=&#34;Online Certificate Status Protocol&#34;&gt;OCSP&lt;/a&gt; responses with the issuing &lt;a href=&#34;https://en.wikipedia.org/wiki/Certificate_Authority&#34; title=&#34;Certificate authority&#34;&gt;CA&lt;/a&gt;. This has the effect of reducing bandwidth, improving perceived site performance, and increasing security for everyone involved in establishing the secure session. This tutorial shows you how to set it up with &lt;a href=&#34;http://httpd.apache.org&#34;&gt;Apache&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Better entropy with haveged</title>
-      <link>https://aheimsbakk.github.io/post/20140429-haveged/</link>
+      <link>https://sanntid.org/post/20140429-haveged/</link>
       <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140429-haveged/</guid>
+      <guid>https://sanntid.org/post/20140429-haveged/</guid>
       <description>&lt;p&gt;Entropy is important for generating good encryption keys. Do you have a busy server relying on crypto, generating keys, you need lot of good entropy. Or if you have a disk less system you don&amp;rsquo;t get as much entropy from the kernel that you may wish. One way to get a lot of good entropy is to use haveged. Haveged is closer to a &lt;a href=&#34;https://en.wikipedia.org/wiki/TRNG&#34; title=&#34;True Random Number Generator&#34;&gt;TRNG&lt;/a&gt; than a &lt;a href=&#34;https://en.wikipedia.org/wiki/PRNG&#34; title=&#34;PseudoRandom Number Generator&#34;&gt;PRNG&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cloud virtual machine</title>
-      <link>https://aheimsbakk.github.io/post/20140413-digitalocea/</link>
+      <link>https://sanntid.org/post/20140413-digitalocea/</link>
       <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140413-digitalocea/</guid>
+      <guid>https://sanntid.org/post/20140413-digitalocea/</guid>
       <description>&lt;p&gt;Easiest way I know to create cloud virtual machine is to create a Droplet on Digital Ocean.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/?refcode=2c2348527899&#34;&gt;DigialOcean&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>SSL Server Test</title>
-      <link>https://aheimsbakk.github.io/post/20140413-ssllabs/</link>
+      <link>https://sanntid.org/post/20140413-ssllabs/</link>
       <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140413-ssllabs/</guid>
+      <guid>https://sanntid.org/post/20140413-ssllabs/</guid>
       <description>&lt;p&gt;Run &lt;a href=&#34;https://www.ssllabs.com&#34;&gt;Qualys SSL Labs&lt;/a&gt; test to test the strength and combability of SSL certificate.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.ssllabs.com/ssltest&#34;&gt;SSL Server Test&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Scaling in the Linux Networking Stack</title>
-      <link>https://aheimsbakk.github.io/post/20140412-link/</link>
+      <link>https://sanntid.org/post/20140412-link/</link>
       <pubDate>Sat, 12 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20140412-link/</guid>
+      <guid>https://sanntid.org/post/20140412-link/</guid>
       <description>&lt;p&gt;Documentation for increaseing parallelism and performance for multi-processor systems.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/html/latest/networking/scaling.html&#34;&gt;scaling.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>

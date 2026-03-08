@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/docker/</link>
+    <link>https://sanntid.org/tags/docker/</link>
     <description>Recent content in Docker on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Tue, 11 Aug 2020 00:08:00 +0200</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learn Docker with LearnDocker.online</title>
-      <link>https://aheimsbakk.github.io/post/20200811-docker/</link>
+      <link>https://sanntid.org/post/20200811-docker/</link>
       <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/post/20200811-docker/</guid>
+      <guid>https://sanntid.org/post/20200811-docker/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve seen a lot of learning resources for &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;. Personally I think this is one of the better resources for beginners. Enjoy!&lt;/p&gt;&#xA;&lt;p&gt;Excerpt from the website: &lt;em&gt;LearnDocker.online is the most comprehensive online Docker training program on the planet.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learndocker.online/&#34;&gt;LearnDocker.online&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>

@@ -2,285 +2,285 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on sanntid.org</title>
-    <link>https://aheimsbakk.github.io/tags/</link>
+    <link>https://sanntid.org/tags/</link>
     <description>Recent content in Tags on sanntid.org</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
     <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aheimsbakk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sanntid.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Howto</title>
-      <link>https://aheimsbakk.github.io/tags/howto/</link>
+      <link>https://sanntid.org/tags/howto/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/howto/</guid>
+      <guid>https://sanntid.org/tags/howto/</guid>
       <description></description>
     </item>
     <item>
       <title>Yubikey</title>
-      <link>https://aheimsbakk.github.io/tags/yubikey/</link>
+      <link>https://sanntid.org/tags/yubikey/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/yubikey/</guid>
+      <guid>https://sanntid.org/tags/yubikey/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>https://aheimsbakk.github.io/tags/bash/</link>
+      <link>https://sanntid.org/tags/bash/</link>
       <pubDate>Tue, 28 May 2024 16:50:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/bash/</guid>
+      <guid>https://sanntid.org/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>https://aheimsbakk.github.io/tags/security/</link>
+      <link>https://sanntid.org/tags/security/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/security/</guid>
+      <guid>https://sanntid.org/tags/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Network</title>
-      <link>https://aheimsbakk.github.io/tags/network/</link>
+      <link>https://sanntid.org/tags/network/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/network/</guid>
+      <guid>https://sanntid.org/tags/network/</guid>
       <description></description>
     </item>
     <item>
       <title>Pi</title>
-      <link>https://aheimsbakk.github.io/tags/pi/</link>
+      <link>https://sanntid.org/tags/pi/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/pi/</guid>
+      <guid>https://sanntid.org/tags/pi/</guid>
       <description></description>
     </item>
     <item>
       <title>Wireguard</title>
-      <link>https://aheimsbakk.github.io/tags/wireguard/</link>
+      <link>https://sanntid.org/tags/wireguard/</link>
       <pubDate>Sun, 08 Aug 2021 15:56:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/wireguard/</guid>
+      <guid>https://sanntid.org/tags/wireguard/</guid>
       <description></description>
     </item>
     <item>
       <title>Libvirt</title>
-      <link>https://aheimsbakk.github.io/tags/libvirt/</link>
+      <link>https://sanntid.org/tags/libvirt/</link>
       <pubDate>Fri, 02 Jul 2021 22:45:53 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/libvirt/</guid>
+      <guid>https://sanntid.org/tags/libvirt/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntu</title>
-      <link>https://aheimsbakk.github.io/tags/ubuntu/</link>
+      <link>https://sanntid.org/tags/ubuntu/</link>
       <pubDate>Fri, 02 Jul 2021 22:45:53 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/ubuntu/</guid>
+      <guid>https://sanntid.org/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
       <title>Command</title>
-      <link>https://aheimsbakk.github.io/tags/command/</link>
+      <link>https://sanntid.org/tags/command/</link>
       <pubDate>Tue, 11 May 2021 23:06:44 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/command/</guid>
+      <guid>https://sanntid.org/tags/command/</guid>
       <description></description>
     </item>
     <item>
       <title>Btrfs</title>
-      <link>https://aheimsbakk.github.io/tags/btrfs/</link>
+      <link>https://sanntid.org/tags/btrfs/</link>
       <pubDate>Fri, 23 Apr 2021 21:18:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/btrfs/</guid>
+      <guid>https://sanntid.org/tags/btrfs/</guid>
       <description></description>
     </item>
     <item>
       <title>Fedora</title>
-      <link>https://aheimsbakk.github.io/tags/fedora/</link>
+      <link>https://sanntid.org/tags/fedora/</link>
       <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/fedora/</guid>
+      <guid>https://sanntid.org/tags/fedora/</guid>
       <description></description>
     </item>
     <item>
       <title>Kernel</title>
-      <link>https://aheimsbakk.github.io/tags/kernel/</link>
+      <link>https://sanntid.org/tags/kernel/</link>
       <pubDate>Wed, 24 Feb 2021 19:29:10 +0100</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/kernel/</guid>
+      <guid>https://sanntid.org/tags/kernel/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>https://aheimsbakk.github.io/tags/git/</link>
+      <link>https://sanntid.org/tags/git/</link>
       <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/git/</guid>
+      <guid>https://sanntid.org/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Guide</title>
-      <link>https://aheimsbakk.github.io/tags/guide/</link>
+      <link>https://sanntid.org/tags/guide/</link>
       <pubDate>Tue, 18 Aug 2020 22:41:04 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/guide/</guid>
+      <guid>https://sanntid.org/tags/guide/</guid>
       <description></description>
     </item>
     <item>
       <title>Chess</title>
-      <link>https://aheimsbakk.github.io/tags/chess/</link>
+      <link>https://sanntid.org/tags/chess/</link>
       <pubDate>Mon, 17 Aug 2020 15:43:59 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/chess/</guid>
+      <guid>https://sanntid.org/tags/chess/</guid>
       <description></description>
     </item>
     <item>
       <title>Origami</title>
-      <link>https://aheimsbakk.github.io/tags/origami/</link>
+      <link>https://sanntid.org/tags/origami/</link>
       <pubDate>Mon, 17 Aug 2020 14:36:38 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/origami/</guid>
+      <guid>https://sanntid.org/tags/origami/</guid>
       <description></description>
     </item>
     <item>
       <title>Intel</title>
-      <link>https://aheimsbakk.github.io/tags/intel/</link>
+      <link>https://sanntid.org/tags/intel/</link>
       <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/intel/</guid>
+      <guid>https://sanntid.org/tags/intel/</guid>
       <description></description>
     </item>
     <item>
       <title>Xorg</title>
-      <link>https://aheimsbakk.github.io/tags/xorg/</link>
+      <link>https://sanntid.org/tags/xorg/</link>
       <pubDate>Tue, 11 Aug 2020 22:48:52 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/xorg/</guid>
+      <guid>https://sanntid.org/tags/xorg/</guid>
       <description></description>
     </item>
     <item>
       <title>Qrcode</title>
-      <link>https://aheimsbakk.github.io/tags/qrcode/</link>
+      <link>https://sanntid.org/tags/qrcode/</link>
       <pubDate>Tue, 11 Aug 2020 00:28:09 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/qrcode/</guid>
+      <guid>https://sanntid.org/tags/qrcode/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>https://aheimsbakk.github.io/tags/docker/</link>
+      <link>https://sanntid.org/tags/docker/</link>
       <pubDate>Tue, 11 Aug 2020 00:08:00 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/docker/</guid>
+      <guid>https://sanntid.org/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Bug</title>
-      <link>https://aheimsbakk.github.io/tags/bug/</link>
+      <link>https://sanntid.org/tags/bug/</link>
       <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/bug/</guid>
+      <guid>https://sanntid.org/tags/bug/</guid>
       <description></description>
     </item>
     <item>
       <title>NetworkManager</title>
-      <link>https://aheimsbakk.github.io/tags/networkmanager/</link>
+      <link>https://sanntid.org/tags/networkmanager/</link>
       <pubDate>Fri, 07 Aug 2020 01:20:05 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/networkmanager/</guid>
+      <guid>https://sanntid.org/tags/networkmanager/</guid>
       <description></description>
     </item>
     <item>
       <title>Cpu</title>
-      <link>https://aheimsbakk.github.io/tags/cpu/</link>
+      <link>https://sanntid.org/tags/cpu/</link>
       <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/cpu/</guid>
+      <guid>https://sanntid.org/tags/cpu/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardware</title>
-      <link>https://aheimsbakk.github.io/tags/hardware/</link>
+      <link>https://sanntid.org/tags/hardware/</link>
       <pubDate>Sat, 01 Aug 2020 16:58:55 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/hardware/</guid>
+      <guid>https://sanntid.org/tags/hardware/</guid>
       <description></description>
     </item>
     <item>
       <title>Oneliner</title>
-      <link>https://aheimsbakk.github.io/tags/oneliner/</link>
+      <link>https://sanntid.org/tags/oneliner/</link>
       <pubDate>Fri, 31 Jul 2020 16:25:02 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/oneliner/</guid>
+      <guid>https://sanntid.org/tags/oneliner/</guid>
       <description></description>
     </item>
     <item>
       <title>Debian</title>
-      <link>https://aheimsbakk.github.io/tags/debian/</link>
+      <link>https://sanntid.org/tags/debian/</link>
       <pubDate>Thu, 30 Jul 2020 18:57:10 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/debian/</guid>
+      <guid>https://sanntid.org/tags/debian/</guid>
       <description></description>
     </item>
     <item>
       <title>Vagrant</title>
-      <link>https://aheimsbakk.github.io/tags/vagrant/</link>
+      <link>https://sanntid.org/tags/vagrant/</link>
       <pubDate>Tue, 28 Jul 2020 15:43:42 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/vagrant/</guid>
+      <guid>https://sanntid.org/tags/vagrant/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtualbox</title>
-      <link>https://aheimsbakk.github.io/tags/virtualbox/</link>
+      <link>https://sanntid.org/tags/virtualbox/</link>
       <pubDate>Tue, 28 Jul 2020 11:49:13 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/virtualbox/</guid>
+      <guid>https://sanntid.org/tags/virtualbox/</guid>
       <description></description>
     </item>
     <item>
       <title>Restic</title>
-      <link>https://aheimsbakk.github.io/tags/restic/</link>
+      <link>https://sanntid.org/tags/restic/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/restic/</guid>
+      <guid>https://sanntid.org/tags/restic/</guid>
       <description></description>
     </item>
     <item>
       <title>Pulseaudio</title>
-      <link>https://aheimsbakk.github.io/tags/pulseaudio/</link>
+      <link>https://sanntid.org/tags/pulseaudio/</link>
       <pubDate>Sat, 10 Jan 2015 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/pulseaudio/</guid>
+      <guid>https://sanntid.org/tags/pulseaudio/</guid>
       <description></description>
     </item>
     <item>
       <title>Benchmark</title>
-      <link>https://aheimsbakk.github.io/tags/benchmark/</link>
+      <link>https://sanntid.org/tags/benchmark/</link>
       <pubDate>Mon, 15 Dec 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/benchmark/</guid>
+      <guid>https://sanntid.org/tags/benchmark/</guid>
       <description></description>
     </item>
     <item>
       <title>Chromium</title>
-      <link>https://aheimsbakk.github.io/tags/chromium/</link>
+      <link>https://sanntid.org/tags/chromium/</link>
       <pubDate>Thu, 19 Jun 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/chromium/</guid>
+      <guid>https://sanntid.org/tags/chromium/</guid>
       <description></description>
     </item>
     <item>
       <title>Android</title>
-      <link>https://aheimsbakk.github.io/tags/android/</link>
+      <link>https://sanntid.org/tags/android/</link>
       <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/android/</guid>
+      <guid>https://sanntid.org/tags/android/</guid>
       <description></description>
     </item>
     <item>
       <title>Pelican</title>
-      <link>https://aheimsbakk.github.io/tags/pelican/</link>
+      <link>https://sanntid.org/tags/pelican/</link>
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/pelican/</guid>
+      <guid>https://sanntid.org/tags/pelican/</guid>
       <description></description>
     </item>
     <item>
       <title>Vpn</title>
-      <link>https://aheimsbakk.github.io/tags/vpn/</link>
+      <link>https://sanntid.org/tags/vpn/</link>
       <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/vpn/</guid>
+      <guid>https://sanntid.org/tags/vpn/</guid>
       <description></description>
     </item>
     <item>
       <title>Entropy</title>
-      <link>https://aheimsbakk.github.io/tags/entropy/</link>
+      <link>https://sanntid.org/tags/entropy/</link>
       <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/entropy/</guid>
+      <guid>https://sanntid.org/tags/entropy/</guid>
       <description></description>
     </item>
     <item>
       <title>Firmware</title>
-      <link>https://aheimsbakk.github.io/tags/firmware/</link>
+      <link>https://sanntid.org/tags/firmware/</link>
       <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/firmware/</guid>
+      <guid>https://sanntid.org/tags/firmware/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>https://aheimsbakk.github.io/tags/vim/</link>
+      <link>https://sanntid.org/tags/vim/</link>
       <pubDate>Sun, 13 Apr 2014 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://aheimsbakk.github.io/tags/vim/</guid>
+      <guid>https://sanntid.org/tags/vim/</guid>
       <description></description>
     </item>
   </channel>
