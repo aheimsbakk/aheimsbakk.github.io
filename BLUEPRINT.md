@@ -60,7 +60,9 @@ Drafts are always enabled in serve mode. Pass additional Hugo flags after `--`.
 
 `public/` is mounted as a git worktree pointing at `gh-pages` rather than being a plain directory. This allows Hugo to write directly into the branch without switching the main working tree.
 
-- **First run:** script creates the `gh-pages` branch as an orphan if it does not exist. Tries `git worktree add --orphan` (git ≥ 2.25) first; falls back to `git switch --orphan` (git ≥ 2.23), which clears the index and working tree automatically.
+- **First run:** script creates the `gh-pages` branch as an orphan if it does not exist.
+  - Primary (`git worktree add --orphan`, git ≥ 2.25): unborn branch with no commits — `public/` starts empty; the first deploy creates the first commit.
+  - Fallback: uses git plumbing (`git hash-object -t tree /dev/null` → `git commit-tree`) to create an initial commit from the canonical empty-tree object, guaranteed to contain no files from the source branch.
 - **Subsequent runs:** existing worktree is reused; a stale plain directory (no `.git` file) is removed and replaced.
 - **Default:** worktree stays mounted after build for incremental rebuilds.
 - **`--remove-worktree`:** runs `git worktree remove public --force` after committing.

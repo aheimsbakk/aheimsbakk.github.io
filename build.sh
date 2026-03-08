@@ -142,16 +142,18 @@ setup_worktree() {
     git worktree add -B gh-pages public origin/gh-pages
   else
     info "Creating orphan gh-pages branch..."
-    # git worktree add --orphan requires git >= 2.25;
-    # git switch --orphan (>= 2.23) clears index + worktree automatically.
+    # Primary: git worktree add --orphan (git >= 2.25).
+    # The unborn branch has no tree at all; skip the initial commit —
+    # the first deploy commit will be the first real commit on gh-pages.
     if git worktree add --orphan -b gh-pages public 2>/dev/null; then
-      git -C public commit --allow-empty -m "chore: initialize gh-pages branch"
+      : # nothing to do; public/ is empty on the unborn branch
     else
-      local cur
-      cur=$(git symbolic-ref --short HEAD)
-      git switch --orphan gh-pages
-      git commit --allow-empty -m "chore: initialize gh-pages branch"
-      git switch "$cur"
+      # Fallback: build an initial commit from the canonical empty-tree object.
+      # This is guaranteed to contain no files regardless of the current branch state.
+      local empty_tree init_commit
+      empty_tree=$(git hash-object -t tree /dev/null)
+      init_commit=$(git commit-tree "$empty_tree" -m "chore: initialize gh-pages branch")
+      git branch gh-pages "$init_commit"
       git worktree add public gh-pages
     fi
   fi
