@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>App on sanntid.org</title>
+    <link>https://sanntid.org/tags/app/</link>
+    <description>Recent content in App on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sanntid.org/tags/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collective Realtime</title>
+      <link>https://sanntid.org/</link>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/</guid>
+      <description>&lt;p&gt;Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

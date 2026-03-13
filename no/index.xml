@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sanntid.org</title>
+    <link>https://sanntid.org/no/</link>
+    <description>Recent content on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>no</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sanntid.org/no/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kollektiv Sanntid</title>
+      <link>https://sanntid.org/no/</link>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/</guid>
+      <description>&lt;p&gt;Følg busser, trikker, T-bane, tog, ferger og ekspressbusser med sanntidsavganger fra enhver stasjon eller holdeplass i hele landet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Om</title>
+      <link>https://sanntid.org/no/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/page/about/</guid>
+      <description>&lt;p&gt;Denne bloggen oppdateres for det meste med ting jeg ikke vil glemme. Innholdet består av konfigurasjonsutdrag eller lenker jeg bruker hjemme. For flere eksempler på hva jeg gjør, besøk min &lt;a href=&#34;https://github.com/aheimsbakk/&#34;&gt;GitHub-side&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

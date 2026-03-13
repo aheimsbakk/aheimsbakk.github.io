@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collective Realtime</title>
+      <link>https://sanntid.org/</link>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/</guid>
+      <description>&lt;p&gt;Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Use resident SSH key(s) on YubKey using Fido2</title>
       <link>https://sanntid.org/post/20240604-fido2-ssh/</link>
@@ -197,7 +204,7 @@
       <link>https://sanntid.org/post/20200728-vagrant-libvirt/</link>
       <pubDate>Tue, 28 Jul 2020 15:43:42 +0200</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
       <guid>https://sanntid.org/post/20200728-vagrant-libvirt/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://libvirt.org/&#34;&gt;Libvirt&lt;/a&gt; is the default toolkit to manage virtualization platforms on Linux. Libvirt and &lt;a href=&#34;https://www.qemu.org/&#34;&gt;qemu&lt;/a&gt; is a great combination with &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. It&amp;rsquo;s the default combination on most &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux&#34;&gt;Linux&lt;/a&gt; systems, also on my favorite - &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This combination allows for some awesome features and some restrictions. One of the restrictions is that &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; isn&amp;rsquo;t available as a box, but &lt;a href=&#34;https://www.debian.org/&#34;&gt;Debian&lt;/a&gt; is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.&lt;/p&gt;&#xA;&lt;p&gt;The biggest feature is that it allows for more permanent development environments and direct connection to already existing &lt;a href=&#34;https://en.wikipedia.org/wiki/Bridging_(networking)&#34;&gt;network bridges&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://libvirt.org/&#34;&gt;Libvirt&lt;/a&gt; is the default toolkit to manage virtualization platforms on Linux. Libvirt and &lt;a href=&#34;https://www.qemu.org/&#34;&gt;qemu&lt;/a&gt; is a great combination with &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. It&amp;rsquo;s the default combination on most &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux&#34;&gt;Linux&lt;/a&gt; systems, also on my favorite - &lt;a href=&#34;https://getfedora.org/&#34;&gt;Fedora&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This combination allows for some awesome features and some restrictions. One of the restrictions is that &lt;a href=&#34;https://ubuntu.com/&#34;&gt;Ubuntu&lt;/a&gt; isn&amp;rsquo;t available as a box, but &lt;a href=&#34;https://www.debian.org/&#34;&gt;Debian&lt;/a&gt; is. And Debian is the foundation of Ubuntu, and it&amp;rsquo;s more open than Ubuntu.&lt;/p&gt;&#xA;&lt;p&gt;The biggest feature is that it allows for more permanent development environments and direct connection to already existing &lt;a href=&#34;https://en.wikipedia.org/wiki/Bridging_%28networking%29&#34;&gt;network bridges&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vagrant with Ubuntu Focal (20.04)</title>
@@ -211,7 +218,7 @@
       <link>https://sanntid.org/post/20190911-restic/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
       <guid>https://sanntid.org/post/20190911-restic/</guid>
-      <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
+      <description>&lt;p&gt;The only way to be safe for &lt;a href=&#34;https://en.wikipedia.org/wiki/Ransomware&#34; title=&#34;Ransomware is a type of malicious software from cryptovirology that threatens to publish the victim&amp;#39;s data or perpetually block access to it unless a ransom is paid.&#34;&gt;ransomware&lt;/a&gt;, except for keeping a offline backup, is to have a &lt;a href=&#34;https://en.wikipedia.org/wiki/Immutable_object&#34; title=&#34;An immutable object is an object whose state cannot be modified after it is created.&#34;&gt;immutable&lt;/a&gt; online backup.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://restic.net&#34; title=&#34;Backups done right!&#34;&gt;restic&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Data_deduplication&#34; title=&#34;In computing, data deduplication is a specialized data compression technique for eliminating duplicate copies of repeating data. Related and somewhat synonymous terms are intelligent compression and single-instance storage.&#34;&gt;deduplication&lt;/a&gt; backup sofware, designed for ease of use and security. &lt;a href=&#34;https://rclone.org&#34; title=&#34;Rclone - rsync for cloud storage.&#34;&gt;Rclone&lt;/a&gt; is a versatile program for syncing data between a huge variety of protocols and cloud providers. What is especially nifty is that &lt;em&gt;restic&lt;/em&gt; can use &lt;em&gt;rclone&lt;/em&gt; as a backend, and by that extend &lt;em&gt;restic&lt;/em&gt; destination into most cloud providers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SSH with YubiKey NEO on Fedora made easy</title>
@@ -394,13 +401,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
       <guid>https://sanntid.org/page/about/</guid>
       <description>&lt;p&gt;This blog is mostly updated with stuff I don&amp;rsquo;t want to forget. The content is configuration snippets or links for use at home. For more examples of what I do visit my &lt;a href=&#34;https://github.com/aheimsbakk/&#34;&gt;GithHub page&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kollektiv Sanntid</title>
-      <link>https://sanntid.org/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://sanntid.org/</guid>
-      <description>&lt;p&gt;Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kollektivsanntidorg&#34;&gt;&lt;a href=&#34;https://kollektiv.sanntid.org&#34;&gt;kollektiv.sanntid.org&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;This app uses data from &lt;a href=&#34;https://developer.entur.org/&#34;&gt;Entur&lt;/a&gt; to show live departures from Norwegian public transport. It&amp;rsquo;s built with the &lt;a href=&#34;https://developer.entur.org/pages-journeyplanner-journeyplanner&#34;&gt;JourneyPlanner API&lt;/a&gt; and is the first app I&amp;rsquo;ve created using vibe coding.&lt;/p&gt;&#xA;&lt;h3 id=&#34;finding-your-station&#34;&gt;Finding Your Station&lt;/h3&gt;&#xA;&lt;p&gt;There are two ways to pick a station:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;By name&lt;/strong&gt; — click the &lt;strong&gt;⚙️ settings&lt;/strong&gt; button in the top right, type in the &lt;strong&gt;Station or stop name&lt;/strong&gt; field, and select from the dropdown suggestions.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
