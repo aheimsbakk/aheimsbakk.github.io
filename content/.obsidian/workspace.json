@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "page/about.md",
+                "file": "no/post/kollektiv.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "about"
+              "title": "kollektiv"
             }
           }
         ]
@@ -185,6 +185,14 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
+    "en/post/kollektiv.md",
+    "no/post/kollektiv.md",
+    "no/page/about.md",
+    "no/_index.md~",
+    "no/_index.md",
+    "_index.en.md",
+    "_index.no.md",
+    "en/page/about.md",
     "tags/_index.md",
     "page/about.md",
     "tags",
@@ -204,14 +212,6 @@
     "post/20140429-haveged.md",
     "post/20140413-ssllabs.md",
     "post/20140413-digitalocea.md",
-    "post/20140412-link.md",
-    "post/20200817-chess.md",
-    "post/20140412-pelican.md",
-    "post/20140413-modeline.md",
-    "post/20140413-getopts.md",
-    "post/20200811-tearfree.md",
-    "post/20210808-wireguard.md",
-    "post/kollektiv.md",
     "CNAME~",
     "term",
     "categories/uris",
@@ -219,7 +219,6 @@
     "page/about.md.bak",
     "page/about.md~",
     "page",
-    "post",
-    "pages"
+    "post"
   ]
 }

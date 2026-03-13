@@ -1,0 +1,32 @@
+[[main]]
+    identifier = "apps"
+    name = "Applications"
+    weight = 1
+
+
+[[main]]
+    parent = "apps"
+    name = "Kollektiv Sanntid"
+    url = "/"
+    weight = 1
+
+[[main]]
+    name = "Tags"
+    url = "tags"
+    weight = 4
+
+[[main]]
+    name = "Uris"
+    url = "categories/uris"
+    weight = 3
+
+[[main]]
+    name = "Blog"
+    url = "/categories/blog"
+    weight = 3
+
+[[main]]
+    name = "About"
+    url = "page/about"
+    weight = 5
+

@@ -1,13 +1,18 @@
 ---
-title: Kollektiv Sanntid
+title: Collective Realtime
 subtitle: Real-time public transport departure board for Norway
 type: page
-url: /
 bigimg:
   - src: /img/bigme/tid.webp
+url: /
+date: 2026-03-13
+tags:
+  - app
 ---
 
 Track buses, trams, metro, trains, ferries, and coaches with live departure times from any station or stop across the country.
+
+<!--more-->
 
 ## [kollektiv.sanntid.org](https://kollektiv.sanntid.org)
 

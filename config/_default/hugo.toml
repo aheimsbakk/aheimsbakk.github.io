@@ -10,13 +10,23 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentOptions = "linenos=inline"
 ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
 
+[languages]
+  [languages.en]
+    contentDir = "content/en" # English
+    languageName = "English"
+    weight = 10
+  [languages.no]
+    contentDir = "content/no" # Norwegian
+    languageName = "Norsk"
+    weight = 20
+
 [pagination]
   pagerSize = 20
   path = 'page'
 
 [Params]
-  homeTitle = "Realtime" 
-  subtitle = "ramblings of a sysadmin"
+  #homeTitle = "Sanntid"
+  #subtitle = "ramblings of a sysadmin"
   mainSections = ["post","posts"]
   logo = "img/avatar-ny.webp"
   favicon = "img/favicon.ico"
@@ -56,38 +66,6 @@ ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
   github = "aheimsbakk"
   linkedin = "arnulfheimsbakk"
   mastodon = "https://infosec.exchange/@arnulf"
-
-[[menu.main]]
-    identifier = "apps"
-    name = "Applications"
-    weight = 1
-
-
-[[menu.main]]
-    parent = "apps"
-    name = "Kollektiv Sanntid"
-    url = ""
-    weight = 1
-
-[[menu.main]]
-    name = "Tags"
-    url = "tags"
-    weight = 4
-
-[[menu.main]]
-    name = "Uris"
-    url = "categories/uris"
-    weight = 3
-
-[[menu.main]]
-    name = "Blog"
-    url = "/categories/blog"
-    weight = 3
-
-[[menu.main]]
-    name = "About"
-    url = "page/about"
-    weight = 5
 
 
 # [[menu.main]]
