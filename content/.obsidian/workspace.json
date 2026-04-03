@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/20260403-gemini.no.md",
+                "file": "post/20260403-gemini.en.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "20260403-gemini.no"
+              "title": "20260403-gemini.en"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
+    "post/20260403-gemini.no.md",
+    "post/20260403-gemini.en.md",
     "page/kollektiv.no.md",
     "page/kollektiv.en.md",
     "_index.no.md",
@@ -198,7 +200,6 @@
     "post/20210702-libvirt.en.md",
     "post/20240528-yubikey.en.md",
     "post/20240604-fido2-ssh.en.md",
-    "post/20260403-gemini.no.md",
     "no/_index.md~",
     "no/_index.md",
     "tags/_index.md",
