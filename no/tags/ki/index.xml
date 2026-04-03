@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ki on sanntid.org</title>
+    <link>https://sanntid.org/no/tags/ki/</link>
+    <description>Recent content in Ki on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>no</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sanntid.org/no/tags/ki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hvordan gjøre Gemini bedre</title>
+      <link>https://sanntid.org/no/post/20260403-gemini/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/post/20260403-gemini/</guid>
+      <description>&lt;p&gt;En kan ikke nekte på at store språkmodeller er nyttige. Selv har jeg brukt de til å lære meg både vibe koding og koding med agenter. Men stole på de, kan jeg ikke gjøre. De både leder meg skråsikkert inn på villspor, og oppmuntrer meg å fortsette inn i blindgatene. Og ikke snakk om all irrelevant og feil informasjon de kommer med.  De produserer vegg på vegg med tekst bare ut av det minste spørsmål. Man blir matt av mindre.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

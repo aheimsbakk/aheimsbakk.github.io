@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html lang="no" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Hvordan gjøre Gemini bedre - </title>
+
+  <meta name="description" content="Frust og fiks for store språkmodeller">
+  <meta name="author" content="Arnulf Heimsbakk"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "sanntid.org",
+    
+    "url": "https:\/\/sanntid.org\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/sanntid.org\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/sanntid.org\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/sanntid.org\/no\/post\/20260403-gemini\/",
+          "name": "Hvordan gjøre gemini bedre"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Arnulf Heimsbakk"
+  },
+  "headline": "Hvordan gjøre Gemini bedre",
+  "description" : "En kan ikke nekte på at store språkmodeller er nyttige. Selv har jeg brukt de til å lære meg både vibe koding og koding med agenter. Men stole på de, kan jeg ikke gjøre. De både leder meg skråsikkert inn på villspor, og oppmuntrer meg å fortsette inn i blindgatene. Og ikke snakk om all irrelevant og feil informasjon de kommer med. De produserer vegg på vegg med tekst bare ut av det minste spørsmål. Man blir matt av mindre.\n",
+  "inLanguage" : "no",
+  "wordCount":  586 ,
+  "datePublished" : "2026-04-03T00:00:00\u002b00:00",
+  "dateModified" : "2026-04-03T00:00:00\u002b00:00",
+  "image" : "https:\/\/sanntid.org\/img\/avatar-ny.webp",
+  "keywords" : [ "howto, ki" ],
+  "mainEntityOfPage" : "https:\/\/sanntid.org\/no\/post\/20260403-gemini\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/sanntid.org\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/sanntid.org\/img\/avatar-ny.webp",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Hvordan gjøre Gemini bedre" />
+<meta property="og:description" content="Frust og fiks for store språkmodeller">
+<meta property="og:image" content="https://sanntid.org/img/avatar-ny.webp" />
+<meta property="og:url" content="https://sanntid.org/no/post/20260403-gemini/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="sanntid.org" />
+
+  <meta name="twitter:title" content="Hvordan gjøre Gemini bedre" />
+  <meta name="twitter:description" content="Frust og fiks for store språkmodeller">
+  <meta name="twitter:image" content="https://sanntid.org/img/avatar-ny.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://sanntid.org/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.159.2">
+  <link rel="alternate" href="https://sanntid.org/no/index.xml" type="application/rss+xml" title="sanntid.org"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/brands.css" integrity="sha384-+eXGm6TmVoCZR1gX03US+L++L2mJIfOvp2X0+luTuEktXaF5F+e3zn0sO0HBvOyT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/fontawesome.css" integrity="sha384-B5nyPZa7e84uCJEYHtevCdVYtQosWsbDSRtq3cy/jeSVtQW05GL8CKXO7waXsjPK" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/regular.css" integrity="sha384-V71z/A/p/DGaZAryHhiSXRQj8HdQmK2nBgL2bX23MGD+h6ZKpyxOO76f5eSXmIaj" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/solid.css" integrity="sha384-1IIShlrK5iYgvS7OAgIH3prz4RAFP7hHZ2MaLIb9l3+trFwwnw/NdCWcUHlymZDU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg.css" integrity="sha384-iBa7uugTOHXqQ2ngvDYJyKrPPQbd9n2P3EQe+o/0+HZe5TNvV+LO5X0lLLUrXLHP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/svg-with-js.css" integrity="sha384-STWnS5AGz6M2YxsnGAd536EqcE2y+ktGovMMuhtXLsCBtl7lujeQj2eN4eDxa57x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-font-face.css" integrity="sha384-fH83IkgQi7kturzlxpXfNdsR8aUOcqj5HUORRVnSvJgObZkIw6aqKAaQx20IWyB/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v4-shims.css" integrity="sha384-cCODJHSivNBsaHei/8LC0HUD58kToSbDU+xT7Rs51BO1v/IvgT/uM0W6xMoUqKfn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.1/css/v5-font-face.css" integrity="sha384-atSdF89mIn15dv+o2LKkDM6mCh3hwh6A7mwZ6F2it/kenqZbMu+QW/ye1OG4XSWV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://sanntid.org/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://sanntid.org/css/highlight.min.css" /><link rel="stylesheet" href="https://sanntid.org/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://sanntid.org/css/custom.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://sanntid.org/no/">sanntid.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">Applikasjoner</a>
+              <div class="navlinks-children">
+                
+                  <a href="/no/page/kollektiv/">Kollektiv Sanntid</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/no/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Om" href="/no/page/about">Om</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://sanntid.org/post/20260403-gemini/">en 🇬🇧</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="sanntid.org" href="https://sanntid.org/no/">
+            <img class="avatar-img" src="https://sanntid.org/img/avatar-ny.webp" alt="sanntid.org" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Hvordan gjøre Gemini bedre</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Frust og fiks for store språkmodeller</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2026-04-03
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;586&nbsp;words
+  
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://sanntid.org/post/20260403-gemini/" lang="en">en 🇬🇧</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>En kan ikke nekte på at store språkmodeller er nyttige. Selv har jeg brukt de til å lære meg både vibe koding og koding med agenter. Men stole på de, kan jeg ikke gjøre. De både leder meg skråsikkert inn på villspor, og oppmuntrer meg å fortsette inn i blindgatene. Og ikke snakk om all irrelevant og feil informasjon de kommer med.  De produserer vegg på vegg med tekst bare ut av det minste spørsmål. Man blir matt av mindre.</p>
+<p>Etter mye irritasjon, har jeg funnet ut at jeg ikke er så glad i å bli oppmuntret inn i blindgater, eller lese side på side med tekst for å finne en løsning. Jeg liker også å dobbeltsjekke fakta. Og hvis jeg ikke kan dobbelsjekke, så i det minste hvite litt om usikkerheten til svaret jeg får.</p>
+<p>Bare for å ha sagt min holdning til KI. <strong>KI er ikke min venn, det er mitt verktøy.</strong></p>
+<h2 id="gemini-fiks">Gemini fiks</h2>
+<p>Det er Gemini jeg har brukt mest. Men dette burde virke på alle store språkmodeller. De er alle skrudd sammen rundt samme lest.</p>
+<p>Når du har Gemini-vinduet oppe i en nettleser på en datamaskin, se nederst til venstre. Du finner det samme i mobil appen, men under innstillinger.</p>
+<ul>
+<li>Trykk ⚙️</li>
+<li>Velg «Instruksjoner til Gemini»</li>
+</ul>
+<p>Dette er de tre preferansene mine jeg har lagt inn. Dette har gjort livet mitt lettere. De er på engelsk, men det har ikke noe å si for språkmodellene. Jeg bruker språkmodeller mest for teknisk læring, så tilpass etter eget behov.</p>
+<h3 id="1-nøytral">1. Nøytral</h3>
+<p>Legger du til denne teksten, slipper du all ryggslikkingen AI gjør. Kanskje du ikke blir forledet til å tro at du er på riktig spor når du ikke er det.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Maintain a strictly neutral, objective, and matter-of-fact tone at all times. Refrain from using empathetic language, emotional expressions, or subjective qualifiers. Focus exclusively on delivering factual information and technical solutions.
+</span></span></code></pre></div><h3 id="2-kort">2. Kort</h3>
+<p>Kort ned på svarene, slik at man slipper å lese så mye. Fjern rett og slett fluff.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Absolutely no greetings, affirmations, pleasantries, or concluding remarks (e.g., &#34;Here is the analysis...&#34;, &#34;Sure&#34;, &#34;Let me know if...&#34;). Begin the response directly with the requested technical analysis or solution. Use short paragraphs for reasoning, bullet points for lists, and fenced code blocks for all commands, code, and scripts.
+</span></span></code></pre></div><h3 id="3-faktasjekk">3. Faktasjekk</h3>
+<p>Gjør det mulig å faktasjekke med å linker. Finnes det ikke lenker, så får man en sannsynlighetsskår for hvor nøyaktig svaret er.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Strictly adhere to the following information sourcing and verification rules:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">1.</span>  <span class="gs">**Mandatory Citation**</span>: Append a verifiable source to factual claims, statistics, or external data points using <span class="sb">`[Source: Title, Author/Institution, Year, URL]`</span>.
+</span></span><span class="line"><span class="cl"><span class="k">2.</span>  <span class="gs">**Common Knowledge Exemption**</span>: Basic syntax, POSIX standards, and foundational computer science concepts do not require citations.
+</span></span><span class="line"><span class="cl"><span class="k">3.</span>  <span class="gs">**Webfetch Triggers**</span>: I must utilize webfetch for queries involving recent CVEs, undocumented API behaviors, or framework versions released within the last 24 months.
+</span></span><span class="line"><span class="cl"><span class="k">4.</span>  <span class="gs">**Fallback Protocol (Accuracy Probability Score - APS)**</span>: If a definitive source is unavailable, append <span class="sb">`[Source: Unavailable]`</span> and calculate an APS. Start the baseline APS at 50% and adjust based on the following factors:
+</span></span><span class="line"><span class="cl">    <span class="k">*</span>   <span class="gs">**Information Age Factor**</span>: Assess temporal volatility. Apply a penalty if the topic changes rapidly.
+</span></span><span class="line"><span class="cl">    <span class="k">*</span>   <span class="gs">**Internal Uncertainty Factor**</span>: Assess consensus in training data. Apply a penalty for conflicting patterns.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**Required Format for Unverified Claims:**</span>
+</span></span><span class="line"><span class="cl"><span class="k">
+</span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">**Source**: Unavailable
+</span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">**Accuracy Probability Score**: [X]%
+</span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">**Age Penalty**: [Low/Med/High] - [Reason]
+</span></span></span><span class="line"><span class="cl"><span class="k">&gt; </span><span class="ge">**Uncertainty Penalty**: [Low/Med/High] - [Reason]
+</span></span></span></code></pre></div><p>P.S. Finner du dyslektike feil i denne teksten, så er det for at jeg ikke har kjørt den gjennom en KI.</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://sanntid.org/no/tags/howto/">howto</a>&nbsp;
+            
+              
+              <a href="https://sanntid.org/no/tags/ki/">ki</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:arnulf.heimsbakk@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/aheimsbakk" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/arnulfheimsbakk" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a rel="me"href="https://infosec.exchange/@arnulf" title="Mastodon">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="sanntid.com">Arnulf Heimsbakk</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://sanntid.org/no/">sanntid.org</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.159.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://sanntid.org/js/main.js"></script>
+<script src="https://sanntid.org/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://sanntid.org/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

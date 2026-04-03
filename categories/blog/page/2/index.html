@@ -91,12 +91,6 @@
         
           
             <li>
-              <a title="Blog" href="/categories/blog">Blog</a>
-            </li>
-          
-        
-          
-            <li>
               <a title="Uris" href="/categories/uris">Uris</a>
             </li>
           
@@ -117,6 +111,10 @@
         
           
             <li>
+              
+                
+                  <a href="https://sanntid.org/no/categories/blog/">no 🇳🇴</a>
+                
               
             </li>
           
@@ -233,6 +231,65 @@
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://sanntid.org/post/20200730-libvirt-bootstrap/">
+        <h2 class="post-title">Bootstrap Debian VM with virt-install</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2020-07-30
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;min
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;227&nbsp;words
+  
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Installing a small Debian VM from scratch with only one partition. Makes later resizing easier. This was done on Fedora 32.</p>
+<h2 id="preparations">Preparations</h2>
+<h3 id="install-software">Install software</h3>
+<p><code>libvirt</code> is already installed on Fedora 32. It&rsquo;s used in Gnome Boxes. We will not use that for this. We&rsquo;ll do it the old fashioned way with <code>virt-install</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install -y virt-manager virt-install
+</span></span></code></pre></div><h3 id="user-access-to-libvirt">User access to <code>libvirt</code></h3>
+<p>Add your user to the group <code>libvirt</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo usermod -aG libvirtd <span class="nv">$USER</span>
+</span></span></code></pre></div><h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Create a default <code>preseed.cfg</code> file. It contain a random root password for this installation. We change the installation to be atomic layout, just one big partition. This file can be reused to your hearts desire.</p>
+        <a href="https://sanntid.org/post/20200730-libvirt-bootstrap/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://sanntid.org/tags/debian/">debian</a>&nbsp;
+        
+       
+       <a href="https://sanntid.org/tags/libvirt/">libvirt</a>&nbsp;
+         
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://sanntid.org/post/20200728-vagrant-libvirt/">

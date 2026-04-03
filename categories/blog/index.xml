@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Make Gemini Better</title>
+      <link>https://sanntid.org/post/20260403-gemini/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/post/20260403-gemini/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Automatic translated from norwegian by qwen3.5:9b.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;It can&amp;rsquo;t be denied that large language models are useful. I myself have used them to learn both vibe coding and agent coding. But I can&amp;rsquo;t trust them. They lead me blindly into wrong tracks and encourage me to continue down dead ends. And not to mention all the irrelevant and wrong information they come with. They produce wall after wall of text just from the smallest question. You end up getting tired of less.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Use resident SSH key(s) on YubKey using Fido2</title>
       <link>https://sanntid.org/post/20240604-fido2-ssh/</link>

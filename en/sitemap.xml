@@ -2,6 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sanntid.org/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/tags/ai/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sanntid.org/categories/blog/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/categories/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/categories/blog/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/categories/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/categories/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/post/20260403-gemini/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/post/20260403-gemini/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/post/20260403-gemini/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/tags/howto/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/tags/howto/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/tags/howto/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/post/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sanntid.org/tags/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/tags/"
+                />
+  </url><url>
     <loc>https://sanntid.org/tags/app/</loc>
     <lastmod>2026-03-13T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -15,66 +99,31 @@
                 href="https://sanntid.org/tags/app/"
                 />
   </url><url>
-    <loc>https://sanntid.org/</loc>
+    <loc>https://sanntid.org/page/kollektiv/</loc>
     <lastmod>2026-03-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
-                href="https://sanntid.org/no/"
+                href="https://sanntid.org/no/page/kollektiv/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sanntid.org/"
+                href="https://sanntid.org/page/kollektiv/"
                 />
   </url><url>
-    <loc>https://sanntid.org/post/</loc>
-    <lastmod>2026-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sanntid.org/</loc>
+    <loc>https://sanntid.org/page/</loc>
     <lastmod>2026-03-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
-                href="https://sanntid.org/no/"
+                href="https://sanntid.org/no/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sanntid.org/"
+                href="https://sanntid.org/page/"
                 />
-  </url><url>
-    <loc>https://sanntid.org/tags/</loc>
-    <lastmod>2026-03-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/tags/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/categories/blog/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sanntid.org/categories/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/categories/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/tags/howto/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sanntid.org/post/20240604-fido2-ssh/</loc>
     <lastmod>2024-06-04T00:00:00+00:00</lastmod>
@@ -365,18 +414,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sanntid.org/page/about/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/page/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/page/"
                 />
   </url>
 </urlset>

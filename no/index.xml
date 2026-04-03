@@ -8,13 +8,20 @@
     <language>no</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/no/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hvordan gjøre Gemini bedre</title>
+      <link>https://sanntid.org/no/post/20260403-gemini/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/post/20260403-gemini/</guid>
+      <description>&lt;p&gt;En kan ikke nekte på at store språkmodeller er nyttige. Selv har jeg brukt de til å lære meg både vibe koding og koding med agenter. Men stole på de, kan jeg ikke gjøre. De både leder meg skråsikkert inn på villspor, og oppmuntrer meg å fortsette inn i blindgatene. Og ikke snakk om all irrelevant og feil informasjon de kommer med.  De produserer vegg på vegg med tekst bare ut av det minste spørsmål. Man blir matt av mindre.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Kollektiv Sanntid</title>
-      <link>https://sanntid.org/no/</link>
+      <link>https://sanntid.org/no/page/kollektiv/</link>
       <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
-      <guid>https://sanntid.org/no/</guid>
+      <guid>https://sanntid.org/no/page/kollektiv/</guid>
       <description>&lt;p&gt;Følg busser, trikker, T-bane, tog, ferger og ekspressbusser med sanntidsavganger fra enhver stasjon eller holdeplass i hele landet.&lt;/p&gt;</description>
     </item>
     <item>

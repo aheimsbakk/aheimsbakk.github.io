@@ -8,8 +8,22 @@
     <language>no</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/no/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Howto</title>
+      <link>https://sanntid.org/no/tags/howto/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/tags/howto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ki</title>
+      <link>https://sanntid.org/no/tags/ki/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/tags/ki/</guid>
+      <description></description>
+    </item>
     <item>
       <title>App</title>
       <link>https://sanntid.org/no/tags/app/</link>
