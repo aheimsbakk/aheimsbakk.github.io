@@ -12,7 +12,7 @@ Orchestrated by the Project Manager (`pm`). Used for autonomous, multi-step feat
 **Mode B: Interactive Copilot (Vibe Mode)**
 Driven by the Vibe Agent (`vibe`). Used for fast, interactive pair-programming directly with the user.
 - Executes changes, tests, and debugging directly.
-- MUST strictly adhere to overarching project rules in `agents/RULES.md`. Compliance with `docs/PROJECT_RULES.md` is MANDATORY if the file exists.
+- MUST strictly adhere to overarching project rules in `.opencode/RULES.md`. Compliance with `docs/PROJECT_RULES.md` is MANDATORY if the file exists.
 - MUST update `BLUEPRINT.md`, `CONTEXT.md`, and (if necessary) `docs/PROJECT_RULES.md` to keep the Architect informed for future Agentic workflows.
 
 ## 1. Worklogs (Long-term memory)
@@ -31,7 +31,7 @@ Driven by the Vibe Agent (`vibe`). Used for fast, interactive pair-programming d
   ```
 - **Body:** 1–4 sentences summarizing changes and files touched. NO redundant info.
 - **Safety:** NO secrets, API keys, or prompt text.
-- **Template:** `agents/WORKLOG_TEMPLATE.md`
+- **Template:** `.opencode/WORKLOG_TEMPLATE.md`
 
 ## 2. Versioning & Scripts
 - **Responsibility:** The **BUILDER** (Mode A) or **Vibe Agent** (Mode B, upon user wrap-up) must execute version bumping.
