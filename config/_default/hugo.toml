@@ -12,12 +12,10 @@ ignoreFiles = ['\.obsidian$', '\.git$', 'cache$']
 
 [languages]
   [languages.en]
-    contentDir = "content/en" # English
-    languageName = "English"
+    languageName = "en 🇬🇧"
     weight = 10
   [languages.no]
-    contentDir = "content/no" # Norwegian
-    languageName = "Norsk"
+    languageName = "no 🇳🇴"
     weight = 20
 
 [pagination]

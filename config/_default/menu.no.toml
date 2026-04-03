@@ -6,7 +6,7 @@
 [[main]]
     parent = "apps"
     name = "Kollektiv Sanntid"
-    url = "/no/"
+    url = "/no/page/kollektiv/"
     weight = 1
 
 [[main]]
@@ -21,7 +21,7 @@
 
 #[[main]]
 #    name = "Blog"
-#    url = "/categories/blog"
+#    url = "/no/categories/blog"
 #    weight = 3
 
 [[main]]

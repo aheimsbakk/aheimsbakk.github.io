@@ -3,7 +3,6 @@
     name = "Applications"
     weight = 1
 
-
 [[main]]
     parent = "apps"
     name = "Kollektiv Sanntid"
@@ -20,10 +19,10 @@
     url = "categories/uris"
     weight = 3
 
-[[main]]
-    name = "Blog"
-    url = "/categories/blog"
-    weight = 3
+#[[main]]
+#    name = "Blog"
+#    url = "/categories/blog"
+#    weight = 3
 
 [[main]]
     name = "About"

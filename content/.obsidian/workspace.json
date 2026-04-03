@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "no/post/kollektiv.md",
+                "file": "post/20260403-gemini.no.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "kollektiv"
+              "title": "20260403-gemini.no"
             }
           }
         ]
@@ -185,14 +185,22 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
-    "en/post/kollektiv.md",
-    "no/post/kollektiv.md",
-    "no/page/about.md",
+    "page/kollektiv.no.md",
+    "page/kollektiv.en.md",
+    "_index.no.md",
+    "_index.en.md",
+    "page/about.no.md",
+    "page/about.en.md",
+    "post/20200817-chess.en.md",
+    "post/20200817-origami.en.md",
+    "post/20200818-git.en.md",
+    "post/20210511-mtr.en.md",
+    "post/20210702-libvirt.en.md",
+    "post/20240528-yubikey.en.md",
+    "post/20240604-fido2-ssh.en.md",
+    "post/20260403-gemini.no.md",
     "no/_index.md~",
     "no/_index.md",
-    "_index.en.md",
-    "_index.no.md",
-    "en/page/about.md",
     "tags/_index.md",
     "page/about.md",
     "tags",
@@ -204,14 +212,6 @@
     "post/20200811-docker.md",
     "post/20200811-barcode.md",
     "post/20200801-hwloc.md",
-    "post/20160326-syncthing.md",
-    "post/20150111-zram.md",
-    "post/20140525-vagrant.md",
-    "post/20140512-revocation.md",
-    "post/20140504-ocsp.md",
-    "post/20140429-haveged.md",
-    "post/20140413-ssllabs.md",
-    "post/20140413-digitalocea.md",
     "CNAME~",
     "term",
     "categories/uris",

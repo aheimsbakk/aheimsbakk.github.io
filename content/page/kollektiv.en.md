@@ -4,8 +4,9 @@ subtitle: Real-time public transport departure board for Norway
 type: page
 bigimg:
   - src: /img/bigme/tid.webp
-url: /
+# url: /
 date: 2026-03-13
+translationKey: kollektiv
 tags:
   - app
 ---
@@ -14,7 +15,7 @@ Track buses, trams, metro, trains, ferries, and coaches with live departure time
 
 <!--more-->
 
-## [kollektiv.sanntid.org](https://kollektiv.sanntid.org)
+## 🚏 [kollektiv.sanntid.org](https://kollektiv.sanntid.org)
 
 This app uses data from [Entur](https://developer.entur.org/) to show live departures from Norwegian public transport. It's built with the [JourneyPlanner API](https://developer.entur.org/pages-journeyplanner-journeyplanner) and is the first app I've created using vibe coding.
 
