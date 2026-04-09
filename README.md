@@ -1,14 +1,21 @@
-# build.sh
+# build.sh & build-container.sh
 
-A single script that handles everything needed to develop and deploy this Hugo site — no global installs required. It downloads the right Hugo binary for your machine, wires up the `gh-pages` deployment branch, and gets out of your way.
+Two scripts that handle everything needed to develop and deploy this Hugo site — no global installs required.
+
+**`build.sh`** downloads the right Hugo binary for your machine, wires up the `gh-pages` deployment branch, and gets out of your way.
+
+**`build-container.sh`** builds and runs the site inside a Podman (default) or Docker container, auto-detecting `Containerfile` or `Dockerfile`.
 
 ---
 
 ## Quick start
 
 ```bash
-# First time? Just run it — Hugo downloads itself.
+# Local development with Hugo
 ./build.sh --serve
+
+# Or run inside a container
+./build-container.sh
 ```
 
 ---
@@ -61,11 +68,40 @@ Anything after `--` is passed straight through to Hugo:
 
 ---
 
+## build-container.sh
+
+Builds and runs the site inside a container. Defaults to Podman, falls back to Docker.
+
+| Flag | Default | Description |
+|---|---|---|
+| `--runtime RUNTIME` | podman | Container runtime (`podman` or `docker`) |
+| `--name NAME` | directory name | Image name override (default: directory containing Containerfile) |
+| `--file FILE` | auto-detect | Path to Containerfile/Dockerfile |
+| `--force` | off | Rebuild the image even if it already exists |
+| `--no-cache` | off | Build with `--no-cache` |
+| `--verbose` | off | Enable verbose output |
+| `--version` | | Print script version and exit |
+| `-h, --help` | | Print usage and exit |
+
+Options before `--` that are not script flags are forwarded to the container runtime's `run` command. Options after `--` are forwarded to the container entrypoint.
+
+```bash
+./build-container.sh                              # Build and run with defaults
+./build-container.sh --force                      # Force rebuild
+./build-container.sh --no-cache                   # Build without cache
+./build-container.sh -- -p 8080:8080              # Pass port mapping to runtime
+./build-container.sh -- -p 8080:8080 -- serve     # Port mapping + app args
+./build-container.sh --runtime docker             # Use docker instead of podman
+```
+
+---
+
 ## Requirements
 
 - **Bash** 4+ and standard Unix tools (`curl`, `tar`, `git`).
 - Git **2.25+** recommended (older versions fall back gracefully for orphan worktrees).
 - Network access on first run to fetch the Hugo release from GitHub.
+- **Podman** or **Docker** for container builds (optional).
 
 ---
 

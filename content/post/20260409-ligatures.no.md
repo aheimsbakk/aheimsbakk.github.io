@@ -31,4 +31,3 @@ I Visual Studio Code, åpne konfigurasjonen og søk etter ligature. Velg `Edit i
 ```json
 "editor.fontLigatures": true
 ```
-
