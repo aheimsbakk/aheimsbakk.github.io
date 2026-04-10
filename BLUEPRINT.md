@@ -1,8 +1,6 @@
-# Blueprint — build.sh & build-container.sh
+# Blueprint — build.sh
 
 `build.sh` is a self-contained build, serve, and deploy script for the Hugo site. It manages its own Hugo binary download and targets the `gh-pages` branch for deployment via git worktree.
-
-`build-container.sh` builds and runs the site inside a container (Podman or Docker). It auto-detects `Containerfile` or `Dockerfile`, builds the image, and runs it — forwarding runtime and application options through `--` separators.
 
 ---
 
@@ -92,68 +90,3 @@ Drafts are always enabled in serve mode. Pass additional Hugo flags after `--`.
 ./build.sh -H 0.141.0 -e --push
 ```
 
----
-
-# build-container.sh
-
-Builds and runs the site inside a container using Podman (default) or Docker. Auto-detects `Containerfile` (preferred) or `Dockerfile`.
-
----
-
-## Options
-
-| Flag | Default | Description |
-|---|---|---|
-| `--runtime RUNTIME` | podman | Container runtime to use (`podman` or `docker`) |
-| `--name NAME` | current directory name | Image name override |
-| `--file FILE` | auto-detect | Path to Containerfile/Dockerfile |
-| `--force` | off | Rebuild the image even if it already exists |
-| `--no-cache` | off | Build with `--no-cache` flag |
-| `--verbose` | off | Enable verbose output |
-| `--version` | | Print script version and exit |
-| `-h, --help` | | Print usage and exit |
-
-Options before `--` that are not script flags are forwarded to the container runtime's `run` command (placed before the image name). Options after `--` are forwarded as arguments to the container entrypoint (placed after the image name).
-
----
-
-## Build & Run Flow
-
-1. Detect container runtime (podman preferred, docker as fallback) unless `--runtime` is specified.
-2. Locate the Containerfile/Dockerfile: `--file` if given, otherwise auto-detect (`Containerfile` preferred over `Dockerfile`) in the script's directory.
-3. Resolve image name: `--name` if given, otherwise the **current working directory name**.
-4. Build the image (skipped if it already exists, unless `--force` is set). Passes `--no-cache` to the runtime if requested.
-5. Run the container, forwarding any pre-`--` options to the runtime and post-`--` arguments to the entrypoint.
-
----
-
-## Typical Usage
-
-```bash
-# Build and run with defaults
-./build-container.sh
-
-# Force rebuild
-./build-container.sh --force
-
-# Build without cache
-./build-container.sh --no-cache
-
-# Pass port mapping to the runtime
-./build-container.sh -- -p 8080:8080
-
-# Port mapping + application arguments
-./build-container.sh -p 8080:8080 -- serve
-
-# Use docker instead of podman
-./build-container.sh --runtime docker
-
-# Verbose output
-./build-container.sh --verbose
-
-# Specify a custom Containerfile
-./build-container.sh --file ./Dockerfile
-
-# Override the image name
-./build-container.sh --name myapp
-```
