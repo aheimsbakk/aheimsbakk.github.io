@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sanntid.org/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
@@ -15,11 +15,8 @@
                 href="https://sanntid.org/"
                 />
   </url><url>
-    <loc>https://sanntid.org/tags/ai/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://sanntid.org/categories/blog/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
@@ -32,7 +29,7 @@
                 />
   </url><url>
     <loc>https://sanntid.org/categories/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
@@ -43,6 +40,51 @@
                 hreflang="en"
                 href="https://sanntid.org/categories/"
                 />
+  </url><url>
+    <loc>https://sanntid.org/tags/howto/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/tags/howto/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/tags/howto/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/post/20260409-ligatures/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/post/20260409-ligatures/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/post/20260409-ligatures/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/post/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sanntid.org/tags/</loc>
+    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="no"
+                href="https://sanntid.org/no/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sanntid.org/tags/"
+                />
+  </url><url>
+    <loc>https://sanntid.org/tags/ai/</loc>
+    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sanntid.org/post/20260403-gemini/</loc>
     <lastmod>2026-04-03T00:00:00+00:00</lastmod>
@@ -55,45 +97,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sanntid.org/post/20260403-gemini/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/tags/howto/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/tags/howto/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/tags/howto/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/post/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/post/"
-                />
-  </url><url>
-    <loc>https://sanntid.org/tags/</loc>
-    <lastmod>2026-04-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="no"
-                href="https://sanntid.org/no/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sanntid.org/tags/"
                 />
   </url><url>
     <loc>https://sanntid.org/tags/app/</loc>

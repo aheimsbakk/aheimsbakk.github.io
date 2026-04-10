@@ -56,18 +56,15 @@
   </url><url>
     <loc>https://sanntid.org/no/post/20260409-ligatures/</loc>
     <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://sanntid.org/no/post/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sanntid.org/post/"
+                href="https://sanntid.org/post/20260409-ligatures/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="no"
-                href="https://sanntid.org/no/post/"
+                href="https://sanntid.org/no/post/20260409-ligatures/"
                 />
   </url><url>
     <loc>https://sanntid.org/no/tags/</loc>
