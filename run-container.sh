@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-VERSION="1.1.1"
+VERSION="1.1.2"
 SCRIPT_NAME="$(basename "$0")"
 SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -221,7 +221,7 @@ if ! ${IMAGE_EXISTS} || ${FORCE}; then
 	fi
 
 	echo "Building container image '${CONTAINER_NAME}' using ${RUNTIME}..."
-	${RUNTIME} build "${BUILD_ARGS[@]}" \
+	${RUNTIME} build ${BUILD_ARGS[@]+"${BUILD_ARGS[@]}"} \
 		-t "${CONTAINER_NAME}" \
 		-f "${CONTAINERFILE}" \
 		"${SCRIPT_DIR}"

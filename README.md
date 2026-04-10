@@ -1,4 +1,4 @@
-# build.sh & build-container.sh
+# build.sh
 
 Two scripts that handle everything needed to develop and deploy this Hugo site â€” no global installs required.
 
@@ -9,6 +9,10 @@ Two scripts that handle everything needed to develop and deploy this Hugo site â
 ```bash
 # Local development with Hugo
 ./build.sh --serve
+
+# Local development with Hugo for MAC with Podman Machine
+./run-container.sh -ti -p 1313:1313 -v $PWD:$PWD -- bash -c "cd $PWD; ./build.sh --serve -- --bind 0.0.0.0"
+```
 
 ## Common workflows
 

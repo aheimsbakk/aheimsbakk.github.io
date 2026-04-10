@@ -186,8 +186,6 @@ clean_public() {
 
 # ── Build ──────────────────────────────────────────────────────────────────
 do_build() {
-  setup_worktree
-
   [[ -f "public/.nojekyll" ]] || { touch "public/.nojekyll"; info "Created .nojekyll"; }
 
   [[ "$CLEAN" == true ]] && clean_public
@@ -247,6 +245,7 @@ done
 cd "$SCRIPT_DIR"
 ensure_hugo
 init_submodules
+setup_worktree
 
 if [[ "$SERVE" == true ]]; then
   do_serve
