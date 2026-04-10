@@ -28,7 +28,7 @@
 
 ## IV. Development & Maintenance
 19. **Test-Driven Fixes:** When fixing bugs, write a failing unit test that reproduces the issue BEFORE modifying application code. Exception: documentation-only or trivial formatting changes do not require a test.
-20. **Workspace Hygiene & Gitignore:** The repository MUST remain clean. All temporary AI-generated workflow files (e.g., `.qa-error.log`), build artifacts, dependency caches, environment files (e.g., `.env`), and virtual environment directories (e.g., `venv/`, `.venv/`) MUST be declared in `.gitignore`. The agent generating the files is responsible for updating `.gitignore` before task completion.
+20. **Workspace Hygiene & Gitignore:** The repository MUST remain clean. All temporary AI-generated workflow files (e.g., `.handoff/`), build artifacts, dependency caches, environment files (e.g., `.env`), and virtual environment directories (e.g., `venv/`, `.venv/`) MUST be declared in `.gitignore`. The agent generating the files is responsible for updating `.gitignore` before task completion.
 21. **Explicit Registry & Asset Tracking:** Whenever you create, rename, or delete files, immediately update any central registries, manifests, index exports, or cache lists that depend on them (e.g., service worker arrays, `__init__.py` exports, router definitions). Never leave orphaned references.
 22. **Backward Compatibility:** Do not break existing callers; use fallbacks for changed signatures. Flag major component replacements with `@deprecated` instead of instant deletion.
 23. **Dependencies:** Use explicit, stable package versions (no `latest` or wildcards). Always sync manifests and lockfiles. Prefer native code over adding small, unnecessary dependencies.

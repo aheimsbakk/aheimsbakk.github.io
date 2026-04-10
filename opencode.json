@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
   "instructions": [
     ".opencode/RULES.md"
   ],
-  "share": "disabled",
   "small_model": "github-copilot/gpt-5-mini"
 }

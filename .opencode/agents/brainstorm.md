@@ -6,7 +6,7 @@ tools:
   write: false
   edit: false
   bash: false
-  task: false
+  task: true
   question: false
   external_directory: false
 ---

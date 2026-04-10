@@ -172,7 +172,7 @@ done
 check_deps
 
 # Resolve target directory to an absolute path
-TARGET_DIR="$(realpath -m "$TARGET_DIR")"
+TARGET_DIR="$(realpath "$TARGET_DIR")"
 
 if [[ ! -d "$TARGET_DIR" ]]; then
 	die "target directory does not exist: ${TARGET_DIR}"
