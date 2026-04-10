@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/20260409-ligatures.no.md",
+                "file": "post/20260403-gemini.no.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20260409-ligatures.no"
+              "title": "20260403-gemini.no"
             }
           }
         ]
@@ -185,8 +185,8 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
-    "post/20260403-gemini.no.md",
     "post/20260409-ligatures.no.md",
+    "post/20260403-gemini.no.md",
     "post/20260403-gemini.en.md",
     "post/20140503-ssl.en.md",
     "page/kollektiv.no.md",
