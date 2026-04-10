@@ -8,8 +8,15 @@
     <language>no</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/no/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ligaturfonter for koding</title>
+      <link>https://sanntid.org/no/post/20260409-ligatures/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/post/20260409-ligatures/</guid>
+      <description>&lt;p&gt;Ligaturfonter i Visual Studio Code og terminalen ved å bruke &lt;code&gt;Cascadia Code&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Hvordan gjøre Gemini bedre</title>
       <link>https://sanntid.org/no/post/20260403-gemini/</link>
