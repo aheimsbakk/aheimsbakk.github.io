@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/20260403-gemini.no.md",
+                "file": "post/20260613-hermod.en.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "20260403-gemini.no"
+              "title": "20260613-hermod.en"
             }
           }
         ]
@@ -163,9 +163,19 @@
               "icon": "lucide-list",
               "title": "Outline of home"
             }
+          },
+          {
+            "id": "f2da6e58339e2f45",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -185,14 +195,16 @@
   },
   "active": "c114aa29100b6266",
   "lastOpenFiles": [
-    "post/20260409-ligatures.no.md",
-    "post/20260403-gemini.no.md",
-    "post/20260403-gemini.en.md",
-    "post/20140503-ssl.en.md",
+    "post/20260613-hermod.no.md",
+    "post/20260613-hermod.en.md",
+    "_index.en.md",
+    "_index.no.md",
     "page/kollektiv.no.md",
     "page/kollektiv.en.md",
-    "_index.no.md",
-    "_index.en.md",
+    "post/20260403-gemini.no.md",
+    "post/20260409-ligatures.no.md",
+    "post/20260403-gemini.en.md",
+    "post/20140503-ssl.en.md",
     "page/about.no.md",
     "page/about.en.md",
     "post/20200817-chess.en.md",
@@ -211,8 +223,6 @@
     "post/20210227-pihole-lists.md",
     "post/20210224-kernel.md",
     "post/20200818-git.md",
-    "post/20200817-origami.md",
-    "post/20200811-docker.md",
     "CNAME~",
     "term",
     "categories/uris",

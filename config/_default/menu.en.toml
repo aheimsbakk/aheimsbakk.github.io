@@ -6,8 +6,14 @@
 [[main]]
     parent = "apps"
     name = "Kollektiv Sanntid"
-    url = "/"
+    url = "/page/kollektiv/"
     weight = 1
+
+[[main]]
+    parent = "apps"
+    name = "Hermod P2P"
+    url = "/post/20260613-hermod/"
+    weight = 2
 
 [[main]]
     name = "Tags"
