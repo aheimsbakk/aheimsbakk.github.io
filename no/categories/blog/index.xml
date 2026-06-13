@@ -8,8 +8,15 @@
     <language>no</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/no/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hermod</title>
+      <link>https://sanntid.org/no/post/20260613-hermod/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/no/post/20260613-hermod/</guid>
+      <description>&lt;p&gt;Jeg har alltid ønsket en enkel måte å sende tekst og filer sikkert mellom datamaskiner uavhengig hvor de befinner seg. Uten å måtte gå via skytjenester som man stoler mer eller mindre på. Derfor lagde jeg &lt;a href=&#34;https://github.com/aheimsbakk/hermod&#34;&gt;&lt;code&gt;hermod&lt;/code&gt;&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Ligaturfonter for koding</title>
       <link>https://sanntid.org/no/post/20260409-ligatures/</link>

@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/tags/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hermod</title>
+      <link>https://sanntid.org/post/20260613-hermod/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/post/20260613-hermod/</guid>
+      <description>&lt;p&gt;I have always wanted a simple way to send text and files securely between computers regardless of where they are. Without having to go through cloud services that you trust more or less. That&amp;rsquo;s why I created &lt;a href=&#34;https://github.com/aheimsbakk/hermod&#34;&gt;&lt;code&gt;hermod&lt;/code&gt;&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Collective Realtime</title>
       <link>https://sanntid.org/page/kollektiv/</link>

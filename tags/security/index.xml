@@ -8,8 +8,15 @@
     <language>en</language>
     <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
     <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
-    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://sanntid.org/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hermod</title>
+      <link>https://sanntid.org/post/20260613-hermod/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>https://sanntid.org/post/20260613-hermod/</guid>
+      <description>&lt;p&gt;I have always wanted a simple way to send text and files securely between computers regardless of where they are. Without having to go through cloud services that you trust more or less. That&amp;rsquo;s why I created &lt;a href=&#34;https://github.com/aheimsbakk/hermod&#34;&gt;&lt;code&gt;hermod&lt;/code&gt;&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Luks decryption with clevis and TPM2</title>
       <link>https://sanntid.org/post/20220406-clevis/</link>

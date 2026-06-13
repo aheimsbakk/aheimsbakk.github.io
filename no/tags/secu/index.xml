@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Secu on sanntid.org</title>
+    <link>http://localhost:1313/no/tags/secu/</link>
+    <description>Recent content in Secu on sanntid.org</description>
+    <generator>Hugo</generator>
+    <language>no</language>
+    <managingEditor>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</managingEditor>
+    <webMaster>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</webMaster>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/no/tags/secu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hermod</title>
+      <link>http://localhost:1313/no/post/20260613-hermod/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate><author>arnulf.heimsbakk@gmail.com (Arnulf Heimsbakk)</author>
+      <guid>http://localhost:1313/no/post/20260613-hermod/</guid>
+      <description>&lt;p&gt;Jeg har alltid ønsket en enkel måte å sende tekst og filer sikkert mellom datamaskiner uavhengig hvor de befinner seg. Uten å måtte gå via skytjenester som man stoler mer eller mindre på. Velkommen til &lt;a href=&#34;https://github.com/aheimsbakk/hermod&#34;&gt;Hermod&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
